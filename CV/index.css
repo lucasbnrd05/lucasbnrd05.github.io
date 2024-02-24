@@ -1,0 +1,808 @@
+.testimonial-card2-testimonial-card {
+  width: 100%;
+  display: flex;
+  padding: var(--dl-space-space-threeunits);
+  max-width: var(--dl-size-size-maxwidth);
+  background: #fff;
+  box-shadow: 5px 5px 10px 0px rgba(18, 18, 18, 0.1);
+  align-items: center;
+  justify-content: space-between;
+}
+.testimonial-card2-testimonial {
+  display: flex;
+  align-items: flex-start;
+  margin-right: var(--dl-space-space-threeunits);
+  flex-direction: column;
+  justify-content: space-between;
+}
+.testimonial-card2-icon {
+  width: var(--dl-size-size-small);
+  flex-shrink: 0;
+  margin-bottom: var(--dl-space-space-twounits);
+}
+.testimonial-card2-text {
+  color: var(--dl-color-gray-500);
+  font-size: 1.15rem;
+  margin-bottom: var(--dl-space-space-twounits);
+}
+.testimonial-card2-text1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.testimonial-card2-image {
+  width: var(--dl-size-size-xlarge);
+  height: var(--dl-size-size-xlarge);
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: var(--dl-radius-radius-round);
+}
+.testimonial-card2-root-class-name1 {
+  align-self: flex-start;
+}
+.testimonial-card2-root-class-name2 {
+  align-self: flex-start;
+}
+@media(max-width: 767px) {
+  .testimonial-card2-testimonial-card {
+    padding-left: var(--dl-space-space-twounits);
+    padding-right: var(--dl-space-space-twounits);
+  }
+  .testimonial-card2-testimonial {
+    margin-right: var(--dl-space-space-twounits);
+  }
+  .testimonial-card2-icon {
+    height: var(--dl-size-size-small);
+  }
+}
+@media(max-width: 479px) {
+  .testimonial-card2-testimonial-card {
+    padding-top: var(--dl-space-space-twounits);
+    padding-left: var(--dl-space-space-unit);
+    padding-right: var(--dl-space-space-unit);
+    flex-direction: column;
+    padding-bottom: var(--dl-space-space-twounits);
+  }
+  .testimonial-card2-testimonial {
+    align-items: center;
+    margin-right: 0px;
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .testimonial-card2-text {
+    text-align: left;
+  }
+}
+
+.testimonial-card4-testimonial-card {
+  width: 100%;
+  display: flex;
+  padding: var(--dl-space-space-twounits);
+  max-width: var(--dl-size-size-maxwidth);
+  align-self: stretch;
+  background: #fff;
+  box-shadow: 5px 5px 10px 0px rgba(18, 18, 18, 0.1);
+  align-items: stretch;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.testimonial-card4-icon {
+  width: var(--dl-size-size-medium);
+  flex-shrink: 0;
+  margin-bottom: var(--dl-space-space-halfunit);
+}
+.testimonial-card4-text {
+  color: var(--dl-color-gray-500);
+  font-size: 1.15rem;
+  padding-top: var(--dl-space-space-threeunits);
+  padding-bottom: var(--dl-space-space-threeunits);
+}
+.testimonial-card4-profile {
+  width: 100%;
+  display: flex;
+  margin-top: auto;
+  align-items: center;
+  padding-top: var(--dl-space-space-unit);
+  border-color: var(--dl-color-gray-900);
+  border-width: 1px;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+}
+.testimonial-card4-image {
+  width: var(--dl-size-size-medium);
+  height: var(--dl-size-size-medium);
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: var(--dl-radius-radius-round);
+}
+.testimonial-card4-container {
+  display: flex;
+  align-items: flex-start;
+  margin-left: var(--dl-space-space-unit);
+  flex-direction: column;
+  justify-content: space-between;
+}
+.testimonial-card4-text1 {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+@media(max-width: 991px) {
+  .testimonial-card4-icon {
+    height: var(--dl-size-size-medium);
+  }
+  .testimonial-card4-profile {
+    padding-left: var(--dl-space-space-halfunit);
+    padding-right: var(--dl-space-space-halfunit);
+  }
+}
+@media(max-width: 479px) {
+  .testimonial-card4-testimonial-card {
+    padding-left: var(--dl-space-space-unit);
+    padding-right: var(--dl-space-space-unit);
+  }
+  .testimonial-card4-profile {
+    justify-content: center;
+  }
+}
+
+.feature-card1-feature-card {
+  width: 100%;
+  display: flex;
+  padding: var(--dl-space-space-unit);
+  max-width: var(--dl-size-size-maxwidth);
+  box-shadow: 5px 5px 10px 0px rgba(18, 18, 18, 0.1);
+  transition: 0.3s;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.feature-card1-feature-card:hover {
+  transform: scale(1.02);
+}
+.feature-card1-text {
+  margin-bottom: var(--dl-space-space-twounits);
+}
+.feature-card1-text1 {
+  margin-bottom: var(--dl-space-space-twounits);
+}
+
+
+
+
+
+
+
+.home-cv-lucas-bernardeau-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.home-cv-lucas-bernardeau-testimonial {
+  width: 100%;
+  display: flex;
+  padding: var(--dl-space-space-threeunits);
+  max-width: var(--dl-size-size-maxwidth);
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.home-cv-lucas-bernardeau-image {
+  width: var(--dl-size-size-xxlarge);
+  height: var(--dl-size-size-xxlarge);
+  object-fit: cover;
+  border-radius: var(--dl-radius-radius-round);
+}
+.home-cv-lucas-bernardeau-testimonial1 {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.home-cv-lucas-bernardeau-container01 {
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.home-cv-lucas-bernardeau-icon {
+  width: var(--dl-size-size-small);
+  margin-bottom: -6rem;
+}
+.home-cv-lucas-bernardeau-text {
+  font-size: 1.15rem;
+  max-width: 600px;
+  margin-top: var(--dl-space-space-threeunits);
+  text-align: center;
+  padding-left: var(--dl-space-space-twounits);
+  margin-bottom: var(--dl-space-space-threeunits);
+  padding-right: var(--dl-space-space-twounits);
+}
+.home-cv-lucas-bernardeau-container02 {
+  display: flex;
+  align-self: flex-end;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.home-cv-lucas-bernardeau-icon02 {
+  width: var(--dl-size-size-small);
+  margin-top: -6rem;
+}
+.home-cv-lucas-bernardeau-text07 {
+  font-size: 1.5rem;
+  max-width: 600px;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: var(--dl-space-space-halfunit);
+}
+.home-cv-lucas-bernardeau-text08 {
+  max-width: 600px;
+  text-align: center;
+  font-weight: 600;
+}
+.home-cv-lucas-bernardeau-banner {
+  width: 100%;
+  display: flex;
+  padding: var(--dl-space-space-threeunits);
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.home-cv-lucas-bernardeau-text09 {
+  font-size: 3rem;
+  text-align: center;
+}
+.home-cv-lucas-bernardeau-testimonial2 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.home-cv-lucas-bernardeau-container03 {
+  display: flex;
+  padding: var(--dl-space-space-threeunits);
+  max-width: var(--dl-size-size-maxwidth);
+  align-items: stretch;
+  justify-content: space-between;
+}
+.home-cv-lucas-bernardeau-container04 {
+  flex: 2;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  margin-right: var(--dl-space-space-twounits);
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.home-cv-lucas-bernardeau-container05 {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-twounits);
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.home-cv-lucas-bernardeau-container06 {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.home-cv-lucas-bernardeau-testimonial3 {
+  width: 100%;
+  display: flex;
+  padding: var(--dl-space-space-threeunits);
+  max-width: var(--dl-size-size-maxwidth);
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.home-cv-lucas-bernardeau-image1 {
+  width: 198px;
+  height: 131px;
+  object-fit: cover;
+  border-radius: var(--dl-radius-radius-round);
+}
+.home-cv-lucas-bernardeau-testimonial4 {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.home-cv-lucas-bernardeau-container07 {
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.home-cv-lucas-bernardeau-icon04 {
+  width: var(--dl-size-size-small);
+  margin-bottom: -6rem;
+}
+.home-cv-lucas-bernardeau-text10 {
+  font-size: 1.15rem;
+  max-width: 600px;
+  margin-top: var(--dl-space-space-threeunits);
+  text-align: center;
+  padding-left: var(--dl-space-space-twounits);
+  margin-bottom: var(--dl-space-space-threeunits);
+  padding-right: var(--dl-space-space-twounits);
+}
+.home-cv-lucas-bernardeau-container08 {
+  display: flex;
+  align-self: flex-end;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.home-cv-lucas-bernardeau-icon06 {
+  width: var(--dl-size-size-small);
+  margin-top: -6rem;
+}
+.home-cv-lucas-bernardeau-text11 {
+  font-size: 1.5rem;
+  max-width: 600px;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: var(--dl-space-space-halfunit);
+}
+.home-cv-lucas-bernardeau-features {
+  width: 100%;
+  display: flex;
+  padding: var(--dl-space-space-threeunits);
+  position: relative;
+  max-width: var(--dl-size-size-maxwidth);
+  flex-direction: column;
+}
+.home-cv-lucas-bernardeau-text12 {
+  font-size: 3rem;
+  margin-bottom: var(--dl-space-space-threeunits);
+}
+.home-cv-lucas-bernardeau-container09 {
+  flex: 0 0 auto;
+  width: 100%;
+  display: grid;
+  grid-gap: var(--dl-space-space-twounits);
+  align-items: flex-start;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.home-cv-lucas-bernardeau-stats {
+  width: 100%;
+  display: flex;
+  padding: var(--dl-space-space-threeunits);
+  max-width: var(--dl-size-size-maxwidth);
+  justify-content: center;
+}
+.home-cv-lucas-bernardeau-text13 {
+  font-size: 3rem;
+  margin-bottom: var(--dl-space-space-threeunits);
+}
+.home-cv-lucas-bernardeau-stat {
+  display: flex;
+  padding: var(--dl-space-space-twounits);
+  align-items: center;
+  flex-direction: column;
+}
+.home-cv-lucas-bernardeau-icon08 {
+  fill: var(--dl-color-gray-700);
+  width: var(--dl-size-size-small);
+  height: var(--dl-size-size-small);
+}
+.home-cv-lucas-bernardeau-text14 {
+  font-size: 1.15rem;
+  margin-top: var(--dl-space-space-halfunit);
+  text-align: center;
+}
+.home-cv-lucas-bernardeau-text15 {
+  color: var(--dl-color-gray-700);
+  font-size: 0.75rem;
+  margin-top: var(--dl-space-space-halfunit);
+  text-align: center;
+}
+.home-cv-lucas-bernardeau-stat1 {
+  display: flex;
+  padding: var(--dl-space-space-twounits);
+  align-items: center;
+  flex-direction: column;
+}
+.home-cv-lucas-bernardeau-icon11 {
+  fill: var(--dl-color-gray-700);
+  width: var(--dl-size-size-small);
+  height: var(--dl-size-size-small);
+}
+.home-cv-lucas-bernardeau-text16 {
+  font-size: 1.15rem;
+  margin-top: var(--dl-space-space-halfunit);
+  text-align: center;
+}
+.home-cv-lucas-bernardeau-text17 {
+  color: var(--dl-color-gray-700);
+  font-size: 0.75rem;
+  margin-top: var(--dl-space-space-halfunit);
+  text-align: center;
+}
+.home-cv-lucas-bernardeau-stat2 {
+  display: flex;
+  padding: var(--dl-space-space-twounits);
+  align-items: center;
+  flex-direction: column;
+}
+.home-cv-lucas-bernardeau-icon14 {
+  fill: var(--dl-color-gray-700);
+  width: var(--dl-size-size-small);
+  height: var(--dl-size-size-small);
+}
+.home-cv-lucas-bernardeau-text18 {
+  font-size: 1.15rem;
+  margin-top: var(--dl-space-space-halfunit);
+  text-align: center;
+}
+.home-cv-lucas-bernardeau-text19 {
+  color: var(--dl-color-gray-700);
+  font-size: 0.75rem;
+  margin-top: var(--dl-space-space-halfunit);
+  text-align: center;
+}
+.home-cv-lucas-bernardeau-steps {
+  width: 100%;
+  display: flex;
+  padding: var(--dl-space-space-threeunits);
+  max-width: var(--dl-size-size-maxwidth);
+  align-items: center;
+  flex-direction: column;
+}
+.home-cv-lucas-bernardeau-text20 {
+  color: var(--dl-color-gray-black);
+  font-size: 3rem;
+  margin-bottom: var(--dl-space-space-unit);
+}
+.home-cv-lucas-bernardeau-container10 {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.home-cv-lucas-bernardeau-container11 {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.home-cv-lucas-bernardeau-step {
+  display: flex;
+  padding: var(--dl-space-space-oneandhalfunits);
+  align-items: center;
+  flex-direction: column;
+}
+.home-cv-lucas-bernardeau-text21 {
+  color: var(--dl-color-gray-900);
+  font-size: 4rem;
+  text-align: center;
+  font-weight: 900;
+  margin-bottom: -30px;
+}
+.home-cv-lucas-bernardeau-text23 {
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+.home-cv-lucas-bernardeau-text24 {
+  color: var(--dl-color-gray-500);
+  font-size: 0.75rem;
+  margin-top: var(--dl-space-space-oneandhalfunits);
+  text-align: center;
+}
+.home-cv-lucas-bernardeau-step1 {
+  display: flex;
+  padding: var(--dl-space-space-oneandhalfunits);
+  align-items: center;
+  flex-direction: column;
+}
+.home-cv-lucas-bernardeau-text29 {
+  color: var(--dl-color-gray-900);
+  font-size: 4rem;
+  text-align: center;
+  font-weight: 900;
+  margin-bottom: -30px;
+}
+.home-cv-lucas-bernardeau-text31 {
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+.home-cv-lucas-bernardeau-text32 {
+  color: var(--dl-color-gray-500);
+  font-size: 0.75rem;
+  margin-top: var(--dl-space-space-oneandhalfunits);
+  text-align: center;
+}
+.home-cv-lucas-bernardeau-container12 {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.home-cv-lucas-bernardeau-step2 {
+  display: flex;
+  padding: var(--dl-space-space-oneandhalfunits);
+  align-items: center;
+  flex-direction: column;
+}
+.home-cv-lucas-bernardeau-text35 {
+  color: var(--dl-color-gray-900);
+  font-size: 4rem;
+  text-align: center;
+  font-weight: 900;
+  margin-bottom: -30px;
+}
+.home-cv-lucas-bernardeau-text37 {
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+.home-cv-lucas-bernardeau-text38 {
+  color: var(--dl-color-gray-500);
+  font-size: 0.75rem;
+  margin-top: var(--dl-space-space-oneandhalfunits);
+  text-align: center;
+}
+.home-cv-lucas-bernardeau-step3 {
+  display: flex;
+  padding: var(--dl-space-space-oneandhalfunits);
+  align-items: center;
+  flex-direction: column;
+}
+.home-cv-lucas-bernardeau-text41 {
+  color: var(--dl-color-gray-900);
+  font-size: 4rem;
+  text-align: center;
+  font-weight: 900;
+  margin-bottom: -30px;
+}
+.home-cv-lucas-bernardeau-text43 {
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+.home-cv-lucas-bernardeau-text44 {
+  color: var(--dl-color-gray-500);
+  font-size: 0.75rem;
+  margin-top: var(--dl-space-space-oneandhalfunits);
+  text-align: center;
+}
+.home-cv-lucas-bernardeau-social-bar {
+  width: 100%;
+  display: flex;
+  padding: var(--dl-space-space-threeunits);
+  justify-content: center;
+}
+.home-cv-lucas-bernardeau-link {
+  display: contents;
+}
+.home-cv-lucas-bernardeau-icon17 {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+  margin-right: var(--dl-space-space-twounits);
+  text-decoration: none;
+}
+.home-cv-lucas-bernardeau-link1 {
+  display: contents;
+}
+.home-cv-lucas-bernardeau-icon19 {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+  margin-right: var(--dl-space-space-twounits);
+  text-decoration: none;
+}
+@media(max-width: 991px) {
+  .home-cv-lucas-bernardeau-image {
+    margin-bottom: 0px;
+  }
+  .home-cv-lucas-bernardeau-text {
+    margin-top: var(--dl-space-space-threeunits);
+    margin-bottom: var(--dl-space-space-threeunits);
+  }
+  .home-cv-lucas-bernardeau-container03 {
+    flex-direction: column;
+  }
+  .home-cv-lucas-bernardeau-container04 {
+    margin-right: 0px;
+    margin-bottom: var(--dl-space-space-twounits);
+  }
+  .home-cv-lucas-bernardeau-image1 {
+    margin-bottom: 0px;
+  }
+  .home-cv-lucas-bernardeau-text10 {
+    margin-top: var(--dl-space-space-threeunits);
+    margin-bottom: var(--dl-space-space-threeunits);
+  }
+  .home-cv-lucas-bernardeau-text12 {
+    align-self: center;
+  }
+  .home-cv-lucas-bernardeau-container09 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .home-cv-lucas-bernardeau-text13 {
+    align-self: center;
+  }
+  .home-cv-lucas-bernardeau-text20 {
+    text-align: center;
+  }
+  .home-cv-lucas-bernardeau-text21 {
+    text-align: center;
+  }
+  .home-cv-lucas-bernardeau-text23 {
+    text-align: center;
+  }
+  .home-cv-lucas-bernardeau-text29 {
+    text-align: center;
+  }
+  .home-cv-lucas-bernardeau-text31 {
+    text-align: center;
+  }
+  .home-cv-lucas-bernardeau-text35 {
+    text-align: center;
+  }
+  .home-cv-lucas-bernardeau-text37 {
+    text-align: center;
+  }
+  .home-cv-lucas-bernardeau-text41 {
+    text-align: center;
+  }
+  .home-cv-lucas-bernardeau-text43 {
+    text-align: center;
+  }
+}
+@media(max-width: 767px) {
+  .home-cv-lucas-bernardeau-testimonial {
+    padding-left: var(--dl-space-space-twounits);
+    padding-right: var(--dl-space-space-twounits);
+  }
+  .home-cv-lucas-bernardeau-banner {
+    padding-left: var(--dl-space-space-twounits);
+    padding-right: var(--dl-space-space-twounits);
+  }
+  .home-cv-lucas-bernardeau-container03 {
+    padding-left: var(--dl-space-space-twounits);
+    padding-right: var(--dl-space-space-twounits);
+  }
+  .home-cv-lucas-bernardeau-testimonial3 {
+    padding-left: var(--dl-space-space-twounits);
+    padding-right: var(--dl-space-space-twounits);
+  }
+  .home-cv-lucas-bernardeau-features {
+    padding-left: var(--dl-space-space-twounits);
+    padding-right: var(--dl-space-space-twounits);
+  }
+  .home-cv-lucas-bernardeau-stats {
+    padding-left: var(--dl-space-space-twounits);
+    padding-right: var(--dl-space-space-twounits);
+  }
+  .home-cv-lucas-bernardeau-stat {
+    padding: var(--dl-space-space-unit);
+  }
+  .home-cv-lucas-bernardeau-text14 {
+    text-align: center;
+  }
+  .home-cv-lucas-bernardeau-stat1 {
+    padding: var(--dl-space-space-unit);
+  }
+  .home-cv-lucas-bernardeau-text16 {
+    text-align: center;
+  }
+  .home-cv-lucas-bernardeau-stat2 {
+    padding: var(--dl-space-space-unit);
+  }
+  .home-cv-lucas-bernardeau-text18 {
+    text-align: center;
+  }
+  .home-cv-lucas-bernardeau-steps {
+    padding-left: var(--dl-space-space-twounits);
+    padding-right: var(--dl-space-space-twounits);
+  }
+  .home-cv-lucas-bernardeau-container10 {
+    flex-direction: column;
+  }
+  .home-cv-lucas-bernardeau-step {
+    padding: var(--dl-space-space-unit);
+  }
+  .home-cv-lucas-bernardeau-step1 {
+    padding: var(--dl-space-space-unit);
+  }
+  .home-cv-lucas-bernardeau-step2 {
+    padding: var(--dl-space-space-unit);
+  }
+  .home-cv-lucas-bernardeau-step3 {
+    padding: var(--dl-space-space-unit);
+  }
+  .home-cv-lucas-bernardeau-social-bar {
+    padding-left: var(--dl-space-space-twounits);
+    padding-right: var(--dl-space-space-twounits);
+  }
+}
+@media(max-width: 479px) {
+  .home-cv-lucas-bernardeau-testimonial {
+    padding-top: var(--dl-space-space-twounits);
+    padding-left: var(--dl-space-space-unit);
+    padding-right: var(--dl-space-space-unit);
+    padding-bottom: var(--dl-space-space-twounits);
+  }
+  .home-cv-lucas-bernardeau-image {
+    width: 200px;
+  }
+  .home-cv-lucas-bernardeau-icon {
+    margin-bottom: 0px;
+  }
+  .home-cv-lucas-bernardeau-text {
+    width: auto;
+  }
+  .home-cv-lucas-bernardeau-icon02 {
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .home-cv-lucas-bernardeau-banner {
+    padding-top: var(--dl-space-space-twounits);
+    padding-left: var(--dl-space-space-unit);
+    padding-right: var(--dl-space-space-unit);
+    padding-bottom: var(--dl-space-space-twounits);
+  }
+  .home-cv-lucas-bernardeau-container03 {
+    padding-top: var(--dl-space-space-twounits);
+    padding-left: var(--dl-space-space-unit);
+    padding-right: var(--dl-space-space-unit);
+    padding-bottom: var(--dl-space-space-twounits);
+  }
+  .home-cv-lucas-bernardeau-testimonial3 {
+    padding-top: var(--dl-space-space-twounits);
+    padding-left: var(--dl-space-space-unit);
+    padding-right: var(--dl-space-space-unit);
+    padding-bottom: var(--dl-space-space-twounits);
+  }
+  .home-cv-lucas-bernardeau-image1 {
+    width: 200px;
+  }
+  .home-cv-lucas-bernardeau-icon04 {
+    margin-bottom: 0px;
+  }
+  .home-cv-lucas-bernardeau-text10 {
+    width: auto;
+  }
+  .home-cv-lucas-bernardeau-icon06 {
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .home-cv-lucas-bernardeau-features {
+    padding-top: var(--dl-space-space-twounits);
+    padding-left: var(--dl-space-space-unit);
+    padding-right: var(--dl-space-space-unit);
+    padding-bottom: var(--dl-space-space-twounits);
+  }
+  .home-cv-lucas-bernardeau-container09 {
+    grid-gap: var(--dl-space-space-halfunit);
+  }
+  .home-cv-lucas-bernardeau-stats {
+    align-items: center;
+    padding-top: var(--dl-space-space-twounits);
+    padding-left: var(--dl-space-space-unit);
+    padding-right: var(--dl-space-space-unit);
+    flex-direction: column;
+    padding-bottom: var(--dl-space-space-twounits);
+  }
+  .home-cv-lucas-bernardeau-steps {
+    padding-top: var(--dl-space-space-twounits);
+    padding-left: var(--dl-space-space-unit);
+    padding-right: var(--dl-space-space-unit);
+    padding-bottom: var(--dl-space-space-twounits);
+  }
+  .home-cv-lucas-bernardeau-container11 {
+    flex-direction: column;
+  }
+  .home-cv-lucas-bernardeau-container12 {
+    flex-direction: column;
+  }
+  .home-cv-lucas-bernardeau-social-bar {
+    padding-top: var(--dl-space-space-twounits);
+    padding-left: var(--dl-space-space-unit);
+    padding-right: var(--dl-space-space-unit);
+    padding-bottom: var(--dl-space-space-twounits);
+  }
+}
