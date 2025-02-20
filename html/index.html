@@ -14,16 +14,27 @@
 <body>
 
     <div class="presentation"  id="presentation">
+
+
         <h1>Hi, I'm Lucas Bernardeau</h1>
         <h3>I'm a student</h3>
-        <div class="polaroid first">
-            <img src="https://media.giphy.com/media/iIqmM5tTjmpOB9mpbn/giphy.gif" alt="GIF Code">
-            <p>Error 404</p>
+
+        <div class="top-polaroide">
+            <div class="polaroide-left">
+                <div class="polaroid first">
+                    <img src="https://media.giphy.com/media/iIqmM5tTjmpOB9mpbn/giphy.gif" alt="GIF Code">
+                    <p>Error 404</p>
+                </div>
+    
+            </div>
+            <div class="polaroide-right">
+                <div class="polaroid second">
+                    <img src="https://media.giphy.com/media/yYSSBtDgbbRzq/giphy.gif" alt="Frustrated Programming GIF">
+                    <p>Code Red</p>
+                </div>        
+    
+            </div>
         </div>
-        <div class="polaroid second">
-            <img src="https://media.giphy.com/media/yYSSBtDgbbRzq/giphy.gif" alt="Frustrated Programming GIF">
-            <p>Code Red</p>
-        </div>        
     </div>
 
     <div class="about" id="about">
@@ -35,6 +46,8 @@
                     <a href="https://www.linkedin.com/in/lucas-bernardeau/"><div class="box rotate" data-aos="fade-right"><i class="fa-brands fa-linkedin"></i></div></a>
                     <a href="mailto:lucas.bernardeau@epita.fr"><div class="box rotate" data-aos="fade-right"><i class="fa-regular fa-envelope"></i></div></a>
                     <a href="https://github.com/lucasbnrd05"><div class="box rotate" data-aos="fade-right"><i class="fa-brands fa-github"></i></div></a>
+                    <a><div class="box rotate open-modal-btn" data-aos="fade-right"><i class="fa-solid fa-book"></i></div></a>
+
                 </div>
                 <h2 data-aos="fade-up">Skills</h2>
                 <div class="skill" data-aos="fade-up-right">
@@ -48,7 +61,7 @@
                     <div class="fact rotate" data-aos="fade-right">LaTex</div>
                 </div>
                 <h2 data-aos="fade-up">Experiences</h2>
-                <div class="experience">
+                <div class="experience" id="experiences">
                     <a href="experiences/eggxv.html">
                     <div class="job rotate" data-aos="fade-right">
                         <h3>EGG XV</h3>
@@ -198,8 +211,18 @@
             <a href="https://www.linkedin.com/in/lucas-bernardeau/" data-aos="fade-up"><div class="box rotate"><i class="fa-brands fa-linkedin"></i></div></a>
             <a href="mailto:lucas.bernardeau@epita.fr" data-aos="fade-up"><div class="box rotate"><i class="fa-regular fa-envelope"></i></div></a>
             <a href="https://github.com/lucasbnrd05" data-aos="fade-up"><div class="box rotate"><i class="fa-brands fa-github"></i></div></a>
+            <a><div class="box rotate open-modal-btn2" data-aos="fade-up"><i class="fa-solid fa-book"></i></div></a>
+
         </div>
         
+    </div>
+
+    <div class="modal" id="polaroidModal">
+        <div class="modal-content">
+            <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExejA1emphY2tybmswODN0cm5reTRiNWozcmc1NTZuMWI4MGdzbXIwdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IDqtWas8MQ7gCSrDFs/giphy.gif" alt="Polaroïd Image">
+            <p>I'm looking for a two-month work placement in the computer field.</p>
+            <button class="close-modal">Close</button>
+        </div>
     </div>
 
     <footer class="footer" id="footer" data-aos="flip-up">

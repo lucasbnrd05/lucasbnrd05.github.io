@@ -82,14 +82,28 @@ body {
     border-radius: 5px;
 }
 .first, .second {
-    position: absolute; 
-
+    position: relative; 
 }
 
 
+.top-polaroide { 
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "polaroide-left ."
+      ". polaroide-right";
+}
+  
+.polaroide-left { grid-area: polaroide-left; }
+  
+.polaroide-right { grid-area: polaroide-right; }
+  
+
 .first {
-    left: 75vh; 
-    bottom: 30vh; 
     transition: transform 0.3s ease;;
 }
 .first:hover{
@@ -97,15 +111,12 @@ body {
 }
 
 .second {
-    left: 60vh; 
-    bottom: 40vh;
     transition: transform 0.3s ease;;
 }
 
 .second:hover{
     transform: rotate(10deg);
 }
-
  
 
  
