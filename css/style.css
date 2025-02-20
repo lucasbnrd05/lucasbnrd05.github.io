@@ -12,6 +12,7 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: border-box; 
+    max-width: 100%;
 
 }
   
@@ -22,6 +23,10 @@ body {
     color: #333; 
 
 
+}
+
+html, body {
+    overflow-x: hidden;
 }
 
  
@@ -159,23 +164,47 @@ body {
     flex-wrap: wrap;
     margin-bottom: 10px; 
 }
-.box {
-    padding: 10px 20px; 
+/* .box {
     border: 2px solid #333; 
-    border-radius: 50px; 
+    border-radius: 50%; 
     background-color: #f4f4f4; 
     cursor: pointer; 
     transition: transform 0.3s ease;
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    font-size: 15px; 
+    font-size: 22px; 
+    width: 50px;
+    height: 50px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+} */
+
+.box {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    border-radius: 50px;
+    background-color: #f4f4f4;
+    color: #333;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border: 2px solid #333;
 }
 
+
 .box:hover {
-    background-color: #ddd;
     transform: rotate(-10deg);
+    background-color: #333;
+    color: #fff;
 }
+
+
 
 .skill {
     display: flex; 
@@ -403,25 +432,6 @@ a {
 .link {
     display: flex;
     gap: 15px;
-}
-
-.box {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 22px;
-    border-radius: 50%;
-    background-color: #f1f1f1;
-    color: #333;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-}
-
-.box:hover {
-    background-color: #333;
-    color: #fff;
 }
 
 
