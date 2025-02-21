@@ -40,9 +40,12 @@ body {
     align-items: center;
     height: 100vh;
     position: relative;
+
 }
 
 .presentation h1 {
+    font-size: 28px;
+
     overflow: hidden;
     border-right: .15em solid orange;
     white-space: nowrap;
