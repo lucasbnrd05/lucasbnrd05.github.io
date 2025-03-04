@@ -80,7 +80,7 @@ window.onload = function() {
 
 document.getElementById('move-btn').addEventListener('click', function() {
     const polaroids = document.querySelectorAll('.activities .polaroid');
-    const container = document.querySelector('#activities .elmt');
+    const container = document.querySelector('.activities .elmt');
 
     const positions = [];
 
@@ -88,7 +88,7 @@ document.getElementById('move-btn').addEventListener('click', function() {
         let randomX, randomY;
         let collisionDetected = true;
 
-        const containerWidth = container.offsetWidth;
+        const containerWidth = container.offsetWidth ;
         const containerHeight = container.offsetHeight;
         const polaroidWidth = polaroid.offsetWidth;
         const polaroidHeight = polaroid.offsetHeight;
