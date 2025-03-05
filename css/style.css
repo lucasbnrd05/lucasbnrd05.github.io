@@ -445,5 +445,13 @@ h1 {
     overflow: hidden;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.tool-details{
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
     padding: 20px;
 }
