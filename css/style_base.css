@@ -83,6 +83,7 @@
     align-items: center;
     margin-bottom: 50px;
     gap: 20px;
+    
 }
 
 .project-detail {
@@ -192,6 +193,29 @@
 .footer-bottom {
     margin-top: 10px;
     font-size: 14px;
+}
 
 
+/* Responsive */
+@media (max-width: 768px) {
+
+    .footer-links {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        text-align: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .project {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 50px;
+        gap: 20px;
+        padding: 0 20px;
+        
+    }    
 }

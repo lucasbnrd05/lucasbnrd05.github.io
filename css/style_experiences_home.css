@@ -49,17 +49,22 @@ body {
     margin: 0 auto;
     display: inline-block;
     animation:
-        typing 3.5s steps(30, end) forwards,
+        typing 3.5s steps(30, end) forwards 0.01s,
         blink-caret 0.5s step-end infinite;
 }
 
 @keyframes typing {
-    from {
+    0% {
         width: 0;
+        visibility: hidden;
     }
 
-    to {
-        width: 10ch;
+    1% {
+        visibility: visible;
+    }
+
+    100% {
+        width: 11ch;
     }
 }
 
@@ -78,10 +83,6 @@ body {
 .title h3 {
     color: rgb(138, 138, 138);
 }
-
-
-
-
 
 a {
     text-decoration: none;
