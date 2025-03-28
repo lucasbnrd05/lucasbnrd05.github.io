@@ -297,7 +297,7 @@ a {
     height: 500px;
     align-items: center;
     justify-content: center;
-    margin-bottom: 70px;
+    margin-bottom: 200px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -317,6 +317,7 @@ a {
 }
 
 .contact {
+    margin-top: 75px;
     display: flex;
     flex-direction: column;
     justify-content: center;
