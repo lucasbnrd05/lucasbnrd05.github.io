@@ -1,0 +1,142 @@
+/* Styles généraux */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    overscroll-behavior: none; /* Empêche le "pull-to-refresh" sur mobile */
+    touch-action: manipulation; /* Optimisation tactile */
+}
+
+h1 {
+    margin-bottom: 5px;
+    color: #333;
+    text-align: center;
+}
+
+#score-container {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #555;
+    text-align: center;
+}
+
+#instructions {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 15px;
+    text-align: center;
+    max-width: 90vw; /* Limite la largeur sur grand écran */
+}
+
+/* Conteneur du jeu pour superposer le message Game Over */
+#game-container {
+    position: relative; /* Nécessaire pour positionner le message Game Over */
+    /* Dimensions - Ajustez selon vos préférences */
+    /* Utilise min/max pour s'adapter un peu aux écrans */
+    width: min(90vw, 400px);
+    height: min(90vw, 400px);
+    margin-bottom: 20px; /* Espace avant les contrôles */
+}
+
+
+/* Plateau de jeu */
+#game-board {
+    display: grid;
+    /* Taille de la grille (doit correspondre à GRID_SIZE dans JS) */
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+
+    width: 100%; /* Prend toute la largeur du conteneur */
+    height: 100%; /* Prend toute la hauteur du conteneur */
+
+    background-color: #a3d9a5; /* Vert clair */
+    border: 5px solid #333;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-sizing: border-box; /* Inclure la bordure dans la taille */
+}
+
+/* Éléments du jeu */
+.snake-segment {
+    background-color: #006400; /* Vert foncé */
+    /* border: 1px solid #333; */ /* Optionnel: bordure des segments */
+    border-radius: 20%; /* Un peu arrondi */
+    z-index: 1; /* Serpent au-dessus de la nourriture si superposé temporairement */
+}
+
+.food {
+    background-color: #ff4136; /* Rouge */
+    border-radius: 50%; /* Rond */
+    /* border: 1px solid #333; */ /* Optionnel: bordure nourriture */
+    z-index: 0;
+}
+
+/* Message Game Over */
+#game-over-message {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    color: white;
+    display: flex; /* Utiliser flex pour centrer */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5em;
+    z-index: 10; /* Au-dessus de tout le reste */
+    border-radius: 0; /* Couvre toute la zone */
+    box-sizing: border-box;
+}
+
+#game-over-message span {
+    font-size: 0.7em;
+    margin-top: 10px;
+}
+
+
+/* Contrôles pour mobile/clavier */
+#controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px; /* Espace réduit car game-container a déjà une marge */
+}
+
+#controls div {
+    display: flex;
+    margin-top: 5px;
+}
+
+#controls button {
+    font-size: 1.8em; /* Plus gros pour mobile */
+    padding: 8px 12px;
+    margin: 0 5px;
+    cursor: pointer;
+    border: 2px solid #555;
+    background-color: #ddd;
+    border-radius: 8px;
+    min-width: 55px;
+    min-height: 55px; /* Assurer une bonne zone de clic */
+    text-align: center;
+    color: #333;
+
+    /* Empêcher la sélection de texte / zoom sur double-tap mobile */
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-tap-highlight-color: transparent; /* Enlever le surlignage bleu/gris au tap */
+}
+
+#controls button:active {
+    background-color: #bbb; /* Effet visuel au clic/tap */
+}

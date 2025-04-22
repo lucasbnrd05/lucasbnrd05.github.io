@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Jeu Snake</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Snake</h1>
+    <div id="score-container">Score: <span id="score">0</span></div>
+    <div id="instructions">Utilisez les flèches (ou les boutons) pour diriger le serpent. Appuyez sur une touche/bouton pour commencer ou redémarrer.</div>
+
+    <div id="game-container">
+        <div id="game-board">
+            <!-- Le serpent et la nourriture seront générés par JavaScript -->
+        </div>
+        <div id="game-over-message" style="display: none;">
+            Game Over !<br>
+            Score final: <span id="final-score">0</span><br>
+            <span>Appuyez sur une touche/bouton pour rejouer</span>
+        </div>
+    </div>
+
+
+    <div id="controls">
+        <button id="btn-up" data-direction="up">▲</button>
+        <div>
+            <button id="btn-left" data-direction="left">◄</button>
+            <button id="btn-down" data-direction="down">▼</button>
+            <button id="btn-right" data-direction="right">►</button>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+
+</body>
+</html>
