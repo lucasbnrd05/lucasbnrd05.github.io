@@ -102,40 +102,40 @@ window.onload = function () {
     AOS.refresh();
 }
 
-document.querySelector('.open-modal-btn').addEventListener('click', function () {
-    document.getElementById('polaroidModal').classList.add('show');
-});
-document.querySelector('.close-modal').addEventListener('click', function () {
-    document.getElementById('polaroidModal').classList.remove('show');
-});
-document.querySelector('.open-modal-btn2').addEventListener('click', function () {
-    document.getElementById('polaroidModal').classList.add('show');
-});
+// document.querySelector('.open-modal-btn').addEventListener('click', function () {
+//     document.getElementById('polaroidModal').classList.add('show');
+// });
+// document.querySelector('.close-modal').addEventListener('click', function () {
+//     document.getElementById('polaroidModal').classList.remove('show');
+// });
+// document.querySelector('.open-modal-btn2').addEventListener('click', function () {
+//     document.getElementById('polaroidModal').classList.add('show');
+// });
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    let modalShown = false;
-    function isElementInViewport(el) {
-        var rect = el.getBoundingClientRect();
-        return (
-            rect.top < window.innerHeight &&
-            rect.bottom >= 0
-        );
-    }
+// document.addEventListener("DOMContentLoaded", function () {
+//     let modalShown = false;
+//     function isElementInViewport(el) {
+//         var rect = el.getBoundingClientRect();
+//         return (
+//             rect.top < window.innerHeight &&
+//             rect.bottom >= 0
+//         );
+//     }
 
-    function checkAboutSection() {
-        var aboutSection = document.getElementById("experiences");
-        var modal = document.getElementById("polaroidModal");
-        if (isElementInViewport(aboutSection) && !modalShown) {
-            modal.classList.add("show");
-            modalShown = true;
-        }
-    }
+//     function checkAboutSection() {
+//         var aboutSection = document.getElementById("experiences");
+//         var modal = document.getElementById("polaroidModal");
+//         if (isElementInViewport(aboutSection) && !modalShown) {
+//             modal.classList.add("show");
+//             modalShown = true;
+//         }
+//     }
 
-    window.addEventListener("scroll", checkAboutSection);
-    window.addEventListener("resize", checkAboutSection);
+//     window.addEventListener("scroll", checkAboutSection);
+//     window.addEventListener("resize", checkAboutSection);
 
-    document.querySelector('.close-modal').addEventListener('click', function () {
-        document.getElementById('polaroidModal').classList.remove('show');
-    });
-});
+//     document.querySelector('.close-modal').addEventListener('click', function () {
+//         document.getElementById('polaroidModal').classList.remove('show');
+//     });
+// });
