@@ -1,4 +1,4 @@
-/* Styles généraux */
+ 
 body {
     display: flex;
     flex-direction: column;
@@ -10,8 +10,8 @@ body {
     margin: 0;
     padding: 10px;
     box-sizing: border-box;
-    overscroll-behavior: none; /* Empêche le "pull-to-refresh" sur mobile */
-    touch-action: manipulation; /* Optimisation tactile */
+    overscroll-behavior: none;  
+    touch-action: manipulation;  
 }
 
 h1 {
@@ -32,68 +32,68 @@ h1 {
     color: #666;
     margin-bottom: 15px;
     text-align: center;
-    max-width: 90vw; /* Limite la largeur sur grand écran */
+    max-width: 90vw;  
 }
 
-/* Conteneur du jeu pour superposer le message Game Over */
+ 
 #game-container {
-    position: relative; /* Nécessaire pour positionner le message Game Over */
-    /* Dimensions - Ajustez selon vos préférences */
-    /* Utilise min/max pour s'adapter un peu aux écrans */
+    position: relative;  
+     
+     
     width: min(90vw, 400px);
     height: min(90vw, 400px);
-    margin-bottom: 20px; /* Espace avant les contrôles */
+    margin-bottom: 20px;  
 }
 
 
-/* Plateau de jeu */
+ 
 #game-board {
     display: grid;
-    /* Taille de la grille (doit correspondre à GRID_SIZE dans JS) */
+     
     grid-template-columns: repeat(20, 1fr);
     grid-template-rows: repeat(20, 1fr);
 
-    width: 100%; /* Prend toute la largeur du conteneur */
-    height: 100%; /* Prend toute la hauteur du conteneur */
+    width: 100%;  
+    height: 100%;  
 
-    background-color: #a3d9a5; /* Vert clair */
+    background-color: #a3d9a5;  
     border: 5px solid #333;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    box-sizing: border-box; /* Inclure la bordure dans la taille */
+    box-sizing: border-box;  
 }
 
-/* Éléments du jeu */
+ 
 .snake-segment {
-    background-color: #006400; /* Vert foncé */
-    /* border: 1px solid #333; */ /* Optionnel: bordure des segments */
-    border-radius: 20%; /* Un peu arrondi */
-    z-index: 1; /* Serpent au-dessus de la nourriture si superposé temporairement */
+    background-color: #006400;  
+       
+    border-radius: 20%;  
+    z-index: 1;  
 }
 
 .food {
-    background-color: #ff4136; /* Rouge */
-    border-radius: 50%; /* Rond */
-    /* border: 1px solid #333; */ /* Optionnel: bordure nourriture */
+    background-color: #ff4136;  
+    border-radius: 50%;  
+       
     z-index: 0;
 }
 
-/* Message Game Over */
+ 
 #game-over-message {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    background-color: rgba(0, 0, 0, 0.7);  
     color: white;
-    display: flex; /* Utiliser flex pour centrer */
+    display: flex;  
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     font-size: 1.5em;
-    z-index: 10; /* Au-dessus de tout le reste */
-    border-radius: 0; /* Couvre toute la zone */
+    z-index: 10;  
+    border-radius: 0;  
     box-sizing: border-box;
 }
 
@@ -103,12 +103,12 @@ h1 {
 }
 
 
-/* Contrôles pour mobile/clavier */
+ 
 #controls {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10px; /* Espace réduit car game-container a déjà une marge */
+    margin-top: 10px;  
 }
 
 #controls div {
@@ -117,7 +117,7 @@ h1 {
 }
 
 #controls button {
-    font-size: 1.8em; /* Plus gros pour mobile */
+    font-size: 1.8em;  
     padding: 8px 12px;
     margin: 0 5px;
     cursor: pointer;
@@ -125,18 +125,18 @@ h1 {
     background-color: #ddd;
     border-radius: 8px;
     min-width: 55px;
-    min-height: 55px; /* Assurer une bonne zone de clic */
+    min-height: 55px;  
     text-align: center;
     color: #333;
 
-    /* Empêcher la sélection de texte / zoom sur double-tap mobile */
+     
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    -webkit-tap-highlight-color: transparent; /* Enlever le surlignage bleu/gris au tap */
+    -webkit-tap-highlight-color: transparent;  
 }
 
 #controls button:active {
-    background-color: #bbb; /* Effet visuel au clic/tap */
+    background-color: #bbb;  
 }
