@@ -201,6 +201,20 @@
     font-size: 14px;
 }
 
+p {
+  text-align: justify;
+}
+
+.polaroid p,
+.polaroid.first p,
+.polaroid.second p,
+.polaroide-left p,
+.polaroide-right p,
+.top-polaroide p
+ {
+  text-align: initial;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
 
