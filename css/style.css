@@ -238,6 +238,33 @@ a {
     width: 100%;
 }
 
+
+.cv-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 50px;
+    padding: 5px 10px;
+    background-color: #f4f4f4;
+    color: #333;
+    font-family: 'Soul Daisy', sans-serif;
+    font-size: 1em;
+    border: 2px solid #333;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cv-button i {
+    font-size: 1.em;
+}
+
+.cv-button:hover {
+    background-color: #333;
+    color: #fff;
+    transform: rotate(-5deg);
+}
+
+
 .perso {
     width: 300px;
     transition: transform 0.3s ease;
