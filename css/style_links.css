@@ -318,5 +318,5 @@ button[type="submit"]:hover {
 .g-recaptcha {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px; /* Ajoute un peu d'espace avant le bouton d'envoi */
+    margin-bottom: 20px; 
 }
