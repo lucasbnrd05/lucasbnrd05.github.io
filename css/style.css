@@ -489,6 +489,9 @@ button[type="submit"]:hover {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .contact-section {
+        width: 80%;
+    }
     .about {
         margin-bottom: 50px;
         display: flex;
