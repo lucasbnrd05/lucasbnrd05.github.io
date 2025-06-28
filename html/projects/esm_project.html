@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="description"
+        content="Project page for the Automatic Detection of Driving Distractions, an embedded system to enhance road safety.">
+    <meta name="keywords"
+        content="Embedded System, Driving Distraction, Raspberry Pi, C, Road Safety, Lucas Bernardeau, Project, Portfolio">
+    <meta property="og:title" content="Project | Automatic Driving Distraction Detection" />
+    <meta property="og:description"
+        content="An embedded system using a Raspberry Pi and multiple sensors to detect driver inattention and enhance road safety." />
+    <meta property="og:url" content="https://lucasbnrd05.github.io/autodistractdetect/index.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lucasbnrd05.github.io/doc/wallpaper.png" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <meta content="Lucas Bernardeau, Dina, Nathan" name="author">
+    <meta content="© 2024. All rights reserved." name="copyright">
+
+    <link rel="stylesheet" href="../../css/style_elmt.css">
+    <!-- The link below is kept, but the styles are also embedded for this example -->
+    <link rel="stylesheet" href="../../css/style_base.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../doc/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../doc/favicon-16x16.png">
+    <link rel="shortcut icon" href="../../doc/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../doc/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../doc/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="../../doc/android-chrome-512x512.png">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <style>
+
+
+        .title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .title h1 {
+            overflow: hidden;
+            border-right: .15em solid orange;
+            white-space: nowrap;
+            margin: 0 auto;
+            display: inline-block;
+            animation:
+                typing 4s steps(43, end) forwards,
+                blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            0% {
+                width: 0;
+                visibility: hidden;
+            }
+
+            1% {
+                visibility: visible;
+            }
+
+            100% {
+                width: 30ch;
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: orange;
+            }
+        }
+
+        .presentation_elmt {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-left: 25%;
+            padding-right: 25%;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .presentation_elmt h2 {
+            text-align: left;
+            width: 100%;
+            margin: 0;
+        }
+
+        .illustation {
+            margin-top: 25px;
+            margin-bottom: 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 10px;
+        }
+
+        .top {
+            grid-column: 1 / 3;
+            grid-row: 1;
+        }
+
+        .left {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        .right {
+            grid-column: 2;
+            grid-row: 2;
+        }
+
+        .illustation img {
+            border-radius: 15px;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .title h1 {
+                font-size: 2em;
+                white-space: normal;
+                width: 70%;
+                text-align: center;
+                animation: none;
+                border-right: none;
+                overflow: visible;
+            }
+        }
+    </style>
+
+
+
+    <title>Automatic Detection of Driving Distractions</title>
+</head>
+
+<body>
+
+    <div class="title" id="title">
+        <h1>Automatic Detection of Driving Distractions</h1>
+        <div class="top-polaroide">
+            <div class="polaroide-left">
+                <div class="polaroid first">
+                    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3N1a3A4M3Y5MGV5Zmk2dHZzbTRodWJiYjk1dDZjcWNhanRtdG52aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mIMsLsQTJzAn6/giphy.gif"
+                        alt="GIF of a car dashboard">
+                    <p>Enhancing Road Safety</p>
+                </div>
+            </div>
+            <div class="polaroide-right">
+                <div class="polaroid second">
+                    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExanEwdXB5c2hjdzQxYnJncW5oeWlrcDRqbHcycHluMmNzeGVpa2g4ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/d8F86tbghZaAOybNWP/giphy.gif"
+                        alt="GIF of a Raspberry Pi">
+                    <p>Embedded Systems in Action</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="presentation_elmt">
+        <h2 data-aos="fade-up">Introduction</h2>
+        <p data-aos="fade-up">
+            This project, developed for the "Embedded System Modelling" course, implements an embedded system for the
+            <strong>Automatic Detection of Driving Distractions</strong>. The primary goal is to enhance road safety by
+            identifying signs of driver inattention through various sensors and responding with appropriate alerts or
+            actions to re-engage the driver and mitigate potential risks.
+        </p>
+
+        <div class="illustation">
+            <div class="top" data-aos="fade-up">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnl0bGlqNXJraWtsbDIxMDJocGQ5cW93eHA2Y2F3bDlsa2Y3bjN4eCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/5hhLy44Eepsac/giphy.gif"
+                    alt="GIF of a road" class="one">
+            </div>
+        </div>
+
+        <h2 data-aos="fade-up">System Architecture</h2>
+        <p data-aos="fade-up">The system is comprised of sensors for data acquisition, a central processing unit for
+            analysis, and actuators for driver feedback and intervention.</p>
+
+        <h3 data-aos="fade-up">Sensors</h3>
+        <ul data-aos="fade-up">
+            <li><strong>Gyroscope:</strong> Detects head inclination on two axes to monitor for signs of drowsiness or
+                distraction.</li>
+            <li><strong>Steering Wheel Rotation Sensor:</strong> Measures steering wheel angle to detect erratic driving
+                or sudden corrections.</li>
+            <li><strong>Speedometer:</strong> Provides current vehicle speed for context in other detections (e.g.,
+                safety distance).</li>
+            <li><strong>Distance Sensor:</strong> Monitors safe following distance to the preceding vehicle.</li>
+        </ul>
+
+        <h3 data-aos="fade-up">Actuators</h3>
+        <ul data-aos="fade-up">
+            <li><strong>Warning Lights:</strong> Two LEDs (yellow and red) to indicate varying levels of risk.</li>
+            <li><strong>Display:</strong> A screen to present data and alerts.</li>
+            <li><strong>Automatic Brake Activation:</strong> System capable of applying brakes at different intensity
+                levels.</li>
+        </ul>
+
+        <h3 data-aos="fade-up">Processing Unit</h3>
+        <p data-aos="fade-up">A <strong>Raspberry Pi</strong> serves as the central processing unit, running the C code
+            responsible for reading sensor data, implementing detection algorithms, and triggering actuators.</p>
+
+        <div class="illustation">
+            <div class="left" data-aos="fade-up">
+                <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3lsZng1b2M2d3NvYzZveDRleW15enlwaHRwbHp0MjhwMm8zaGx6NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/CI4gk4u9igpLW/giphy.gif"
+                    alt="GIF of a warning light">
+            </div>
+            <div class="right" data-aos="fade-up">
+                <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXpkNGxmNm1hcDc3cHpodjk4b2N3cGVranpkaGh3dzhsY2gzZTM2MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UKm1AF0UrCkb6/giphy.gif"
+                    alt="GIF of computer code">
+            </div>
+        </div>
+
+        <h2 data-aos="fade-up">Symptom Detection Logic</h2>
+        <p data-aos="fade-up">The system analyzes sensor data to identify distraction symptoms based on specific
+            thresholds and polling intervals.</p>
+
+        <table class="project-table" data-aos="fade-up">
+            <thead>
+                <tr>
+                    <th>Symptom</th>
+                    <th>Sensor(s) Used</th>
+                    <th>Detection Criteria</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Head Tilt</strong></td>
+                    <td>Gyroscope</td>
+                    <td>X-axis or Y-axis tilt > ±30° for at least two consecutive readings.</td>
+                </tr>
+                <tr>
+                    <td><strong>Safety Distance</strong></td>
+                    <td>Distance Sensor, Speedometer</td>
+                    <td>The actual distance is compared to a recommended safety distance calculated from speed. Three
+                        risk levels are defined: <code>INSECURE</code>, <code>IMPRUDENT</code>, and
+                        <code>DANGER COLLISION</code>.</td>
+                </tr>
+                <tr>
+                    <td><strong>Sharp Turn</strong></td>
+                    <td>Steering Wheel Sensor, Speedometer</td>
+                    <td>Difference > 20° between two consecutive steering wheel readings while speed is > 40 km/h.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 data-aos="fade-up">System Actions Logic</h2>
+        <p data-aos="fade-up">Every 200ms, the detected symptoms are analyzed to determine the necessary actions,
+            creating a graduated alert system.</p>
+
+        <table class="project-table" data-aos="fade-up">
+            <thead>
+                <tr>
+                    <th>Condition Triggering Action</th>
+                    <th>Action(s) Undertaken</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>(S1 or S2) <strong>and</strong> D0</td>
+                    <td>Turn on Yellow Light</td>
+                </tr>
+                <tr>
+                    <td>(S1 <strong>and</strong> S2) <strong>and</strong> D0</td>
+                    <td>Turn on Red Light</td>
+                </tr>
+                <tr>
+                    <td>(S1 or S2) <strong>and</strong> D1</td>
+                    <td>Turn on Yellow & Red Lights, Activate Brake Level 1</td>
+                </tr>
+                <tr>
+                    <td>(S1 or S2) <strong>and</strong> D2</td>
+                    <td>Turn on Yellow & Red Lights, Activate Brake Level 2</td>
+                </tr>
+                <tr>
+                    <td>D3</td>
+                    <td>Activate Brake Level 3</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 data-aos="fade-up">Conclusion</h2>
+        <p data-aos="fade-up">This project is a practical application of embedded systems to solve a real-world problem.
+            By combining multiple data sources with reactive logic, it endeavors to make our roads safer by proactively
+            detecting and mitigating risks associated with driver distraction.The project's source code is available
+            here: <a href="https://github.com/lucasbnrd05/automatic_detection_of_driving_distractions">GitHub -
+                Automatic Detection of Driving Distractions</a>.</p>
+
+        <div class="illustation">
+            <div class="top" data-aos="fade-up">
+                <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGl0aXpjYjNoeTltN2FrcWNtMjl1ejg2bGoyeTlwemJ1aXFodXRwOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qcMjXuCugvMXK/giphy.gif"
+                    alt="GIF Problem solved" class="one">
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer" id="footer" data-aos="flip-up">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>Lucas Bernardeau</h2>
+            </div>
+            <div class="footer-links">
+                <a href="../index.html#presentation">Home</a>
+                <a href="../index.html#about">About</a>
+                <a href="../projects.html">Projects</a>
+                <a href="../experiences.html">Experiences</a>
+                <a href="../qualifications.html">Qualifications</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/lucas-bernardeau/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:lucas.bernardeau@epita.fr"><i class="fa-regular fa-envelope"></i></a>
+                <a href="https://github.com/lucasbnrd05"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Buzzcut. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/script.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+
+</html>

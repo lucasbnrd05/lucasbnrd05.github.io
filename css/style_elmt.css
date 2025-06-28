@@ -139,3 +139,50 @@ body {
 a {
     text-decoration: none;
 }
+
+
+.project-table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    font-family: sans-serif;
+}
+
+.project-table th,
+.project-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.project-table th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+}
+
+.project-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.project-table code {
+    background-color: #e3e3e3;
+    padding: 2px 5px;
+    border-radius: 4px;
+    color: #333;
+    font-family: monospace;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    /* .title h1 {
+        font-size: 2em;
+        white-space: normal;
+        width: 70%;
+        text-align: center;
+        animation: none;
+        border-right: none;
+        overflow: visible;
+    } */
+}
