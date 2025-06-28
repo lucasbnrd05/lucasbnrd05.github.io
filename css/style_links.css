@@ -1,6 +1,3 @@
-/* --- Contenu pour css/style_links.css --- */
-
-/* --- STYLE DE BASE ET POLICES --- */
 @font-face {
     font-family: 'Soul Daisy';
     /* Le chemin est corrigé pour fonctionner depuis le dossier CSS */
@@ -9,7 +6,6 @@
     font-style: normal;
 }
 
-/* --- SECTION TITRE --- */
 .title {
     display: flex;
     flex-direction: column;
@@ -21,7 +17,7 @@
 
 .title h1 {
     font-family: 'Soul Daisy', sans-serif;
-    font-size: 3.5em; /* Police plus grande */
+    font-size: 3.5em; 
     overflow: hidden;
     border-right: .1em solid orange;
     white-space: nowrap;
