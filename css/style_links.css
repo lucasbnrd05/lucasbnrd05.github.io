@@ -1,0 +1,249 @@
+/* --- Contenu pour css/style_links.css --- */
+
+/* --- STYLE DE BASE ET POLICES --- */
+@font-face {
+    font-family: 'Soul Daisy';
+    /* Le chemin est corrigé pour fonctionner depuis le dossier CSS */
+    src: url('../fonts/soul-daisy.regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* --- SECTION TITRE --- */
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.title h1 {
+    font-family: 'Soul Daisy', sans-serif;
+    font-size: 3.5em; /* Police plus grande */
+    overflow: hidden;
+    border-right: .1em solid orange;
+    white-space: nowrap;
+    margin: 0 auto;
+    display: inline-block;
+    animation: typing 2.5s steps(9, end) forwards, blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 8ch }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+}
+
+.title h3 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #888;
+    font-weight: normal;
+    margin-top: 10px;
+}
+
+.list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    padding: 50px 20px;
+    max-width: 600px;
+    margin: 0 auto; 
+}
+
+.list-container a{
+    text-decoration: none;
+}
+
+.link-card {
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.link-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.link-icon, .link-icon-img {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.link-icon-img {
+    border-radius: 12px;
+}
+
+.link-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: #555;
+}
+
+.link-text h3 {
+    font-family: 'Soul Daisy', sans-serif;
+    font-size: 1.8em;
+    font-weight: normal;
+    margin: 0 0 5px 0;
+    color: #333;
+}
+
+.link-text p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.9em;
+    color: #777;
+    margin: 0;
+}
+
+
+
+
+.download-link {
+    text-decoration: none;
+    color: #333;
+    position: relative;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.download-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #333;
+    transition: width 0.3s ease;
+}
+
+.download-link:hover {
+    color: #2c3e50;
+}
+
+.download-link:hover::after {
+    width: 100%;
+}
+
+
+.cv-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 50px;
+    padding: 5px 10px;
+    background-color: #f4f4f4;
+    color: #333;
+    font-family: 'Soul Daisy', sans-serif;
+    font-size: 1em;
+    border: 2px solid #333;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cv-button i {
+    font-size: 1.em;
+}
+
+.cv-button:hover {
+    background-color: #333;
+    color: #fff;
+    transform: rotate(-5deg);
+}
+
+
+.modal {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 250px;
+    background: white;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transform: scale(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.modal.show {
+    transform: scale(1);
+}
+
+.modal-content {
+    text-align: center;
+}
+
+.modal img {
+    width: 100%;
+    border-bottom: 10px solid white;
+    border-radius: 10px;
+}
+
+.modal p {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.close-modal {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 5px;
+}
+
+
+/*RESPONSIVE */
+@media (max-width: 768px) {
+    .title h1 {
+        font-size: 2.5em;
+    }
+
+    .list-container {
+        padding: 40px 15px;
+        width: 80%;
+    }
+
+    .link-card {
+        padding: 15px;
+    }
+
+    .link-icon, .link-icon-img {
+        width: 40px;
+        height: 40px;
+        margin-right: 15px;
+    }
+    
+    .link-icon {
+        font-size: 1.5rem;
+    }
+
+    .link-text h3 {
+        font-size: 1.5em;
+    }
+    
+    .link-text p {
+        font-size: 0.8em;
+    }
+}
