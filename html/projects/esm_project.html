@@ -6,13 +6,13 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <meta name="description"
-        content="Project page for the Automatic Detection of Driving Distractions, an embedded system to enhance road safety.">
+        content="Lucas Bernardeau - Embedded System Project: Driver Drowsiness Detection using SysML and Real-time logic.">
     <meta name="keywords"
-        content="Embedded System, Driving Distraction, Raspberry Pi, C, Road Safety, Lucas Bernardeau, Project, Portfolio">
-    <meta property="og:title" content="Project | Automatic Driving Distraction Detection" />
+        content="Lucas, Bernardeau, Embedded Systems, SysML, Real-time, Safety, Sensors, C, Modeling, Raspberry Pi">
+    <meta property="og:title" content="Lucas Bernardeau | Embedded Project" />
     <meta property="og:description"
-        content="An embedded system using a Raspberry Pi and multiple sensors to detect driver inattention and enhance road safety." />
-    <meta property="og:url" content="https://lucasbnrd05.github.io/autodistractdetect/index.html" />
+        content="Design and modeling of a safety-critical embedded system for driver monitoring." />
+    <meta property="og:url" content="https://lucasbnrd05.github.io/html/projects/esm_project.html" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://lucasbnrd05.github.io/doc/wallpaper.png" />
     <meta property="og:locale" content="en_US" />
@@ -20,11 +20,10 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
-    <meta content="Lucas Bernardeau, Dina, Nathan" name="author">
-    <meta content="© 2024. All rights reserved." name="copyright">
+    <meta content="Buzzcut" name="author">
+    <meta content="© 2025 Buzzcut. All rights reserved." name="copyright">
 
     <link rel="stylesheet" href="../../css/style_elmt.css">
-    <!-- The link below is kept, but the styles are also embedded for this example -->
     <link rel="stylesheet" href="../../css/style_base.css">
     <link rel="icon" type="image/png" sizes="32x32" href="../../doc/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../../doc/favicon-16x16.png">
@@ -39,8 +38,6 @@
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
     <style>
-
-
         .title {
             display: flex;
             flex-direction: column;
@@ -62,30 +59,14 @@
         }
 
         @keyframes typing {
-            0% {
-                width: 0;
-                visibility: hidden;
-            }
-
-            1% {
-                visibility: visible;
-            }
-
-            100% {
-                width: 30ch;
-            }
+            0% { width: 0; visibility: hidden; }
+            1% { visibility: visible; }
+            100% { width: 30ch; }
         }
 
         @keyframes blink-caret {
-
-            from,
-            to {
-                border-color: transparent;
-            }
-
-            50% {
-                border-color: orange;
-            }
+            from, to { border-color: transparent; }
+            50% { border-color: orange; }
         }
 
         .presentation_elmt {
@@ -98,7 +79,7 @@
             margin-bottom: 50px;
         }
 
-        .presentation_elmt h2 {
+        .presentation_elmt h2, .presentation_elmt h3 {
             text-align: left;
             width: 100%;
             margin: 0;
@@ -111,22 +92,12 @@
             grid-template-columns: 1fr 1fr;
             grid-template-rows: auto auto;
             gap: 10px;
+            width: 100%;
         }
 
-        .top {
-            grid-column: 1 / 3;
-            grid-row: 1;
-        }
-
-        .left {
-            grid-column: 1;
-            grid-row: 2;
-        }
-
-        .right {
-            grid-column: 2;
-            grid-row: 2;
-        }
+        .top { grid-column: 1 / 3; grid-row: 1; }
+        .left { grid-column: 1; grid-row: 2; }
+        .right { grid-column: 2; grid-row: 2; }
 
         .illustation img {
             border-radius: 15px;
@@ -135,12 +106,34 @@
             object-fit: cover;
         }
 
-        a {
-            text-decoration: none;
+        /* Table Styles kept from your CSS logic */
+        .project-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+        .project-table thead tr {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+        }
+        .project-table th, .project-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #dddddd;
+        }
+        .project-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+        .project-table tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
         }
 
+        a { text-decoration: none; }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .title h1 {
                 font-size: 2em;
@@ -151,12 +144,14 @@
                 border-right: none;
                 overflow: visible;
             }
+            .presentation_elmt {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
         }
     </style>
 
-
-
-    <title>Automatic Detection of Driving Distractions</title>
+    <title>Driver Safety System</title>
 </head>
 
 <body>
@@ -168,152 +163,149 @@
                 <div class="polaroid first">
                     <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3N1a3A4M3Y5MGV5Zmk2dHZzbTRodWJiYjk1dDZjcWNhanRtdG52aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mIMsLsQTJzAn6/giphy.gif"
                         alt="GIF of a car dashboard">
-                    <p>Enhancing Road Safety</p>
+                    <p>Safety Critical</p>
                 </div>
             </div>
             <div class="polaroide-right">
                 <div class="polaroid second">
                     <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExanEwdXB5c2hjdzQxYnJncW5oeWlrcDRqbHcycHluMmNzeGVpa2g4ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/d8F86tbghZaAOybNWP/giphy.gif"
                         alt="GIF of a Raspberry Pi">
-                    <p>Embedded Systems in Action</p>
+                    <p>Embedded Logic</p>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="presentation_elmt">
-        <h2 data-aos="fade-up">Introduction</h2>
+        <h2 data-aos="fade-up">Project Overview</h2>
         <p data-aos="fade-up">
-            This project, developed for the "Embedded System Modelling" course, implements an embedded system for the
-            <strong>Automatic Detection of Driving Distractions</strong>. The primary goal is to enhance road safety by
-            identifying signs of driver inattention through various sensors and responding with appropriate alerts or
-            actions to re-engage the driver and mitigate potential risks.
+            Developed as part of the <strong>"Embedded System Modelling"</strong> course, this project aims to design a safety-critical system 
+            capable of detecting driver fatigue and distraction in real-time. The goal was to follow a rigorous engineering workflow (V-Model), 
+            from requirements analysis to architectural design using <strong>SysML</strong> and implementation in C.
         </p>
 
         <div class="illustation">
             <div class="top" data-aos="fade-up">
                 <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnl0bGlqNXJraWtsbDIxMDJocGQ5cW93eHA2Y2F3bDlsa2Y3bjN4eCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/5hhLy44Eepsac/giphy.gif"
-                    alt="GIF of a road" class="one">
+                    alt="Road Safety GIF" class="one">
             </div>
         </div>
 
-        <h2 data-aos="fade-up">System Architecture</h2>
-        <p data-aos="fade-up">The system is comprised of sensors for data acquisition, a central processing unit for
-            analysis, and actuators for driver feedback and intervention.</p>
+        <h2 data-aos="fade-up">Architecture & Hardware</h2>
+        <p data-aos="fade-up">
+            The system follows a classic embedded architecture: Data Acquisition -> Processing -> Actuation.
+            
+        </p>
 
-        <h3 data-aos="fade-up">Sensors</h3>
+        <h3 data-aos="fade-up">1. Sensing Layer (Input)</h3>
         <ul data-aos="fade-up">
-            <li><strong>Gyroscope:</strong> Detects head inclination on two axes to monitor for signs of drowsiness or
-                distraction.</li>
-            <li><strong>Steering Wheel Rotation Sensor:</strong> Measures steering wheel angle to detect erratic driving
-                or sudden corrections.</li>
-            <li><strong>Speedometer:</strong> Provides current vehicle speed for context in other detections (e.g.,
-                safety distance).</li>
-            <li><strong>Distance Sensor:</strong> Monitors safe following distance to the preceding vehicle.</li>
+            <li><strong>IMU (Gyroscope):</strong> Real-time monitoring of head inclination (X/Y axes) to detect nodding off.</li>
+            <li><strong>Steering Sensor:</strong> Measures angular velocity to detect erratic driving patterns.</li>
+            <li><strong>Telemetry:</strong> Speedometer and distance sensors (LIDAR/Ultrasonic) for context-aware analysis.</li>
         </ul>
 
-        <h3 data-aos="fade-up">Actuators</h3>
-        <ul data-aos="fade-up">
-            <li><strong>Warning Lights:</strong> Two LEDs (yellow and red) to indicate varying levels of risk.</li>
-            <li><strong>Display:</strong> A screen to present data and alerts.</li>
-            <li><strong>Automatic Brake Activation:</strong> System capable of applying brakes at different intensity
-                levels.</li>
-        </ul>
+        <h3 data-aos="fade-up">2. Embedded Controller</h3>
+        <p data-aos="fade-up">A <strong>Raspberry Pi</strong> running a custom C program acts as the ECU. It processes sensor streams via GPIO/I2C and executes the state machine logic.</p>
 
-        <h3 data-aos="fade-up">Processing Unit</h3>
-        <p data-aos="fade-up">A <strong>Raspberry Pi</strong> serves as the central processing unit, running the C code
-            responsible for reading sensor data, implementing detection algorithms, and triggering actuators.</p>
+        <h3 data-aos="fade-up">3. Actuation Layer (Output)</h3>
+        <ul data-aos="fade-up">
+            <li><strong>Visual Interface:</strong> LED array (Warning/Critical) and OLED Display.</li>
+            <li><strong>Safety Interlock:</strong> Automatic braking signal triggering based on risk level.</li>
+        </ul>
 
         <div class="illustation">
             <div class="left" data-aos="fade-up">
                 <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3lsZng1b2M2d3NvYzZveDRleW15enlwaHRwbHp0MjhwMm8zaGx6NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/CI4gk4u9igpLW/giphy.gif"
-                    alt="GIF of a warning light">
+                    alt="Warning Light GIF">
             </div>
             <div class="right" data-aos="fade-up">
                 <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXpkNGxmNm1hcDc3cHpodjk4b2N3cGVranpkaGh3dzhsY2gzZTM2MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UKm1AF0UrCkb6/giphy.gif"
-                    alt="GIF of computer code">
+                    alt="Code GIF">
             </div>
         </div>
 
-        <h2 data-aos="fade-up">Symptom Detection Logic</h2>
-        <p data-aos="fade-up">The system analyzes sensor data to identify distraction symptoms based on specific
-            thresholds and polling intervals.</p>
+        <h2 data-aos="fade-up">Modeling & Methodology</h2>
+        <p data-aos="fade-up">
+            Before implementation, the system was modeled using <strong>SysML (Systems Modeling Language)</strong> on Enterprise Architect.
+            We defined <strong>Block Definition Diagrams (BDD)</strong> for hardware structure and <strong>State Machine Diagrams</strong> to handle transitions between "Normal", "Drowsy", and "Critical" states.
+        </p>
+
+        <h2 data-aos="fade-up">Real-Time Detection Logic</h2>
+        <p data-aos="fade-up">The system operates on a 200ms polling cycle to ensure immediate response.</p>
 
         <table class="project-table" data-aos="fade-up">
             <thead>
                 <tr>
                     <th>Symptom</th>
-                    <th>Sensor(s) Used</th>
-                    <th>Detection Criteria</th>
+                    <th>Sensor Data</th>
+                    <th>Threshold Condition</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>Head Tilt</strong></td>
-                    <td>Gyroscope</td>
-                    <td>X-axis or Y-axis tilt > ±30° for at least two consecutive readings.</td>
+                    <td><strong>Micro-sleep</strong></td>
+                    <td>Gyroscope (IMU)</td>
+                    <td>Tilt > ±30° for > 400ms</td>
                 </tr>
                 <tr>
-                    <td><strong>Safety Distance</strong></td>
-                    <td>Distance Sensor, Speedometer</td>
-                    <td>The actual distance is compared to a recommended safety distance calculated from speed. Three
-                        risk levels are defined: <code>INSECURE</code>, <code>IMPRUDENT</code>, and
-                        <code>DANGER COLLISION</code>.</td>
+                    <td><strong>Tailgating</strong></td>
+                    <td>Distance + Speed</td>
+                    <td>Distance < (Speed / 2) (Safety Gap violation)</td>
                 </tr>
                 <tr>
-                    <td><strong>Sharp Turn</strong></td>
-                    <td>Steering Wheel Sensor, Speedometer</td>
-                    <td>Difference > 20° between two consecutive steering wheel readings while speed is > 40 km/h.</td>
+                    <td><strong>Erratic Steering</strong></td>
+                    <td>Rotary Encoder</td>
+                    <td>Delta > 20°/s at Speed > 40 km/h</td>
                 </tr>
             </tbody>
         </table>
 
-        <h2 data-aos="fade-up">System Actions Logic</h2>
-        <p data-aos="fade-up">Every 200ms, the detected symptoms are analyzed to determine the necessary actions,
-            creating a graduated alert system.</p>
+        <h2 data-aos="fade-up">Response Matrix</h2>
+        <p data-aos="fade-up">A prioritized interrupt system determines the safety action.</p>
 
         <table class="project-table" data-aos="fade-up">
             <thead>
                 <tr>
-                    <th>Condition Triggering Action</th>
-                    <th>Action(s) Undertaken</th>
+                    <th>Risk Level</th>
+                    <th>Condition</th>
+                    <th>System Reaction</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>(S1 or S2) <strong>and</strong> D0</td>
-                    <td>Turn on Yellow Light</td>
+                    <td><strong>Caution</strong></td>
+                    <td>Single symptom (Tilt OR Steering)</td>
+                    <td>Visual Alert (Yellow LED)</td>
                 </tr>
                 <tr>
-                    <td>(S1 <strong>and</strong> S2) <strong>and</strong> D0</td>
-                    <td>Turn on Red Light</td>
+                    <td><strong>Warning</strong></td>
+                    <td>Multiple symptoms</td>
+                    <td>Visual + Audio Alert (Red LED)</td>
                 </tr>
                 <tr>
-                    <td>(S1 or S2) <strong>and</strong> D1</td>
-                    <td>Turn on Yellow & Red Lights, Activate Brake Level 1</td>
+                    <td><strong>Critical</strong></td>
+                    <td>Symptoms + Safety Distance Breach</td>
+                    <td>Full Alert + <strong>Autonomous Braking (Level 1)</strong></td>
                 </tr>
                 <tr>
-                    <td>(S1 or S2) <strong>and</strong> D2</td>
-                    <td>Turn on Yellow & Red Lights, Activate Brake Level 2</td>
-                </tr>
-                <tr>
-                    <td>D3</td>
-                    <td>Activate Brake Level 3</td>
+                    <td><strong>Danger</strong></td>
+                    <td>Imminent Collision Risk</td>
+                    <td><strong>Emergency Braking (Max)</strong></td>
                 </tr>
             </tbody>
         </table>
 
         <h2 data-aos="fade-up">Conclusion</h2>
-        <p data-aos="fade-up">This project is a practical application of embedded systems to solve a real-world problem.
-            By combining multiple data sources with reactive logic, it endeavors to make our roads safer by proactively
-            detecting and mitigating risks associated with driver distraction.The project's source code is available
-            here: <a href="https://github.com/lucasbnrd05/automatic_detection_of_driving_distractions">GitHub -
-                Automatic Detection of Driving Distractions</a>.</p>
+        <p data-aos="fade-up">
+            This project demonstrated the practical application of <strong>Model-Based Systems Engineering (MBSE)</strong>. 
+            By combining rigorous SysML modeling with low-level C implementation, we created a robust prototype capable of saving lives.
+            The source code is available here: <a href="https://github.com/lucasbnrd05/automatic_detection_of_driving_distractions">GitHub Repository</a>.
+        </p>
 
         <div class="illustation">
             <div class="top" data-aos="fade-up">
                 <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGl0aXpjYjNoeTltN2FrcWNtMjl1ejg2bGoyeTlwemJ1aXFodXRwOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qcMjXuCugvMXK/giphy.gif"
-                    alt="GIF Problem solved" class="one">
+                    alt="Success GIF" class="one">
             </div>
         </div>
     </div>
@@ -348,5 +340,4 @@
     </script>
 
 </body>
-
 </html>
