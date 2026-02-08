@@ -43,7 +43,7 @@
 
     <style>
         .title-tools {
-            min-height: 35vh;
+            min-height: 30vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -51,8 +51,8 @@
             text-align: center;
             gap: 15px;
             padding-top: 40px;
+            margin-bottom: 20px;
         }
-
 
         .title-tools h1 {
             font-family: 'Soul Daisy', sans-serif;
@@ -62,38 +62,11 @@
             white-space: nowrap;
             margin: 0 auto;
             display: inline-block;
-
-            animation:
-                typing 2s steps(12, end) forwards,
-                blink-caret 0.75s step-end infinite;
+            animation: typing 2s steps(12, end) forwards, blink-caret 0.75s step-end infinite;
         }
 
-        @keyframes typing {
-            0% {
-                width: 0;
-                visibility: hidden;
-            }
-
-            1% {
-                visibility: visible;
-            }
-
-            100% {
-                width: 12ch;
-            }
-        }
-
-        @keyframes blink-caret {
-
-            from,
-            to {
-                border-color: transparent;
-            }
-
-            50% {
-                border-color: orange;
-            }
-        }
+        @keyframes typing { 0% { width: 0; visibility: hidden; } 1% { visibility: visible; } 100% { width: 12ch; } }
+        @keyframes blink-caret { from, to { border-color: transparent; } 50% { border-color: orange; } }
 
         .subtitle-tech {
             font-family: 'Courier New', Courier, monospace;
@@ -102,12 +75,50 @@
             margin-top: -10px;
         }
 
+        /* --- QUICK NAV STYLES (NEW) --- */
+        .quick-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            max-width: 1000px;
+            margin: 0 auto 50px auto;
+            padding: 0 15px;
+        }
+
+        .nav-chip {
+            text-decoration: none;
+            background: white;
+            color: #555;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            border: 1px solid #ddd;
+            font-family: -apple-system, sans-serif;
+            font-weight: 600;
+            transition: 0.2s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-chip:hover {
+            background: #333;
+            color: white;
+            border-color: #333;
+            transform: translateY(-2px);
+        }
+
+        .nav-chip i { font-size: 0.8rem; }
+        /* --------------------------- */
 
         .link-card {
             text-decoration: none !important;
             display: flex;
             align-items: center;
             padding: 25px;
+            scroll-margin-top: 20px; /* Offset for anchor scrolling */
         }
 
         .link-text h3 {
@@ -163,9 +174,21 @@
         </a>
     </div>
 
+    <div class="quick-nav" data-aos="fade-up" data-aos-delay="400">
+        <a href="#tool-netiquette" class="nav-chip"><i class="fa-solid fa-envelope"></i> Netiquette</a>
+        <a href="#tool-tree" class="nav-chip"><i class="fa-solid fa-folder-tree"></i> Tree Builder</a>
+        <a href="#tool-makefile" class="nav-chip"><i class="fa-solid fa-scroll"></i> Makefile</a>
+        <a href="#tool-42sh" class="nav-chip"><i class="fa-solid fa-terminal"></i> 42sh Tester</a>
+        <a href="#tool-cidr" class="nav-chip"><i class="fa-solid fa-network-wired"></i> Subnet Calc</a>
+        <a href="#tool-arch" class="nav-chip"><i class="fa-solid fa-microchip"></i> Binary Arch</a>
+        <a href="#tool-grades" class="nav-chip"><i class="fa-solid fa-graduation-cap"></i> Grades Sim</a>
+        <a href="#tool-cron" class="nav-chip"><i class="fa-regular fa-clock"></i> Crontab</a>
+        <a href="#tool-elf" class="nav-chip"><i class="fa-solid fa-shield-alt"></i> ELF Parser</a>
+    </div>
+
     <div class="list-container">
 
-        <a href="netiquette_gen.html" class="link-card" data-aos="fade-up" data-aos-delay="300">
+        <a href="netiquette_gen.html" class="link-card" id="tool-netiquette" data-aos="fade-up" data-aos-delay="300">
             <div class="link-icon">
                 <i class="fa-solid fa-envelope-circle-check" style="color: #333;"></i>
             </div>
@@ -180,7 +203,7 @@
             </div>
         </a>
 
-        <a href="tree_generator.html" class="link-card" data-aos="fade-up" data-aos-delay="500">
+        <a href="tree_generator.html" class="link-card" id="tool-tree" data-aos="fade-up" data-aos-delay="500">
             <div class="link-icon">
                 <i class="fa-solid fa-folder-tree" style="color: #333;"></i>
             </div>
@@ -191,7 +214,7 @@
             </div>
         </a>
 
-        <a href="makefile_gen.html" class="link-card" data-aos="fade-up" data-aos-delay="100">
+        <a href="makefile_gen.html" class="link-card" id="tool-makefile" data-aos="fade-up" data-aos-delay="100">
             <div class="link-icon">
                 <i class="fa-solid fa-scroll" style="color: #333;"></i>
             </div>
@@ -205,7 +228,7 @@
             </div>
         </a>
 
-        <a href="test_gen.html" class="link-card" data-aos="fade-up" data-aos-delay="200">
+        <a href="test_gen.html" class="link-card" id="tool-42sh" data-aos="fade-up" data-aos-delay="200">
             <div class="link-icon">
                 <i class="fa-solid fa-terminal" style="color: #333;"></i>
             </div>
@@ -219,7 +242,7 @@
             </div>
         </a>
 
-        <a href="cidr_calc.html" class="link-card" data-aos="fade-up" data-aos-delay="800">
+        <a href="cidr_calc.html" class="link-card" id="tool-cidr" data-aos="fade-up" data-aos-delay="800">
             <div class="link-icon">
                 <i class="fa-solid fa-network-wired" style="color: #333;"></i>
             </div>
@@ -230,17 +253,17 @@
             </div>
         </a>
 
-        <a href="bitwise.html" class="link-card" data-aos="fade-up" data-aos-delay="600">
+        <a href="bitwise.html" class="link-card" id="tool-arch" data-aos="fade-up" data-aos-delay="600">
             <div class="link-icon">
                 <i class="fa-solid fa-microchip" style="color: #333;"></i>
             </div>
             <div class="link-text">
-                <h3>Bitwise Playground</h3>
-                <p>Visual 32-bit calculator. Toggle bits interactively and understand AND, OR, XOR masks instantly.</p>
+                <h3>Binary Architect (Bitwise, IEEE, Signed)</h3>
+                <p>Visual 32-bit calculator. Bitwise logic, Flags visualizer (NZCV), and Two's Complement/IEEE 754 decoding.</p>
             </div>
         </a>
         
-        <a href="gpa_calculator.html" class="link-card" data-aos="fade-up" data-aos-delay="1000">
+        <a href="gpa_calculator.html" class="link-card" id="tool-grades" data-aos="fade-up" data-aos-delay="1000">
             <div class="link-icon">
                 <i class="fa-solid fa-graduation-cap" style="color: #333;"></i>
             </div>
@@ -250,7 +273,7 @@
             </div>
         </a>
 
-        <a href="crontab_guru.html" class="link-card" data-aos="fade-up" data-aos-delay="900">
+        <a href="crontab_guru.html" class="link-card" id="tool-cron" data-aos="fade-up" data-aos-delay="900">
             <div class="link-icon">
                 <i class="fa-regular fa-clock" style="color: #333;"></i>
             </div>
@@ -260,7 +283,7 @@
             </div>
         </a>
 
-        <a href="elf_explorer.html" class="link-card" data-aos="fade-up">
+        <a href="elf_explorer.html" class="link-card" id="tool-elf" data-aos="fade-up">
             <div class="link-icon">
                 <i class="fa-solid fa-shield-alt" style="color: #333;"></i>
             </div>
@@ -273,7 +296,6 @@
                     ArrayBuffer slicing to prevent browser crashes.</p>
             </div>
         </a>
-
 
     </div>
 
