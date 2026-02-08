@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Grade Simulator | System Tools</title>
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_base.css">
+    <link rel="stylesheet" href="../css/style_links.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../doc/favicon-32x32.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <style>
+        .tool-container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
+        
+        .title-tools {
+            min-height: 30vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 15px; padding-top: 40px;
+        }
+        .title-tools h1 {
+            font-family: 'Soul Daisy', sans-serif; font-size: 2.5rem; overflow: hidden;
+            border-right: .15em solid orange; white-space: nowrap; margin: 0 auto; display: inline-block;
+            animation: typing 2.5s steps(20, end) forwards, blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing { 0% { width: 0; visibility: hidden; } 1% { visibility: visible; } 100% { width: 20ch; } }
+        @keyframes blink-caret { 50% { border-color: transparent; } }
+
+        .intro-box {
+            background: #fff; border-left: 4px solid #8e44ad; padding: 20px; border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 30px;
+        }
+        .intro-box h3 { margin-top: 0; color: #333; font-family: 'Soul Daisy', sans-serif; }
+
+        /* HEADER & GLOBAL */
+        .gpa-header {
+            background: white; padding: 20px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border: 1px solid #ddd;
+            position: sticky; top: 20px; z-index: 100;
+        }
+        .global-score { font-family: 'Soul Daisy', sans-serif; font-size: 1.5rem; color: #333; }
+        .score-val { font-family: 'Courier New', monospace; font-weight: bold; font-size: 2rem; color: #8e44ad; }
+
+        .header-actions { display: flex; gap: 10px; }
+
+        .btn {
+            border: none; padding: 8px 15px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.2s;
+            display: flex; align-items: center; gap: 8px; font-family: sans-serif;
+        }
+        .btn-add-ue { background: #8e44ad; color: white; }
+        .btn-add-ue:hover { background: #732d91; transform: translateY(-2px); }
+        .btn-reset { background: #eee; color: #555; }
+        .btn-reset:hover { background: #ddd; color: #c0392b; }
+
+        /* UE CARDS */
+        .ue-grid { display: grid; grid-template-columns: 1fr; gap: 20px; } /* Single column for better width control */
+
+        .ue-card {
+            background: white; border-radius: 12px; border: 1px solid #eee; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            transition: transform 0.2s; position: relative;
+        }
+
+        .ue-header {
+            background: #f8f9fa; padding: 15px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;
+        }
+        .ue-info { display: flex; align-items: center; gap: 10px; flex: 1; }
+        .ue-name-input { 
+            border: none; background: transparent; font-weight: bold; font-size: 1.1rem; color: #333; width: 100%; border-bottom: 1px dashed #ccc;
+        }
+        .ue-name-input:focus { outline: none; border-color: #8e44ad; }
+        
+        .ue-coef-input { width: 60px; padding: 4px; border: 1px solid #ddd; border-radius: 4px; text-align: center; }
+
+        .ue-avg { font-family: 'Courier New', monospace; font-weight: bold; font-size: 1.1rem; margin-left: 15px; }
+
+        .ue-actions { margin-left: 10px; }
+        .btn-del-ue { background: transparent; color: #ccc; cursor: pointer; border: none; font-size: 1rem; }
+        .btn-del-ue:hover { color: #c0392b; }
+
+        /* SUBJECT ROWS */
+        .ue-body { padding: 15px; }
+        .subject-row { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #f9f9f9; }
+        
+        .sub-name-input { flex: 2; padding: 8px; border: 1px solid #eee; border-radius: 6px; }
+        .sub-grade-input { flex: 1; padding: 8px; border: 1px solid #eee; border-radius: 6px; text-align: center; font-weight: bold; color: #333; }
+        .sub-coef-input { flex: 1; padding: 8px; border: 1px solid #eee; border-radius: 6px; text-align: center; color: #666; }
+        
+        .btn-del-sub { background: #ffebee; color: #c0392b; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .btn-del-sub:hover { background: #c0392b; color: white; }
+
+        .add-sub-container { padding: 10px 15px; border-top: 1px dashed #eee; text-align: center; }
+        .btn-add-sub { background: white; border: 2px dashed #ddd; color: #888; width: 100%; padding: 8px; border-radius: 8px; cursor: pointer; }
+        .btn-add-sub:hover { border-color: #8e44ad; color: #8e44ad; background: #fbf6ff; }
+
+        /* COLORS */
+        .passing { color: #27ae60; background: #e8f8f5; border-color: #27ae60 !important; }
+        .failing { color: #c0392b; background: #fdedec; border-color: #c0392b !important; }
+
+        .back-nav { margin-bottom: 30px; text-align: center; }
+        .back-btn { text-decoration: none; font-weight: bold; margin-top: 10px; }
+
+        @media (max-width: 600px) { .gpa-header { flex-direction: column; gap: 15px; } }
+    </style>
+</head>
+<body>
+
+    <div class="tool-container">
+        <div class="title-tools">
+            <h1>Epi-Grade Simulator</h1>
+            <h3 class="subtitle-tech" data-aos="fade-down" data-aos-delay="200">./dynamic_calculator</h3>
+
+            <a href="index.html" class="cv-button back-btn" data-aos="fade-up" data-aos-delay="300">
+                <i class="fa-solid fa-arrow-left"></i> Back to Tools
+            </a>
+        </div>
+
+        <div class="intro-box" data-aos="fade-up">
+            <h3><i class="fa-solid fa-wand-magic-sparkles"></i> 100% Customizable</h3>
+            <p>
+                Create your own calculator. Add <strong>Units (UE)</strong> or just single <strong>Subjects</strong>.
+                <br>Set your own coefficients. Everything is saved automatically.
+            </p>
+        </div>
+
+        <div class="gpa-header" data-aos="fade-up">
+            <div class="global-score">
+                Total Average: <span id="globalAvg" class="score-val">--</span>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-add-ue" id="addUeBtn">
+                    <i class="fa-solid fa-plus"></i> Add Group/UE
+                </button>
+                <button class="btn btn-reset" id="resetBtn">
+                    <i class="fa-solid fa-trash"></i> Reset
+                </button>
+            </div>
+        </div>
+
+        <div class="ue-grid" id="ueContainer" data-aos="fade-up">
+            </div>
+
+    </div>
+
+    <script src="js/gpa.js"></script>
+    <script>AOS.init();</script>
+</body>
+</html>

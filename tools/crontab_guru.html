@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Crontab Guru | System Tools</title>
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_base.css">
+    <link rel="stylesheet" href="../css/style_links.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../doc/favicon-32x32.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <style>
+        .tool-container { max-width: 900px; margin: 50px auto; padding: 0 20px; }
+        
+        .title-tools {
+            min-height: 30vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 15px; padding-top: 40px;
+        }
+        .title-tools h1 {
+            font-family: 'Soul Daisy', sans-serif; font-size: 2.5rem; overflow: hidden;
+            border-right: .15em solid orange; white-space: nowrap; margin: 0 auto; display: inline-block;
+            animation: typing 2.5s steps(18, end) forwards, blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing { 0% { width: 0; visibility: hidden; } 1% { visibility: visible; } 100% { width: 18ch; } }
+        @keyframes blink-caret { 50% { border-color: transparent; } }
+
+        .subtitle-tech { font-family: 'Courier New', Courier, monospace; color: #666; font-size: 1.1rem; margin-top: -10px; }
+
+        .intro-box {
+            background: #fff; border-left: 4px solid #f1c40f; padding: 20px; border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 30px;
+        }
+        .intro-box h3 { margin-top: 0; color: #333; font-family: 'Soul Daisy', sans-serif; }
+        .intro-box p { font-size: 0.95rem; color: #555; text-align: left; }
+
+        .cron-card { background: white; border-radius: 16px; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #ddd; text-align: center; }
+
+        /* CRON INPUTS */
+        .cron-inputs { display: flex; justify-content: center; gap: 15px; margin: 30px 0; flex-wrap: wrap; }
+        
+        .cron-field { display: flex; flex-direction: column; align-items: center; }
+        
+        .cron-field input {
+            width: 80px; height: 80px; font-size: 2rem; text-align: center; border: 3px solid #eee; border-radius: 50%;
+            font-family: 'Courier New', monospace; transition: 0.3s; color: #333;
+        }
+        .cron-field input:focus { outline: none; border-color: orange; transform: scale(1.1); }
+        .cron-field label { margin-top: 10px; font-weight: bold; font-size: 0.9rem; color: #666; }
+
+        /* OUTPUT */
+        .human-readable {
+            font-size: 1.5rem; color: #333; font-family: 'Soul Daisy', sans-serif; margin: 30px 0; min-height: 3rem;
+        }
+        
+        .final-string {
+            background: #2c3e50; color: #ecf0f1; padding: 15px; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 1.2rem;
+            display: inline-block; cursor: pointer; position: relative;
+        }
+        .final-string:hover { background: #34495e; }
+
+        /* PRESETS */
+        .presets { margin-top: 30px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+        .preset-btn {
+            background: #eee; border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 0.9rem; transition: 0.2s;
+        }
+        .preset-btn:hover { background: #ddd; transform: translateY(-2px); }
+
+        .back-nav { margin-bottom: 30px; text-align: center; }
+        .back-btn { text-decoration: none; font-weight: bold; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="tool-container">
+        <div class="title-tools">
+            <h1>Crontab Guru</h1>
+            <h3 class="subtitle-tech" data-aos="fade-down" data-aos-delay="200">./task_scheduler</h3>
+
+            <a href="index.html" class="cv-button back-btn" data-aos="fade-up" data-aos-delay="300">
+                <i class="fa-solid fa-arrow-left"></i> Back to Tools
+            </a>
+        </div>
+
+        <div class="intro-box" data-aos="fade-up">
+            <h3><i class="fa-regular fa-clock"></i> Schedule Tasks</h3>
+            <p>
+                Crontab syntax is hard to remember. Use this tool to generate the schedule string for your scripts.
+                <br>Format: <code>* * * * *</code> (Minute, Hour, Day, Month, Weekday).
+            </p>
+        </div>
+
+        <div class="cron-card" data-aos="fade-up">
+            
+            <div class="cron-inputs">
+                <div class="cron-field">
+                    <input type="text" id="min" value="*" placeholder="*">
+                    <label>Minute</label>
+                </div>
+                <div class="cron-field">
+                    <input type="text" id="hour" value="*" placeholder="*">
+                    <label>Hour</label>
+                </div>
+                <div class="cron-field">
+                    <input type="text" id="dom" value="*" placeholder="*">
+                    <label>Day (Month)</label>
+                </div>
+                <div class="cron-field">
+                    <input type="text" id="mon" value="*" placeholder="*">
+                    <label>Month</label>
+                </div>
+                <div class="cron-field">
+                    <input type="text" id="dow" value="*" placeholder="*">
+                    <label>Day (Week)</label>
+                </div>
+            </div>
+
+            <div class="human-readable" id="readableText">
+                “At every minute.”
+            </div>
+
+            <div class="final-string" id="resultString" title="Click to Copy">
+                * * * * *
+            </div>
+
+            <div class="presets">
+                <button class="preset-btn" onclick="setCron('*/15 * * * *')">Every 15m</button>
+                <button class="preset-btn" onclick="setCron('0 * * * *')">Every Hour</button>
+                <button class="preset-btn" onclick="setCron('0 0 * * *')">Every Day (Midnight)</button>
+                <button class="preset-btn" onclick="setCron('0 9 * * 1')">Every Monday 9AM</button>
+                <button class="preset-btn" onclick="setCron('0 0 1 * *')">1st of Month</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/crontab.js"></script>
+    <script>AOS.init();</script>
+</body>
+</html>

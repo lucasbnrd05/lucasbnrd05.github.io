@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="description"
+        content="System Programming Tools by Lucas Bernardeau. Secure ELF Parser, Makefile Generator, and Shell Testers.">
+    <meta name="keywords" content="Lucas, Bernardeau, System Programming, C, ELF, Makefile, Shell, Tools, EPITA">
+    <meta property="og:title" content="Lucas Bernardeau | System Tools" />
+    <meta property="og:description"
+        content="Secure client-side tools for C developers: ELF Explorer, Makefile Gen, Test Gen." />
+    <meta property="og:url" content="https://lucasbnrd05.github.io/html/tools/index.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lucasbnrd05.github.io/doc/wallpaper.png" />
+    <meta property="og:locale" content="en_US" />
+
+    <link rel="canonical" href="https://lucasbnrd05.github.io/html/tools/index.html">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Lucas Bernardeau">
+
+    <meta content="Buzzcut" name="author">
+    <meta content="© 2025 Buzzcut. All rights reserved." name="copyright">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_base.css">
+    <link rel="stylesheet" href="../css/style_links.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../doc/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../doc/favicon-16x16.png">
+    <link rel="shortcut icon" href="../doc/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../doc/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <title>System Tools</title>
+
+    <style>
+        .title-tools {
+            min-height: 35vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 15px;
+            padding-top: 40px;
+        }
+
+
+        .title-tools h1 {
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 3rem;
+            overflow: hidden;
+            border-right: .15em solid orange;
+            white-space: nowrap;
+            margin: 0 auto;
+            display: inline-block;
+
+            animation:
+                typing 2s steps(12, end) forwards,
+                blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            0% {
+                width: 0;
+                visibility: hidden;
+            }
+
+            1% {
+                visibility: visible;
+            }
+
+            100% {
+                width: 12ch;
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: orange;
+            }
+        }
+
+        .subtitle-tech {
+            font-family: 'Courier New', Courier, monospace;
+            color: #666;
+            font-size: 1.1rem;
+            margin-top: -10px;
+        }
+
+
+        .link-card {
+            text-decoration: none !important;
+            display: flex;
+            align-items: center;
+            padding: 25px;
+        }
+
+        .link-text h3 {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+
+        .badge-secure {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.7rem;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid #c8e6c9;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .badge-beta {
+            font-family: -apple-system, sans-serif;
+            font-size: 0.7rem;
+            background-color: #fff3e0;
+            color: #ef6c00;
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid #ffe0b2;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .back-btn {
+            margin-top: 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="title-tools">
+        <h1>System Tools</h1>
+        <h3 class="subtitle-tech" data-aos="fade-down" data-aos-delay="200">./secure_utilities_for_epita_devs</h3>
+
+        <a href="../html/index.html" class="cv-button back-btn" data-aos="fade-up" data-aos-delay="300">
+            <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+        </a>
+    </div>
+
+    <div class="list-container">
+
+        <a href="netiquette_gen.html" class="link-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="link-icon">
+                <i class="fa-solid fa-envelope-circle-check" style="color: #333;"></i>
+            </div>
+            <div class="link-text">
+                <h3>
+                    Netiquette Mail Generator
+                    <span class="badge-secure" style="color: #d32f2f; border-color: #ffcdd2; background: #ffebee;">RFC
+                        Compliant</span>
+                </h3>
+                <p>Auto-format emails strictly according to school PDF (72 chars/line, signature format). No more
+                    rejected tickets.</p>
+            </div>
+        </a>
+
+        <a href="tree_generator.html" class="link-card" data-aos="fade-up" data-aos-delay="500">
+            <div class="link-icon">
+                <i class="fa-solid fa-folder-tree" style="color: #333;"></i>
+            </div>
+            <div class="link-text">
+                <h3>Project Tree Builder</h3>
+                <p>Paste a file tree (text, ASCII, or messy copy-paste) and generate the `mkdir` & `touch` commands
+                    instantly.</p>
+            </div>
+        </a>
+
+        <a href="makefile_gen.html" class="link-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="link-icon">
+                <i class="fa-solid fa-scroll" style="color: #333;"></i>
+            </div>
+            <div class="link-text">
+                <h3>
+                    Ultimate Makefile Generator
+                    <span class="badge-secure">Strict Flags</span>
+                </h3>
+                <p>Generate EPITA compliant Makefiles pre-configured with <strong>strict compilation flags (-Wall
+                        -Werror...) and debug sanitizers</strong>.</p>
+            </div>
+        </a>
+
+        <a href="test_gen.html" class="link-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="link-icon">
+                <i class="fa-solid fa-terminal" style="color: #333;"></i>
+            </div>
+            <div class="link-text">
+                <h3>
+                    42sh Tester
+                    <span class="badge-beta">Stress Test</span>
+                </h3>
+                <p>Generate complex, randomized shell inputs (nested pipes, tricky quotes) to <strong>stress-test
+                        parsing logic and find edge cases</strong>.</p>
+            </div>
+        </a>
+
+        <a href="cidr_calc.html" class="link-card" data-aos="fade-up" data-aos-delay="800">
+            <div class="link-icon">
+                <i class="fa-solid fa-network-wired" style="color: #333;"></i>
+            </div>
+            <div class="link-text">
+                <h3>Subnet Calculator</h3>
+                <p>Calculate Network, Broadcast, and Host Range from an IP/CIDR. Includes binary visualization of the
+                    mask.</p>
+            </div>
+        </a>
+
+        <a href="bitwise.html" class="link-card" data-aos="fade-up" data-aos-delay="600">
+            <div class="link-icon">
+                <i class="fa-solid fa-microchip" style="color: #333;"></i>
+            </div>
+            <div class="link-text">
+                <h3>Bitwise Playground</h3>
+                <p>Visual 32-bit calculator. Toggle bits interactively and understand AND, OR, XOR masks instantly.</p>
+            </div>
+        </a>
+        
+        <a href="gpa_calculator.html" class="link-card" data-aos="fade-up" data-aos-delay="1000">
+            <div class="link-icon">
+                <i class="fa-solid fa-graduation-cap" style="color: #333;"></i>
+            </div>
+            <div class="link-text">
+                <h3>Epi-Grade Simulator</h3>
+                <p>Simulate your semester average. Configure UEs, coefficients, and input your grades. Saves data automatically.</p>
+            </div>
+        </a>
+
+        <a href="crontab_guru.html" class="link-card" data-aos="fade-up" data-aos-delay="900">
+            <div class="link-icon">
+                <i class="fa-regular fa-clock" style="color: #333;"></i>
+            </div>
+            <div class="link-text">
+                <h3>Crontab Guru</h3>
+                <p>Interactive Cron schedule generator. Translates "*/15 * * * *" into human-readable English.</p>
+            </div>
+        </a>
+
+        <a href="elf_explorer.html" class="link-card" data-aos="fade-up">
+            <div class="link-icon">
+                <i class="fa-solid fa-shield-alt" style="color: #333;"></i>
+            </div>
+            <div class="link-text">
+                <h3>
+                    ELF Header Explorer
+                    <span class="badge-secure"><i class="fa-solid fa-lock"></i> Secure Parser</span>
+                </h3>
+                <p>Safe analysis of binary headers. <strong>Zero execution, 100% client-side validation</strong> using
+                    ArrayBuffer slicing to prevent browser crashes.</p>
+            </div>
+        </a>
+
+
+    </div>
+
+    <footer class="footer" id="footer" data-aos="flip-up" style="margin-top: 50px;">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>Lucas Bernardeau</h2>
+            </div>
+            <div class="footer-links">
+                <a href="../html/index.html#presentation">Home</a>
+                <a href="../html/index.html#about">About</a>
+                <a href="../html/projects.html">Projets</a>
+                <a href="../html/experiences.html">Experiences</a>
+                <a href="../html/qualifications.html">Qualifications</a>
+                <a href="../html/index.html#contact">Contact</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/lucas-bernardeau/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:contact@lucasbernardeau.fr"><i class="fa-regular fa-envelope"></i></a>
+                <a href="https://github.com/lucasbnrd05"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Buzzcut. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

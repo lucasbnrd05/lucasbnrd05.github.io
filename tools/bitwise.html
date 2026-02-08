@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Binary Architect | System Tools</title>
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_base.css">
+    <link rel="stylesheet" href="../css/style_links.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../doc/favicon-32x32.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <style>
+        .tool-container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
+        
+        .title-tools {
+            min-height: 30vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 15px; padding-top: 40px;
+        }
+        .title-tools h1 {
+            font-family: 'Soul Daisy', sans-serif; font-size: 2.5rem; overflow: hidden;
+            border-right: .15em solid orange; white-space: nowrap; margin: 0 auto; display: inline-block;
+            animation: typing 2.5s steps(20, end) forwards, blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing { 0% { width: 0; visibility: hidden; } 1% { visibility: visible; } 100% { width: 20ch; } }
+        @keyframes blink-caret { 50% { border-color: transparent; } }
+
+        .subtitle-tech { font-family: 'Courier New', Courier, monospace; color: #666; font-size: 1.1rem; margin-top: -10px; }
+
+        .intro-box {
+            background: #fff; border-left: 4px solid #00ff41; padding: 20px; border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 30px;
+        }
+        .intro-box h3 { margin-top: 0; color: #333; font-family: 'Soul Daisy', sans-serif; }
+        .intro-box p { font-size: 0.95rem; color: #555; text-align: left; }
+
+        .bit-card { background: white; border-radius: 16px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #ddd; }
+
+        /* --- TABS --- */
+        .tabs-nav { display: flex; gap: 10px; margin-bottom: 25px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .tab-btn {
+            background: none; border: none; padding: 10px 20px; font-family: 'Soul Daisy', sans-serif; font-size: 1.2rem;
+            cursor: pointer; opacity: 0.6; transition: 0.3s; border-radius: 8px;
+        }
+        .tab-btn:hover { background: #f5f5f5; opacity: 1; }
+        .tab-btn.active { background: #333; color: white; opacity: 1; transform: scale(1.05); }
+        .tab-content { display: none; animation: fadeIn 0.4s; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- INPUTS --- */
+        .input-group label { display: block; font-weight: bold; margin-bottom: 5px; color: #333; font-family: -apple-system, sans-serif; }
+        .input-group input {
+            padding: 10px; border: 2px solid #eee; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 1.1rem; width: 140px; text-align: center;
+        }
+        .input-group input:focus { outline: none; border-color: orange; }
+        .inputs-zone { display: flex; gap: 20px; justify-content: center; margin-bottom: 30px; align-items: flex-end; }
+        .op-select { padding: 10px; border-radius: 8px; border: 2px solid #333; background: #333; color: white; font-weight: bold; cursor: pointer; }
+
+        /* --- VISUALIZER --- */
+        .visualizer { background: #1e1e1e; padding: 20px; border-radius: 12px; font-family: 'Courier New', monospace; overflow-x: auto; position: relative; }
+        .row-label { color: #888; font-size: 0.8rem; margin-bottom: 5px; display: block; }
+        .bit-row { display: flex; gap: 8px; margin-bottom: 20px; justify-content: center; flex-wrap: wrap; }
+        
+        .bit {
+            width: 25px; height: 35px; background: #333; color: #555;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 4px; cursor: pointer; user-select: none; transition: 0.1s; font-weight: bold;
+        }
+        .bit:hover { transform: translateY(-2px); }
+        .bit.on { background: #00ff41; color: #000; box-shadow: 0 0 5px rgba(0, 255, 65, 0.5); }
+        
+        /* Specific Bit Colors */
+        .bit-sign { border-bottom: 3px solid #ff4444; }
+        .bit-sign.on { background: #ff4444; color: white; box-shadow: 0 0 8px #ff4444; }
+        .bit-exp { border-bottom: 3px solid #00C851; }
+        .bit-exp.on { background: #00C851; color: white; box-shadow: 0 0 8px #00C851; }
+        .bit-mant { border-bottom: 3px solid #33b5e5; }
+        .bit-mant.on { background: #33b5e5; color: white; box-shadow: 0 0 8px #33b5e5; }
+        .bit-static { cursor: default; background: #444; color: #aaa; }
+        .bit-static.on { background: orange; color: white; box-shadow: 0 0 5px orange; }
+
+        .divider-line { height: 2px; background: #444; margin: 10px 0 20px 0; width: 100%; }
+        .value-display { text-align: right; color: #fff; font-size: 0.9rem; margin-top: -15px; margin-bottom: 15px; opacity: 0.7; }
+
+        /* --- FLAGS DISPLAY (NEW) --- */
+        .flags-container {
+            display: flex; gap: 15px; justify-content: center; margin-top: 20px; padding-top: 15px; border-top: 1px dashed #444;
+        }
+        .flag-box {
+            background: #2a2a2a; padding: 5px 15px; border-radius: 6px; text-align: center; border: 2px solid #444; color: #666;
+        }
+        .flag-box.active {
+            border-color: #ffeb3b; color: #ffeb3b; box-shadow: 0 0 10px rgba(255, 235, 59, 0.2); font-weight: bold;
+        }
+        .flag-label { font-size: 0.8rem; display: block; opacity: 0.8; }
+        .flag-val { font-size: 1.2rem; }
+
+        /* --- COURSE / CHEAT SHEET (NEW) --- */
+        .course-section { margin-top: 40px; border-top: 1px solid #ddd; padding-top: 30px; }
+        .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .course-block { background: #f9f9f9; padding: 20px; border-radius: 8px; border-left: 4px solid #333; }
+        .course-block h4 { margin-top: 0; font-family: 'Soul Daisy', sans-serif; color: #d35400; }
+        .course-block p, .course-block ul { font-size: 0.95rem; color: #555; line-height: 1.5; }
+        .code-snip { background: #eee; padding: 2px 5px; border-radius: 4px; font-family: 'Courier New', monospace; font-weight: bold; }
+
+        .back-nav { margin-bottom: 30px; text-align: center; }
+        .back-btn { text-decoration: none; font-weight: bold; margin-top: 10px; }
+
+        @media (max-width: 768px) { .inputs-zone { flex-direction: column; align-items: center; } }
+    </style>
+</head>
+<body>
+
+    <div class="tool-container">
+        <div class="title-tools">
+            <h1>Binary Architect</h1>
+            <h3 class="subtitle-tech" data-aos="fade-down" data-aos-delay="200">./cpu_data_viz</h3>
+
+            <a href="index.html" class="cv-button back-btn" data-aos="fade-up" data-aos-delay="300">
+                <i class="fa-solid fa-arrow-left"></i> Back to Tools
+            </a>
+        </div>
+
+        <div class="intro-box" data-aos="fade-up">
+            <h3><i class="fa-solid fa-layer-group"></i> Architecture & Data Representation</h3>
+            <p>
+                Visual tools to understand CPU logic. Toggle bits, see the flags (N, Z, C, V) light up, and decode Floats.
+                <br><strong>Updated:</strong> Includes ADD/SUB operations for flag analysis.
+            </p>
+        </div>
+
+        <div class="bit-card" data-aos="fade-up">
+            
+            <div class="tabs-nav">
+                <button class="tab-btn active" onclick="switchTab('bitwise')">
+                    <i class="fa-solid fa-microchip"></i> ALU & Flags
+                </button>
+                <button class="tab-btn" onclick="switchTab('ieee')">
+                    <i class="fa-solid fa-percent"></i> IEEE 754 (Float)
+                </button>
+            </div>
+
+            <div id="tab-bitwise" class="tab-content active">
+                <div class="inputs-zone">
+                    <div class="input-group">
+                        <label>Value A</label>
+                        <input type="text" id="valA" value="12" placeholder="Dec/Hex">
+                    </div>
+
+                    <select id="operator" class="op-select">
+                        <option value="AND">& (AND)</option>
+                        <option value="OR">| (OR)</option>
+                        <option value="XOR">^ (XOR)</option>
+                        <option value="ADD">+ (ADD)</option>
+                        <option value="SUB">- (SUB)</option>
+                        <option value="LSHIFT"><< (L-Shift)</option>
+                        <option value="RSHIFT">>> (R-Shift)</option>
+                    </select>
+
+                    <div class="input-group">
+                        <label>Value B</label>
+                        <input type="text" id="valB" value="5" placeholder="Dec/Hex">
+                    </div>
+                </div>
+
+                <div class="visualizer">
+                    <span class="row-label">Input A</span>
+                    <div class="bit-row" id="bitsA"></div>
+                    <div class="value-display" id="dispA"></div>
+
+                    <span class="row-label">Input B</span>
+                    <div class="bit-row" id="bitsB"></div>
+                    <div class="value-display" id="dispB"></div>
+
+                    <div class="divider-line"></div>
+
+                    <span class="row-label" style="color: orange;">Result</span>
+                    <div class="bit-row" id="bitsRes"></div>
+                    <div class="value-display" id="dispRes" style="color: orange; font-weight: bold;"></div>
+
+                    <div class="flags-container">
+                        <div class="flag-box" id="flagN">
+                            <span class="flag-label">Negative</span>
+                            <span class="flag-val">N</span>
+                        </div>
+                        <div class="flag-box" id="flagZ">
+                            <span class="flag-label">Zero</span>
+                            <span class="flag-val">Z</span>
+                        </div>
+                        <div class="flag-box" id="flagC">
+                            <span class="flag-label">Carry</span>
+                            <span class="flag-val">C</span>
+                        </div>
+                        <div class="flag-box" id="flagV">
+                            <span class="flag-label">Overflow</span>
+                            <span class="flag-val">V</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-section">
+                    <div class="course-grid">
+                        <div class="course-block">
+                            <h4><i class="fa-solid fa-flag"></i> The 4 Flags (NZCV)</h4>
+                            <ul>
+                                <li><strong>N (Negative):</strong> 1 if the result is negative (MSB is 1). Used for signed comparison.</li>
+                                <li><strong>Z (Zero):</strong> 1 if the result is exactly 0. Used for equality checks (<code>==</code>).</li>
+                                <li><strong>C (Carry):</strong> 1 if an unsigned operation overflows (result > 32 bits) or for shifts.</li>
+                                <li><strong>V (Overflow):</strong> 1 if a <em>signed</em> operation makes no sense (e.g., Pos + Pos = Neg).</li>
+                            </ul>
+                        </div>
+                        <div class="course-block">
+                            <h4><i class="fa-solid fa-screwdriver-wrench"></i> Bitwise Cheat Sheet</h4>
+                            <ul>
+                                <li><code>&</code> (AND): Used to <strong>Mask</strong> (extract) bits. <br><span style="font-size:0.8em">x & 0 = 0, x & 1 = x</span></li>
+                                <li><code>|</code> (OR): Used to <strong>Set</strong> (force) bits to 1. <br><span style="font-size:0.8em">x | 0 = x, x | 1 = 1</span></li>
+                                <li><code>^</code> (XOR): Used to <strong>Toggle</strong> (invert) bits. <br><span style="font-size:0.8em">x ^ x = 0, x ^ 0 = x</span></li>
+                                <li><code><<</code> (Shift): Multiply by 2. <code>x << 1</code>.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-ieee" class="tab-content">
+                <div class="inputs-zone">
+                    <div class="input-group">
+                        <label>Decimal Float</label>
+                        <input type="text" id="floatInput" value="-12.5" placeholder="Ex: -12.5">
+                    </div>
+                    <div style="padding-bottom: 12px; font-family: 'Courier New', monospace; font-weight: bold;">
+                        =
+                    </div>
+                    <div class="input-group">
+                        <label>Hex Repr.</label>
+                        <input type="text" id="hexFloatInput" value="0xC1480000" readonly style="background: #eee; color: #555;">
+                    </div>
+                </div>
+
+                <div class="visualizer">
+                    <span class="row-label">
+                        <span style="color: #ff4444;">Sign (1)</span> | 
+                        <span style="color: #00C851;">Exponent (8)</span> | 
+                        <span style="color: #33b5e5;">Mantissa (23)</span>
+                    </span>
+                    
+                    <div class="bit-row" id="bitsIEEE"></div>
+                    
+                    <div class="formula-box">
+                        <div style="margin-top: 20px; text-align: center; color: #ddd; font-size: 1.1rem;">
+                            Value = (-1)<sup class="f-sign">S</sup> × 1.<span class="f-mant">M</span> × 2<sup class="f-exp">(E-127)</sup>
+                        </div>
+                        <div id="ieeeCalc" style="margin-top: 10px; font-size: 0.9rem; color: #aaa; text-align: center;">
+                            Calculation details here...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/bitwise.js"></script>
+    <script>
+        AOS.init();
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById('tab-' + tabName).classList.add('active');
+            const index = tabName === 'bitwise' ? 0 : 1;
+            document.querySelectorAll('.tab-btn')[index].classList.add('active');
+        }
+    </script>
+</body>
+</html>

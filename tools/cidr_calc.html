@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Subnet Calculator | System Tools</title>
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_base.css">
+    <link rel="stylesheet" href="../css/style_links.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../doc/favicon-32x32.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <style>
+        .tool-container { max-width: 900px; margin: 50px auto; padding: 0 20px; }
+        
+        .title-tools {
+            min-height: 30vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 15px; padding-top: 40px;
+        }
+        .title-tools h1 {
+            font-family: 'Soul Daisy', sans-serif; font-size: 2.5rem; overflow: hidden;
+            border-right: .15em solid orange; white-space: nowrap; margin: 0 auto; display: inline-block;
+            animation: typing 2.5s steps(20, end) forwards, blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing { 0% { width: 0; visibility: hidden; } 1% { visibility: visible; } 100% { width: 20ch; } }
+        @keyframes blink-caret { 50% { border-color: transparent; } }
+
+        .subtitle-tech { font-family: 'Courier New', Courier, monospace; color: #666; font-size: 1.1rem; margin-top: -10px; }
+
+        .intro-box {
+            background: #fff; border-left: 4px solid #2980b9; padding: 20px; border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 30px;
+        }
+        .intro-box h3 { margin-top: 0; color: #333; font-family: 'Soul Daisy', sans-serif; }
+        .intro-box p { font-size: 0.95rem; color: #555; text-align: left; }
+
+        .calc-card { background: white; border-radius: 16px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #ddd; }
+
+        .input-row { display: flex; gap: 15px; align-items: flex-end; justify-content: center; margin-bottom: 30px; }
+        
+        .input-group label { display: block; font-weight: bold; margin-bottom: 5px; color: #333; }
+        .input-group input, .input-group select {
+            padding: 12px; border: 2px solid #eee; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 1.2rem; text-align: center;
+        }
+        .input-group input { width: 200px; }
+        .input-group select { width: 100px; cursor: pointer; }
+        .input-group input:focus, .input-group select:focus { outline: none; border-color: #2980b9; }
+
+        .results-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        
+        .res-box {
+            background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #ddd;
+        }
+        .res-label { font-size: 0.8rem; color: #666; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; display: block; margin-bottom: 5px; }
+        .res-val { font-family: 'Courier New', monospace; font-size: 1.1rem; color: #333; font-weight: bold; }
+        .res-bin { display: block; font-family: 'Courier New', monospace; font-size: 0.8rem; color: #999; margin-top: 3px; }
+
+        .binary-viz {
+            margin-top: 30px; padding: 20px; background: #1e1e1e; border-radius: 12px; color: #00ff41; font-family: 'Courier New', monospace;
+        }
+        .viz-row { display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px solid #333; padding-bottom: 5px; }
+        .viz-row:last-child { border-bottom: none; margin-bottom: 0; color: orange; font-weight: bold; }
+
+        .back-nav { margin-bottom: 30px; text-align: center; }
+        .back-btn { text-decoration: none; font-weight: bold; margin-top: 10px; }
+
+        @media (max-width: 600px) { .results-grid { grid-template-columns: 1fr; } .input-row { flex-direction: column; align-items: center; } }
+    </style>
+</head>
+<body>
+
+    <div class="tool-container">
+        <div class="title-tools">
+            <h1>Subnet Calculator</h1>
+            <h3 class="subtitle-tech" data-aos="fade-down" data-aos-delay="200">./cidr_master</h3>
+
+            <a href="index.html" class="cv-button back-btn" data-aos="fade-up" data-aos-delay="300">
+                <i class="fa-solid fa-arrow-left"></i> Back to Tools
+            </a>
+        </div>
+
+        <div class="intro-box" data-aos="fade-up">
+            <h3><i class="fa-solid fa-network-wired"></i> Network Masking</h3>
+            <p>
+                Enter an IP address and a CIDR suffix (e.g., /24). 
+                <br>This tool calculates the <strong>Network Address</strong> by performing a bitwise AND between the IP and the Subnet Mask.
+            </p>
+        </div>
+
+        <div class="calc-card" data-aos="fade-up">
+            
+            <div class="input-row">
+                <div class="input-group">
+                    <label>IP Address</label>
+                    <input type="text" id="ipInput" value="192.168.1.10">
+                </div>
+                <div style="font-size: 2rem; color: #aaa;">/</div>
+                <div class="input-group">
+                    <label>CIDR</label>
+                    <select id="cidrInput">
+                        </select>
+                </div>
+            </div>
+
+            <div class="results-grid">
+                <div class="res-box" style="border-color: #2980b9;">
+                    <span class="res-label">Network Address</span>
+                    <span class="res-val" id="resNet">Loading...</span>
+                    <span class="res-bin" id="resNetBin">...</span>
+                </div>
+                <div class="res-box" style="border-color: #e74c3c;">
+                    <span class="res-label">Broadcast Address</span>
+                    <span class="res-val" id="resBroad">Loading...</span>
+                    <span class="res-bin" id="resBroadBin">...</span>
+                </div>
+                <div class="res-box">
+                    <span class="res-label">Subnet Mask</span>
+                    <span class="res-val" id="resMask">Loading...</span>
+                    <span class="res-bin" id="resMaskBin">...</span>
+                </div>
+                <div class="res-box">
+                    <span class="res-label">Host Range</span>
+                    <span class="res-val" id="resRange">Loading...</span>
+                    <span class="res-label" style="margin-top: 5px;">Total Hosts: <span id="resCount" style="color: #333;">0</span></span>
+                </div>
+            </div>
+
+            <div class="binary-viz">
+                <div class="viz-row">
+                    <span>IP Address</span>
+                    <span id="vizIP">0000...</span>
+                </div>
+                <div class="viz-row">
+                    <span>Mask (AND)</span>
+                    <span id="vizMask">1111...</span>
+                </div>
+                <div class="viz-row">
+                    <span>= Network</span>
+                    <span id="vizNet">0000...</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/cidr.js"></script>
+    <script>AOS.init();</script>
+</body>
+</html>

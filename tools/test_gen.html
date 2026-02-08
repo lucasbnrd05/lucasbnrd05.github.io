@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>42sh Tester | System Tools</title>
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_base.css">
+    <link rel="stylesheet" href="../css/style_links.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../doc/favicon-32x32.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <style>
+        .tool-container { max-width: 900px; margin: 50px auto; padding: 0 20px; }
+        
+        /* Header Animation - Barre Orange maintenue */
+        .title-tools {
+            min-height: 30vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 15px; padding-top: 40px;
+        }
+        .title-tools h1 {
+            font-family: 'Soul Daisy', sans-serif; font-size: 2.5rem; overflow: hidden;
+            border-right: .15em solid orange; white-space: nowrap; margin: 0 auto; display: inline-block;
+            animation: typing 2.5s steps(19, end) forwards, blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing { 0% { width: 0; visibility: hidden; } 1% { visibility: visible; } 100% { width: 19ch; } }
+        @keyframes blink-caret { 50% { border-color: transparent; } }
+
+        .subtitle-tech { font-family: 'Courier New', Courier, monospace; color: #666; font-size: 1.1rem; margin-top: -10px; }
+        
+        .config-card { background: white; border-radius: 16px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #ddd; }
+
+        .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-bottom: 25px; }
+        
+        .cat-option {
+            border: 2px solid #eee; border-radius: 12px; padding: 15px; cursor: pointer; transition: all 0.2s; text-align: center;
+        }
+        .cat-option:hover { border-color: #aaa; }
+        .cat-option input { display: none; }
+        .cat-option input:checked + div { color: #d35400; font-weight: bold; }
+        .cat-option input:checked + div i { color: #d35400; }
+        .cat-option.active { border-color: #d35400; background: #fff8e1; }
+
+        .cat-icon { font-size: 1.5rem; margin-bottom: 10px; color: #555; }
+        .cat-label { font-family: 'Soul Daisy', sans-serif; font-size: 1.1rem; }
+
+        .action-btn {
+            background: #333; color: white; border: none; padding: 15px 30px; border-radius: 50px;
+            font-family: 'Soul Daisy', sans-serif; font-size: 1.2rem; cursor: pointer; width: 100%;
+            transition: transform 0.2s;
+        }
+        .action-btn:hover { transform: scale(1.02); background: #444; }
+
+        .output-box { margin-top: 30px; position: relative; }
+        textarea {
+            width: 100%; height: 500px; background: #1e1e1e; color: #00ff41; font-family: 'Courier New', monospace;
+            padding: 20px; border-radius: 12px; border: none; resize: vertical; line-height: 1.4;
+        }
+        .copy-btn {
+            position: absolute; top: 15px; right: 15px; background: rgba(255,255,255,0.1); color: white;
+            border: 1px solid rgba(255,255,255,0.3); padding: 5px 10px; border-radius: 4px; cursor: pointer;
+        }
+        .back-nav { margin-bottom: 30px; text-align: center; }
+        .back-btn { text-decoration: none; font-weight: bold; margin-top: 10px; }
+
+        /* Style pour l'input number ajouté */
+        .count-wrapper { text-align: center; margin-bottom: 20px; font-family: -apple-system, sans-serif; font-weight: bold; color: #555; }
+        .count-input { padding: 8px; border-radius: 8px; border: 2px solid #eee; width: 80px; text-align: center; font-family: 'Courier New', monospace; }
+    </style>
+</head>
+<body>
+
+    <div class="tool-container">
+        <div class="title-tools">
+            <h1>42sh Test Generator</h1>
+            <h3 class="subtitle-tech" data-aos="fade-down" data-aos-delay="200">./functional_tests_suite</h3>
+            <div class="back-nav">
+                <a href="index.html" class="cv-button back-btn" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Tools
+                </a>
+            </div>
+        </div>
+
+        <div class="config-card" data-aos="fade-up">
+            <h3 style="text-align:center; font-family:'Soul Daisy', sans-serif; margin-bottom: 20px;">Select Test Category</h3>
+            
+            <div class="category-grid">
+                <label class="cat-option active" id="cat-flow">
+                    <input type="radio" name="category" value="flow" checked>
+                    <div class="cat-content">
+                        <i class="fa-solid fa-arrows-split-up-and-left cat-icon"></i>
+                        <div class="cat-label">Flow Control</div>
+                        <small>If, While, For, Case</small>
+                    </div>
+                </label>
+
+                <label class="cat-option" id="cat-redir">
+                    <input type="radio" name="category" value="redir">
+                    <div class="cat-content">
+                        <i class="fa-solid fa-right-left cat-icon"></i>
+                        <div class="cat-label">Redirections</div>
+                        <small>Pipes, FDs, >&, >|</small>
+                    </div>
+                </label>
+
+                <label class="cat-option" id="cat-builtins">
+                    <input type="radio" name="category" value="builtins">
+                    <div class="cat-content">
+                        <i class="fa-solid fa-box-open cat-icon"></i>
+                        <div class="cat-label">Builtins</div>
+                        <small>Cd, Echo, Export, Unset</small>
+                    </div>
+                </label>
+
+                <label class="cat-option" id="cat-expansion">
+                    <input type="radio" name="category" value="expansion">
+                    <div class="cat-content">
+                        <i class="fa-solid fa-expand cat-icon"></i>
+                        <div class="cat-label">Expansions</div>
+                        <small>Variables, $()</small>
+                    </div>
+                </label>
+                
+                <label class="cat-option" id="cat-torture">
+                    <input type="radio" name="category" value="torture">
+                    <div class="cat-content">
+                        <i class="fa-solid fa-skull cat-icon"></i>
+                        <div class="cat-label">Torture</div>
+                        <small>Recurse, Subshell Mix</small>
+                    </div>
+                </label>
+            </div>
+
+            <div class="count-wrapper">
+                Generate <input type="number" id="lineCount" class="count-input" value="10" min="1" max="50"> tests
+            </div>
+
+            <button class="action-btn" id="genBtn">
+                <i class="fa-solid fa-code"></i> Generate .sh Script
+            </button>
+
+            <div class="output-box">
+                <button class="copy-btn" id="copyBtn">Copy</button>
+                <textarea id="output" readonly># Select a category and generate...</textarea>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/tester.js"></script>
+    <script>AOS.init();</script>
+</body>
+</html>
