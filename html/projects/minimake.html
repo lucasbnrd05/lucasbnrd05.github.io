@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="description"
+        content="Lucas Bernardeau - Minimake Project: A C implementation of the GNU Make build automation tool.">
+    <meta name="keywords"
+        content="Lucas, Bernardeau, C, Make, Parsing, Graph Theory, Dependency Resolution, Automation">
+    <meta property="og:title" content="Lucas Bernardeau | Minimake Project" />
+    <meta property="og:description"
+        content="Recreating GNU Make: Parsing Makefiles, handling dependencies and executing commands." />
+    <meta property="og:url" content="https://lucasbnrd05.github.io/html/projects/minimake.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lucasbnrd05.github.io/doc/wallpaper.png" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <meta content="Buzzcut" name="author">
+    <meta content="© 2025 Buzzcut. All rights reserved." name="copyright">
+
+    <link rel="stylesheet" href="../../css/style_elmt.css">
+    <link rel="stylesheet" href="../../css/style_base.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../doc/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../doc/favicon-16x16.png">
+    <link rel="shortcut icon" href="../../doc/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../doc/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <title>Minimake</title>
+</head>
+
+<body>
+
+    <div class="title" id="title">
+        <h1>Minimake</h1>
+        <h3>Build Automation Tool</h3>
+        <div class="top-polaroide">
+            <div class="polaroide-left">
+                <div class="polaroid first">
+                    <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWpobnFuZWJ0a2p2Z2hxcmlwMWVwb2h6NDQ1bnluODlld2V5dXpsMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/OQAgGSYebvFeqzjwPf/giphy.gif" alt="Gears GIF">
+                    <p>Dependency</p>
+                </div>
+            </div>
+            <div class="polaroide-right">
+                <div class="polaroid second">
+                    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzc2eG9jN3UxMnkxM20zYThxOTc1anFqN2dtbWk3eTllZTEzZHAwbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Mah9dFWo1WZX0WM62Q/giphy.gif" alt="Console Logs GIF">
+                    <p>Process Execution</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="presentation_elmt">
+        <h2 data-aos="fade-up">Project Overview</h2>
+        <p data-aos="fade-up">
+            <strong>Minimake</strong> is a simplified but fully functional version of the iconic UNIX tool <code>GNU Make</code>. 
+            The objective was to interpret a <code>Makefile</code>, construct a dependency graph, and execute the necessary commands to build a target.
+            <br>
+            <em>Grade achieved: 90% (Excellent handling of recursion and parsing logic).</em>
+        </p>
+
+        <div class="illustation">
+            <div class="top" data-aos="fade-up">
+                <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcm81YjJnY2t4d3o5OGw0eXZzeWpueGozYmF6YWk0bzY1d3VzYW5zOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/j5oP7zSilio3SewxAA/giphy.gif" 
+                     alt="Coding Compilation GIF" class="one">
+            </div>
+        </div>
+
+        <h2 data-aos="fade-up">Technical Challenges</h2>
+        <p data-aos="fade-up">
+            The heart of Minimake lies in its ability to determine <em>what</em> needs to be rebuilt and <em>when</em>. This involved:
+        </p>
+        <ul data-aos="fade-up">
+            <li><strong>DAG Resolution:</strong> Dependencies form a Directed Acyclic Graph. I implemented a recursive algorithm to traverse the tree and build prerequisites first.</li>
+            <li><strong>Timestamp Logic:</strong> Using system calls (<code>stat</code>) to compare modification times between targets and dependencies, ensuring optimal builds (only rebuilding outdated files).</li>
+            <li><strong>Parsing Engine:</strong> Reading Makefiles line by line, identifying rules, variable assignments (recursive and simple expansion), and comments.</li>
+        </ul>
+
+        <div class="illustation">
+            <div class="left" data-aos="fade-up">
+                <img src="https://media.giphy.com/media/26n6WywJyh39n1pBu/giphy.gif" alt="Blueprint GIF">
+            </div>
+            <div class="right" data-aos="fade-up">
+                <img src="https://media.giphy.com/media/3oKIPEqDGUULpEU0aQ/giphy.gif" alt="Terminal processing">
+            </div>
+        </div>
+
+        <h2 data-aos="fade-up">Implemented Features</h2>
+        <table class="project-table" data-aos="fade-up">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Implementation Detail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Variables</strong></td>
+                    <td>Support for variable expansion (<code>$(VAR)</code>) and environment variables lookup.</td>
+                </tr>
+                <tr>
+                    <td><strong>Rules & Recipes</strong></td>
+                    <td>Execution of shell commands using <code>fork</code> and <code>exec</code>, handling return codes to stop execution on error.</td>
+                </tr>
+                <tr>
+                    <td><strong>Advanced Rules</strong></td>
+                    <td>Support for <strong>Phony targets</strong> (<code>.PHONY</code>) and <strong>Pattern rules</strong> (e.g., <code>%.o: %.c</code>) using wildcard matching.</td>
+                </tr>
+                <tr>
+                    <td><strong>Logic</strong></td>
+                    <td>Handling "Up to date" and "Nothing to be done" states correctly to avoid redundant compilations.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 data-aos="fade-up">Conclusion</h2>
+        <p data-aos="fade-up">
+            Scoring 90% on this project validated my understanding of graph theory applied to system programming. 
+            Minimake is now capable of building its own project, a "self-hosting" capability that demonstrates its robustness.
+        </p>
+    </div>
+
+    <footer class="footer" id="footer" data-aos="flip-up">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>Lucas Bernardeau</h2>
+            </div>
+            <div class="footer-links">
+                <a href="../index.html#presentation">Home</a>
+                <a href="../index.html#about">About</a>
+                <a href="../projects.html">Projects</a>
+                <a href="../experiences.html">Experiences</a>
+                <a href="../qualifications.html">Qualifications</a>
+                <a href="../links/alllinks.html">Contact</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/lucas-bernardeau/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:contact@lucasbernardeau.fr"><i class="fa-regular fa-envelope"></i></a>
+                <a href="https://github.com/lucasbnrd05"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Buzzcut. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/script.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+</html>

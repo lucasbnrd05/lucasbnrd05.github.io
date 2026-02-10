@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="description"
+        content="Lucas Bernardeau - Malloc Project: A thread-safe dynamic memory allocator implementation in C.">
+    <meta name="keywords"
+        content="Lucas, Bernardeau, C, Malloc, Memory Management, System Programming, Thread Safety, Optimization, MMAP">
+    <meta property="og:title" content="Lucas Bernardeau | Malloc Project" />
+    <meta property="og:description"
+        content="Implementation of a high-performance, thread-safe memory allocator (malloc/free/realloc)." />
+    <meta property="og:url" content="https://lucasbnrd05.github.io/html/projects/malloc.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lucasbnrd05.github.io/doc/wallpaper.png" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <meta content="Buzzcut" name="author">
+    <meta content="© 2025 Buzzcut. All rights reserved." name="copyright">
+
+    <link rel="stylesheet" href="../../css/style_elmt.css">
+    <link rel="stylesheet" href="../../css/style_base.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../doc/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../doc/favicon-16x16.png">
+    <link rel="shortcut icon" href="../../doc/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../doc/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <title>Malloc Allocator</title>
+</head>
+
+<body>
+
+    <div class="title" id="title">
+        <h1>Malloc</h1>
+        <h3>Dynamic Memory Allocator</h3>
+        <div class="top-polaroide">
+            <div class="polaroide-left">
+                <div class="polaroid first">
+                    <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGVjcWk4MmNwY3A2YWJqeGQ4dDRraDRrbzRkZWV6bWI2b2Y0bzNqeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cVIbD5Pe0WwuSYHUhk/giphy.gif" alt="Chipset GIF">
+                    <p>Low-Level Memory</p>
+                </div>
+            </div>
+            <div class="polaroide-right">
+                <div class="polaroid second">
+                    <img src="https://media.giphy.com/media/l41lZxzroU33typuU/giphy.gif" alt="Data Flow GIF">
+                    <p>Thread Safe</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="presentation_elmt">
+        <h2 data-aos="fade-up">Project Overview</h2>
+        <p data-aos="fade-up">
+            <strong>Malloc</strong> is widely considered one of the most challenging system projects. The goal is to rewrite the standard C library memory management functions 
+            (<code>malloc</code>, <code>free</code>, <code>calloc</code>, <code>realloc</code>) to create a shared library capable of replacing the system's default allocator.
+            <br>
+            <em>Grade achieved: 97% (Near-perfect implementation including advanced optimizations).</em>
+        </p>
+
+        <div class="illustation">
+            <div class="top" data-aos="fade-up">
+                <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2NqYzJ3MGQ1cnB5OXh0MW5oODk5d24wcGlnOHVkY3V4dHZ4dWNvMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NkqPCNAvMp50lZrBec/giphy.gif" 
+                     alt="RAM Memory Concept GIF" class="one">
+            </div>
+        </div>
+
+        <h2 data-aos="fade-up">Technical Deep Dive</h2>
+        <p data-aos="fade-up">
+            This project required a mastery of pointer arithmetic, memory alignment, and system calls. Instead of using <code>sbrk</code> (deprecated), 
+            I utilized <strong><code>mmap</code></strong> to request pages directly from the kernel.
+        </p>
+
+        <h3 data-aos="fade-up">Memory Block Management</h3>
+        <p data-aos="fade-up">
+            Memory is managed via a linked list of metadata headers embedded directly within the allocated pages. 
+            I implemented block splitting and coalescing (merging adjacent free blocks) to minimize <strong>fragmentation</strong> and reduce memory footprint.
+        </p>
+
+        <div class="illustation">
+            <div class="left" data-aos="fade-up">
+                <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3Yzd25yOHQ1cmx6ZW92ZG0yeWRmc2pzcTcyNDg0aWU2M25sbHp3cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JQKoW7z29IDhm/giphy.gif" alt="Binary Data">
+            </div>
+            <div class="right" data-aos="fade-up">
+                <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmQxYWMyZzBkcnBuaWhobXlmMnA2aXlibHpzbjBsbjg1dndheXI3ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l41JZrjczJQvsPcBi/giphy.gif" alt="Optimization">
+            </div>
+        </div>
+
+        <h2 data-aos="fade-up">Performance & Features</h2>
+        <table class="project-table" data-aos="fade-up">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Implementation Detail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Allocation Strategy</strong></td>
+                    <td>Implementation of "Best-Fit" or "First-Fit" algorithms to speed up block finding while keeping memory usage low.</td>
+                </tr>
+                <tr>
+                    <td><strong>Realloc Optimization</strong></td>
+                    <td>Smart <code>realloc</code> that extends the current block if space allows, avoiding expensive memory copies (`memcpy`) when possible.</td>
+                </tr>
+                <tr>
+                    <td><strong>Alignment</strong></td>
+                    <td>Strict memory alignment (on long double boundaries) to prevent bus errors and ensure CPU efficiency.</td>
+                </tr>
+                <tr>
+                    <td><strong>Robustness</strong></td>
+                    <td>Ability to run complex real-world software (like <code>ls</code>, <code>vim</code>, or <code>gcc</code>) by preloading the library (<code>LD_PRELOAD</code>).</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 data-aos="fade-up">Conclusion</h2>
+        <p data-aos="fade-up">
+            This project was a definitive exercise in system optimization. achieving 97% required not just code that works, 
+            but code that is fast, efficient, and proofed against concurrency issues.
+        </p>
+    </div>
+
+    <footer class="footer" id="footer" data-aos="flip-up">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>Lucas Bernardeau</h2>
+            </div>
+            <div class="footer-links">
+                <a href="../index.html#presentation">Home</a>
+                <a href="../index.html#about">About</a>
+                <a href="../projects.html">Projects</a>
+                <a href="../experiences.html">Experiences</a>
+                <a href="../qualifications.html">Qualifications</a>
+                <a href="../links/alllinks.html">Contact</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/lucas-bernardeau/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:contact@lucasbernardeau.fr"><i class="fa-regular fa-envelope"></i></a>
+                <a href="https://github.com/lucasbnrd05"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Buzzcut. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/script.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+</html>

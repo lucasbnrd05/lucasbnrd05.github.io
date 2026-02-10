@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="description"
+        content="Lucas Bernardeau - HTTPd Project: A C implementation of a lightweight HTTP/1.1 server daemon.">
+    <meta name="keywords"
+        content="Lucas, Bernardeau, C, Network Programming, HTTP, Server, Daemon, Sockets, RFC, Epita">
+    <meta property="og:title" content="Lucas Bernardeau | HTTPd Project" />
+    <meta property="og:description"
+        content="Development of a Daemonized HTTP Server in C complying with RFC 9112." />
+    <meta property="og:url" content="https://lucasbnrd05.github.io/html/projects/httpd.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lucasbnrd05.github.io/doc/wallpaper.png" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <meta content="Buzzcut" name="author">
+    <meta content="© 2025 Buzzcut. All rights reserved." name="copyright">
+
+    <link rel="stylesheet" href="../../css/style_elmt.css">
+    <link rel="stylesheet" href="../../css/style_base.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../doc/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../doc/favicon-16x16.png">
+    <link rel="shortcut icon" href="../../doc/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../doc/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <title>HTTPd Server</title>
+</head>
+
+<body>
+
+    <div class="title" id="title">
+        <h1>HTTPD</h1>
+        <h3>RFC Compliant Web Server</h3>
+        <div class="top-polaroide">
+            <div class="polaroide-left">
+                <div class="polaroid first">
+                    <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjVkcmE1cXR4M2o3eXlwOWJhaHF3anhnMnc1NW9yOHdzdWJlNG93bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8L0Pky6C83SzkzU55a/giphy.gif" alt="Server Rack GIF">
+                    <p>Network & Sockets</p>
+                </div>
+            </div>
+            <div class="polaroide-right">
+                <div class="polaroid second">
+                    <img src="https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif" alt="Daemon Process GIF">
+                    <p>Daemonization</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="presentation_elmt">
+        <h2 data-aos="fade-up">Project Overview</h2>
+        <p data-aos="fade-up">
+            <strong>HTTPd</strong> is a rigorous implementation of a web server capable of handling HTTP/1.1 requests. 
+            The goal was to understand the underlying mechanisms of the web: parsing protocols, managing connections, and running as a background system service (Daemon).
+            <br>
+            <em>Grade achieved: 77% (Successful validation of core features and stability).</em>
+        </p>
+
+        <div class="illustation">
+            <div class="top" data-aos="fade-up">
+                <img src="https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif" 
+                     alt="Data Transfer GIF" class="one">
+            </div>
+        </div>
+
+        <h2 data-aos="fade-up">Core Architecture</h2>
+        <p data-aos="fade-up">
+            The project required building a robust architecture handling the full lifecycle of a request without blocking the system.
+        </p>
+
+        <h3 data-aos="fade-up">1. Network Layer (Sockets)</h3>
+        <p data-aos="fade-up">
+            Implementation of the TCP/IP stack using C sockets (<code>socket</code>, <code>bind</code>, <code>listen</code>, <code>accept</code>). 
+            The server handles client connections and ensures data integrity during transmission.
+        </p>
+
+        <h3 data-aos="fade-up">2. HTTP Parsing (RFC 9112)</h3>
+        <p data-aos="fade-up">
+            A custom parser processes raw bytes into structured HTTP requests. It validates:
+        </p>
+        <ul data-aos="fade-up">
+            <li><strong>Request Line:</strong> Methods (GET, HEAD), URI, and HTTP Version.</li>
+            <li><strong>Headers:</strong> Parsing key-value pairs (Host, Content-Length, etc.).</li>
+            <li><strong>Body:</strong> Handling payloads for specific requests.</li>
+            <li><strong>Error Handling:</strong> Generating appropriate error codes (400 Bad Request, 404 Not Found, 505 Version Not Supported).</li>
+        </ul>
+
+        <div class="illustation">
+            <div class="left" data-aos="fade-up">
+                <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcTNzbDRobTU4anZ3czR6bXI5azliMjZlazRkcmpqbWhqZGk5NDZzcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/U4FkC2VqpeNRHjTDQ5/giphy.gif" alt="Matrix Code">
+            </div>
+            <div class="right" data-aos="fade-up">
+                <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHF2Z2hlMzVha3VjZ2JhdWY1Z2Nneno3MHAzeWZ2Yjk4YW03ZDM0ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKIPnAiaMCws8nOsE/giphy.gif" alt="Coding typing">
+            </div>
+        </div>
+
+        <h2 data-aos="fade-up">Key Features</h2>
+        <table class="project-table" data-aos="fade-up">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Daemon Mode</strong></td>
+                    <td>The server detaches from the terminal (double fork), manages PID files, and handles signals (<code>SIGINT</code>, <code>SIGTERM</code>) for graceful shutdowns.</td>
+                </tr>
+                <tr>
+                    <td><strong>Configuration</strong></td>
+                    <td>Dynamic loading of settings (Port, IP, Root Directory) via a configuration file.</td>
+                </tr>
+                <tr>
+                    <td><strong>Virtual Hosts</strong></td>
+                    <td>Basic support for vhosts to serve different content based on the requested Host header.</td>
+                </tr>
+                <tr>
+                    <td><strong>Logging</strong></td>
+                    <td>Detailed access logs allowing traffic monitoring and debugging.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 data-aos="fade-up">Conclusion</h2>
+        <p data-aos="fade-up">
+            This project provided deep insights into network programming and system calls. Handling the strict constraints of the HTTP RFC 
+            taught me precision in protocol implementation and memory management in long-running processes.
+        </p>
+    </div>
+
+    <footer class="footer" id="footer" data-aos="flip-up">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>Lucas Bernardeau</h2>
+            </div>
+            <div class="footer-links">
+                <a href="../index.html#presentation">Home</a>
+                <a href="../index.html#about">About</a>
+                <a href="../projects.html">Projects</a>
+                <a href="../experiences.html">Experiences</a>
+                <a href="../qualifications.html">Qualifications</a>
+                <a href="../links/alllinks.html">Contact</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/lucas-bernardeau/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:contact@lucasbernardeau.fr"><i class="fa-regular fa-envelope"></i></a>
+                <a href="https://github.com/lucasbnrd05"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Buzzcut. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/script.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+</html>
