@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const cc = isCpp ? "CXX" : "CC";
         const compiler = isCpp ? "g++" : "gcc";
         const ext = isCpp ? ".cpp" : ".c";
-        const std = isCpp ? "-std=c++17" : "-std=c99";
+        const std = isCpp ? "-std=c++20" : "-std=c99";
         
         // 2. Variables
         const binName = sanitize(document.getElementById('binName').value) || "httpd";
