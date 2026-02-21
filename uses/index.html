@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>My Setup & Dotfiles | Lucas Bernardeau</title>
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_base.css">
+    <link rel="stylesheet" href="../css/style_links.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../doc/favicon-32x32.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <style>
+        .setup-container { max-width: 900px; margin: 50px auto; padding: 0 20px; color: #333; }
+        
+        .title-setup {
+            min-height: 25vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 15px; padding-top: 40px;
+        }
+        .title-setup h1 {
+            font-family: 'Soul Daisy', sans-serif; font-size: 3rem; overflow: hidden;
+            border-right: .15em solid orange; white-space: nowrap; margin: 0 auto; display: inline-block;
+            animation: typing 2s steps(15, end) forwards, blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing { 0% { width: 0; visibility: hidden; } 1% { visibility: visible; } 100% { width: 13ch; } }
+        @keyframes blink-caret { 50% { border-color: transparent; } }
+
+        .subtitle-tech { font-family: 'Courier New', Courier, monospace; color: #666; font-size: 1.1rem; margin-top: -10px; }
+
+        .setup-section {
+            background: #fff; border-left: 4px solid #f39c12; padding: 25px; border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 40px;
+        }
+        .setup-section h2 { font-family: 'Soul Daisy', sans-serif; color: #2c3e50; font-size: 2rem; margin-top: 0; border-bottom: 2px dashed #eee; padding-bottom: 10px; }
+        .setup-section h3 { color: #e67e22; font-family: 'Courier New', monospace; font-size: 1.2rem; margin-top: 25px; }
+        
+        .setup-text { font-size: 1.05rem; line-height: 1.6; color: #444; }
+        
+        .code-block {
+            background: #2c3e50; color: #ecf0f1; padding: 15px; border-radius: 6px;
+            font-family: 'Courier New', monospace; font-size: 0.95rem; overflow-x: auto;
+            margin: 15px 0; border-left: 4px solid #3498db;
+        }
+        .code-comment { color: #95a5a6; }
+
+        .note-box {
+            background: #fff3e0; border: 1px solid #ffe0b2; padding: 15px; border-radius: 6px; margin: 15px 0;
+            display: flex; align-items: center; gap: 15px;
+        }
+        .note-box i { color: #f39c12; font-size: 1.5rem; }
+
+        /* Style des tableaux de configuration */
+        .config-table {
+            width: 100%; border-collapse: collapse; margin: 20px 0;
+            background: #fff; border-radius: 8px; overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04); border: 1px solid #eaeaea;
+        }
+        .config-table th, .config-table td {
+            padding: 15px; text-align: left; border-bottom: 1px solid #eaeaea;
+        }
+        .config-table th {
+            background: #f9fbfd; font-weight: 600; color: #2c3e50; width: 45%;
+        }
+        .config-table td {
+            color: #555; font-family: 'Courier New', Courier, monospace; font-size: 0.95rem;
+        }
+        .config-table tr:last-child th, .config-table tr:last-child td { border-bottom: none; }
+        
+        .badge-setting {
+            background: #2c3e50; color: #fff; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-family: sans-serif; font-size: 0.85rem;
+        }
+        .badge-orange { background: #f39c12; }
+
+        .back-nav { margin-bottom: 30px; text-align: center; }
+        .back-btn { text-decoration: none; font-weight: bold; margin-top: 10px; color: #333; transition: 0.3s; }
+        .back-btn:hover { color: #f39c12; }
+    </style>
+</head>
+<body>
+
+    <div class="setup-container">
+        <div class="title-setup">
+            <h1>/uses</h1>
+            <h3 class="subtitle-tech" data-aos="fade-down" data-aos-delay="200">cat ~/.workspace_config</h3>
+            <div class="back-nav" data-aos="fade-up" data-aos-delay="300">
+                <a href="../index.html" class="back-btn">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Home
+                </a>
+            </div>
+        </div>
+
+        <div class="setup-section" data-aos="fade-up">
+            <h2>🏫 At School: Epidots on NixOS</h2>
+            <p class="setup-text">
+                On EPITA's machines, I use <strong>Epidots</strong>, an automated and aesthetic NixOS configuration created by the student community.
+                It provides an i3wm environment, custom Vim shortcuts, and a highly optimized terminal with vital aliases for school.
+            </p>
+            
+            <h3>Quick Installation:</h3>
+            <div class="code-block">
+                <span class="code-comment"># Warning: Overwrites existing i3, vimrc, and bashrc configurations</span><br>
+                curl -L epidots.dserv.fr | sh -s
+            </div>
+            
+            <p class="setup-text">
+                <strong>My favorite aliases:</strong><br>
+                <code>afs</code> (go to the network folder), <code>makec</code> (make && make check && make clean), and <code>cfe</code> (Clang Format on the entire repo).
+            </p>
+        </div>
+
+        <div class="setup-section" data-aos="fade-up">
+            <h2>🏠 At Home: WSL & Windows Terminal</h2>
+            <p class="setup-text">
+                To code in C and manage my system projects from home, I replicate the Linux environment on Windows using <strong>WSL (Windows Subsystem for Linux)</strong>.
+            </p>
+            
+            <div class="note-box">
+                <i class="fa-solid fa-wifi"></i>
+                <div>
+                    <strong>Network Tip:</strong><br>
+                    If you try to download WSL or Ubuntu from the school's Wi-Fi, it might be blocked. Use a 4G hotspot or do it from home!
+                </div>
+            </div>
+
+            <h3>Windows Terminal Configuration</h3>
+            <p class="setup-text">
+                I use the <strong>Windows Terminal</strong> app, forcing it to open directly in Ubuntu by default. Here are my key settings:
+            </p>
+            
+            <table class="config-table">
+                <tr>
+                    <th><i class="fa-solid fa-rocket"></i> Default profile</th>
+                    <td><span class="badge-setting badge-orange">Ubuntu</span></td>
+                </tr>
+                <tr>
+                    <th><i class="fa-solid fa-terminal"></i> Default terminal application</th>
+                    <td>Windows Terminal</td>
+                </tr>
+                <tr>
+                    <th><i class="fa-solid fa-play"></i> On startup</th>
+                    <td>Open a new tab with the default profile</td>
+                </tr>
+                <tr>
+                    <th><i class="fa-solid fa-expand"></i> Launch size</th>
+                    <td>120 × 30</td>
+                </tr>
+            </table>
+
+            <table class="config-table">
+                <tr>
+                    <th><i class="fa-brands fa-linux"></i> Command line</th>
+                    <td>C:\WINDOWS\system32\wsl.exe</td>
+                </tr>
+                <tr>
+                    <th><i class="fa-solid fa-folder-open"></i> Starting directory</th>
+                    <td><span class="badge-setting">/</span></td>
+                </tr>
+                <tr>
+                    <th><i class="fa-solid fa-folder-tree"></i> Path translation</th>
+                    <td>WSL (C:\ -> /mnt/c)</td>
+                </tr>
+            </table>
+            
+            <p class="setup-text">
+                Once in the Ubuntu terminal, I manually install my basic dev environment and add packages as needed for my projects:
+            </p>
+            <div class="code-block">
+                sudo apt update<br>
+                sudo apt install gcc g++ python3 make build-essential
+            </div>
+        </div>
+
+        <div class="setup-section" data-aos="fade-up">
+            <h2>🔑 SSH Connection with the CRI</h2>
+            <p class="setup-text">
+                To push my projects to the school's forge or connect remotely, I need an SSH key. Here is how I configure it on my WSL:
+            </p>
+
+            <h3>1. Generate the ed25519 key (Recommended)</h3>
+            <div class="code-block">
+                ssh-keygen -a 100 -t ed25519
+            </div>
+
+            <h3>2. Retrieve the public key</h3>
+            <p class="setup-text">
+                The school's documentation recommends using <code>xsel</code>, but this often bugs out on WSL without a graphical server (X11). The simplest method is to print it and copy it with the mouse:
+            </p>
+            <div class="code-block">
+                cat ~/.ssh/id_ed25519.pub
+            </div>
+
+            <h3>3. Add it to the intranet</h3>
+            <p class="setup-text">
+                I then log into <strong>cri.epita.fr</strong> > My Profile > Add an SSH key, and paste the result!
+            </p>
+        </div>
+
+        <div class="setup-section" data-aos="fade-up">
+            <h2>💻 The Editor: VSCode Remote</h2>
+            <p class="setup-text">
+                To connect all this, I use <strong>Visual Studio Code</strong> on Windows, with the official <strong>WSL</strong> extension. 
+                This allows me to enjoy the smooth Windows interface while typing commands, managing my files, and compiling my C code directly in the Ubuntu subsystem.
+            </p>
+        </div>
+
+    </div>
+
+    <script>AOS.init();</script>
+</body>
+</html>
