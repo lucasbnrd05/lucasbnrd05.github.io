@@ -1,85 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>My Setup & Dotfiles | Lucas Bernardeau</title>
-    
+
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_base.css">
     <link rel="stylesheet" href="../css/style_links.css">
     <link rel="icon" type="image/png" sizes="32x32" href="../doc/favicon-32x32.png">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
     <style>
-        .setup-container { max-width: 900px; margin: 50px auto; padding: 0 20px; color: #333; }
-        
+        .setup-container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+            color: #333;
+        }
+
         .title-setup {
             min-height: 25vh;
-            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 15px; padding-top: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 15px;
+            padding-top: 40px;
         }
+
         .title-setup h1 {
-            font-family: 'Soul Daisy', sans-serif; font-size: 3rem; overflow: hidden;
-            border-right: .15em solid orange; white-space: nowrap; margin: 0 auto; display: inline-block;
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 3rem;
+            overflow: hidden;
+            border-right: .15em solid orange;
+            white-space: nowrap;
+            margin: 0 auto;
+            display: inline-block;
             animation: typing 2s steps(15, end) forwards, blink-caret 0.75s step-end infinite;
         }
-        @keyframes typing { 0% { width: 0; visibility: hidden; } 1% { visibility: visible; } 100% { width: 13ch; } }
-        @keyframes blink-caret { 50% { border-color: transparent; } }
 
-        .subtitle-tech { font-family: 'Courier New', Courier, monospace; color: #666; font-size: 1.1rem; margin-top: -10px; }
+        @keyframes typing {
+            0% {
+                width: 0;
+                visibility: hidden;
+            }
+
+            1% {
+                visibility: visible;
+            }
+
+            100% {
+                width: 13ch;
+            }
+        }
+
+        @keyframes blink-caret {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        .subtitle-tech {
+            font-family: 'Courier New', Courier, monospace;
+            color: #666;
+            font-size: 1.1rem;
+            margin-top: -10px;
+        }
 
         .setup-section {
-            background: #fff; border-left: 4px solid #f39c12; padding: 25px; border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 40px;
+            background: #fff;
+            border-left: 4px solid #f39c12;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
         }
-        .setup-section h2 { font-family: 'Soul Daisy', sans-serif; color: #2c3e50; font-size: 2rem; margin-top: 0; border-bottom: 2px dashed #eee; padding-bottom: 10px; }
-        .setup-section h3 { color: #e67e22; font-family: 'Courier New', monospace; font-size: 1.2rem; margin-top: 25px; }
-        
-        .setup-text { font-size: 1.05rem; line-height: 1.6; color: #444; }
-        
+
+        .setup-section h2 {
+            font-family: 'Soul Daisy', sans-serif;
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-top: 0;
+            border-bottom: 2px dashed #eee;
+            padding-bottom: 10px;
+        }
+
+        .setup-section h3 {
+            color: #e67e22;
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            margin-top: 25px;
+        }
+
+        .setup-text {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #444;
+        }
+
         .code-block {
-            background: #2c3e50; color: #ecf0f1; padding: 15px; border-radius: 6px;
-            font-family: 'Courier New', monospace; font-size: 0.95rem; overflow-x: auto;
-            margin: 15px 0; border-left: 4px solid #3498db;
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 10px 0 20px 0;
+            border-left: 4px solid #3498db;
+            white-space: pre;
+            tab-size: 4;
+            /* Fix: force les tabulations à 4 espaces au lieu de 8 par défaut */
         }
-        .code-comment { color: #95a5a6; }
+
+        .code-comment {
+            color: #95a5a6;
+        }
+
+        .code-scroll {
+            max-height: 350px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+        }
+
+        .code-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .code-scroll::-webkit-scrollbar-thumb {
+            background-color: #7f8c8d;
+            border-radius: 4px;
+        }
+
+        .file-label {
+            display: inline-block;
+            background: #eee;
+            padding: 4px 10px;
+            border-radius: 4px 4px 0 0;
+            font-family: monospace;
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: -10px;
+            position: relative;
+            z-index: 1;
+        }
 
         .note-box {
-            background: #fff3e0; border: 1px solid #ffe0b2; padding: 15px; border-radius: 6px; margin: 15px 0;
-            display: flex; align-items: center; gap: 15px;
+            background: #fff3e0;
+            border: 1px solid #ffe0b2;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
-        .note-box i { color: #f39c12; font-size: 1.5rem; }
 
-        /* Style des tableaux de configuration */
+        .note-box i {
+            color: #f39c12;
+            font-size: 1.5rem;
+        }
+
         .config-table {
-            width: 100%; border-collapse: collapse; margin: 20px 0;
-            background: #fff; border-radius: 8px; overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04); border: 1px solid #eaeaea;
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border: 1px solid #eaeaea;
         }
-        .config-table th, .config-table td {
-            padding: 15px; text-align: left; border-bottom: 1px solid #eaeaea;
-        }
-        .config-table th {
-            background: #f9fbfd; font-weight: 600; color: #2c3e50; width: 45%;
-        }
-        .config-table td {
-            color: #555; font-family: 'Courier New', Courier, monospace; font-size: 0.95rem;
-        }
-        .config-table tr:last-child th, .config-table tr:last-child td { border-bottom: none; }
-        
-        .badge-setting {
-            background: #2c3e50; color: #fff; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-family: sans-serif; font-size: 0.85rem;
-        }
-        .badge-orange { background: #f39c12; }
 
-        .back-nav { margin-bottom: 30px; text-align: center; }
-        .back-btn { text-decoration: none; font-weight: bold; margin-top: 10px; color: #333; transition: 0.3s; }
-        .back-btn:hover { color: #f39c12; }
+        .config-table th,
+        .config-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .config-table th {
+            background: #f9fbfd;
+            font-weight: 600;
+            color: #2c3e50;
+            width: 45%;
+        }
+
+        .config-table td {
+            color: #555;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+        }
+
+        .config-table tr:last-child th,
+        .config-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .badge-setting {
+            background: #2c3e50;
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-family: sans-serif;
+            font-size: 0.85rem;
+        }
+
+        .badge-orange {
+            background: #f39c12;
+        }
+
+        .back-nav {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #333;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            color: #f39c12;
+        }
     </style>
 </head>
+
 <body>
 
     <div class="setup-container">
@@ -94,54 +251,288 @@
         </div>
 
         <div class="setup-section" data-aos="fade-up">
-            <h2>🏫 At School: Epidots on NixOS</h2>
+            <h2>🏫 At School: Custom Dotfiles</h2>
             <p class="setup-text">
-                On EPITA's machines, I use <strong>Epidots</strong>, an automated and aesthetic NixOS configuration created by the student community.
-                It provides an i3wm environment, custom Vim shortcuts, and a highly optimized terminal with vital aliases for school.
+                Instead of using the standard automated configurations, I maintain my own set of dotfiles for EPITA's
+                machines.
+                This allows me to have total control over my workflow, window management, and editor shortcuts.
             </p>
-            
-            <h3>Quick Installation:</h3>
-            <div class="code-block">
-                <span class="code-comment"># Warning: Overwrites existing i3, vimrc, and bashrc configurations</span><br>
-                curl -L epidots.dserv.fr | sh -s
+
+            <h3><i class="fa-solid fa-terminal"></i> Bash Environment</h3>
+            <p class="setup-text">
+                My <code>.bashrc</code> includes path definitions for EPITA's AFS, PostgreSQL environments for my
+                projects, and a custom <code>push</code> function to automate git commits securely.
+            </p>
+            <span class="file-label">~/.bashrc</span>
+            <div class="code-block code-scroll">
+                # If not running interactively, don't do anything
+                [[ $- != *i* ]] &amp;&amp; return
+
+                if [ -d ~/afs/bin ] ; then
+                export PATH=~/afs/bin:$PATH
+                fi
+
+                if [ -d ~/.local/bin ] ; then
+                export PATH=~/.local/bin:$PATH
+                fi
+
+                export LANG=en_US.utf8
+                export NNTPSERVER="news.epita.fr"
+
+                export EDITOR=vim
+
+                alias ls='ls --color=auto'
+                alias grep='grep --color -n'
+                PS1='[\u@\h \W]\$ '
+
+                function push() {
+                # Trouver la racine du dépôt Git
+                repo_root=$(git rev-parse --show-toplevel 2&gt;/dev/null)
+
+                if [ $? -ne 0 ]; then
+                echo "Erreur : ce répertoire ou ses parents ne sont pas un dépôt Git."
+                return 1
+                fi
+
+                # Vérifie si un message de commit a été fourni
+                if [ -z "$1" ]; then
+                echo "Erreur : veuillez fournir un message de commit."
+                return 1
+                fi
+
+                # Aller à la racine du dépôt pour garantir un bon fonctionnement
+                cd "$repo_root" || return
+
+                # Exécute les commandes Git
+                git add .
+                git commit -m "$*"
+                git push
+                }
+
+                export PGDATA="$HOME/postgres_data"
+                export PGHOST="/tmp"
+                export PGPORT="5432"
             </div>
-            
+
+            <h3><i class="fa-solid fa-code"></i> The Editor: Vim</h3>
             <p class="setup-text">
-                <strong>My favorite aliases:</strong><br>
-                <code>afs</code> (go to the network folder), <code>makec</code> (make && make check && make clean), and <code>cfe</code> (Clang Format on the entire repo).
+                Strict EPITA norm compliancy (80 columns, 4-space indent) managed via Vundle. I also use a script to
+                automatically load project-specific git settings for Vim syntax.
             </p>
+            <span class="file-label">~/.vimrc</span>
+            <div class="code-block code-scroll">
+                " set the runtime path to include Vundle and initialize
+                set rtp+=~/.vim/bundle/Vundle.vim
+                call vundle#begin()
+
+                " let Vundle manage Vundle, required
+                Plugin 'VundleVim/Vundle.vim'
+                Plugin 'tpope/vim-sensible'
+
+                call vundle#end() " required
+                filetype plugin indent on " required
+
+                runtime! plugin/sensible.vim
+
+                set encoding=utf-8 fileencodings=
+                syntax on
+
+                set number
+                set cc=80
+
+                autocmd Filetype make setlocal noexpandtab
+                set list listchars=tab:»·,trail:·
+
+                " per .git vim configs
+                let git_settings = system("git config --get vim.settings")
+                if strlen(git_settings)
+                exe "set" git_settings
+                endif
+
+                set tabstop=4
+                set expandtab
+                set shiftwidth=4
+                set smartindent
+                set textwidth=80
+            </div>
+
+            <h3><i class="fa-solid fa-window-restore"></i> Window Manager: i3wm</h3>
+            <p class="setup-text">
+                I split my i3 configuration into modular files (Main, Start, and Colors) for better maintainability. It
+                pre-assigns my favorite apps (Firefox, Alacritty, Discord) to specific workspaces.
+            </p>
+
+            <span class="file-label">~/.config/i3/startConfig</span>
+            <div class="code-block code-scroll">
+                # Workspaces names and numbers
+                set $ws1 "1:Firefox"
+                set $ws2 "2:Terminal"
+                set $ws3 "3:Discord"
+                set $ws4 "4:Dev"
+                set $ws5 "5:V"
+                set $ws6 "6:VI"
+                set $ws7 "7:VII"
+                set $ws8 "8:VIII"
+                set $ws9 "9:IX"
+                set $ws10 "10:X"
+
+                # Run apps when starting i3
+                exec --no-startup-id i3-msg 'exec firefox; exec i3-sensible-terminal; exec discord'
+
+                # Allocate apps to workspace
+                for_window [class="firefox"] move to workspace $ws1
+                for_window [class="Alacritty"] move to workspace $ws2
+                for_window [class="URxvt"] move to worspace $ws2
+                for_window [class="discord"] move to workspace $ws3
+
+                # Setup background
+                exec feh --bg-scale ~/afs/wallpaper.png
+            </div>
+
+            <span class="file-label">~/.config/i3/coloursConfig</span>
+            <div class="code-block code-scroll">
+                bar {
+                status_command i3status
+                mode hide
+                hidden_state hide
+                modifier $mod
+                strip_workspace_numbers yes
+                colors {
+                background #00003080
+                statusline #ffffff80
+                separator #66666680
+                focused_workspace #00003080 #8080ff80 #000030
+                inactive_workspace #00003080 #00003080 #8080ff
+                }
+                }
+
+                hide_edge_borders both
+
+                # class border backgr. text indicator child_border
+                client.focused #8080ff80 #8080ff80 #000030 #2e9ef480 #8080ff80
+                client.focused_inactive #00003080 #00003080 #8080ff #484e5080 #00003080
+                client.unfocused #00003080 #00003080 #8080ff #292d2e80 #00003080
+            </div>
+
+            <span class="file-label">~/.config/i3/config</span>
+            <div class="code-block code-scroll">
+                # File usings
+                include ~/.config/i3/coloursConfig
+                include ~/.config/i3/startConfig
+
+                set $mod Mod4
+
+                font pango:DejaVu Sans Bold Mono 8
+
+                exec --no-startup-id dex --autostart --environment i3
+                exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+                exec --no-startup-id nm-applet
+
+                set $refresh_i3status killall -SIGUSR1 i3status
+                bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% &amp;&amp;
+                $refresh_i3status
+                bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% &amp;&amp;
+                $refresh_i3status
+                bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle &amp;&amp;
+                $refresh_i3status
+                bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle &amp;&amp;
+                $refresh_i3status
+
+                floating_modifier $mod
+                tiling_drag modifier titlebar
+
+                bindsym $mod+Return exec i3-sensible-terminal
+                bindsym $mod+Shift+Q kill
+                bindsym $mod+d exec --no-startup-id dmenu_run
+
+                # change focus
+                bindsym $mod+j focus left
+                bindsym $mod+k focus down
+                bindsym $mod+l focus up
+                bindsym $mod+semicolon focus right
+
+                bindsym $mod+Shift+j move left
+                bindsym $mod+Shift+k move down
+                bindsym $mod+Shift+l move up
+                bindsym $mod+Shift+colon move right
+
+                bindsym $mod+h split h
+                bindsym $mod+v split v
+                bindsym $mod+f fullscreen toggle
+                bindsym $mod+s layout stacking
+                bindsym $mod+w layout tabbed
+                bindsym $mod+e layout toggle split
+                bindsym $mod+Shift+space floating toggle
+                bindsym $mod+space focus mode_toggle
+                bindsym $mod+a focus parent
+
+                bindsym $mod+1 workspace number $ws1
+                bindsym $mod+2 workspace number $ws2
+                bindsym $mod+3 workspace number $ws3
+                bindsym $mod+4 workspace number $ws4
+                bindsym $mod+5 workspace number $ws5
+
+                bindsym $mod+Shift+1 move container to workspace number $ws1
+                bindsym $mod+Shift+2 move container to workspace number $ws2
+                bindsym $mod+Shift+3 move container to workspace number $ws3
+
+                bindsym $mod+Shift+c reload
+                bindsym $mod+Shift+r restart
+                bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -B 'Yes, exit i3'
+                'i3-msg exit'"
+                bindsym $mod+Shift+i exec i3lock -i ~/afs/wallpaper.png -e -f
+
+                bindsym $mod+Shift+f exec firefox
+                bindsym $mod+Shift+d exec discord
+
+                mode "resize" {
+                bindsym j resize shrink width 10 px or 10 ppt
+                bindsym k resize grow height 10 px or 10 ppt
+                bindsym l resize shrink height 10 px or 10 ppt
+                bindsym semicolon resize grow width 10 px or 10 ppt
+
+                bindsym Return mode "default"
+                bindsym Escape mode "default"
+                bindsym $mod+r mode "default"
+                }
+            </div>
         </div>
 
         <div class="setup-section" data-aos="fade-up">
             <h2>🏠 At Home: WSL & Windows Terminal</h2>
             <p class="setup-text">
-                To code in C and manage my system projects from home, I replicate the Linux environment on Windows using <strong>WSL (Windows Subsystem for Linux)</strong>.
+                To code in C and manage my system projects from home, I replicate the Linux environment on Windows using
+                <strong>WSL (Windows Subsystem for Linux)</strong>.
             </p>
-            
+
             <div class="note-box">
                 <i class="fa-solid fa-wifi"></i>
                 <div>
                     <strong>Network Tip:</strong><br>
-                    If you try to download WSL or Ubuntu from the school's Wi-Fi, it might be blocked. Use a 4G hotspot or do it from home!
+                    If you try to download WSL or Ubuntu from the school's Wi-Fi, it might be blocked. Use a 4G hotspot
+                    or do it from home!
                 </div>
             </div>
 
             <h3>1. WSL Installation</h3>
             <p class="setup-text">
-                First, open <strong>PowerShell</strong> as an Administrator. Then, execute the following command to download and install WSL (Ubuntu is installed by default):
+                First, open <strong>PowerShell</strong> as an Administrator. Then, execute the following command to
+                download and install WSL:
             </p>
             <div class="code-block">
                 wsl --install
             </div>
             <p class="setup-text">
-                Once the installation is complete, <strong>reboot your computer</strong>. After restarting, a terminal will open automatically prompting you to create your UNIX username and password.
+                Once the installation is complete, <strong>reboot your computer</strong>. After restarting, a terminal
+                will open automatically prompting you to create your UNIX username and password.
             </p>
 
             <h3>2. Windows Terminal Configuration</h3>
             <p class="setup-text">
-                I use the <strong>Windows Terminal</strong> app, forcing it to open directly in Ubuntu by default. Here are my key settings:
+                I use the <strong>Windows Terminal</strong> app, forcing it to open directly in Ubuntu by default. Here
+                are my key settings:
             </p>
-            
+
             <table class="config-table">
                 <tr>
                     <th><i class="fa-solid fa-rocket"></i> Default profile</th>
@@ -172,15 +563,16 @@
                 </tr>
                 <tr>
                     <th><i class="fa-solid fa-folder-tree"></i> Path translation</th>
-                    <td>WSL (C:\ -> /mnt/c)</td>
+                    <td>WSL (C:\ -&gt; /mnt/c)</td>
                 </tr>
             </table>
-            
+
             <p class="setup-text">
-                Once in the Ubuntu terminal, I manually install my basic dev environment and add packages as needed for my projects:
+                Once in the Ubuntu terminal, I manually install my basic dev environment and add packages as needed for
+                my projects:
             </p>
             <div class="code-block">
-                sudo apt update<br>
+                sudo apt update
                 sudo apt install gcc g++ python3 make build-essential
             </div>
         </div>
@@ -188,7 +580,8 @@
         <div class="setup-section" data-aos="fade-up">
             <h2>🔑 SSH Connection with the CRI</h2>
             <p class="setup-text">
-                To push my projects to the school's forge or connect remotely, I need an SSH key. Here is how I configure it on my WSL:
+                To push my projects to the school's forge or connect remotely, I need an SSH key. Here is how I
+                configure it on my WSL:
             </p>
 
             <h3>1. Generate the ed25519 key (Recommended)</h3>
@@ -198,7 +591,8 @@
 
             <h3>2. Retrieve the public key</h3>
             <p class="setup-text">
-                The school's documentation recommends using <code>xsel</code>, but this often bugs out on WSL without a graphical server (X11). The simplest method is to print it and copy it with the mouse:
+                The school's documentation recommends using <code>xsel</code>, but this often bugs out on WSL without a
+                graphical server (X11). The simplest method is to print it and copy it with the mouse:
             </p>
             <div class="code-block">
                 cat ~/.ssh/id_ed25519.pub
@@ -206,20 +600,77 @@
 
             <h3>3. Add it to the intranet</h3>
             <p class="setup-text">
-                I then log into <strong>cri.epita.fr</strong> > My Profile > Add an SSH key, and paste the result!
+                I then log into <strong>cri.epita.fr</strong> &gt; My Profile &gt; Add an SSH key, and paste the result!
             </p>
         </div>
 
         <div class="setup-section" data-aos="fade-up">
             <h2>💻 The Editor: VSCode Remote</h2>
             <p class="setup-text">
-                To connect all this, I use <strong>Visual Studio Code</strong> on Windows, with the official <strong>WSL</strong> extension. 
-                This allows me to enjoy the smooth Windows interface while typing commands, managing my files, and compiling my C code directly in the Ubuntu subsystem.
+                To connect all this, I use <strong>Visual Studio Code</strong> on Windows, with the official
+                <strong>WSL</strong> extension.
+                This allows me to enjoy the smooth Windows interface while typing commands, managing my files, and
+                compiling my C code directly in the Ubuntu subsystem.
+            </p>
+        </div>
+
+        <div class="setup-section" data-aos="fade-up">
+            <h2>🚀 Alternative: Epidots on NixOS</h2>
+            <p class="setup-text">
+                If you prefer an "out-of-the-box" solution for EPITA's machines instead of maintaining custom dotfiles,
+                you can use <strong>Epidots</strong>. It's an automated and aesthetic NixOS configuration created by the
+                student community.
+                It provides a pre-configured i3wm environment, custom Vim shortcuts, and a highly optimized terminal.
+            </p>
+
+            <h3>Quick Installation:</h3>
+            <div class="code-block">
+                <span class="code-comment"># Warning: Overwrites existing i3, vimrc, and bashrc configurations</span>
+                curl -L epidots.dserv.fr | sh -s
+            </div>
+
+            <p class="setup-text">
+                <strong>My favorite included aliases:</strong><br>
+                <code>afs</code> (go to the network folder), <code>makec</code> (make &amp;&amp; make check &amp;&amp;
+                make clean), and <code>cfe</code> (Clang Format on the entire repo).
             </p>
         </div>
 
     </div>
 
-    <script>AOS.init();</script>
+    <script>
+        AOS.init();
+
+        // 🛠️ SCRIPT MAGIQUE : Nettoie l'indentation HTML dans les blocs de code
+        document.querySelectorAll('.code-block').forEach(function (block) {
+            let html = block.innerHTML;
+
+            // 1. Nettoyer les sauts de ligne vides au début et à la fin ajoutés par l'éditeur
+            html = html.replace(/^\s*[\r\n]/, '').replace(/[\r\n]\s*$/, '');
+
+            // 2. Calculer l'indentation minimale (celle ajoutée par ton formateur VSCode)
+            let lines = html.split('\n');
+            let minIndent = null;
+
+            lines.forEach(function (line) {
+                if (line.trim().length > 0) {
+                    let match = line.match(/^[ \t]+/);
+                    let indent = match ? match[0].length : 0;
+                    if (minIndent === null || indent < minIndent) {
+                        minIndent = indent;
+                    }
+                }
+            });
+
+            // 3. Retirer exactement cette indentation de toutes les lignes pour recaler le texte à gauche
+            if (minIndent !== null && minIndent > 0) {
+                let regex = new RegExp('^[ \\t]{' + minIndent + '}', 'gm');
+                html = html.replace(regex, '');
+            }
+
+            block.innerHTML = html;
+        });
+    </script>
 </body>
+
 </html>

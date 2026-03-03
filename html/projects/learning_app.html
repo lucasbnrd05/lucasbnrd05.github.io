@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="description"
+        content="Lucas Bernardeau - Buzzcut Learning: An offline-first spaced repetition Progressive Web App.">
+    <meta name="keywords"
+        content="Lucas, Bernardeau, PWA, Vanilla JS, Spaced Repetition, Leitner, Web Development, Algorithms">
+    <meta property="og:title" content="Lucas Bernardeau | Buzzcut Learning" />
+    <meta property="og:description"
+        content="Development of a Spaced Repetition PWA for learning languages and code." />
+    <meta property="og:url" content="https://lucasbnrd05.github.io/html/projects/learning_app.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lucasbnrd05.github.io/doc/wallpaper.png" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <meta content="Buzzcut" name="author">
+    <meta content="© 2025 Buzzcut. All rights reserved." name="copyright">
+
+    <link rel="stylesheet" href="../../css/style_elmt.css">
+    <link rel="stylesheet" href="../../css/style_base.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../doc/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../doc/favicon-16x16.png">
+    <link rel="shortcut icon" href="../../doc/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../doc/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../doc/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="../../doc/android-chrome-512x512.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <title>Buzzcut Learning Project</title>
+</head>
+
+<body>
+
+    <div class="title" id="title">
+        <h1>Learning</h1>
+        <div class="top-polaroide">
+            <div class="polaroide-left">
+                <div class="polaroid first">
+                    <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjVkcmE1cXR4M2o3eXlwOWJhaHF3anhnMnc1NW9yOHdzdWJlNG93bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8L0Pky6C83SzkzU55a/giphy.gif" alt="Brain Server GIF">
+                    <p>Spaced Repetition</p>
+                </div>
+            </div>
+            <div class="polaroide-right">
+                <div class="polaroid second">
+                    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3pxOTJoMDE1NGt3Z2VzenpjcDQyd3g5aHYzc280Y2IydW52dWd4cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26tn33aiTi1jkl6H6/giphy.gif" alt="Mobile Phone GIF">
+                    <p>PWA</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="presentation_elmt">
+        <h2 data-aos="fade-up">The Project</h2>
+        <p data-aos="fade-up">
+            I couldn't find the perfect app to learn vocabulary and programming concepts effectively without hitting a paywall or dealing with bloated interfaces. So, I decided to build my own. 
+            <strong>Buzzcut Learning</strong> is a custom Progressive Web App (PWA) based on the <strong>Leitner System</strong>, designed to run entirely offline on any device.
+        </p>
+
+        <div style="text-align: center; margin: 2rem 0;" data-aos="fade-up">
+            <a href="https://learning.lucasbernardeau.fr" target="_blank" rel="noopener noreferrer" class="btn-project" style="display: inline-block; padding: 12px 25px; background-color: #f39c12; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+                Visit the Live App <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+            </a>
+            <a href="https://github.com/lucasbnrd05/learning-app" target="_blank" rel="noopener noreferrer" class="btn-project" style="display: inline-block; padding: 12px 25px; background-color: #2c3e50; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; margin-left: 10px;">
+                <i class="fa-brands fa-github" style="margin-right: 8px;"></i> Source Code
+            </a>
+        </div>
+
+        <div class="illustation">
+            <div class="top" data-aos="fade-up">
+                <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExazY3ODllNHNyOTNjY213dGowd3ltMWlqb3RhcXY4d3UxdWo5dzJyYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MZEIaQ799hT1VXMqz8/giphy.gif" 
+                     alt="Coding GIF" class="one">
+            </div>
+        </div>
+
+        <h2 data-aos="fade-up">The Leitner Algorithm</h2>
+        <p data-aos="fade-up">
+            At the core of the app is a time-based spaced repetition algorithm. Cards are scheduled based on retention success. 
+            When you answer correctly, the card moves to the next "box" and its next review date is delayed (0 days, 1 day, 3 days, 1 week, 2 weeks). 
+            If you fail, the card immediately resets to Box 1 to be reviewed again.
+        </p>
+
+        <div class="illustation">
+            <div class="left" data-aos="fade-up">
+                <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXhpNTBvZWtjang3dGd4M2p4bmJ0ZjJld2Z2cnlyN2Y2Mnl3amMzcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6arSJwtKZBtWCRzg6d/giphy.gif" alt="Algorithm GIF">
+            </div>
+            <div class="right" data-aos="fade-up">
+                <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExanEwdXB5c2hjdzQxYnJncW5oeWlrcDRqbHcycHluMmNzeGVpa2g4ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/d8F86tbghZaAOybNWP/giphy.gif" alt="Data logic GIF">
+            </div>
+        </div>
+
+        <h2 data-aos="fade-up">Key Features & Technical Specs</h2>
+        <ul>
+            <li data-aos="fade-up"><strong>Progressive Web App (PWA):</strong> Fully installable on iOS (Add to Home Screen) and Android. Uses a <code>Service Worker</code> to cache assets and run 100% offline.</li>
+            <li data-aos="fade-up"><strong>Custom Decks:</strong> Ability to categorize flashcards into custom folders dynamically (e.g., English, C++, Embedded Systems).</li>
+            <li data-aos="fade-up"><strong>Frictionless Data Sync:</strong> To solve the LocalStorage isolation between PC and mobile without needing a heavy backend, I implemented a fast JSON export/import system to transfer decks seamlessly.</li>
+            <li data-aos="fade-up"><strong>Vanilla Architecture:</strong> Built entirely with pure HTML, CSS, and JavaScript. No heavy frameworks, ensuring blazing fast load times and minimal battery consumption.</li>
+        </ul>
+
+        <h2 data-aos="fade-up">Conclusion</h2>
+        <p data-aos="fade-up">
+            This project allowed me to dive deep into browser-level APIs (Service Workers, LocalStorage, File API) while building a tool that I personally use every day for my studies and language learning.
+        </p>
+    </div>
+
+    <footer class="footer" id="footer" data-aos="flip-up">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>Lucas Bernardeau</h2>
+            </div>
+            <div class="footer-links">
+                <a href="../index.html#presentation">Home</a>
+                <a href="../index.html#about">About</a>
+                <a href="../projects.html">Projects</a>
+                <a href="../experiences.html">Experiences</a>
+                <a href="../qualifications.html">Qualifications</a>
+                <a href="../links/alllinks.html">Contact</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/lucas-bernardeau/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:contact@lucasbernardeau.fr"><i class="fa-regular fa-envelope"></i></a>
+                <a href="https://github.com/lucasbnrd05"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Buzzcut. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/script.js"></script>
+
+</body>
+</html>
