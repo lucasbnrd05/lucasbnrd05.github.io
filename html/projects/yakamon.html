@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="description"
+        content="Lucas Bernardeau - Yakamon Project: A Java RESTful API built with Quarkus and Hibernate following a layered architecture.">
+    <meta name="keywords"
+        content="Lucas, Bernardeau, Java, Quarkus, Hibernate, REST API, Layered Architecture, Backend, PostgreSQL">
+    <meta property="og:title" content="Lucas Bernardeau | Yakamon Backend API" />
+    <meta property="og:description"
+        content="Implementation of a modern Java backend using Quarkus and Hibernate ORM for a creature-collection game." />
+    <meta property="og:url" content="https://lucasbnrd05.github.io/html/projects/yakamon.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lucasbnrd05.github.io/doc/wallpaper.png" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <meta content="Buzzcut" name="author">
+    <meta content="© 2025 Buzzcut. All rights reserved." name="copyright">
+
+    <link rel="stylesheet" href="../../css/style_elmt.css">
+    <link rel="stylesheet" href="../../css/style_base.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../doc/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../doc/favicon-16x16.png">
+    <link rel="shortcut icon" href="../../doc/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../doc/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <title>Yakamon Backend</title>
+</head>
+
+<body>
+
+    <div class="title" id="title">
+        <h1>Java Web</h1>
+        <h3>Server (Java Backend)</h3>
+        <div class="top-polaroide">
+            <div class="polaroide-left">
+                <div class="polaroid first">
+                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3N2eHo1cWRrdmphb3JvanFpYjN5bmZibTB5eG9xYXYwY2cyMHhieiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/DZg4jqfIy2YrS/giphy.gif"
+                        alt="Server Infrastructure">
+                    <p>Layered Architecture</p>
+                </div>
+            </div>
+            <div class="polaroide-right">
+                <div class="polaroid second">
+                    <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjVkcmE1cXR4M2o3eXlwOWJhaHF3anhnMnc1NW9yOHdzdWJlNG93bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8L0Pky6C83SzkzU55a/giphy.gif"
+                        alt="Data Flow GIF">
+                    <p>Quarkus & Hibernate</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="presentation_elmt">
+        <h2 data-aos="fade-up">Project Overview</h2>
+        <p data-aos="fade-up">
+            <strong>Yakamon</strong> is a creature-collecting adventure game where a player explores a grid-based map to
+            collect resources and capture magical creatures called yakamons.
+            The goal of this project was to create the entire backend of the game by implementing a RESTful API.
+            <br><br>
+            <em>Grade achieved: 100% in automated testing (moulinette) and rigorous code review.</em>
+        </p>
+
+        <h2 data-aos="fade-up">Technical Stack</h2>
+        <p data-aos="fade-up">
+            This project utilizes industry-standard frameworks to build a modern backend web application in Java:
+        </p>
+        <ul>
+            <li data-aos="fade-up"><strong>Quarkus:</strong> Used to define functionalities as entity methods, use a
+                repository pattern, and implement REST endpoints.</li>
+            <li data-aos="fade-up"><strong>Hibernate ORM:</strong> The de facto standard Jakarta Persistence API (JPA)
+                implementation used to handle all PostgreSQL database interactions from the Java code.
+            </li>
+            <li data-aos="fade-up"><strong>Testing:</strong> Comprehensive unit testing using the JUnit framework.</li>
+        </ul>
+
+        <div class="illustation">
+            <div class="left" data-aos="fade-up">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzJiOXh1cndxNDU3Ym1hZm80Nmd2OTVsbWc0Ym84NmZyYWp4dGozdiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/QNFhOolVeCzPQ2Mx85/giphy.gif"
+                    alt="API Request">
+            </div>
+            <div class="right" data-aos="fade-up">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDQ0aThqcWxmdzM0Nm15eTJxNWtnc2U4eWVwY2QzMGdwOGExOHlqaSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/4FQMuOKR6zQRO/giphy.gif"
+                    alt="Database">
+            </div>
+        </div>
+
+        <h2 data-aos="fade-up">Strict Layered Architecture</h2>
+        <p data-aos="fade-up">
+            Adhering to a proper architectural pattern was a key objective, ensuring modularity and
+            maintainability. This project strictly follows a layered architecture pattern:
+        </p>
+
+        <table class="project-table" data-aos="fade-up">
+            <thead>
+                <tr>
+                    <th>Layer</th>
+                    <th>Components</th>
+                    <th>Responsibility</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Presentation</strong></td>
+                    <td>Controllers & DTOs</td>
+                    <td>Serve as entry points to the backend, validating requests, delegating tasks, and structuring
+                        data exchanges using Data Transfer Objects.</td>
+                </tr>
+                <tr>
+                    <td><strong>Business</strong></td>
+                    <td>Services & Entities</td>
+                    <td>Contains the core logic of the application. Services coordinate data retrieval and updates,
+                        while Entities represent core business objects.</td>
+                </tr>
+                <tr>
+                    <td><strong>Data</strong></td>
+                    <td>Repositories & Models</td>
+                    <td>Manage all database-related operations without any business logic. Models represent the database
+                        schema.</td>
+                </tr>
+                <tr>
+                    <td><strong>Converters</strong></td>
+                    <td>Data Transformation</td>
+                    <td>Ensure independence between layers by transforming data objects (e.g., DTOs to Entities,
+                        Entities to Models).</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 data-aos="fade-up">Implemented Game Features</h2>
+        <p data-aos="fade-up">
+            The API endpoints allow the client frontend to perform various actions:
+        </p>
+        <ul>
+            <li data-aos="fade-up"><strong>World Exploration:</strong> Movement across a grid-based map encoded in a
+                custom RLE format, taking different terrain types (Grass, Water, Lava, etc.) into account.</li>
+            <li data-aos="fade-up"><strong>Capturing & Yakadex:</strong> Encountering wild yakamons, catching them using
+                Yakaballs, and registering them in the Yakadex encyclopedia.</li>
+            <li data-aos="fade-up"><strong>Inventory & Evolution:</strong> Collecting resources like scrooges, feeding
+                yakamons to increase energy points, and triggering evolutions when thresholds are met.</li>
+        </ul>
+
+        <h2 data-aos="fade-up">Conclusion</h2>
+        <p data-aos="fade-up">
+            Yakamon provided an incredible opportunity to learn how real-world Java backends are structured. Passing all
+            strict architecture tests, API response evaluations, and database persistence checks proved my capability to
+            deliver robust cloud-native APIs.
+        </p>
+    </div>
+
+    <footer class="footer" id="footer" data-aos="flip-up">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>Lucas Bernardeau</h2>
+            </div>
+            <div class="footer-links">
+                <a href="../index.html#presentation">Home</a>
+                <a href="../index.html#about">About</a>
+                <a href="../projects.html">Projects</a>
+                <a href="../experiences.html">Experiences</a>
+                <a href="../qualifications.html">Qualifications</a>
+                <a href="../links/alllinks.html">Contact</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/lucas-bernardeau/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:contact@lucasbernardeau.fr"><i class="fa-regular fa-envelope"></i></a>
+                <a href="https://github.com/lucasbnrd05"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Buzzcut. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/script.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+
+</html>
