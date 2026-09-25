@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="description"
+        content="Lucas Bernardeau - Achievements: kickboxing titles, engineering milestones, and personal records.">
+    <meta name="keywords"
+        content="Lucas Bernardeau, Achievements, Kickboxing, EPITA, Atelibox, Rugby, Champion">
+    <meta property="og:title" content="Lucas Bernardeau | Achievements" />
+    <meta property="og:description"
+        content="All my achievements, from kickboxing titles to engineering milestones." />
+    <meta property="og:url" content="https://lucasbnrd05.github.io/achievements/index.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lucasbnrd05.github.io/doc/wallpaper.png" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <meta content="Buzzcut" name="author">
+    <meta content="© 2026 Buzzcut. All rights reserved." name="copyright">
+
+    <link rel="stylesheet" href="../css/style_base.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../doc/favicon-32x32.png">
+    <link rel="shortcut icon" href="../doc/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../doc/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <title>Achievements | Lucas Bernardeau</title>
+
+    <style>
+        @font-face {
+            font-family: 'Soul Daisy';
+            src: url('../fonts/soul-daisy.regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --orange: #f39c12;
+            --blue: #2c3e50;
+            --bg: #f4f4f4;
+            --sport: #e74c3c;
+            --tech: #3498db;
+            --edu: #9b59b6;
+            --biz: #27ae60;
+            --rugby: #16a085;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Soul Daisy', sans-serif;
+            background: var(--bg);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ========== HERO ========== */
+        .hero-ach {
+            min-height: 55vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 20px 40px;
+            text-align: center;
+        }
+
+        .hero-ach h1 {
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 3rem;
+            color: var(--blue);
+            margin-bottom: 15px;
+            overflow: hidden;
+            border-right: .15em solid var(--orange);
+            white-space: nowrap;
+            display: inline-block;
+            animation: typing 2s steps(15, end) forwards, blink-caret 0.5s step-end infinite;
+        }
+
+        @keyframes typing {
+            0% { width: 0; visibility: hidden; }
+            1% { visibility: visible; }
+            100% { width: 15ch; }
+        }
+
+        @keyframes blink-caret { 50% { border-color: transparent; } }
+
+        .hero-subtitle {
+            color: #888;
+            font-family: -apple-system, sans-serif;
+            font-size: 1rem;
+            font-style: italic;
+        }
+
+        /* ========== STATS ROW ========== */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            padding: 0 20px;
+        }
+
+        .stat-box {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--orange);
+        }
+
+        .stat-box .stat-value {
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 2rem;
+            color: var(--blue);
+            line-height: 1;
+        }
+
+        .stat-box .stat-label {
+            font-family: -apple-system, sans-serif;
+            font-size: 0.75rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* ========== FILTERS ========== */
+        .filters {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+            padding: 0 20px;
+        }
+
+        .filter-btn {
+            background: #fff;
+            border: 2px solid #ddd;
+            color: #666;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-family: -apple-system, sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--orange);
+            color: var(--orange);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: var(--blue);
+            border-color: var(--blue);
+            color: #fff;
+        }
+
+        .filter-btn.active.sport { background: var(--sport); border-color: var(--sport); }
+        .filter-btn.active.tech { background: var(--tech); border-color: var(--tech); }
+        .filter-btn.active.edu { background: var(--edu); border-color: var(--edu); }
+        .filter-btn.active.biz { background: var(--biz); border-color: var(--biz); }
+        .filter-btn.active.rugby { background: var(--rugby); border-color: var(--rugby); }
+
+        /* ========== TIMELINE ========== */
+        .timeline-wrap {
+            max-width: 900px;
+            margin: 0 auto 60px auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .timeline-wrap::before {
+            content: '';
+            position: absolute;
+            left: 40px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--orange), #eee);
+            border-radius: 3px;
+        }
+
+        .ach-item {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 30px;
+            position: relative;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .ach-item.hidden {
+            display: none;
+        }
+
+        .ach-dot {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #fff;
+            border: 4px solid var(--orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+            color: var(--orange);
+            z-index: 1;
+            box-shadow: 0 0 0 6px var(--bg);
+        }
+
+        .ach-item.sport .ach-dot { border-color: var(--sport); color: var(--sport); }
+        .ach-item.tech .ach-dot { border-color: var(--tech); color: var(--tech); }
+        .ach-item.edu .ach-dot { border-color: var(--edu); color: var(--edu); }
+        .ach-item.biz .ach-dot { border-color: var(--biz); color: var(--biz); }
+        .ach-item.rugby .ach-dot { border-color: var(--rugby); color: var(--rugby); }
+
+        .ach-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 20px 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--orange);
+            flex: 1;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .ach-card:hover {
+            transform: translateX(6px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .ach-item.sport .ach-card { border-left-color: var(--sport); }
+        .ach-item.tech .ach-card { border-left-color: var(--tech); }
+        .ach-item.edu .ach-card { border-left-color: var(--edu); }
+        .ach-item.biz .ach-card { border-left-color: var(--biz); }
+        .ach-item.rugby .ach-card { border-left-color: var(--rugby); }
+
+        .ach-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .ach-title {
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 1.25rem;
+            color: var(--blue);
+            margin: 0;
+        }
+
+        .ach-date {
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            color: #fff;
+            background: var(--blue);
+            padding: 3px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+            font-weight: bold;
+        }
+
+        .ach-item.sport .ach-date { background: var(--sport); }
+        .ach-item.tech .ach-date { background: var(--tech); }
+        .ach-item.edu .ach-date { background: var(--edu); }
+        .ach-item.biz .ach-date { background: var(--biz); }
+        .ach-item.rugby .ach-date { background: var(--rugby); }
+
+        .ach-desc {
+            color: #666;
+            font-family: -apple-system, sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .hero-ach h1 {
+                font-size: 2rem;
+                white-space: normal;
+                border-right: none;
+                animation: none;
+            }
+
+            .timeline-wrap::before { left: 20px; }
+            .timeline-wrap { padding: 0 15px; }
+
+            .ach-item { gap: 15px; margin-bottom: 20px; }
+            .ach-dot { width: 40px; height: 40px; font-size: 1rem; }
+
+            .ach-card { padding: 15px; }
+            .ach-title { font-size: 1.05rem; text-align: center; }
+            .ach-header { flex-direction: column; align-items: center; gap: 6px; }
+            .ach-desc { text-align: center; font-size: 0.85rem; }
+
+            .filter-btn { font-size: 0.75rem; padding: 6px 14px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========== HERO ========== -->
+    <div class="hero-ach">
+        <h1>Achievements</h1>
+        <div class="hero-subtitle" data-aos="fade-up">
+            Every milestone, every title, every win — since 2020.
+        </div>
+    </div>
+
+    <!-- ========== STATS ========== -->
+    <div class="stats-row" data-aos="fade-up">
+        <div class="stat-box">
+            <div class="stat-value">20+</div>
+            <div class="stat-label">Achievements</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-value">5</div>
+            <div class="stat-label">Categories</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-value">2020</div>
+            <div class="stat-label">Since</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-value">∞</div>
+            <div class="stat-label">To Come</div>
+        </div>
+    </div>
+
+    <!-- ========== FILTERS ========== -->
+    <div class="filters" data-aos="fade-up">
+        <button class="filter-btn active" data-filter="all">
+            <i class="fa-solid fa-list"></i> All
+        </button>
+        <button class="filter-btn sport" data-filter="sport">
+            <i class="fa-solid fa-hand-fist"></i> Kickboxing
+        </button>
+        <button class="filter-btn tech" data-filter="tech">
+            <i class="fa-solid fa-code"></i> Tech
+        </button>
+        <button class="filter-btn edu" data-filter="edu">
+            <i class="fa-solid fa-graduation-cap"></i> Education
+        </button>
+        <button class="filter-btn biz" data-filter="biz">
+            <i class="fa-solid fa-rocket"></i> Business
+        </button>
+        <button class="filter-btn rugby" data-filter="rugby">
+            <i class="fa-solid fa-rugby-ball"></i> Rugby
+        </button>
+    </div>
+
+    <!-- ========== TIMELINE ========== -->
+    <div class="timeline-wrap">
+
+        <!-- 2026 -->
+        <div class="ach-item biz" data-category="biz" data-aos="fade-up">
+            <div class="ach-dot"><i class="fa-solid fa-rocket"></i></div>
+            <div class="ach-card">
+                <div class="ach-header">
+                    <h3 class="ach-title">Atelibox — SaaS in production</h3>
+                    <span class="ach-date">2026</span>
+                </div>
+                <p class="ach-desc">
+                    Designed, developed and deployed a full SaaS platform for artisans.
+                    Python/Flask, PostgreSQL, Stripe, WorkOS — completely self-made.
+                </p>
+            </div>
+        </div>
+
+        <div class="ach-item sport" data-category="sport" data-aos="fade-up">
+            <div class="ach-dot"><i class="fa-solid fa-dumbbell"></i></div>
+            <div class="ach-card">
+                <div class="ach-header">
+                    <h3 class="ach-title">Strength Progression: 48 → 55 kg</h3>
+                    <span class="ach-date">Jan → Sep 2026</span>
+                </div>
+                <p class="ach-desc">
+                    Gained 7 kg of bodyweight while pushing PRs on the big 3.
+                    Squat 85 kg, Bench 70 kg, Dips +22.5 kg at 55 kg bodyweight.
+                </p>
+            </div>
+        </div>
+
+        <div class="ach-item tech" data-category="tech" data-aos="fade-up">
+            <div class="ach-dot"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="ach-card">
+                <div class="ach-header">
+                    <h3 class="ach-title">IT & DevOps @ Orano Support</h3>
+                    <span class="ach-date">Sep 2026 - Jan 2027</span>
+                </div>
+                <p class="ach-desc">
+                    Mission in a critical industrial environment: GitLab, Nexus, CI/CD pipelines,
+                    cybersecurity requirements and PCA/PRA documentation.
+                </p>
+            </div>
+        </div>
+
+        <!-- 2025 -->
+        <div class="ach-item edu" data-category="edu" data-aos="fade-up">
+            <div class="ach-dot"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="ach-card">
+                <div class="ach-header">
+                    <h3 class="ach-title">Engineering Cycle (ING1) @ EPITA</h3>
+                    <span class="ach-date">2025 - 2026</span>
+                </div>
+                <p class="ach-desc">
+                    Admitted to the engineering cycle of EPITA after the intensive "prépa" program.
+                    Focus on system programming, C/C++, and low-level development.
+                </p>
+            </div>
+        </div>
+
+        <div class="ach-item tech" data-category="tech" data-aos="fade-up">
+            <div class="ach-dot"><i class="fa-solid fa-chalkboard-user"></i></div>
+            <div class="ach-card">
+                <div class="ach-header">
+                    <h3 class="ach-title">Teaching Assistant (ACDC) @ EPITA</h3>
+                    <span class="ach-date">Sep 2025 - Jul 2026</span>
+                </div>
+                <p class="ach-desc">
+                    Selected to teach C and Python to first-year students. Code reviews,
+                    debugging sessions, and algorithmic support.
+                </p>
+            </div>
+        </div>
+
+        <div class="ach-item edu" data-category="edu" data-aos="fade-up">
+            <div class="ach-dot"><i class="fa-solid fa-earth-europe"></i></div>
+            <div class="ach-card">
+                <div class="ach-header">
+                    <h3 class="ach-title">International Semester @ UPM Madrid</h3>
+                    <span class="ach-date">Jan - Jun 2025</span>
+                </div>
+                <p class="ach-desc">
+                    Exchange semester at Universidad Politécnica de Madrid. Courses in Mobile
+                    App Development (Flutter) and Embedded Systems (SysML, real-time logic).
+                </p>
+            </div>
+        </div>
+
+        <div class="ach-item sport" data-category="sport" data-aos="fade-up">
+            <div class="ach-dot"><i class="fa-solid fa-medal"></i></div>
+            <div class="ach-card">
+                <div class="ach-header">
+                    <h3 class="ach-title">Double French Junior Kickboxing Champion</h3>
+                    <span class="ach-date">2023</span>
+                </div>
+                <p class="ach-desc">
+                    French Junior Kickboxing Light Champion 2023 AND K1 Light Champion 2023.
+                    Also winner of the 2023 French Junior Kickboxing Light Cup.
+                </p>
+            </div>
+        </div>
+
+        <!-- 2023 -->
+        <div class="ach-item edu" data-category="edu" data-aos="fade-up">
+            <div class="ach-dot"><i class="fa-solid fa-school"></i></div>
+            <div class="ach-card">
+                <div class="ach-header">
+                    <h3 class="ach-title">EPITA — Integration</h3>
+                    <span class="ach-date">Sep 2023</span>
+                </div>
+                <p class="ach-desc">
+                    Joined EPITA after graduating from Institut Paul Ricoeur. Completed the
+                    intensive "piscines" in C, C++, Java and SQL during the first year.
+                </p>
+            </div>
+        </div>
+
+        <div class="ach-item tech" data-category="tech" data-aos="fade-up">
+            <div class="ach-dot"><i class="fa-solid fa-bullhorn"></i></div>
+            <div class="ach-card">
+                <div class="ach-header">
+                    <h3 class="ach-title">EPITA STAFF'COM Ambassador</h3>
+                    <span class="ach-date">Since Sep 2023</span>
+                </div>
+                <p class="ach-desc">
+                    Student ambassador for EPITA. Present at student fairs in France and abroad,
+                    supervising Concours Advance, welcoming candidates during admissions.
+                </p>
+            </div>
+        </div>
+
+        <!-- 2022-2021 -->
+        <div class="ach-item rugby" data-category="rugby" data-aos="fade-up">
+            <div class="ach-dot"><i class="fa-solid fa-rugby-ball"></i></div>
+            <div class="ach-card">
+                <div class="ach-header">
+                    <h3 class="ach-title">Federal Rugby Instructor Certifications</h3>
+                    <span class="ach-date">2021 - 2024</span>
+                </div>
+                <p class="ach-desc">
+                    Earned three official French rugby certifications: Initiation, Development,
+                    and Baby Rugby. Taught children aged 4-14 as a rugby instructor at EGG XV.
+                </p>
+            </div>
+        </div>
+
+        <div class="ach-item rugby" data-category="rugby" data-aos="fade-up">
+            <div class="ach-dot"><i class="fa-solid fa-whistle"></i></div>
+            <div class="ach-card">
+                <div class="ach-header">
+                    <h3 class="ach-title">Rugby Instructor @ EGG XV</h3>
+                    <span class="ach-date">2021 - 2024</span>
+                </div>
+                <p class="ach-desc">
+                    Leadership role supervising children's groups (aged 4-14). Team building,
+                    safety management during drills, tournament organization.
+                </p>
+            </div>
+        </div>
+
+        <!-- 2020 -->
+        <div class="ach-item tech" data-category="tech" data-aos="fade-up">
+            <div class="ach-dot"><i class="fa-solid fa-atom"></i></div>
+            <div class="ach-card">
+                <div class="ach-header">
+                    <h3 class="ach-title">First IT Internship @ EDF Nuclear</h3>
+                    <span class="ach-date">2020</span>
+                </div>
+                <p class="ach-desc">
+                    First contact with a critical industrial environment. Observed IT infrastructure
+                    management within high-security power plant operations.
+                </p>
+            </div>
+        </div>
+
+        <div class="ach-item edu" data-category="edu" data-aos="fade-up">
+            <div class="ach-dot"><i class="fa-solid fa-certificate"></i></div>
+            <div class="ach-card">
+                <div class="ach-header">
+                    <h3 class="ach-title">PSC1 — First Aid Certification</h3>
+                    <span class="ach-date">2020</span>
+                </div>
+                <p class="ach-desc">
+                    Official French first aid certification (Prévention et Secours Civiques de niveau 1).
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ========== BACK ========== -->
+    <section style="text-align: center; padding: 30px 20px 80px;">
+        <a href="../html/index.html" class="cv-button" style="text-decoration: none;">
+            <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+        </a>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer" id="footer" data-aos="flip-up">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>Lucas Bernardeau</h2>
+            </div>
+
+            <div class="footer-links">
+                <a href="../html/index.html#presentation">Home</a>
+                <a href="../html/index.html#about">About</a>
+                <a href="../html/projects.html">Projects</a>
+                <a href="../html/experiences.html">Experiences</a>
+                <a href="../html/qualifications.html">Qualifications</a>
+                <a href="../html/links/alllinks.html">Contact</a>
+            </div>
+
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/lucas-bernardeau/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:contact@lucasbernardeau.fr"><i class="fa-regular fa-envelope"></i></a>
+                <a href="https://github.com/lucasbnrd05"><i class="fa-brands fa-github"></i></a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Buzzcut. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({
+            once: true,
+            duration: 600,
+        });
+
+        // ===== Filters =====
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const achItems = document.querySelectorAll('.ach-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+
+                // Update active state
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Filter items
+                achItems.forEach(item => {
+                    if (filter === 'all' || item.dataset.category === filter) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+
+                // Refresh AOS
+                setTimeout(() => AOS.refresh(), 100);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

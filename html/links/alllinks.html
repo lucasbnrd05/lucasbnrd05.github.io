@@ -6,8 +6,9 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <meta name="description"
-        content="All the useful links to discover the work and profile of Lucas Bernardeau, creative developer.">
-    <meta name="keywords" content="Lucas, Bernardeau, portfolio, Embedded Systems, System Programming, C, Engineering, Student">
+        content="All the useful links to discover the work and profile of Lucas Bernardeau, engineering student at EPITA.">
+    <meta name="keywords"
+        content="Lucas, Bernardeau, portfolio, Embedded Systems, System Programming, C, Engineering, Student, Links">
     <meta property="og:title" content="Lucas Bernardeau | Links" />
     <meta property="og:description" content="Find me online: Portfolio, LinkedIn, GitHub and more." />
     <meta property="og:url" content="https://lucasbnrd05.github.io/html/links/alllinks.html" />
@@ -18,8 +19,8 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
-    <meta content="Lucas Bernardeau" name="author">
-    <meta content="© 2024 Lucas Bernardeau. All rights reserved." name="copyright">
+    <meta content="Buzzcut" name="author">
+    <meta content="© 2026 Buzzcut. All rights reserved." name="copyright">
 
     <link rel="stylesheet" href="../../css/style_base.css">
     <link rel="stylesheet" href="../../css/style_links.css">
@@ -34,6 +35,60 @@
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
     <title>Lucas Bernardeau | Links</title>
+
+    <style>
+        /* ===== Améliorations de la page links ===== */
+
+        /* Hover uniforme sur les cards (border-left orange) */
+        .link-card {
+            border-left: 4px solid transparent;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .link-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left-color: #f39c12;
+        }
+
+        /* Badge "New" pour Training */
+        .badge-new {
+            display: inline-block;
+            font-family: -apple-system, sans-serif;
+            font-size: 0.65rem;
+            background: #f39c12;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        /* Amélioration responsive */
+        @media (max-width: 768px) {
+            .link-card {
+                padding: 15px;
+            }
+
+            .link-icon,
+            .link-icon-img {
+                width: 45px;
+                height: 45px;
+                margin-right: 15px;
+            }
+
+            .link-text h3 {
+                font-size: 1.4rem;
+            }
+
+            .link-text p {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -71,22 +126,30 @@
         </a>
 
         <a href="https://www.linkedin.com/in/lucas-bernardeau/" class="link-card" data-aos="fade-up"
-            data-aos-delay="100">
+            data-aos-delay="50">
             <i class="fa-brands fa-linkedin link-icon"></i>
             <div class="link-text">
-                <h3>My Linkedin</h3>
+                <h3>My LinkedIn</h3>
                 <p>Professional network & profile</p>
             </div>
         </a>
 
-        <a href="https://github.com/lucasbnrd05" class="link-card" data-aos="fade-up" data-aos-delay="150">
+        <a href="https://github.com/lucasbnrd05" class="link-card" data-aos="fade-up" data-aos-delay="100">
             <i class="fa-brands fa-github link-icon"></i>
             <div class="link-text">
-                <h3>My Github</h3>
+                <h3>My GitHub</h3>
                 <p>Code, projects & contributions</p>
             </div>
         </a>
-                
+
+        <a href="../../training/index.html" class="link-card" data-aos="fade-up" data-aos-delay="150">
+            <i class="fa-solid fa-dumbbell link-icon"></i>
+            <div class="link-text">
+                <h3>My Training</h3>
+                <p>Powerlifting PRs, strength standards & journey</p>
+            </div>
+        </a>
+
         <a href="../../tools/index.html" class="link-card" data-aos="fade-up" data-aos-delay="200">
             <i class="fa-solid fa-screwdriver-wrench link-icon"></i>
             <div class="link-text">
@@ -94,24 +157,32 @@
                 <p>Netiquette Gen, ELF Parser, Makefile Gen & Shell Tester</p>
             </div>
         </a>
-        
+
         <a href="../../uses/index.html" class="link-card" data-aos="fade-up" data-aos-delay="250">
             <i class="fa-solid fa-laptop-code link-icon"></i>
             <div class="link-text">
                 <h3>My Setup & Dotfiles</h3>
-                <p>Config, WSL, VSCode</p>
+                <p>Arch Linux, Hyprland configs & dotfiles</p>
             </div>
         </a>
 
-        <a href="#" class="link-card download-link open-modal-btn" data-aos="fade-up" data-aos-delay="300">
+        <a href="../../achievements/index.html" class="link-card" data-aos="fade-up" data-aos-delay="300">
+            <i class="fa-solid fa-trophy link-icon"></i>
+            <div class="link-text">
+                <h3>Achievements</h3>
+                <p>Timeline of all my milestones</p>
+            </div>
+        </a>
+
+        <a href="#" class="link-card open-modal-btn" data-aos="fade-up" data-aos-delay="350">
             <i class="fa-regular fa-newspaper link-icon"></i>
             <div class="link-text">
                 <h3>My Resume</h3>
                 <p>Download my CV in English or French</p>
             </div>
         </a>
-        
-        <a href="mailto:contact@lucasbernardeau.fr" class="link-card" data-aos="fade-up" data-aos-delay="350">
+
+        <a href="mailto:contact@lucasbernardeau.fr" class="link-card" data-aos="fade-up" data-aos-delay="400">
             <i class="fa-regular fa-envelope link-icon"></i>
             <div class="link-text">
                 <h3>My Contact</h3>
@@ -119,7 +190,7 @@
             </div>
         </a>
 
-        <a href="https://www.atelibox.fr/" class="link-card" data-aos="fade-up" data-aos-delay="400">
+        <a href="https://www.atelibox.fr/" class="link-card" data-aos="fade-up" data-aos-delay="450">
             <i class="fa-solid fa-box-open link-icon"></i>
             <div class="link-text">
                 <h3>Atelibox</h3>
@@ -129,15 +200,14 @@
 
     </div>
 
+    <!-- Modal CV -->
     <div class="modal" id="polaroidModal">
         <div class="modal-content">
             <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDFrNGxjZHVmZTlmNHBvYjZ5dnpleW4yYW91c2I3MmZtYzFudWNxYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/wogbkC5i3jB9FjIiA4/giphy.gif"
                 alt="Polaroïd Image">
             <p>Choose a language to download my resume:</p>
-            <a href="../../doc/lucas_bernardeau_cv_en.pdf" class="cv-button" target="_blank">📄
-                English</a>
-            <a href="../../doc/lucas_bernardeau_cv_fr.pdf" class="cv-button" target="_blank">📄
-                French</a>
+            <a href="../../doc/lucas_bernardeau_cv_en.pdf" class="cv-button" target="_blank">📄 English</a>
+            <a href="../../doc/lucas_bernardeau_cv_fr.pdf" class="cv-button" target="_blank">📄 French</a>
             <button class="close-modal">Close</button>
         </div>
     </div>
@@ -170,12 +240,25 @@
         </div>
     </footer>
 
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="../../js/script.js"></script>
     <script>
         AOS.init({
             once: true,
             duration: 600,
+        });
+
+        // Modal CV
+        const modal = document.getElementById('polaroidModal');
+
+        document.querySelectorAll('.open-modal-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('show');
+            });
+        });
+
+        document.querySelector('.close-modal').addEventListener('click', () => {
+            modal.classList.remove('show');
         });
     </script>
 

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="description"
+        content="Lucas Bernardeau - My Training: Powerlifting PRs, progression, and strength standards.">
+    <meta name="keywords"
+        content="Lucas Bernardeau, Training, Powerlifting, Squat, Bench, Deadlift, Strength, Kickboxing">
+    <meta property="og:title" content="Lucas Bernardeau | Training" />
+    <meta property="og:description"
+        content="My training journey: from 48 kg to 55 kg, with PRs and strength standards." />
+    <meta property="og:url" content="https://lucasbnrd05.github.io/training/index.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lucasbnrd05.github.io/doc/wallpaper.png" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <meta content="Buzzcut" name="author">
+    <meta content="© 2026 Buzzcut. All rights reserved." name="copyright">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_base.css">
+    <link rel="stylesheet" href="../css/style_links.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../doc/favicon-32x32.png">
+    <link rel="shortcut icon" href="../doc/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../doc/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <title>My Training | Lucas Bernardeau</title>
+
+    <style>
+        @font-face {
+            font-family: 'Soul Daisy';
+            src: url('../fonts/soul-daisy.regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --orange: #f39c12;
+            --blue: #2c3e50;
+            --bg: #f4f4f4;
+            --push: #e74c3c;
+            --pull: #3498db;
+            --legs: #27ae60;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Soul Daisy', sans-serif;
+            background: var(--bg);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ========== HERO ========== */
+        .hero-training {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 20px 40px;
+            text-align: center;
+        }
+
+        .hero-training h1 {
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 3rem;
+            color: var(--blue);
+            margin-bottom: 15px;
+            overflow: hidden;
+            border-right: .15em solid var(--orange);
+            white-space: nowrap;
+            display: inline-block;
+            animation: typing 2s steps(15, end) forwards, blink-caret 0.5s step-end infinite;
+        }
+
+        @keyframes typing {
+            0% { width: 0; visibility: hidden; }
+            1% { visibility: visible; }
+            100% { width: 15ch; }
+        }
+
+        @keyframes blink-caret { 50% { border-color: transparent; } }
+
+        .hero-subtitle {
+            color: #888;
+            font-family: -apple-system, sans-serif;
+            font-size: 1rem;
+            font-style: italic;
+            max-width: 600px;
+        }
+
+        /* ========== SECTION ========== */
+        .section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 1.8rem;
+            color: var(--blue);
+            margin-bottom: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .section-title::before {
+            content: '// ';
+            color: var(--orange);
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+        }
+
+        /* ========== BODY STATS ========== */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .stat-box {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--orange);
+        }
+
+        .stat-box .stat-value {
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 2.2rem;
+            color: var(--blue);
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .stat-box .stat-label {
+            font-family: -apple-system, sans-serif;
+            font-size: 0.8rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-box .stat-delta {
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            color: var(--legs);
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        /* ========== PR GRID ========== */
+        .pr-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .pr-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 6px solid var(--push);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pr-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .pr-card.pull { border-left-color: var(--pull); }
+        .pr-card.legs { border-left-color: var(--legs); }
+
+        .pr-card .pr-name {
+            font-family: -apple-system, sans-serif;
+            font-size: 0.85rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 5px;
+        }
+
+        .pr-card .pr-weight {
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 3rem;
+            color: var(--blue);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .pr-card .pr-weight .unit {
+            font-size: 1.2rem;
+            color: #999;
+            margin-left: 4px;
+        }
+
+        .pr-card .pr-ratio {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .pr-card .pr-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-family: -apple-system, sans-serif;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .badge-beginner { background: #fce4d6; color: #a04000; }
+        .badge-intermediate { background: #fff3cd; color: #856404; }
+        .badge-advanced { background: #d4edda; color: #155724; }
+        .badge-elite { background: #cce5ff; color: #004085; }
+
+        /* ========== INFO BLOCKS ========== */
+        .info-block {
+            background: #fff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--orange);
+            margin-bottom: 20px;
+        }
+
+        .info-block h3 {
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 1.3rem;
+            color: var(--blue);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-block h3 i {
+            color: var(--orange);
+        }
+
+        .info-block p {
+            color: #555;
+            font-family: -apple-system, sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .info-block ul {
+            list-style: none;
+            padding-left: 0;
+            color: #555;
+            font-family: -apple-system, sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .info-block ul li {
+            padding: 6px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .info-block ul li::before {
+            content: '▸';
+            color: var(--orange);
+            position: absolute;
+            left: 5px;
+            font-weight: bold;
+        }
+
+        /* ========== KICKBOXING BLOCK ========== */
+        .kickboxing-block {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: #fff;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .kickboxing-block .kb-icon {
+            font-size: 3rem;
+            color: var(--orange);
+        }
+
+        .kickboxing-block .kb-content {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .kickboxing-block h3 {
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .kickboxing-block p {
+            font-family: -apple-system, sans-serif;
+            font-size: 0.9rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .kickboxing-block a {
+            display: inline-block;
+            margin-top: 12px;
+            background: var(--orange);
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: -apple-system, sans-serif;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: transform 0.2s;
+        }
+
+        .kickboxing-block a:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .hero-training h1 {
+                font-size: 2rem;
+                white-space: normal;
+                border-right: none;
+                animation: none;
+            }
+
+            .stat-box .stat-value { font-size: 1.8rem; }
+            .pr-card .pr-weight { font-size: 2.5rem; }
+            .section { padding: 40px 15px; }
+            .section-title { font-size: 1.4rem; }
+
+            .kickboxing-block { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========== HERO ========== -->
+    <div class="hero-training">
+        <h1>My Training</h1>
+        <div class="hero-subtitle" data-aos="fade-up">
+            "Discipline is the only thing I truly own."
+        </div>
+    </div>
+
+    <!-- ========== BODY STATS ========== -->
+    <section class="section">
+        <h2 class="section-title" data-aos="fade-up">Body Stats</h2>
+
+        <div class="stats-row" data-aos="fade-up">
+            <div class="stat-box">
+                <div class="stat-value">55</div>
+                <div class="stat-label">Current Weight (kg)</div>
+                <div class="stat-delta">+7 since Jan 2026</div>
+            </div>
+
+            <div class="stat-box">
+                <div class="stat-value">165</div>
+                <div class="stat-label">Height (cm)</div>
+            </div>
+
+            <div class="stat-box">
+                <div class="stat-value">5×</div>
+                <div class="stat-label">Sessions / Week</div>
+            </div>
+
+            <div class="stat-box">
+                <div class="stat-value">9</div>
+                <div class="stat-label">Months Training</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PRs ========== -->
+    <section class="section">
+        <h2 class="section-title" data-aos="fade-up">Personal Records</h2>
+
+        <div class="pr-grid">
+
+            <!-- SQUAT -->
+            <div class="pr-card legs" data-aos="fade-up">
+                <div class="pr-name">Squat</div>
+                <div class="pr-weight">85<span class="unit">kg</span></div>
+                <div class="pr-ratio">Ratio : 1.55× bodyweight</div>
+                <span class="pr-badge badge-advanced">Advanced</span>
+            </div>
+
+            <!-- BENCH -->
+            <div class="pr-card" data-aos="fade-up" data-aos-delay="50">
+                <div class="pr-name">Bench Press</div>
+                <div class="pr-weight">70<span class="unit">kg</span></div>
+                <div class="pr-ratio">Ratio : 1.27× bodyweight</div>
+                <span class="pr-badge badge-advanced">Advanced</span>
+            </div>
+
+            <!-- DEADLIFT -->
+            <div class="pr-card pull" data-aos="fade-up" data-aos-delay="100">
+                <div class="pr-name">Deadlift</div>
+                <div class="pr-weight">60<span class="unit">kg</span></div>
+                <div class="pr-ratio">Ratio : 1.09× bodyweight</div>
+                <span class="pr-badge badge-intermediate">Intermediate</span>
+            </div>
+
+            <!-- TRACTION -->
+            <div class="pr-card pull" data-aos="fade-up" data-aos-delay="150">
+                <div class="pr-name">Pull-ups</div>
+                <div class="pr-weight">+12.5<span class="unit">kg</span></div>
+                <div class="pr-ratio">Added weight (belt)</div>
+                <span class="pr-badge badge-advanced">Advanced</span>
+            </div>
+
+            <!-- DIPS -->
+            <div class="pr-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="pr-name">Dips</div>
+                <div class="pr-weight">+22.5<span class="unit">kg</span></div>
+                <div class="pr-ratio">Added weight (belt)</div>
+                <span class="pr-badge badge-elite">Elite</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========== HOW I TRAIN ========== -->
+    <section class="section">
+        <h2 class="section-title" data-aos="fade-up">How I Train</h2>
+
+        <div class="info-block" data-aos="fade-up">
+            <h3><i class="fa-solid fa-dumbbell"></i> The Routine</h3>
+            <ul>
+                <li><strong>Frequency:</strong> Monday to Friday — 5 sessions per week.</li>
+                <li><strong>Focus:</strong> Progressive overload on the big 3 (Squat, Bench, Deadlift) + accessory work.</li>
+                <li><strong>Philosophy:</strong> Consistency beats intensity. Show up, add weight, repeat.</li>
+                <li><strong>Tracking:</strong> Everything on paper. No apps. Just a notebook and a pen.</li>
+            </ul>
+        </div>
+
+        <div class="info-block" data-aos="fade-up">
+            <h3><i class="fa-solid fa-chart-line"></i> The Journey</h3>
+            <p>
+                I started training seriously in <strong>January 2026</strong>, at <strong>48 kg</strong> bodyweight.
+                Nine months later, I'm at <strong>55 kg</strong> with numbers I would have never imagined.
+            </p>
+            <p>
+                The progress isn't just physical. It's about <strong>discipline, patience, and the
+                understanding that nothing worth having comes fast</strong>. Every session, every rep, every
+                plate added is a small victory against your own limits.
+            </p>
+        </div>
+    </section>
+
+    <!-- ========== KICKBOXING ========== -->
+    <section class="section">
+        <h2 class="section-title" data-aos="fade-up">Also: Kickboxing</h2>
+
+        <div class="kickboxing-block" data-aos="fade-up">
+            <div class="kb-icon">
+                <i class="fa-solid fa-hand-fist"></i>
+            </div>
+            <div class="kb-content">
+                <h3>Double French Junior Champion 2023</h3>
+                <p>
+                    Kickboxing Light & K1 Light — the discipline that started it all. It shaped my
+                    relationship with training, effort, and stress long before I ever touched a barbell.
+                </p>
+                <a href="../achievements/index.html">
+                    <i class="fa-solid fa-arrow-right"></i> See all achievements
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== BACK ========== -->
+    <section class="section" style="text-align: center;">
+        <a href="../html/index.html" class="cv-button" style="text-decoration: none;">
+            <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+        </a>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer" id="footer" data-aos="flip-up">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>Lucas Bernardeau</h2>
+            </div>
+
+            <div class="footer-links">
+                <a href="../html/index.html#presentation">Home</a>
+                <a href="../html/index.html#about">About</a>
+                <a href="../html/projects.html">Projects</a>
+                <a href="../html/experiences.html">Experiences</a>
+                <a href="../html/qualifications.html">Qualifications</a>
+                <a href="../html/links/alllinks.html">Contact</a>
+            </div>
+
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/lucas-bernardeau/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:contact@lucasbernardeau.fr"><i class="fa-regular fa-envelope"></i></a>
+                <a href="https://github.com/lucasbnrd05"><i class="fa-brands fa-github"></i></a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Buzzcut. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>AOS.init();</script>
+
+</body>
+
+</html>
