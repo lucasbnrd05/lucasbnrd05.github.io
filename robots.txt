@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Pas utile pour les crawlers
+Disallow: /doc/
+Disallow: /snake/
+Disallow: /uses/dotfiles/
+Disallow: /uses/dotfiles.zip
+
+# Sitemap
+Sitemap: https://lucasbernardeau.fr/sitemap.xml
