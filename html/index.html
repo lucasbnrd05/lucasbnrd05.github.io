@@ -6,9 +6,9 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <meta name="description"
-        content="Welcome to the personal website of Lucas Bernardeau, engineering student at EPITA, system programming enthusiast and founder of Atelibox.">
+        content="Lucas Bernardeau - Engineering student at EPITA, system programming enthusiast, founder of Atelibox.">
     <meta name="keywords"
-        content="Lucas, Bernardeau, web developer, portfolio, creative projects, design, front-end, personal website, UX/UI, HTML, CSS, JavaScript, EPITA, C, System Programming">
+        content="Lucas Bernardeau, EPITA, portfolio, C, system programming, embedded, portfolio, creative">
     <meta property="og:title" content="Lucas Bernardeau | Portfolio" />
     <meta property="og:description"
         content="Engineering student at EPITA, passionate about system programming and low-level development." />
@@ -18,389 +18,1340 @@
     <meta property="og:locale" content="en_US" />
 
     <link rel="canonical" href="https://lucasbnrd05.github.io/html/index.html">
-
     <meta name="format-detection" content="telephone=no">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Lucas Bernardeau">
 
     <meta content="Buzzcut" name="author">
     <meta content="© 2026 Buzzcut. All rights reserved." name="copyright">
-    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_base.css">
     <link rel="icon" type="image/png" sizes="32x32" href="../doc/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../doc/favicon-16x16.png">
     <link rel="shortcut icon" href="../doc/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="../doc/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="../doc/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="../doc/android-chrome-512x512.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <title>Home</title>
+
+    <title>Lucas Bernardeau | Portfolio</title>
+
+    <style>
+        @font-face {
+            font-family: 'Soul Daisy';
+            src: url('../fonts/soul-daisy.regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --orange: #f39c12;
+            --blue: #2c3e50;
+            --bg: #f4f4f4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Soul Daisy', sans-serif;
+            background: var(--bg);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ============== HERO ============== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 3rem;
+            color: var(--blue);
+            margin-bottom: 15px;
+            overflow: hidden;
+            border-right: .15em solid var(--orange);
+            white-space: nowrap;
+            display: inline-block;
+            animation: typing 3s steps(30, end) forwards, blink-caret 0.5s step-end infinite;
+            max-width: 90vw;
+        }
+
+        @keyframes typing {
+            0% {
+                width: 0;
+                visibility: hidden;
+            }
+
+            1% {
+                visibility: visible;
+            }
+
+            100% {
+                width: 24ch;
+            }
+        }
+
+        @keyframes blink-caret {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        .hero-subtitle {
+            color: #888;
+            font-family: -apple-system, sans-serif;
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-polaroids {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .polaroid-hero {
+            width: 180px;
+            padding: 12px;
+            background: #fff;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #333;
+            transition: transform 0.4s ease;
+            cursor: pointer;
+        }
+
+        .polaroid-hero img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .polaroid-hero p {
+            margin-top: 8px;
+        }
+
+        .polaroid-hero:nth-child(1) {
+            transform: rotate(-8deg);
+        }
+
+        .polaroid-hero:nth-child(2) {
+            transform: rotate(6deg);
+        }
+
+        .polaroid-hero:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        /* ============== SECTION ============== */
+        .section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 2.2rem;
+            color: var(--blue);
+            margin: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .section-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 2rem;
+            background: var(--orange);
+            margin-left: 5px;
+            animation: blink-caret 1s step-end infinite;
+        }
+
+        .section-sub {
+            color: #888;
+            font-family: -apple-system, sans-serif;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        /* ============== ABOUT ============== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-photo {
+            width: 100%;
+            padding: 15px 15px 40px;
+            background: #fff;
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            transform: rotate(-3deg);
+            transition: transform 0.4s ease;
+        }
+
+        .about-photo:hover {
+            transform: rotate(0deg);
+        }
+
+        .about-photo img {
+            width: 100%;
+            display: block;
+        }
+
+        .about-text h2 {
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 1.8rem;
+            color: var(--blue);
+            margin: 0 0 15px 0;
+        }
+
+        .about-text p {
+            color: #555;
+            font-family: -apple-system, sans-serif;
+            font-size: 1rem;
+            line-height: 1.7;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        .about-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 14px;
+            background: #fff;
+            border: 2px solid var(--blue);
+            border-radius: 50px;
+            font-family: -apple-system, sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--blue);
+            transition: all 0.2s;
+        }
+
+        .tag:hover {
+            background: var(--orange);
+            border-color: var(--orange);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* ============== SKILLS (bulles style original) ============== */
+        .skill-group {
+            margin-bottom: 30px;
+        }
+
+        .skill-group h3 {
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 1.3rem;
+            color: var(--orange);
+            margin: 0 0 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-group h3 i {
+            font-size: 1rem;
+        }
+
+        .skill-bubbles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .fact {
+            padding: 6px 14px;
+            border: 2px solid #333;
+            border-radius: 50px;
+            background: #f4f4f4;
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 0.95rem;
+            color: #333;
+            transition: transform 0.3s ease, background 0.3s ease;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .fact:hover {
+            background: var(--orange);
+            border-color: var(--orange);
+            color: #fff;
+            transform: rotate(-5deg) scale(1.05);
+        }
+
+        .fact i {
+            font-size: 0.95rem;
+        }
+
+        /* ============== TIMELINE ============== */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            bottom: 10px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--orange), #eee);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 20px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #fff;
+            border: 3px solid var(--orange);
+            z-index: 1;
+        }
+
+        .timeline-card {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            background: #fff;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .timeline-card:hover {
+            transform: translateX(6px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-left-color: var(--orange);
+        }
+
+        .timeline-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 12px;
+            flex-shrink: 0;
+            background: #f4f4f4;
+        }
+
+        .timeline-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .timeline-title {
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 1.2rem;
+            color: var(--blue);
+            margin: 0;
+        }
+
+        .timeline-date {
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            color: #fff;
+            background: var(--blue);
+            padding: 3px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .timeline-role {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: var(--orange);
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .timeline-desc {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            text-align: left;
+        }
+
+        /* ============== SEE ALL BTN ============== */
+        .action-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .see-all,
+        .cv-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: var(--blue);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-family: -apple-system, sans-serif;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: transform 0.2s, background 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .see-all:hover {
+            background: var(--orange);
+            transform: translateY(-2px);
+        }
+
+        .cv-action {
+            background: var(--orange);
+        }
+
+        .cv-action:hover {
+            background: #d68910;
+            transform: translateY(-2px);
+        }
+
+        /* ============== ACTIVITIES ============== */
+        .activities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .activity-polaroid {
+            width: 160px;
+            padding: 12px 12px 35px;
+            background: #fff;
+            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.12);
+            border-radius: 4px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: #333;
+            transition: transform 0.4s ease;
+            word-wrap: break-word;
+        }
+
+        .activity-polaroid img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 3px;
+            margin-bottom: 8px;
+        }
+
+        .activity-polaroid:hover {
+            transform: scale(1.08) rotate(0deg) !important;
+            z-index: 10;
+        }
+
+        /* ============== CONTACT ============== */
+        .contact-wrap {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .contact-email {
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            color: var(--blue);
+            background: #fff;
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 50px;
+            margin-bottom: 25px;
+            border: 2px solid var(--blue);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .contact-email:hover {
+            background: var(--blue);
+            color: #fff;
+        }
+
+        .contact-socials {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .social-box {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border: 2px solid var(--blue);
+            border-radius: 50%;
+            color: var(--blue);
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .social-box:hover {
+            background: var(--orange);
+            border-color: var(--orange);
+            color: #fff;
+            transform: rotate(-10deg) scale(1.1);
+        }
+
+        /* ============== MODAL CV ============== */
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 320px;
+            max-width: 90vw;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            transition: transform 0.3s ease-in-out;
+            z-index: 2000;
+        }
+
+        .modal.show {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal h3 {
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 1.3rem;
+            color: var(--blue);
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .cv-btn {
+            display: block;
+            text-align: center;
+            padding: 12px;
+            margin: 8px 0;
+            background: var(--blue);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-family: -apple-system, sans-serif;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .cv-btn:hover {
+            background: var(--orange);
+        }
+
+        .close-modal {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 12px;
+            background: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        /* ============== FOOTER ============== */
+        .footer-min {
+            background: #222;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            font-family: -apple-system, sans-serif;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--orange);
+        }
+
+        .footer-copy {
+            color: #95a5a6;
+            font-size: 0.8rem;
+        }
+
+        /* ============== RESPONSIVE ============== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+                white-space: normal;
+                border-right: none;
+                animation: none;
+            }
+
+            .polaroid-hero {
+                width: 140px;
+            }
+
+            .section {
+                padding: 50px 15px;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .section-cursor {
+                height: 1.4rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                text-align: center;
+            }
+
+            .about-photo {
+                max-width: 200px;
+                margin: 0 auto;
+            }
+
+            .about-text p {
+                text-align: left;
+            }
+
+            .about-tags {
+                justify-content: center;
+            }
+
+            .timeline {
+                padding-left: 30px;
+            }
+
+            .timeline-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 15px;
+            }
+
+            .timeline-header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .timeline-desc {
+                text-align: center;
+            }
+
+            .timeline-card img {
+                width: 90px;
+                height: 90px;
+            }
+
+            .activity-polaroid {
+                width: 130px;
+            }
+
+            .action-row {
+                justify-content: center;
+            }
+
+            .see-all,
+            .cv-action {
+                flex: 1 1 auto;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .activity-polaroid {
+                width: 120px;
+                font-size: 0.7rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .about-text h2 {
+                font-size: 1.4rem;
+            }
+
+            .fact {
+                font-size: 0.85rem;
+                padding: 5px 10px;
+            }
+        }
+
+        /* ============== GITHUB ACTIVITY ============== */
+        .gh-stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .gh-stat {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 20px 15px;
+            text-align: center;
+            color: #c9d1d9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .gh-stat:hover {
+            transform: translateY(-4px);
+            border-color: #f39c12;
+        }
+
+        .gh-stat i {
+            font-size: 1.4rem;
+            color: #f39c12;
+            margin-bottom: 5px;
+        }
+
+        .gh-stat strong {
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 1.8rem;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .gh-stat span {
+            font-family: -apple-system, sans-serif;
+            font-size: 0.75rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .github-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .github-card {
+            background: #0d1117;
+            border-radius: 16px;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .github-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .github-card img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .github-card.full-width {
+            grid-column: 1 / -1;
+        }
+
+        @media (max-width: 768px) {
+            .github-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .github-card.full-width {
+                grid-column: 1;
+            }
+
+            .gh-stat strong {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- ==================== HERO ==================== -->
-    <div class="presentation" id="presentation">
+    <!-- ============== HERO ============== -->
+    <div class="hero" id="hero">
         <h1>Hi, I'm Lucas Bernardeau</h1>
-        <h3>Scroll down to discover more 👇</h3>
-        <div class="top-polaroide">
-            <div class="polaroide-left">
-                <div class="polaroid first">
-                    <img src="https://media.giphy.com/media/iIqmM5tTjmpOB9mpbn/giphy.gif" alt="GIF Code">
-                    <p>Hello, World!</p>
-                </div>
+        <div class="hero-subtitle" data-aos="fade-up">Scroll down to discover more 👇</div>
+
+        <div class="hero-polaroids">
+            <div class="polaroid-hero" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://media.giphy.com/media/iIqmM5tTjmpOB9mpbn/giphy.gif" alt="GIF Code">
+                <p>Hello, World!</p>
             </div>
-            <div class="polaroide-right">
-                <div class="polaroid second">
-                    <img src="https://media.giphy.com/media/yYSSBtDgbbRzq/giphy.gif" alt="Frustrated Programming GIF">
-                    <p>Code Red</p>
-                </div>
+            <div class="polaroid-hero" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://media.giphy.com/media/yYSSBtDgbbRzq/giphy.gif" alt="Frustrated Programming GIF">
+                <p>Code Red</p>
             </div>
         </div>
     </div>
 
-    <!-- ==================== ABOUT ==================== -->
-    <div class="about" id="about">
-        <h1 data-aos="fade-up">--- About ---</h1>
-        <div data-aos="fade-up" class="top-info">
-            <p>Hi, I'm Lucas. I study engineering at EPITA, and I split my time between tech and sports. Beyond the
-                screen, I am a competitive kickboxer and a former rugby instructor. These sports have shaped my core
-                values: discipline, resilience, and the understanding that nothing great is built without a solid
-                team.</p>
+    <!-- ============== 01 ABOUT ============== -->
+    <section class="section" id="about">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">About<span class="section-cursor"></span></h2>
+            <div class="section-sub">whoami</div>
         </div>
 
-        <div class="info">
-            <!-- ============ LEFT COLUMN ============ -->
-            <div class="left">
-                <h2 data-aos="fade-up">Links</h2>
-                <div class="link">
-                    <a href="https://www.linkedin.com/in/lucas-bernardeau/">
-                        <div class="box rotate" data-aos="fade-right"><i class="fa-brands fa-linkedin"></i></div>
-                    </a>
-                    <a href="mailto:contact@lucasbernardeau.fr">
-                        <div class="box rotate" data-aos="fade-right"><i class="fa-regular fa-envelope"></i></div>
-                    </a>
-                    <a href="https://github.com/lucasbnrd05">
-                        <div class="box rotate" data-aos="fade-right"><i class="fa-brands fa-github"></i></div>
-                    </a>
-                    <a href="../uses/index.html" title="My Configuration">
-                        <div class="box rotate" data-aos="fade-right">
-                            <i class="fa-solid fa-laptop-code"></i>
-                        </div>
-                    </a>
-                    <a href="links/alllinks.html">
-                        <div class="box rotate" data-aos="fade-right"><i class="fa-regular fa-newspaper"></i>
-                        </div>
-                    </a>
+        <div class="about-grid">
+            <div class="about-photo" data-aos="fade-right">
+                <img src="../doc/starterpack.png" alt="Lucas Bernardeau">
+            </div>
+            <div class="about-text" data-aos="fade-left">
+                <h2>Engineering student, system nerd, athlete.</h2>
+                <p>
+                    I study engineering at <strong>EPITA</strong>, and I split my time between tech and sports.
+                    Beyond the screen, I am a competitive kickboxer and a former rugby instructor.
+                    These sports have shaped my core values: discipline, resilience, and the understanding that
+                    nothing great is built without a solid team.
+                </p>
+                <p>
+                    Currently doing an IT & DevOps mission at <strong>Orano</strong>, and founder of
+                    <strong>Atelibox</strong>, a SaaS for artisans.
+                </p>
+                <div class="about-tags">
+                    <span class="tag">C / C++</span>
+                    <span class="tag">System Programming</span>
+                    <span class="tag">DevOps</span>
+                    <span class="tag">Linux</span>
+                    <span class="tag">Kickboxing</span>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <h2 data-aos="fade-up">Skills</h2>
-                <div class="skill" data-aos="fade-up-right">
-                    <div class="fact rotate" data-aos="fade-right">C / C++</div>
-                    <div class="fact rotate" data-aos="fade-right">ASM (x86 / 68k)</div>
-                    <div class="fact rotate" data-aos="fade-right">Linux / Unix</div>
-                    <div class="fact rotate" data-aos="fade-right">Bash / Shell</div>
-                    <div class="fact rotate" data-aos="fade-right">GNS3</div>
-                    <div class="fact rotate" data-aos="fade-right">SysML / UML</div>
-                    <div class="fact rotate" data-aos="fade-right">Python</div>
-                    <div class="fact rotate" data-aos="fade-right">OCaml</div>
-                    <div class="fact rotate" data-aos="fade-right">Java</div>
-                    <div class="fact rotate" data-aos="fade-right">C#</div>
-                    <div class="fact rotate" data-aos="fade-right">SQL</div>
-                    <div class="fact rotate" data-aos="fade-right">Flutter</div>
-                    <div class="fact rotate" data-aos="fade-right">Kotlin</div>
-                    <div class="fact rotate" data-aos="fade-right">HTML / CSS</div>
-                    <div class="fact rotate" data-aos="fade-right">JavaScript</div>
-                    <div class="fact rotate" data-aos="fade-right">LaTeX</div>
-                    <div class="fact rotate" data-aos="fade-right">Markdown</div>
-                </div>
+    <!-- ============== 02 SKILLS ============== -->
+    <section class="section" id="skills">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Skills<span class="section-cursor"></span></h2>
+            <div class="section-sub">ls -la ~/skills/</div>
+        </div>
 
-                <h2 data-aos="fade-up">Languages</h2>
-                <div class="skill" data-aos="fade-up">
-                    <div class="fact rotate" data-aos="fade-up">🇫🇷 French | Native</div>
-                    <div class="fact rotate" data-aos="fade-up">🇪🇸 Spanish | Native</div>
-                    <div class="fact rotate" data-aos="fade-up">🏴 Valencian | Native</div>
-                    <div class="fact rotate" data-aos="fade-up">🇬🇧 English | TOEIC 810</div>
-                    <div class="fact rotate" data-aos="fade-up">🇷🇺 Russian | A1</div>
-                </div>
+        <div class="skill-group" data-aos="fade-up">
+            <h3><i class="fa-solid fa-microchip"></i> System & Low-Level</h3>
+            <div class="skill-bubbles">
+                <div class="fact">C / C++</div>
+                <div class="fact">ASM (x86 / 68k)</div>
+                <div class="fact">Linux / Unix</div>
+                <div class="fact">Bash / Shell</div>
+                <div class="fact">GNS3</div>
+                <div class="fact">SysML / UML</div>
+            </div>
+        </div>
 
-                <h2 data-aos="fade-up">Experiences</h2>
-                <div class="experience" id="experiences">
+        <div class="skill-group" data-aos="fade-up" data-aos-delay="50">
+            <h3><i class="fa-solid fa-code"></i> Application</h3>
+            <div class="skill-bubbles">
+                <div class="fact">Python</div>
+                <div class="fact">OCaml</div>
+                <div class="fact">Java</div>
+                <div class="fact">C#</div>
+                <div class="fact">SQL</div>
+            </div>
+        </div>
 
-                    <!-- ORANO -->
-                    <a href="experiences/orano.html">
-                        <div class="job rotate" data-aos="fade-right">
-                            <h3>Orano Support</h3>
-                            <p><u>IT & DevOps Support Officer</u> - <em>Sep. 2026 - Jan. 2027</em></p>
-                            <p>Support on dev tools (<strong>Python, GitLab</strong>), repository management (Nexus),
-                                CI/CD pipelines, cybersecurity requirements, and PCA/PRA documentation.</p>
+        <div class="skill-group" data-aos="fade-up" data-aos-delay="100">
+            <h3><i class="fa-solid fa-globe"></i> Web & Mobile</h3>
+            <div class="skill-bubbles">
+                <div class="fact">Flutter</div>
+                <div class="fact">Kotlin</div>
+                <div class="fact">HTML / CSS</div>
+                <div class="fact">JavaScript</div>
+            </div>
+        </div>
+
+        <div class="skill-group" data-aos="fade-up" data-aos-delay="150">
+            <h3><i class="fa-solid fa-screwdriver-wrench"></i> Documentation & Tools</h3>
+            <div class="skill-bubbles">
+                <div class="fact">LaTeX</div>
+                <div class="fact">Markdown</div>
+                <div class="fact">Git / GitLab</div>
+                <div class="fact">Docker</div>
+                <div class="fact">CMake / Make</div>
+                <div class="fact">Vim / VSCode</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== 03 LANGUAGES (NOUVEAU - remis) ============== -->
+    <section class="section" id="languages">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Languages<span class="section-cursor"></span></h2>
+            <div class="section-sub">cat ~/languages.txt</div>
+        </div>
+
+        <div class="skill-bubbles" data-aos="fade-up">
+            <div class="fact">🇫🇷 French | Native</div>
+            <div class="fact">🇪🇸 Spanish | Native</div>
+            <div class="fact">🏴 Valencian | Native</div>
+            <div class="fact">🇬🇧 English | TOEIC 810</div>
+            <div class="fact">🇷🇺 Russian | A1</div>
+        </div>
+    </section>
+
+    <!-- ============== 04 EXPERIENCES ============== -->
+    <section class="section" id="experiences">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Experiences<span class="section-cursor"></span></h2>
+            <div class="section-sub">git log --experiences</div>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-up">
+                <a href="experiences/orano.html" class="timeline-card">
+                    <img src="https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif" alt="Orano">
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-title">Orano Support</h3>
+                            <span class="timeline-date">Sep. 2026 — Jan. 2027</span>
                         </div>
-                    </a>
-
-                    <!-- ACDC -->
-                    <a href="experiences/acdc.html">
-                        <div class="job rotate" data-aos="fade-right">
-                            <h3>EPITA — ACDC</h3>
-                            <p><u>Teaching Assistant</u> - <em>Sep. 2025 - Jul. 2026</em></p>
-                            <p>Teaching <strong>C and Python</strong> programming. Code reviews, debugging assistance,
-                                algorithmic concepts, and student supervision.</p>
-                        </div>
-                    </a>
-
-                    <!-- STAFF'COM -->
-                    <a href="experiences/staffcom.html">
-                        <div class="job rotate" data-aos="fade-right">
-                            <h3>EPITA — STAFF'COM</h3>
-                            <p><u>Student Ambassador</u> - <em>Since Sep. 2023</em></p>
-                            <p>Representing EPITA at international fairs, supervising Concours Advance, welcoming
-                                candidates during admission contests.</p>
-                        </div>
-                    </a>
-
-                    <a href="experiences.html" class="download-link" data-aos="fade-right">
-                        <i class="fa-regular fa-eye"></i> See all Experiences
-                    </a>
-                </div>
-
-                <a href="#" class="download-link open-modal-btn" data-aos="fade-up">
-                    <i class="fa-solid fa-file-arrow-down"></i> Curriculum Vitae
+                        <div class="timeline-role">IT & DevOps Support Officer</div>
+                        <p class="timeline-desc">
+                            Support on dev tools (Python, GitLab), repository management (Nexus),
+                            CI/CD pipelines, cybersecurity, and PCA/PRA documentation.
+                        </p>
+                    </div>
                 </a>
             </div>
 
-            <!-- ============ RIGHT COLUMN ============ -->
-            <div class="right">
-                <div class="me" data-aos="fade-up">
-                    <div class="polaroid perso">
-                        <img src="../doc/starterpack.png" alt="picture of me">
-                        <p></p>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="50">
+                <a href="experiences/acdc.html" class="timeline-card">
+                    <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnp4d3QwZ2ZmMzF1MGN6d2VpZGU2dm9heGtvOXF0bmRiZjZsanhsYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iigqhSTOKmb6wDObGb/giphy.gif"
+                        alt="ACDC">
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-title">EPITA — ACDC</h3>
+                            <span class="timeline-date">Sep. 2025 — Jul. 2026</span>
+                        </div>
+                        <div class="timeline-role">Teaching Assistant (C & Python)</div>
+                        <p class="timeline-desc">
+                            Teaching C and Python to first-year students. Code reviews, debugging,
+                            algorithmic concepts, and student supervision.
+                        </p>
                     </div>
-                </div>
+                </a>
+            </div>
 
-                <div class="cursus">
-                    <div class="polaroid rotate formation" data-aos="fade-up-left">
-                        <img src="../doc/logo_epita.png" alt="Logo Epita">
-                        <p>EPITA</p>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                <a href="experiences/staffcom.html" class="timeline-card">
+                    <img src="https://media.giphy.com/media/l0HlPystfePnAI3G8/giphy.gif" alt="STAFF'COM">
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-title">EPITA — STAFF'COM</h3>
+                            <span class="timeline-date">Since Sep. 2023</span>
+                        </div>
+                        <div class="timeline-role">Student Ambassador</div>
+                        <p class="timeline-desc">
+                            Representing EPITA at international fairs, supervising Concours Advance,
+                            welcoming candidates during admission contests.
+                        </p>
                     </div>
-                    <div class="polaroid rotate formation" data-aos="fade-up-left">
-                        <img src="../doc/upm.png" alt="Logo UPM">
-                        <p>UPM</p>
-                    </div>
-                    <div class="polaroid rotate formation" data-aos="fade-up-left">
-                        <img src="../doc/logo_lycee.jpg" alt="Institut Paul Ricoeur">
-                        <p>Institut Paul Ricoeur</p>
-                    </div>
-                    <div class="polaroid rotate formation" data-aos="fade-up-left">
-                        <img src="https://media.giphy.com/media/3o7TKMt1VVNkHV2PaE/giphy.gif" alt="TOEIC GIF">
-                        <p>TOEIC - 810</p>
-                    </div>
-                    <div class="polaroid rotate formation" data-aos="fade-up-left">
-                        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExejdlNmRzbnBscTgxenBsaG9neGp1MDBtandiZzA4NHc1dzRxZTR5ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/oNrQPjkJI99xu7WM8W/giphy.gif"
-                            alt="Rugby GIF">
-                        <p>Federal Rugby Initiation</p>
-                    </div>
-                    <div class="polaroid rotate formation" data-aos="fade-up-left">
-                        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYm9paGY0ZTdrbHVsZHN3MDNuOWludmlqMTlxYngyc3JmZm5xaHVrbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MMfbvb3kUlqoM/giphy.gif"
-                            alt="Rugby GIF">
-                        <p>Federal Rugby Development</p>
-                    </div>
-                    <div class="polaroid rotate formation" data-aos="fade-up-left">
-                        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHhhMmk3cnAydXltZmp1OHVwdGpzODNpeTR2MXByeDZkb2cwMGlsZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/eiFN01bqTI6sGfaKRq/giphy.gif"
-                            alt="Rugby GIF">
-                        <p>Federal Rugby Baby</p>
-                    </div>
-                    <div class="polaroid rotate formation" data-aos="fade-up-left">
-                        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2g3N3ZscGxvZnNyaGxvangzYnRueHdzanhuM2VoeDQxdmQ3OGc1YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/gwKIYc8addRR1fzF8P/giphy.gif"
-                            alt="Doctor GIF">
-                        <p>PSC1</p>
-                    </div>
-                    <div class="polaroid rotate formation" data-aos="fade-up-left">
-                        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTExbDJuaTJheTlvbms0Zzc2YW13Z2dvcnhqYno5OHFtOGR6eWFicyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8gMWx53mMOnYI/giphy.gif"
-                            alt="Car GIF">
-                        <p>Driving licence</p>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
 
-        <!-- ============ TOOLS ============ -->
-        <div class="tools">
-            <h2 data-aos="fade-up">Tools, Platforms & Ecosystems</h2>
-            <div class="skill tool-details" data-aos="fade-up">
-                <div class="fact rotate" data-aos="fade-up"><i class="fa-brands fa-linux"></i> Linux</div>
-                <div class="fact rotate" data-aos="fade-up"><i class="fa-brands fa-ubuntu"></i> Ubuntu</div>
-                <div class="fact rotate" data-aos="fade-up"><i class="fa-solid fa-snowflake"></i> NixOS</div>
-                <div class="fact rotate" data-aos="fade-up"><i class="fa-solid fa-dragon"></i> Kali</div>
-                <div class="fact rotate" data-aos="fade-up"><i class="fa-brands fa-windows"></i> Windows</div>
-                <div class="fact rotate" data-aos="fade-up">Raspberry Pi</div>
-                <div class="fact rotate" data-aos="fade-up">Git</div>
-                <div class="fact rotate" data-aos="fade-up">GitLab</div>
-                <div class="fact rotate" data-aos="fade-up">GitHub</div>
-                <div class="fact rotate" data-aos="fade-up">Bash</div>
-                <div class="fact rotate" data-aos="fade-up">CMake</div>
-                <div class="fact rotate" data-aos="fade-up">Make</div>
-                <div class="fact rotate" data-aos="fade-up">Docker</div>
-                <div class="fact rotate" data-aos="fade-up">GNS3</div>
-                <div class="fact rotate" data-aos="fade-up">Vim</div>
-                <div class="fact rotate" data-aos="fade-up">Emacs</div>
-                <div class="fact rotate" data-aos="fade-up">Visual Studio Code</div>
-                <div class="fact rotate" data-aos="fade-up">JetBrains (Rider / IntelliJ IDEA)</div>
-                <div class="fact rotate" data-aos="fade-up">Android Studio</div>
-                <div class="fact rotate" data-aos="fade-up">Enterprise Architect</div>
-                <div class="fact rotate" data-aos="fade-up">Overleaf</div>
-                <div class="fact rotate" data-aos="fade-up">Obsidian</div>
-                <div class="fact rotate" data-aos="fade-up">Microsoft Office</div>
-                <div class="fact rotate" data-aos="fade-up">Figma</div>
-                <div class="fact rotate" data-aos="fade-up">Godot</div>
+        <div class="action-row">
+            <button class="cv-action open-modal-btn" data-aos="fade-right">
+                <i class="fa-solid fa-file-arrow-down"></i> Download CV
+            </button>
+            <a href="experiences.html" class="see-all" data-aos="fade-left">
+                <i class="fa-regular fa-eye"></i> See all experiences
+            </a>
+        </div>
+    </section>
+
+    <!-- ============== 05 PROJECTS ============== -->
+    <section class="section" id="projects">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Projects<span class="section-cursor"></span></h2>
+            <div class="section-sub">ls -la ~/projects/</div>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-up">
+                <a href="projects/42sh.html" class="timeline-card">
+                    <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3E2aXRxNzhyMWZiYmo5MWYwb2xocGx4OWM0dmI1bmVoc2JhaTF4MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nBgyDy3fU82LBprofa/giphy.gif"
+                        alt="42sh">
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-title">42sh — POSIX Shell</h3>
+                            <span class="timeline-date">C · Unix</span>
+                        </div>
+                        <div class="timeline-role">Flagship System Project</div>
+                        <p class="timeline-desc">
+                            Complete re-implementation of a Unix Shell (like Bash) in C:
+                            process management, AST parsing, pipelines, redirections.
+                        </p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="50">
+                <a href="projects/esm_project.html" class="timeline-card">
+                    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3N1a3A4M3Y5MGV5Zmk2dHZzbTRodWJiYjk1dDZjcWNhanRtdG52aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mIMsLsQTJzAn6/giphy.gif"
+                        alt="ESM">
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-title">Driving Distraction Detection</h3>
+                            <span class="timeline-date">Embedded · C</span>
+                        </div>
+                        <div class="timeline-role">Real-time Safety System</div>
+                        <p class="timeline-desc">
+                            Embedded system to enhance road safety. Sensor data analysis and
+                            immediate response logic using C and SysML modeling.
+                        </p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                <a href="projects/atelibox.html" class="timeline-card">
+                    <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnF6aTJlZWhreDZ6ZnNyZ2s2M3F6ZWxrODRlb3MzeDJhdWZmemcwNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/g9582DNuQppxC/giphy.gif"
+                        alt="Atelibox">
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-title">Atelibox</h3>
+                            <span class="timeline-date">SaaS · Fullstack</span>
+                        </div>
+                        <div class="timeline-role">Founder & Full-Stack Developer</div>
+                        <p class="timeline-desc">
+                            SaaS platform for artisans. Python/Flask, PostgreSQL, Stripe, WorkOS.
+                            Fully deployed and in production.
+                        </p>
+                    </div>
+                </a>
             </div>
         </div>
-    </div>
 
-    <!-- ==================== PROJECTS ==================== -->
-    <div class="project" id="project">
-        <h1 data-aos="fade-up">--- Projects ---</h1>
+        <div class="action-row" style="justify-content: flex-end;">
+            <a href="projects.html" class="see-all" data-aos="fade-left">
+                <i class="fa-regular fa-eye"></i> See all projects
+            </a>
+        </div>
+    </section>
 
-        <a href="projects/42sh.html" data-aos="fade-up">
-            <div class="project-detail" data-aos="fade-up">
-                <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3E2aXRxNzhyMWZiYmo5MWYwb2xocGx4OWM0dmI1bmVoc2JhaTF4MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nBgyDy3fU82LBprofa/giphy.gif"
-                    alt="Terminal GIF">
-                <div class="content">
-                    <h3>42sh (POSIX Shell)</h3>
-                    <p>My flagship system programming project. A complete re-implementation of a Unix Shell (like
-                        Bash) in C: process management, AST parsing...</p>
-                </div>
-            </div>
-        </a>
+    <!-- ============== 06 ACTIVITIES ============== -->
+    <section class="section" id="activities">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Activities<span class="section-cursor"></span></h2>
+            <div class="section-sub">cat interests.txt</div>
+        </div>
 
-        <a href="projects/esm_project.html" data-aos="fade-up-right">
-            <div class="project-detail" data-aos="fade-up-right">
-                <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3N1a3A4M3Y5MGV5Zmk2dHZzbTRodWJiYjk1dDZjcWNhanRtdG52aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mIMsLsQTJzAn6/giphy.gif"
-                    alt="Driving GIF">
-                <div class="content">
-                    <h3>Driving Distraction Detection</h3>
-                    <p>Real-time embedded system developed to enhance road safety. Focus on sensor data analysis and
-                        immediate response logic using C and embedded hardware.</p>
-                </div>
-            </div>
-        </a>
-
-        <a href="projects/atelibox.html" data-aos="fade-up-left">
-            <div class="project-detail" data-aos="fade-up-left">
-                <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnF6aTJlZWhreDZ6ZnNyZ2s2M3F6ZWxrODRlb3MzeDJhdWZmemcwNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/g9582DNuQppxC/giphy.gif"
-                    alt="Programmer Character GIF">
-                <div class="content">
-                    <h3>Atelibox (SaaS Platform)</h3>
-                    <p>A comprehensive Fullstack SaaS application. Demonstrates my ability to manage databases,
-                        deployment, and create a user-friendly product from scratch.</p>
-                </div>
-            </div>
-        </a>
-
-        <a href="projects.html" class="download-link" data-aos="fade-up"><i class="fa-regular fa-eye"></i> See all
-            projects</a>
-    </div>
-
-    <!-- ==================== ACTIVITIES ==================== -->
-    <div class="activities" id="activities">
-        <h1 data-aos="fade-up">--- Activities & Interests ---</h1>
-        <div class="elmt">
-            <div class="polaroid rotate formation" data-aos="fade-up-left">
+        <div class="activities">
+            <div class="activity-polaroid" style="transform: rotate(-7deg);" data-aos="zoom-in">
                 <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXdhcHIyenA4a3p4MGhzMHR1aWFyMmR3NWZ2NGJodzFud3kxNjZuaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Ci8A5jgHQ7g5PCqmjL/giphy.gif"
-                    alt="Kickboxing GIF">
+                    alt="Kickboxing">
                 <p>French Junior Kickboxing Light Champion 2023</p>
             </div>
-            <div class="polaroid rotate formation" data-aos="fade-up-left">
+
+            <div class="activity-polaroid" style="transform: rotate(5deg);" data-aos="zoom-in" data-aos-delay="50">
                 <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHA0OHI3Z2xlOHg5bmZ1c2Rlb213ZHdscWxicnN3OGRwN2c1cDljMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l41m6ul2yz5sfSB3O/giphy.gif"
-                    alt="Kickboxing GIF">
+                    alt="K1">
                 <p>French Junior K1 Light Champion 2023</p>
             </div>
-            <div class="polaroid rotate formation" data-aos="fade-up-left">
+
+            <div class="activity-polaroid" style="transform: rotate(-4deg);" data-aos="zoom-in" data-aos-delay="100">
                 <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGlraTFsdno2NG44MnQ1MnBrbzh1ZGhidDJyN3J4Z3h1a3FqMjFqNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sNgcyN2J9uPgOiOiva/giphy.gif"
-                    alt="Kickboxing GIF">
+                    alt="Kickboxing">
                 <p>Winner of the 2023 French Junior Kickboxing Light Cup</p>
             </div>
-            <div class="polaroid rotate formation" data-aos="fade-up-left">
+
+            <div class="activity-polaroid" style="transform: rotate(8deg);" data-aos="zoom-in" data-aos-delay="150">
                 <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDl5NXU0MmVzMGVlZmI4MDJpNWd1ejdlZHV6cGJ5b3J2N2R0YTl0cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/EBwDPaiX2gpUdaCrwA/giphy.gif"
-                    alt="Rugby GIF">
+                    alt="Rugby">
                 <p>Rugby</p>
             </div>
-            <div class="polaroid rotate formation" data-aos="fade-up-left">
+
+            <div class="activity-polaroid" style="transform: rotate(-6deg);" data-aos="zoom-in" data-aos-delay="200">
                 <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZDRtZHB1cGdpMjZ5cWxmbmx5c3RzZjZnaDNvN3d2NTZ2YjhwemkzbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xUOxeZc41DVT2l9laU/giphy.gif"
-                    alt="Travel GIF">
+                    alt="Travel">
                 <p>Travel</p>
             </div>
-            <div class="polaroid rotate formation" data-aos="fade-up-left">
+
+            <div class="activity-polaroid" style="transform: rotate(4deg);" data-aos="zoom-in" data-aos-delay="250">
                 <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmkzMWR1ZDMxOHA3YTBuc2NpaTlsMG9sdHJhNjJjMGlmanpmOWVncSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/v7MnEcWqusAAoALwDQ/giphy.gif"
-                    alt="Swim GIF">
+                    alt="Swim">
                 <p>Swim</p>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- ==================== CONTACT ==================== -->
-    <div class="contact" id="contact">
-        <h1 data-aos="fade-up">--- Let's talk ---</h1>
-        <p data-aos="fade-up-left">contact@lucasbernardeau.fr</p>
-        <div class="link">
-            <a href="https://www.linkedin.com/in/lucas-bernardeau/" data-aos="fade-up">
-                <div class="box rotate"><i class="fa-brands fa-linkedin"></i></div>
-            </a>
-            <a href="mailto:contact@lucasbernardeau.fr" data-aos="fade-up">
-                <div class="box rotate"><i class="fa-regular fa-envelope"></i></div>
-            </a>
-            <a href="https://github.com/lucasbnrd05" data-aos="fade-up">
-                <div class="box rotate"><i class="fa-brands fa-github"></i></div>
-            </a>
-            <a href="links/alllinks.html">
-                <div class="box rotate" data-aos="fade-up"><i class="fa-regular fa-newspaper"></i>
+    <!-- ============== GITHUB ACTIVITY ============== -->
+    <section class="section" id="github">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">GitHub<span class="section-cursor"></span></h2>
+            <div class="section-sub">gh api /users/lucasbnrd05</div>
+        </div>
+
+        <!-- Stats row (fetch JS) -->
+        <div class="gh-stats-row" data-aos="fade-up">
+            <div class="gh-stat">
+                <i class="fa-brands fa-github"></i>
+                <strong id="ghRepos">--</strong>
+                <span>Public repos</span>
+            </div>
+            <div class="gh-stat">
+                <i class="fa-solid fa-users"></i>
+                <strong id="ghFollowers">--</strong>
+                <span>Followers</span>
+            </div>
+            <div class="gh-stat">
+                <i class="fa-solid fa-user-plus"></i>
+                <strong id="ghFollowing">--</strong>
+                <span>Following</span>
+            </div>
+            <div class="gh-stat">
+                <i class="fa-solid fa-code-branch"></i>
+                <strong id="ghStars">--</strong>
+                <span>Total stars</span>
+            </div>
+        </div>
+
+        <div class="github-grid">
+            <!-- Streak -->
+            <div class="github-card full-width" data-aos="fade-up">
+                <img src="https://streak-stats.demolab.com/?user=lucasbnrd05&theme=dark&background=0d1117&border=30363d&stroke=f39c12&ring=f39c12&fire=f39c12&currStreakNum=c9d1d9&sideNums=c9d1d9&currStreakLabel=f39c12&sideLabels=c9d1d9&dates=888888&border_radius=12"
+                    alt="GitHub Streak" loading="lazy">
+            </div>
+
+            <!-- Contribution chart (12 derniers mois) -->
+            <div class="github-card full-width" data-aos="fade-up" data-aos-delay="50">
+                <div style="padding: 20px; text-align: center; width: 100%;">
+                    <div
+                        style="color: #f39c12; font-family: 'Courier New', monospace; font-size: 0.85rem; margin-bottom: 12px; text-align: left;">
+                        $ git log --graph --oneline --all
+                    </div>
+                    <img src="https://ghchart.rshah.org/f39c12/lucasbnrd05" alt="Contribution chart"
+                        style="width: 100%; height: auto; filter: brightness(1.1);" loading="lazy">
                 </div>
+            </div>
+        </div>
+
+        <div class="action-row" style="justify-content: center; margin-top: 30px;">
+            <a href="https://github.com/lucasbnrd05" class="see-all" target="_blank" data-aos="fade-up">
+                <i class="fa-brands fa-github"></i> View GitHub Profile
             </a>
         </div>
-    </div>
-
-    <!-- ==================== MODAL CV ==================== -->
-    <div class="modal" id="polaroidModal">
-        <div class="modal-content">
-            <img src="../doc/wallpaper.png" alt="Polaroïd Image">
-            <p>Choose a version to download:</p>
-            <a href="../doc/lucas_bernardeau_cv_en.pdf" class="cv-button" target="_blank">📄 English Resume</a>
-            <a href="../doc/lucas_bernardeau_cv_fr.pdf" class="cv-button" target="_blank">📄 French Resume</a>
-            <button class="close-modal">Close</button>
+    </section>
+    <!-- ============== 07 CONTACT ============== -->
+    <section class="section" id="contact">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Contact<span class="section-cursor"></span></h2>
+            <div class="section-sub">./contact.sh</div>
         </div>
+
+        <div class="contact-wrap">
+            <a href="mailto:contact@lucasbernardeau.fr" class="contact-email" data-aos="fade-up">
+                <i class="fa-regular fa-envelope"></i> contact@lucasbernardeau.fr
+            </a>
+
+            <div class="contact-socials" data-aos="fade-up" data-aos-delay="100">
+                <a href="https://www.linkedin.com/in/lucas-bernardeau/" class="social-box" title="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/lucasbnrd05" class="social-box" title="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="links/alllinks.html" class="social-box" title="All Links">
+                    <i class="fa-regular fa-newspaper"></i>
+                </a>
+                <a href="../uses/index.html" class="social-box" title="My Setup">
+                    <i class="fa-solid fa-laptop-code"></i>
+                </a>
+            </div>
+
+            <button class="cv-action open-modal-btn" data-aos="fade-up" data-aos-delay="150">
+                <i class="fa-solid fa-file-arrow-down"></i> Download CV
+            </button>
+        </div>
+    </section>
+
+
+    <!-- ============== MODAL CV ============== -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="modal" id="polaroidModal">
+        <h3><i class="fa-solid fa-file-arrow-down"></i> My Resume</h3>
+        <a href="../doc/lucas_bernardeau_cv_en.pdf" class="cv-btn" target="_blank">📄 English version</a>
+        <a href="../doc/lucas_bernardeau_cv_fr.pdf" class="cv-btn" target="_blank">📄 Version française</a>
+        <button class="close-modal">Close</button>
     </div>
 
-    <!-- ==================== FOOTER ==================== -->
-    <footer class="footer" id="footer" data-aos="flip-up">
-        <div class="footer-container">
-            <div class="footer-logo">
-                <h2>Lucas Bernardeau</h2>
-            </div>
-            <div class="footer-links">
-                <a href="#presentation">Home</a>
-                <a href="#about">About</a>
-                <a href="projects.html">Projects</a>
-                <a href="experiences.html">Experiences</a>
-                <a href="qualifications.html">Qualifications</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <div class="footer-social">
-                <a href="https://www.linkedin.com/in/lucas-bernardeau/"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="mailto:contact@lucasbernardeau.fr"><i class="fa-regular fa-envelope"></i></a>
-                <a href="https://github.com/lucasbnrd05"><i class="fa-brands fa-github"></i></a>
-                <a href="../tools/index.html"><i class="fa-solid fa-screwdriver-wrench"></i></a>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Buzzcut. All rights reserved.</p>
-            </div>
+    <!-- ============== FOOTER ============== -->
+    <footer class="footer-min">
+        <div class="footer-links">
+            <a href="#hero">Home</a>
+            <a href="#about">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="experiences.html">Experiences</a>
+            <a href="qualifications.html">Qualifications</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-copy">
+            &copy; 2026 Buzzcut. All rights reserved.
         </div>
     </footer>
 
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script src="../js/script.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+        });
+
+        // Modal CV
+        const modal = document.getElementById('polaroidModal');
+        const overlay = document.getElementById('modalOverlay');
+
+        document.querySelectorAll('.open-modal-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('show');
+                overlay.classList.add('show');
+            });
+        });
+
+        function closeModal() {
+            modal.classList.remove('show');
+            overlay.classList.remove('show');
+        }
+
+        document.querySelector('.close-modal').addEventListener('click', closeModal);
+        overlay.addEventListener('click', closeModal);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // ============== GITHUB API FETCH ==============
+        async function fetchGitHubStats() {
+            try {
+                const userRes = await fetch('https://api.github.com/users/lucasbnrd05');
+                const user = await userRes.json();
+
+                document.getElementById('ghRepos').textContent = user.public_repos ?? '--';
+                document.getElementById('ghFollowers').textContent = user.followers ?? '--';
+                document.getElementById('ghFollowing').textContent = user.following ?? '--';
+
+                const reposRes = await fetch('https://api.github.com/users/lucasbnrd05/repos?per_page=100');
+                const repos = await reposRes.json();
+                const totalStars = repos.reduce((acc, r) => acc + (r.stargazers_count || 0), 0);
+                document.getElementById('ghStars').textContent = totalStars;
+            } catch (err) {
+                console.warn('GitHub API error', err);
+                ['ghRepos', 'ghFollowers', 'ghFollowing', 'ghStars'].forEach(id => {
+                    document.getElementById(id).textContent = '--';
+                });
+            }
+        }
+        fetchGitHubStats();
+    </script>
 </body>
 
 </html>

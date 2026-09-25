@@ -6,9 +6,9 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <meta name="description"
-        content="Lucas Bernardeau - Projects Page: Embedded Systems, Unix Shell, SaaS, and Mobile Apps.">
+        content="Lucas Bernardeau - Projects: Embedded Systems, System Programming, SaaS, and Mobile Apps.">
     <meta name="keywords"
-        content="Lucas, Bernardeau, Projects, C, System Programming, Embedded, 42sh, OCR, Mobile Development">
+        content="Lucas, Bernardeau, Projects, C, System Programming, Embedded, 42sh, OCR, Malloc, HTTPd, Mobile Development">
     <meta property="og:title" content="Lucas Bernardeau | Projects" />
     <meta property="og:description"
         content="Showcasing technical projects in System Programming, Embedded Systems, and Software Engineering." />
@@ -22,7 +22,6 @@
 
     <meta content="Buzzcut" name="author">
     <meta content="© 2026 Buzzcut. All rights reserved." name="copyright">
-
     <link rel="stylesheet" href="../css/style_projects_home.css">
     <link rel="stylesheet" href="../css/style_base.css">
     <link rel="icon" type="image/png" sizes="32x32" href="../doc/favicon-32x32.png">
@@ -32,13 +31,146 @@
     <link rel="icon" type="image/png" sizes="192x192" href="../doc/android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="../doc/android-chrome-512x512.png">
 
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
-
     <title>Projects Page</title>
+
+    <style>
+        /* ========== PROJECTS LIST (même DA que experiences.html) ========== */
+        .prj-list {
+            max-width: 900px;
+            margin: 0 auto 60px auto;
+            padding: 0 20px;
+        }
+
+        .prj-item {
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+            background: #fff;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .prj-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left-color: orange;
+        }
+
+        .prj-img {
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 12px;
+            flex-shrink: 0;
+            background: #f4f4f4;
+        }
+
+        .prj-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .prj-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .prj-title {
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 1.4rem;
+            color: #333;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .prj-tag {
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            color: #fff;
+            background: #2c3e50;
+            padding: 4px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .prj-role {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #e67e22;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .prj-desc {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        .prj-desc strong {
+            color: #333;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .prj-list { padding: 0 15px; }
+
+            .prj-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 20px 18px;
+                gap: 15px;
+            }
+
+            .prj-img {
+                width: 110px;
+                height: 110px;
+            }
+
+            .prj-header {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .prj-title {
+                font-size: 1.15rem;
+                text-align: center;
+            }
+
+            .prj-role {
+                font-size: 0.85rem;
+                text-align: center;
+            }
+
+            .prj-desc {
+                font-size: 0.9rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .prj-item { padding: 15px 14px; }
+            .prj-title { font-size: 1rem; }
+            .prj-desc { font-size: 0.85rem; }
+        }
+    </style>
 </head>
 
 <body>
@@ -47,7 +179,6 @@
         <h1>Projects Page</h1>
         <div class="top-polaroide">
             <div class="polaroide-left">
-
                 <div class="polaroid first">
                     <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExazY3ODllNHNyOTNjY213dGowd3ltMWlqb3RhcXY4d3UxdWo5dzJyYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MZEIaQ799hT1VXMqz8/giphy.gif"
                         alt="GIF Code">
@@ -55,7 +186,6 @@
                 </div>
             </div>
             <div class="polaroide-right">
-
                 <div class="polaroid second">
                     <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXhpNTBvZWtjang3dGd4M2p4bmJ0ZjJld2Z2cnlyN2Y2Mnl3amMzcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6arSJwtKZBtWCRzg6d/giphy.gif"
                         alt="Code GIF">
@@ -63,191 +193,246 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="prj-list">
+
+        <!-- ========== SYSTEM & LOW-LEVEL ========== -->
+
+        <a href="projects/42sh.html" class="prj-item" data-aos="fade-up">
+            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3E2aXRxNzhyMWZiYmo5MWYwb2xocGx4OWM0dmI1bmVoc2JhaTF4MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nBgyDy3fU82LBprofa/giphy.gif"
+                alt="42sh" class="prj-img">
+            <div class="prj-content">
+                <div class="prj-header">
+                    <h3 class="prj-title">42sh — POSIX Shell</h3>
+                    <span class="prj-tag">C · Unix</span>
+                </div>
+                <div class="prj-role">Flagship System Project</div>
+                <p class="prj-desc">
+                    Complete re-implementation of a <strong>POSIX-compliant shell</strong> from scratch. AST parsing,
+                    pipelines, redirections, process management, variable expansion, control structures.
+                </p>
+            </div>
+        </a>
+
+        <a href="projects/malloc.html" class="prj-item" data-aos="fade-up">
+            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGVjcWk4MmNwY3A2YWJqeGQ4dDRraDRrbzRkZWV6bWI2b2Y0bzNqeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cVIbD5Pe0WwuSYHUhk/giphy.gif"
+                alt="Malloc" class="prj-img">
+            <div class="prj-content">
+                <div class="prj-header">
+                    <h3 class="prj-title">Malloc — Memory Allocator</h3>
+                    <span class="prj-tag">C · Threads</span>
+                </div>
+                <div class="prj-role">System Programming & Concurrency</div>
+                <p class="prj-desc">
+                    Thread-safe <strong>malloc/free/realloc</strong> implementation using <code>mmap</code>.
+                    Optimization strategies for fragmentation, mutex locking for thread safety.
+                </p>
+            </div>
+        </a>
+
+        <a href="projects/minimake.html" class="prj-item" data-aos="fade-up">
+            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzc2eG9jN3UxMnkxM20zYThxOTc1anFqN2dtbWk3eTllZTEzZHAwbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Mah9dFWo1WZX0WM62Q/giphy.gif"
+                alt="Minimake" class="prj-img">
+            <div class="prj-content">
+                <div class="prj-header">
+                    <h3 class="prj-title">Minimake — Make Clone</h3>
+                    <span class="prj-tag">C · Graphs</span>
+                </div>
+                <div class="prj-role">Build Automation & DAG Resolution</div>
+                <p class="prj-desc">
+                    Reproduction of <strong>GNU Make</strong>. Dependency graph resolution (DAG), recursive rule
+                    execution, file timestamp comparison for optimized builds.
+                </p>
+            </div>
+        </a>
+
+        <a href="projects/httpd.html" class="prj-item" data-aos="fade-up">
+            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjVkcmE1cXR4M2o3eXlwOWJhaHF3anhnMnc1NW9yOHdzdWJlNG93bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8L0Pky6C83SzkzU55a/giphy.gif"
+                alt="HTTPd" class="prj-img">
+            <div class="prj-content">
+                <div class="prj-header">
+                    <h3 class="prj-title">HTTPd — Web Server</h3>
+                    <span class="prj-tag">C · Network</span>
+                </div>
+                <div class="prj-role">Socket API & RFC 9112</div>
+                <p class="prj-desc">
+                    Lightweight <strong>HTTP/1.1 server</strong>. Concurrent clients via Socket API, RFC 9112-compliant
+                    request parsing, runs as a system daemon.
+                </p>
+            </div>
+        </a>
+
+        <a href="projects/ocr.html" class="prj-item" data-aos="fade-up">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbG5qMDAyaTczZ3BxczBqaHRvdnhkZDc2N3VrdnIwYzRkYWEyejJ2NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WrfsKnNUbtx84/giphy.gif"
+                alt="OCR" class="prj-img">
+            <div class="prj-content">
+                <div class="prj-header">
+                    <h3 class="prj-title">OCR — Neural Network</h3>
+                    <span class="prj-tag">C · AI</span>
+                </div>
+                <div class="prj-role">From-Scratch AI Engine</div>
+                <p class="prj-desc">
+                    Optical Character Recognition engine from scratch. Matrix operations, image filters,
+                    <strong>neural network training</strong> algorithms.
+                </p>
+            </div>
+        </a>
+
+        <!-- ========== EMBEDDED ========== -->
+
+        <a href="projects/esm_project.html" class="prj-item" data-aos="fade-up">
+            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3N1a3A4M3Y5MGV5Zmk2dHZzbTRodWJiYjk1dDZjcWNhanRtdG52aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mIMsLsQTJzAn6/giphy.gif"
+                alt="ESM" class="prj-img">
+            <div class="prj-content">
+                <div class="prj-header">
+                    <h3 class="prj-title">Driving Distraction Detection</h3>
+                    <span class="prj-tag">Embedded · C</span>
+                </div>
+                <div class="prj-role">Real-Time Safety System</div>
+                <p class="prj-desc">
+                    Real-time system analyzing driver attention via sensor data. Signal processing,
+                    <strong>immediate safety alerts</strong>, SysML modeling.
+                </p>
+            </div>
+        </a>
+
+        <a href="projects/website.html" class="prj-item" data-aos="fade-up">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExandkcDF5MDloN2pjbTBxMzI4NmZ3NnpzczkwamhkYXA4ZmphNHU1diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/p4NLw3I4U0idi/giphy.gif"
+                alt="Website" class="prj-img">
+            <div class="prj-content">
+                <div class="prj-header">
+                    <h3 class="prj-title">Lucas Bernardeau Website</h3>
+                    <span class="prj-tag">HTML · CSS · JS</span>
+                </div>
+                <div class="prj-role">Personal Portfolio</div>
+                <p class="prj-desc">
+                    The site you are currently on. Designed and developed from scratch, fully responsive,
+                    with a personal design system.
+                </p>
+            </div>
+        </a>
+
+        <!-- ========== WEB / APP ========== -->
+
+        <a href="projects/atelibox.html" class="prj-item" data-aos="fade-up">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnF6aTJlZWhreDZ6ZnNyZ2s2M3F6ZWxrODRlb3MzeDJhdWZmemcwNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/g9582DNuQppxC/giphy.gif"
+                alt="Atelibox" class="prj-img">
+            <div class="prj-content">
+                <div class="prj-header">
+                    <h3 class="prj-title">Atelibox — SaaS Platform</h3>
+                    <span class="prj-tag">Python · Fullstack</span>
+                </div>
+                <div class="prj-role">Founder & Full-Stack Developer</div>
+                <p class="prj-desc">
+                    Functional <strong>SaaS application</strong> for artisans. Full lifecycle: front-end,
+                    back-end, database, deployment. Live in production.
+                </p>
+            </div>
+        </a>
+
+        <a href="projects/yakamon.html" class="prj-item" data-aos="fade-up">
+            <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3I4azg3cXp2bWNweXFwaHN2cWZ3NnZqczY0bndnNjZkZXE5c3N5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L1R1tvI9svkIWwpVYr/giphy.gif"
+                alt="Yakamon" class="prj-img">
+            <div class="prj-content">
+                <div class="prj-header">
+                    <h3 class="prj-title">Yakamon — Java REST API</h3>
+                    <span class="prj-tag">Java · Quarkus</span>
+                </div>
+                <div class="prj-role">Layered Architecture Backend</div>
+                <p class="prj-desc">
+                    Complete RESTful backend for a creature-collection game.
+                    Strict <strong>Layered Architecture</strong> (Presentation, Business, Data), Hibernate ORM.
+                </p>
+            </div>
+        </a>
+
+        <a href="projects/learning_app.html" class="prj-item" data-aos="fade-up">
+            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2llY3k1ajB3OGh4dnlxaGJodTVmZmFmN3FxaDk2ZDU0bjl0ZmVwZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WoWm8YzFQJg5i/giphy.gif"
+                alt="Buzzcut Learning" class="prj-img" onerror="this.src='../doc/wallpaper.png'">
+            <div class="prj-content">
+                <div class="prj-header">
+                    <h3 class="prj-title">Buzzcut Learning — PWA</h3>
+                    <span class="prj-tag">Vanilla JS · PWA</span>
+                </div>
+                <div class="prj-role">Spaced Repetition Engine</div>
+                <p class="prj-desc">
+                    Offline-first spaced repetition app based on the <strong>Leitner system</strong>.
+                    Built to learn languages and code, installable as a PWA.
+                </p>
+            </div>
+        </a>
+
+        <!-- ========== MOBILE ========== -->
+
+        <a href="projects/flutterapp.html" class="prj-item" data-aos="fade-up">
+            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3pxOTJoMDE1NGt3Z2VzenpjcDQyd3g5aHYzc280Y2IydW52dWd4cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26tn33aiTi1jkl6H6/giphy.gif"
+                alt="GreenWatch" class="prj-img">
+            <div class="prj-content">
+                <div class="prj-header">
+                    <h3 class="prj-title">GreenWatch — Flutter App</h3>
+                    <span class="prj-tag">Flutter · UPM</span>
+                </div>
+                <div class="prj-role">Cross-Platform Mobile</div>
+                <p class="prj-desc">
+                    Developed at <strong>UPM Madrid</strong> in an international team.
+                    Modern UI/UX and mobile sensors integration.
+                </p>
+            </div>
+        </a>
+
+        <a href="projects/kotlinapp.html" class="prj-item" data-aos="fade-up">
+            <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZzR6d2UyNDU2ZHlrM2hxNnR2N2xsdjZkdmVmOWlncWNhNHYwdWNjciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/10mzF0YmVmZNuw/giphy.gif"
+                alt="Kotlin App" class="prj-img">
+            <div class="prj-content">
+                <div class="prj-header">
+                    <h3 class="prj-title">Native Android App</h3>
+                    <span class="prj-tag">Kotlin · Android</span>
+                </div>
+                <div class="prj-role">Native Mobile Development</div>
+                <p class="prj-desc">
+                    Advanced mobile development with Kotlin. Activities, fragments, asynchronous tasks,
+                    and native Android APIs.
+                </p>
+            </div>
+        </a>
+
+        <a href="projects/videogame.html" class="prj-item" data-aos="fade-up">
+            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWRndzZxb253djkwd2pyeHdiaG55cjV5YjE1ZjdpbXZsNWVlczBrZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/13S0cgc6oDYqPK/giphy.gif"
+                alt="Video Game" class="prj-img">
+            <div class="prj-content">
+                <div class="prj-header">
+                    <h3 class="prj-title">Les maisons aux âmes perdues</h3>
+                    <span class="prj-tag">C# · .NET</span>
+                </div>
+                <div class="prj-role">Video Game Development</div>
+                <p class="prj-desc">
+                    Game development project focusing on <strong>OOP patterns</strong>, game physics,
+                    and user interaction design.
+                </p>
+            </div>
+        </a>
+
+        <!-- ========== BOTS / AUTOMATION ========== -->
+
+        <a href="projects/telebot.html" class="prj-item" data-aos="fade-up">
+            <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2d4MzVuOHNobjFtb3Y5djB4ZWNiZjBzN2FzM284a2FheHkwNmZhZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ABVK96HgZvWI9SBbXr/giphy.gif"
+                alt="Telegram Bot" class="prj-img">
+            <div class="prj-content">
+                <div class="prj-header">
+                    <h3 class="prj-title">Telegram & Instagram Bot</h3>
+                    <span class="prj-tag">Python · APIs</span>
+                </div>
+                <div class="prj-role">Automation & API Integration</div>
+                <p class="prj-desc">
+                    Automation bots focusing on <strong>API integration</strong>, image processing,
+                    and task automation.
+                </p>
+            </div>
+        </a>
 
     </div>
 
-    <div class="project" id="project">
-
-        <a href="projects/esm_project.html" data-aos="fade-up">
-            <div class="project-detail" data-aos="fade-up">
-                <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3N1a3A4M3Y5MGV5Zmk2dHZzbTRodWJiYjk1dDZjcWNhanRtdG52aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mIMsLsQTJzAn6/giphy.gif"
-                    alt="Driving GIF">
-                <div class="content">
-                    <h3>Driving Distraction Detection System</h3>
-                    <p><strong>Embedded System & C</strong>. Designed a real-time system to analyze driver attention
-                        using sensor data. Implemented signal processing algorithms to trigger immediate safety alerts
-                        and mitigate road risks.</p>
-                </div>
-            </div>
-        </a>
-
-        <a href="projects/42sh.html" data-aos="fade-up">
-            <div class="project-detail" data-aos="fade-up">
-                <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3E2aXRxNzhyMWZiYmo5MWYwb2xocGx4OWM0dmI1bmVoc2JhaTF4MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nBgyDy3fU82LBprofa/giphy.gif"
-                    alt="Terminal GIF">
-                <div class="content">
-                    <h3>42sh (POSIX Shell)</h3>
-                    <p><strong>C, Unix Architecture & System Programming</strong>. Complete re-implementation of a
-                        POSIX-compliant shell from scratch. Key features include abstract syntax tree (AST) parsing,
-                        pipeline and redirection orchestration, process management, variable expansion, and complex
-                        control structures (loops, functions, case statements).</p>
-                </div>
-            </div>
-        </a>
-
-        <a href="projects/malloc.html" data-aos="fade-up">
-            <div class="project-detail" data-aos="fade-up">
-                <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGVjcWk4MmNwY3A2YWJqeGQ4dDRraDRrbzRkZWV6bWI2b2Y0bzNqeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cVIbD5Pe0WwuSYHUhk/giphy.gif"
-                    alt="Memory Chip GIF">
-                <div class="content">
-                    <h3>Malloc (Memory Allocator)</h3>
-                    <p><strong>System Programming & Concurrency</strong>. Implementation of a thread-safe dynamic memory
-                        allocator (malloc/free/realloc) using <code>mmap</code>. Features optimization strategies for
-                        memory
-                        fragmentation and mutex locking for thread safety.</p>
-                </div>
-            </div>
-        </a>
-
-        <a href="projects/minimake.html" data-aos="fade-up">
-            <div class="project-detail" data-aos="fade-up">
-                <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzc2eG9jN3UxMnkxM20zYThxOTc1anFqN2dtbWk3eTllZTEzZHAwbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Mah9dFWo1WZX0WM62Q/giphy.gif"
-                    alt="Gears GIF">
-                <div class="content">
-                    <h3>Minimake (Make Clone)</h3>
-                    <p><strong>C & Graph Algorithms</strong>. A reproduction of the GNU Make build automation tool.
-                        Implements dependency graph resolution (DAG), recursive rule execution, and file timestamp
-                        comparison
-                        to optimize build processes.</p>
-                </div>
-            </div>
-        </a>
-
-        <a href="projects/httpd.html" data-aos="fade-up">
-            <div class="project-detail" data-aos="fade-up">
-                <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjVkcmE1cXR4M2o3eXlwOWJhaHF3anhnMnc1NW9yOHdzdWJlNG93bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8L0Pky6C83SzkzU55a/giphy.gif"
-                    alt="Server GIF">
-                <div class="content">
-                    <h3>HTTPd Web Server</h3>
-                    <p><strong>Network Programming & Daemon</strong>. Development of a lightweight HTTP/1.1 server.
-                        Implements the Socket API to handle concurrent clients, parses HTTP requests compliant with RFC
-                        9112,
-                        and runs as a system daemon.</p>
-                </div>
-            </div>
-        </a>
-
-        <a href="projects/atelibox.html" data-aos="fade-up">
-            <div class="project-detail" data-aos="fade-up">
-                <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnF6aTJlZWhreDZ6ZnNyZ2s2M3F6ZWxrODRlb3MzeDJhdWZmemcwNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/g9582DNuQppxC/giphy.gif"
-                    alt="Programmer Character GIF">
-                <div class="content">
-                    <h3>Atelibox (SaaS Platform)</h3>
-                    <p><strong>Fullstack Web Development</strong>. Functional SaaS application designed to solve
-                        logistics challenges. Managed the entire lifecycle: Front-end, Back-end, Database architecture,
-                        and production deployment.</p>
-                </div>
-            </div>
-        </a>
-
-        <a href="projects/ocr.html" data-aos="fade-up">
-            <div class="project-detail" data-aos="fade-up">
-                <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbG5qMDAyaTczZ3BxczBqaHRvdnhkZDc2N3VrdnIwYzRkYWEyejJ2NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WrfsKnNUbtx84/giphy.gif"
-                    alt="Cat GIF">
-                <div class="content">
-                    <h3>OCR Neural Network</h3>
-                    <p><strong>C & Artificial Intelligence</strong>. Development of an Optical Character Recognition
-                        engine from scratch. Implemented matrix operations, image processing filters, and neural network
-                        training algorithms.</p>
-                </div>
-            </div>
-        </a>
-
-        <a href="projects/yakamon.html" data-aos="fade-up">
-            <div class="project-detail" data-aos="fade-up">
-                <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3I4azg3cXp2bWNweXFwaHN2cWZ3NnZqczY0bndnNjZkZXE5c3N5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L1R1tvI9svkIWwpVYr/giphy.gif"
-                    alt="Java Backend Server GIF">
-                <div class="content">
-                    <h3>Yakamon (Java REST API)</h3>
-                    <p><strong>Java, Quarkus & Hibernate</strong>. Developed a complete RESTful backend for a
-                        creature-collection game.
-                        Strict implementation of the Layered Architecture pattern (Presentation, Business, Data).</p>
-                </div>
-            </div>
-        </a>
-
-        <a href="projects/website.html" data-aos="fade-up">
-            <div class="project-detail" data-aos="fade-up">
-                <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExandkcDF5MDloN2pjbTBxMzI4NmZ3NnpzczkwamhkYXA4ZmphNHU1diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/p4NLw3I4U0idi/giphy.gif"
-                    alt="Programmer Character GIF">
-                <div class="content">
-                    <h3>Lucas Bernardeau Website</h3>
-                    <p>Creating my personal portfolio website to showcase my engineering projects and skills.</p>
-                </div>
-            </div>
-        </a>
-
-        <a href="projects/learning_app.html" data-aos="fade-up">
-            <div class="project-detail" data-aos="fade-up">
-                <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2llY3k1ajB3OGh4dnlxaGJodTVmZmFmN3FxaDk2ZDU0bjl0ZmVwZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WoWm8YzFQJg5i/giphy.gif"
-                    alt="Buzzcut Learning App" onerror="this.src='../doc/wallpaper.png'">
-                <div class="content">
-                    <h3>Buzzcut Learning (PWA)</h3>
-                    <p><strong>Vanilla JS, PWA & Algorithms</strong>. An offline-first spaced repetition app based on
-                        the Leitner system. Built to learn languages and code.</p>
-                </div>
-            </div>
-        </a>
-
-        <a href="projects/videogame.html" data-aos="fade-up">
-            <div class="project-detail" data-aos="fade-up">
-                <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWRndzZxb253djkwd2pyeHdiaG55cjV5YjE1ZjdpbXZsNWVlczBrZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/13S0cgc6oDYqPK/giphy.gif"
-                    alt="Game GIF">
-                <div class="content">
-                    <h3>Les maisons aux âmes perdues</h3>
-                    <p><strong>C# & .NET</strong>. Video game development project focusing on object-oriented
-                        programming patterns, game physics, and user interaction design.</p>
-                </div>
-            </div>
-        </a>
-
-        <a href="projects/flutterapp.html" data-aos="fade-up">
-            <div class="project-detail" data-aos="fade-up">
-                <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3pxOTJoMDE1NGt3Z2VzenpjcDQyd3g5aHYzc280Y2IydW52dWd4cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26tn33aiTi1jkl6H6/giphy.gif"
-                    alt="Android GIF">
-                <div class="content">
-                    <h3>GreenWatch (Flutter App)</h3>
-                    <p><strong>Cross-platform Mobile Development</strong>. Developed at UPM (Madrid) in an
-                        international team. Focus on modern UI/UX and mobile sensors integration.</p>
-                </div>
-            </div>
-        </a>
-
-        <a href="projects/kotlinapp.html" data-aos="fade-up">
-            <div class="project-detail" data-aos="fade-up">
-                <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZzR6d2UyNDU2ZHlrM2hxNnR2N2xsdjZkdmVmOWlncWNhNHYwdWNjciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/10mzF0YmVmZNuw/giphy.gif"
-                    alt="Android GIF">
-                <div class="content">
-                    <h3>Native Android App (Kotlin)</h3>
-                    <p><strong>Native Mobile Development</strong>. Immersive experience in advanced mobile development
-                        with Kotlin, managing activities, fragments, and asynchronous tasks.</p>
-                </div>
-            </div>
-        </a>
-
-        <a href="projects/telebot.html" data-aos="fade-up">
-            <div class="project-detail" data-aos="fade-up">
-                <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2d4MzVuOHNobjFtb3Y5djB4ZWNiZjBzN2FzM284a2FheHkwNmZhZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ABVK96HgZvWI9SBbXr/giphy.gif"
-                    alt="Bot GIF">
-                <div class="content">
-                    <h3>Telegram and Instagram Bot</h3>
-                    <p><strong>Python & APIs</strong>. Automation bots focusing on API integration, image processing,
-                        and task automation.</p>
-                </div>
-            </div>
-        </a>
-
-    </div>
     <footer class="footer" id="footer" data-aos="flip-up">
         <div class="footer-container">
             <div class="footer-logo">
@@ -257,7 +442,7 @@
             <div class="footer-links">
                 <a href="index.html#presentation">Home</a>
                 <a href="index.html#about">About</a>
-                <a href="projects.html">Projets</a>
+                <a href="projects.html">Projects</a>
                 <a href="experiences.html">Experiences</a>
                 <a href="qualifications.html">Qualifications</a>
                 <a href="links/alllinks.html">Contact</a>
@@ -276,9 +461,7 @@
         </div>
     </footer>
 
-
     <script src="../js/script.js"></script>
-
 
 </body>
 
