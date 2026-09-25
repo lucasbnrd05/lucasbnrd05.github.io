@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <object class="GtkMenu" id="menu">
+    <child>
+      <object class="GtkMenuItem" id="cpu">
+        <property name="label">CPU</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="memory">
+        <property name="label">RAM</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="temperature">
+        <property name="label">Température</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="btop">
+        <property name="label">Ouvrir btop</property>
+      </object>
+    </child>
+  </object>
+</interface>

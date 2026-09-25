@@ -11,7 +11,7 @@
         content="Lucas, Bernardeau, Experience, Resume, ACDC, EPITA, Orano, Atelibox, STAFF'COM, EDF, Engineering">
     <meta property="og:title" content="Lucas Bernardeau | Experiences" />
     <meta property="og:description"
-        content="Professional background: IT & DevOps at Orano, Founder of Atelibox, Teaching Assistant at EPITA, and more." />
+        content="Professional background: IT & DevOps at Orano, Founder of Atelibox, Teaching Assistant at EPITA." />
     <meta property="og:url" content="https://lucasbnrd05.github.io/html/experiences.html" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://lucasbnrd05.github.io/doc/wallpaper.png" />
@@ -31,13 +31,166 @@
     <link rel="icon" type="image/png" sizes="192x192" href="../doc/android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="../doc/android-chrome-512x512.png">
 
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
-
     <title>Experiences page</title>
+
+    <style>
+        /* ====== EXPERIENCE LIST ====== */
+        .exp-list {
+            max-width: 900px;
+            margin: 0 auto 60px auto;
+            padding: 0 20px;
+        }
+
+        .exp-item {
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+            background: #fff;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .exp-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left-color: orange;
+        }
+
+        .exp-item.no-link {
+            cursor: default;
+        }
+
+        .exp-item.no-link:hover {
+            transform: none;
+            border-left-color: transparent;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .exp-img {
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 12px;
+            flex-shrink: 0;
+            background: #f4f4f4;
+        }
+
+        .exp-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .exp-title {
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 1.4rem;
+            color: #333;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .exp-date {
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            color: #fff;
+            background: #2c3e50;
+            padding: 4px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .exp-role {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #e67e22;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .exp-desc {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        .exp-desc strong {
+            color: #333;
+        }
+
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 768px) {
+            .exp-list {
+                padding: 0 15px;
+            }
+
+            .exp-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 20px 18px;
+                gap: 15px;
+            }
+
+            .exp-img {
+                width: 110px;
+                height: 110px;
+            }
+
+            .exp-header {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .exp-title {
+                font-size: 1.15rem;
+                text-align: center;
+            }
+
+            .exp-role {
+                font-size: 0.85rem;
+                text-align: center;
+            }
+
+            .exp-desc {
+                font-size: 0.9rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .exp-item {
+                padding: 15px 14px;
+            }
+
+            .exp-title {
+                font-size: 1rem;
+            }
+
+            .exp-desc {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -46,7 +199,6 @@
         <h1>My Experiences</h1>
         <div class="top-polaroide">
             <div class="polaroide-left">
-
                 <div class="polaroid first">
                     <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2FjN2tjN3FjbHpldjB1OXB2aWh6a2N6YjByMHhpOHZ0dWZ3MDR1YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xQjj0WOV10lpK/giphy.gif"
                         alt="GIF Goat">
@@ -54,7 +206,6 @@
                 </div>
             </div>
             <div class="polaroide-right">
-
                 <div class="polaroid second">
                     <img src="https://media.giphy.com/media/4bj0P171UgZGjEfnCp/giphy.gif" alt="Thank you GIF">
                     <p>Thank you</p>
@@ -63,134 +214,190 @@
         </div>
     </div>
 
-    <div class="project" id="project">
+    <div class="exp-list">
 
-        <!-- ==================== ORANO ==================== -->
-        <a href="experiences/orano.html">
-            <div class="project-detail" data-aos="fade-up">
-                <img src="https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif" alt="DevOps GIF">
-                <div class="content">
-                    <h3>Orano Support - IT & DevOps Support Officer - Sep. 2026 - Jan. 2027</h3>
-                    <p>Support on development tools (<strong>Python, GitLab</strong>), repository management
-                        (<strong>Nexus</strong>), CI/CD pipeline practices, cybersecurity requirements, and PCA/PRA
-                        documentation.</p>
+        <!-- ORANO -->
+        <a href="experiences/orano.html" class="exp-item" data-aos="fade-up">
+            <img src="https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif" alt="DevOps GIF" class="exp-img">
+            <div class="exp-content">
+                <div class="exp-header">
+                    <h3 class="exp-title">Orano Support</h3>
+                    <span class="exp-date">Sep. 2026 — Jan. 2027</span>
                 </div>
+                <div class="exp-role">IT & DevOps Support Officer</div>
+                <p class="exp-desc">
+                    Support on development tools (<strong>Python, GitLab</strong>), repository management
+                    (<strong>Nexus</strong>), CI/CD pipeline practices, cybersecurity requirements, and PCA/PRA
+                    documentation.
+                </p>
             </div>
         </a>
 
-        <!-- ==================== ATELIBOX ==================== -->
-        <a href="projects/atelibox.html">
-            <div class="project-detail" data-aos="fade-up">
-                <img src="https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif" alt="SaaS GIF">
-                <div class="content">
-                    <h3>Atelibox - Founder & Full-Stack Developer - Since June 2025</h3>
-                    <p>SaaS platform for artisans. <strong>Python (Flask), PostgreSQL, Jinja2, Stripe, WorkOS,
-                            Supabase Storage</strong>. CI/CD on Render with Bash scripts.</p>
+        <!-- ATELIBOX -->
+        <a href="projects/atelibox.html" class="exp-item" data-aos="fade-up">
+            <img src="https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif" alt="SaaS GIF" class="exp-img">
+            <div class="exp-content">
+                <div class="exp-header">
+                    <h3 class="exp-title">Atelibox</h3>
+                    <span class="exp-date">Since Jun. 2025</span>
                 </div>
+                <div class="exp-role">Founder & Full-Stack Developer</div>
+                <p class="exp-desc">
+                    SaaS platform for artisans. <strong>Python (Flask), PostgreSQL, Jinja2, Stripe, WorkOS,
+                        Supabase</strong>. CI/CD on Render with Bash scripts.
+                </p>
             </div>
         </a>
 
-        <!-- ==================== EPITA ACDC ==================== -->
-        <a href="experiences/acdc.html">
-            <div class="project-detail" data-aos="fade-up">
-                <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnp4d3QwZ2ZmMzF1MGN6d2VpZGU2dm9heGtvOXF0bmRiZjZsanhsYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iigqhSTOKmb6wDObGb/giphy.gif"
-                    alt="Coding GIF">
-                <div class="content">
-                    <h3>EPITA - Teaching Assistant (ACDC) - Sep. 2025 - Jul. 2026</h3>
-                    <p>Teaching <strong>C and Python</strong> programming to first-year students. Code reviews,
-                        debugging
-                        assistance, algorithmic concepts, and student supervision.</p>
+        <!-- ACDC -->
+        <a href="experiences/acdc.html" class="exp-item" data-aos="fade-up">
+            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnp4d3QwZ2ZmMzF1MGN6d2VpZGU2dm9heGtvOXF0bmRiZjZsanhsYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iigqhSTOKmb6wDObGb/giphy.gif"
+                alt="Coding GIF" class="exp-img">
+            <div class="exp-content">
+                <div class="exp-header">
+                    <h3 class="exp-title">EPITA — ACDC</h3>
+                    <span class="exp-date">Sep. 2025 — Jul. 2026</span>
                 </div>
+                <div class="exp-role">Teaching Assistant (C & Python)</div>
+                <p class="exp-desc">
+                    Teaching <strong>C and Python</strong> to first-year students. Code reviews, debugging
+                    assistance, algorithmic concepts, and student supervision.
+                </p>
             </div>
         </a>
 
-        <!-- ==================== STAFF'COM ==================== -->
-        <a href="experiences/staffcom.html">
-            <div class="project-detail" data-aos="fade-up">
-                <img src="https://media.giphy.com/media/l0HlPystfePnAI3G8/giphy.gif" alt="Public Speaking GIF">
-                <div class="content">
-                    <h3>EPITA - STAFF'COM Ambassador - Since September 2023</h3>
-                    <p>Representing EPITA at international student fairs, supervising Concours Advance, welcoming
-                        candidates during admission contests, and guiding future students during immersion days.</p>
+        <!-- STAFF'COM -->
+        <a href="experiences/staffcom.html" class="exp-item" data-aos="fade-up">
+            <img src="https://media.giphy.com/media/l0HlPystfePnAI3G8/giphy.gif" alt="Public Speaking GIF"
+                class="exp-img">
+            <div class="exp-content">
+                <div class="exp-header">
+                    <h3 class="exp-title">EPITA — STAFF'COM</h3>
+                    <span class="exp-date">Since Sep. 2023</span>
                 </div>
+                <div class="exp-role">Student Ambassador</div>
+                <p class="exp-desc">
+                    Representing EPITA at international fairs, supervising Concours Advance, welcoming candidates
+                    and guiding future students during immersion days.
+                </p>
             </div>
         </a>
 
-        <!-- ==================== LA POSTE ==================== -->
-        <div class="project-detail" data-aos="fade-up">
+        <!-- LA POSTE -->
+        <div class="exp-item no-link" data-aos="fade-up">
             <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3Rpcmo0OWs2ajQ3cHBqY3VxN2k2MXBpajk1dzN0MWM5dDlmN2tlMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NsPTjaNFdMx8ZPe9Qh/giphy.gif"
-                alt="Mailman GIF">
-            <div class="content">
-                <h3>La Poste - Mail Carrier - Summer 2025</h3>
-                <p><strong>Student Job.</strong> Bicycle mail distribution in Garges-lès-Gonesse (June - August).
-                    Required autonomy, physical endurance, and rigor in sorting and delivery operations.</p>
+                alt="Mailman GIF" class="exp-img">
+            <div class="exp-content">
+                <div class="exp-header">
+                    <h3 class="exp-title">La Poste</h3>
+                    <span class="exp-date">Jun. — Aug. 2025</span>
+                </div>
+                <div class="exp-role">Mail Carrier — Summer Job</div>
+                <p class="exp-desc">
+                    Bicycle mail distribution in Garges-lès-Gonesse. Autonomy, physical endurance, and rigor in
+                    sorting and delivery operations.
+                </p>
             </div>
         </div>
 
-        <!-- ==================== EGG XV ==================== -->
-        <a href="experiences/eggxv.html">
-            <div class="project-detail" data-aos="fade-up">
-                <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2hkY3RocmFiNHQ1ajYyaWoyeG9zMnF0M2RmajZ6emd3bGpiemplYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cW6dKzfsEuiL6/giphy.gif"
-                    alt="Rugby GIF">
-                <div class="content">
-                    <h3>EGG XV - Rugby Instructor - 2021-2024</h3>
-                    <p>Leadership role supervising children's groups (aged 4-14). Focused on team building, safety
-                        management during drills, and organizing tournaments.</p>
+        <!-- UPM -->
+        <div class="exp-item no-link" data-aos="fade-up">
+            <img src="../doc/upm.png" alt="Logo UPM" class="exp-img">
+            <div class="exp-content">
+                <div class="exp-header">
+                    <h3 class="exp-title">UPM — Universidad Politécnica de Madrid</h3>
+                    <span class="exp-date">Jan. — Jun. 2025</span>
                 </div>
+                <div class="exp-role">International Semester</div>
+                <p class="exp-desc">
+                    Courses in <strong>Mobile App Development</strong> (Flutter) and <strong>Embedded Systems
+                        Modelling</strong> (SysML, real-time logic).
+                </p>
+            </div>
+        </div>
+
+        <!-- EGG XV -->
+        <a href="experiences/eggxv.html" class="exp-item" data-aos="fade-up">
+            <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2hkY3RocmFiNHQ1ajYyaWoyeG9zMnF0M2RmajZ6emd3bGpiemplYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cW6dKzfsEuiL6/giphy.gif"
+                alt="Rugby GIF" class="exp-img">
+            <div class="exp-content">
+                <div class="exp-header">
+                    <h3 class="exp-title">EGG XV</h3>
+                    <span class="exp-date">2021 — 2024</span>
+                </div>
+                <div class="exp-role">Rugby Instructor</div>
+                <p class="exp-desc">
+                    Supervision of children's groups (aged 4-14). Leadership, safety management during drills, and
+                    team building.
+                </p>
             </div>
         </a>
 
-        <!-- ==================== EDF ==================== -->
-        <div class="project-detail" data-aos="fade-up">
-            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHVjcjBpb3p3aHNqa3lxZGpxbDh4Y3FxZnhzMWkzZ3Z2NGY1d2M0cyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1GEATImIxEXVR79Dhk/giphy.gif"
-                alt="Nuclear GIF">
-            <div class="content">
-                <h3>EDF Nuclear - IT Department Intern - 2020</h3>
-                <p>Immersion in a critical industrial environment. Observed the management of IT infrastructure
-                    essential for power plant operations and safety protocols.</p>
-            </div>
-        </div>
-
-        <!-- ==================== SEEI ==================== -->
-        <div class="project-detail" data-aos="fade-up">
-            <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTdqZmw3MmhlOGx4MnB1dWkydzduMWU2aGh5NWU1N3poZG5nOGMwMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/PnaIUzTHrc9RuH44XK/giphy.gif"
-                alt="Work GIF">
-            <div class="content">
-                <h3>SEEI - Handling Agent - August 2023</h3>
-                <p>Logistics and stock management. Required strict adherence to safety regulations and efficiency in
-                    order processing.</p>
-            </div>
-        </div>
-
-        <!-- ==================== VILLE DE SAINT-DENIS ==================== -->
-        <div class="project-detail" data-aos="fade-up">
+        <!-- SAINT-DENIS -->
+        <div class="exp-item no-link" data-aos="fade-up">
             <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTRnb25pdzZrZ3NmYmtieDg4eWd5YjRkNGx1N3dzbTZ1MGFkMDY2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cMALqIjmb7ygw/giphy.gif"
-                alt="Children GIF">
-            <div class="content">
-                <h3>City of Saint-Denis - Educator - August 2024</h3>
-                <p>Supervision of activities for children, focusing on conflict resolution, hygiene protocols, and
-                    ensuring a secure environment.</p>
+                alt="Children GIF" class="exp-img">
+            <div class="exp-content">
+                <div class="exp-header">
+                    <h3 class="exp-title">City of Saint-Denis</h3>
+                    <span class="exp-date">Aug. 2024</span>
+                </div>
+                <div class="exp-role">Educator</div>
+                <p class="exp-desc">
+                    Supervision of activities for children, focusing on conflict resolution, hygiene protocols, and
+                    a secure environment.
+                </p>
             </div>
         </div>
 
-        <!-- ==================== VILLE DE SARCELLES ==================== -->
-        <div class="project-detail" data-aos="fade-up">
+        <!-- SEEI -->
+        <div class="exp-item no-link" data-aos="fade-up">
+            <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTdqZmw3MmhlOGx4MnB1dWkydzduMWU2aGh5NWU1N3poZG5nOGMwMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/PnaIUzTHrc9RuH44XK/giphy.gif"
+                alt="Work GIF" class="exp-img">
+            <div class="exp-content">
+                <div class="exp-header">
+                    <h3 class="exp-title">SEEI</h3>
+                    <span class="exp-date">Aug. 2023</span>
+                </div>
+                <div class="exp-role">Handling Agent</div>
+                <p class="exp-desc">
+                    Logistics and stock management. Strict adherence to safety regulations and efficiency in order
+                    processing.
+                </p>
+            </div>
+        </div>
+
+        <!-- SARCELLES -->
+        <div class="exp-item no-link" data-aos="fade-up">
             <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjJuam4zbWd5NjM2bjNqOW9sdDU3ZGxxMGZveDlhODIzaWUyaHR3aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1oHVIyN4J6G9ZJYhGE/giphy.gif"
-                alt="Children GIF">
-            <div class="content">
-                <h3>City of Sarcelles - Educator - 2022-2023</h3>
-                <p>Individual support and group management for young children, ensuring compliance with safety and
-                    administrative procedures.</p>
+                alt="Children GIF" class="exp-img">
+            <div class="exp-content">
+                <div class="exp-header">
+                    <h3 class="exp-title">City of Sarcelles</h3>
+                    <span class="exp-date">2022 — 2023</span>
+                </div>
+                <div class="exp-role">Educator</div>
+                <p class="exp-desc">
+                    Individual support and group management for young children, ensuring compliance with safety and
+                    administrative procedures.
+                </p>
             </div>
         </div>
 
-        <!-- ==================== UPM ==================== -->
-        <div class="project-detail" data-aos="fade-up">
-            <img src="../doc/upm.png" alt="Logo UPM">
-            <div class="content">
-                <h3>UPM, Polytechnic University of Madrid</h3>
-                <p>International Semester (Jan 2025 - June 2025). Courses in Mobile App Development and Embedded
-                    Systems.</p>
+        <!-- EDF -->
+        <div class="exp-item no-link" data-aos="fade-up">
+            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHVjcjBpb3p3aHNqa3lxZGpxbDh4Y3FxZnhzMWkzZ3Z2NGY1d2M0cyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1GEATImIxEXVR79Dhk/giphy.gif"
+                alt="Nuclear GIF" class="exp-img">
+            <div class="exp-content">
+                <div class="exp-header">
+                    <h3 class="exp-title">EDF Nuclear</h3>
+                    <span class="exp-date">2020</span>
+                </div>
+                <div class="exp-role">IT Department Intern</div>
+                <p class="exp-desc">
+                    Immersion in a critical industrial environment. Observation of IT infrastructure management
+                    within high-security constraints.
+                </p>
             </div>
         </div>
 
@@ -205,7 +412,7 @@
             <div class="footer-links">
                 <a href="index.html#presentation">Home</a>
                 <a href="index.html#about">About</a>
-                <a href="projects.html">Projets</a>
+                <a href="projects.html">Projects</a>
                 <a href="experiences.html">Experiences</a>
                 <a href="qualifications.html">Qualifications</a>
                 <a href="links/alllinks.html">Contact</a>

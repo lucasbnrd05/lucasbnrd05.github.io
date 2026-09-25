@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Hyprland configuration: hyprland.lua, hyprlock, hyprpaper, hyprsunset and custom scripts.">
+    <meta name="keywords" content="Hyprland, Wayland, Compositor, Lua, Config, Dotfiles, Arch Linux">
+    <meta property="og:title" content="Hyprland | My Setup" />
+    <meta property="og:description" content="My Hyprland configuration and scripts." />
+    <meta property="og:url" content="https://lucasbnrd05.github.io/uses/hyprland.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lucasbnrd05.github.io/doc/wallpaper.png" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta content="Buzzcut" name="author">
+    <meta content="© 2026 Buzzcut. All rights reserved." name="copyright">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_base.css">
+    <link rel="stylesheet" href="../css/style_links.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../doc/favicon-32x32.png">
+    <link rel="shortcut icon" href="../doc/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../doc/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <title>Hyprland | My Setup</title>
+
+    <style>
+        .tool-container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
+
+        .title-tools {
+            min-height: 25vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; gap: 15px; padding-top: 40px;
+        }
+
+        .title-tools h1 {
+            font-family: 'Soul Daisy', sans-serif; font-size: 2.8rem;
+            overflow: hidden; border-right: .15em solid orange; white-space: nowrap;
+            margin: 0 auto; display: inline-block;
+            animation: typing 2s steps(10, end) forwards, blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing { 0% { width: 0; visibility: hidden; } 1% { visibility: visible; } 100% { width: 8ch; } }
+        @keyframes blink-caret { 50% { border-color: transparent; } }
+
+        .subtitle-tech {
+            font-family: 'Courier New', monospace; color: #666; font-size: 1.1rem; margin-top: -10px;
+        }
+
+        .back-nav { margin-bottom: 30px; text-align: center; }
+        .back-btn { text-decoration: none; font-weight: bold; }
+
+        .intro-box {
+            background: #fff; border-left: 4px solid #1793d1; padding: 25px; border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); margin-bottom: 40px;
+        }
+        .intro-box h3 { margin-top: 0; color: #333; font-family: 'Soul Daisy', sans-serif; font-size: 1.5rem; }
+        .intro-box p { font-size: 0.95rem; color: #555; line-height: 1.6; text-align: left; }
+
+        /* FILE CARD */
+        .file-card {
+            background: #fff; border-radius: 16px; padding: 0; overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06); margin-bottom: 25px;
+            border: 1px solid #eee;
+        }
+
+        .file-header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 20px; background: #f8f9fa; border-bottom: 1px solid #eee;
+            flex-wrap: wrap; gap: 10px;
+        }
+
+        .file-path {
+            font-family: 'Courier New', monospace; font-size: 0.95rem; color: #333;
+            font-weight: bold; display: flex; align-items: center; gap: 8px;
+        }
+        .file-path i { color: #f39c12; }
+
+        .file-actions { display: flex; gap: 8px; }
+
+        .btn-mini {
+            background: #333; color: #fff; border: none; padding: 6px 14px; border-radius: 6px;
+            font-size: 0.8rem; font-weight: bold; cursor: pointer; text-decoration: none;
+            transition: background 0.2s; font-family: sans-serif;
+            display: inline-flex; align-items: center; gap: 6px;
+        }
+        .btn-mini:hover { background: #555; }
+        .btn-mini.dl { background: #1793d1; }
+        .btn-mini.dl:hover { background: #0f6fa3; }
+
+        .file-code {
+            background: #1e1e1e; color: #00ff41;
+            font-family: 'Courier New', monospace; font-size: 0.85rem;
+            line-height: 1.5; padding: 20px;
+            overflow-x: auto; white-space: pre; tab-size: 4;
+            max-height: 400px; overflow-y: auto;
+        }
+
+        .file-code .comment { color: #666; font-style: italic; }
+        .file-code .keyword { color: #f39c12; }
+        .file-code .string { color: #f1c40f; }
+
+        .file-expand {
+            background: #252525; color: #ccc; text-align: center; padding: 10px;
+            cursor: pointer; font-family: sans-serif; font-size: 0.85rem; font-weight: bold;
+            border-top: 1px solid #333; transition: background 0.2s;
+        }
+        .file-expand:hover { background: #2c2c2c; color: #fff; }
+        .file-expand i { margin-right: 6px; }
+
+        .file-code.collapsed { max-height: 400px; }
+        .file-code.expanded { max-height: none; }
+
+        /* SCRIPTS GRID */
+        .scripts-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px; margin-top: 25px;
+        }
+
+        .script-card {
+            background: #fff; border-radius: 12px; padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04); border: 1px solid #eee;
+        }
+        .script-card h4 {
+            font-family: 'Soul Daisy', sans-serif; font-size: 1.1rem;
+            color: #333; margin: 0 0 8px 0; display: flex; align-items: center; gap: 8px;
+        }
+        .script-card h4 i { color: #f39c12; }
+        .script-card p { color: #666; font-size: 0.85rem; line-height: 1.4; margin: 0; text-align: left; }
+
+        /* PLUGINS */
+        .plugin-box {
+            background: #fff; border-left: 4px solid #9b59b6; padding: 20px 25px;
+            border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); margin: 20px 0;
+        }
+        .plugin-box h3 {
+            margin: 0 0 10px 0; color: #333; font-family: 'Soul Daisy', sans-serif;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .plugin-box h3 i { color: #9b59b6; }
+        .plugin-box p { color: #555; font-size: 0.9rem; line-height: 1.5; text-align: left; }
+        .plugin-box a { color: #9b59b6; text-decoration: none; font-weight: bold; }
+        .plugin-box a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .title-tools h1 { font-size: 2rem; }
+            .file-header { flex-direction: column; align-items: flex-start; }
+            .file-actions { width: 100%; }
+            .btn-mini { flex: 1; justify-content: center; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="tool-container">
+
+        <div class="title-tools">
+            <h1>Hyprland</h1>
+            <h3 class="subtitle-tech" data-aos="fade-down" data-aos-delay="200">./compositor_config</h3>
+
+            <div class="back-nav" data-aos="fade-up" data-aos-delay="300">
+                <a href="index.html" class="cv-button back-btn">
+                    <i class="fa-solid fa-arrow-left"></i> Back to /uses
+                </a>
+            </div>
+        </div>
+
+        <div class="intro-box" data-aos="fade-up">
+            <h3><i class="fa-solid fa-window-restore"></i> What's inside</h3>
+            <p>
+                My Hyprland setup uses the <strong>Lua-based config system</strong> introduced in recent versions.
+                It handles everything: autostart apps, window rules, keybindings, workspace modes, and integration
+                with other tools (Waybar, Wofi, Hyprpaper).
+            </p>
+            <p>
+                The <strong>mode-switcher script</strong> is the fun part: it switches between "Travail" (work:
+                code + firefox + discord, 2 kitty terminals) and "Détente" (relax: just firefox + discord).
+                One keybind, two workflows.
+            </p>
+        </div>
+
+        <!-- ==================== hyprland.lua ==================== -->
+        <h2 style="font-family: 'Soul Daisy', sans-serif; font-size: 1.6rem; margin-top: 40px;" data-aos="fade-up">
+            Main Configuration</h2>
+
+        <div class="file-card" data-aos="fade-up">
+            <div class="file-header">
+                <div class="file-path"><i class="fa-solid fa-file-code"></i> hypr/hyprland.lua</div>
+                <div class="file-actions">
+                    <button class="btn-mini" onclick="toggleExpand(this)">
+                        <i class="fa-solid fa-chevron-down"></i> See all
+                    </button>
+                    <a href="dotfiles/hypr/hyprland.lua" download class="btn-mini dl">
+                        <i class="fa-solid fa-download"></i> Download
+                    </a>
+                </div>
+            </div>
+            <div class="file-code collapsed">
+<span class="comment">-- =================================================================</span>
+<span class="comment">-- CONFIGURATION HYPRLAND (LUA)</span>
+<span class="comment">-- =================================================================</span>
+
+<span class="keyword">hl.config</span>({ autogenerated = <span class="keyword">false</span> })
+
+<span class="comment">------------------</span>
+<span class="comment">---- MONITORS ----</span>
+<span class="comment">------------------</span>
+<span class="keyword">hl.monitor</span>({
+    output   = <span class="string">""</span>,
+    mode     = <span class="string">"preferred"</span>,
+    position = <span class="string">"auto"</span>,
+    scale    = <span class="string">"auto"</span>,
+})
+
+<span class="comment">---------------------</span>
+<span class="comment">---- MY PROGRAMS ----</span>
+<span class="comment">---------------------</span>
+<span class="keyword">local</span> terminal    = <span class="string">"kitty"</span>
+<span class="keyword">local</span> fileManager = <span class="string">"thunar"</span>
+<span class="keyword">local</span> menu        = <span class="string">"wofi --show drun"</span>
+
+<span class="comment">-------------------</span>
+<span class="comment">---- AUTOSTART ----</span>
+<span class="comment">-------------------</span>
+<span class="keyword">hl.on</span>(<span class="string">"hyprland.start"</span>, <span class="keyword">function</span> ()
+    <span class="keyword">hl.exec_cmd</span>(<span class="string">"killall -q waybar; waybar &amp;"</span>)
+    <span class="keyword">hl.exec_cmd</span>(<span class="string">"killall -q hyprpaper; hyprpaper &amp;"</span>)
+    <span class="comment">-- window rules for calendar, blur layers, audio/brightness binds...</span>
+    <span class="keyword">hl.exec_cmd</span>(<span class="string">"hyprsunset &amp;"</span>)
+    <span class="keyword">hl.exec_cmd</span>(<span class="string">"~/.config/hypr/scripts/mode-switcher.sh --default detente"</span>)
+    <span class="keyword">hl.exec_cmd</span>(<span class="string">"rfkill unblock bluetooth"</span>)
+    <span class="keyword">hl.exec_cmd</span>(<span class="string">"wl-paste --type text --watch cliphist store"</span>)
+<span class="keyword">end</span>)
+
+<span class="comment">-------------------------------</span>
+<span class="comment">---- ENVIRONMENT VARIABLES ----</span>
+<span class="comment">-------------------------------</span>
+<span class="keyword">hl.env</span>(<span class="string">"XCURSOR_SIZE"</span>, <span class="string">"24"</span>)
+<span class="keyword">hl.env</span>(<span class="string">"HYPRCURSOR_SIZE"</span>, <span class="string">"24"</span>)
+
+<span class="comment">-----------------------</span>
+<span class="comment">---- LOOK AND FEEL ----</span>
+<span class="comment">-----------------------</span>
+<span class="keyword">hl.config</span>({
+    general = {
+        gaps_in  = <span class="keyword">5</span>,
+        gaps_out = <span class="keyword">10</span>,
+        border_size = <span class="keyword">2</span>,
+        col = {
+            active_border   = { colors = {<span class="string">"rgba(33ccffee)"</span>, <span class="string">"rgba(00ff99ee)"</span>}, angle = <span class="keyword">45</span> },
+            inactive_border = <span class="string">"rgba(595959aa)"</span>,
+        },
+        layout = <span class="string">"dwindle"</span>,
+    },
+    decoration = {
+        rounding = <span class="keyword">10</span>,
+        shadow = { enabled = <span class="keyword">true</span>, range = <span class="keyword">4</span>, color = <span class="string">0xee1a1a1a</span> },
+        blur   = { enabled = <span class="keyword">true</span>, size = <span class="keyword">3</span>, passes = <span class="keyword">1</span>, vibrancy = <span class="keyword">0.1696</span> },
+    },
+})
+
+<span class="comment">-- ... (keybindings, window rules, gestures)</span>
+            </div>
+            <div class="file-expand" onclick="toggleExpand(this)">
+                <i class="fa-solid fa-chevron-down"></i> Show full file (150+ lines)
+            </div>
+        </div>
+
+        <!-- ==================== hyprlock.conf ==================== -->
+        <div class="file-card" data-aos="fade-up">
+            <div class="file-header">
+                <div class="file-path"><i class="fa-solid fa-lock"></i> hypr/hyprlock.conf</div>
+                <div class="file-actions">
+                    <button class="btn-mini" onclick="toggleExpand(this)">
+                        <i class="fa-solid fa-chevron-down"></i> See all
+                    </button>
+                    <a href="dotfiles/hypr/hyprlock.conf" download class="btn-mini dl">
+                        <i class="fa-solid fa-download"></i> Download
+                    </a>
+                </div>
+            </div>
+            <div class="file-code collapsed">
+<span class="keyword">background</span> {
+    monitor =
+    path = <span class="string">$HOME/Images/bg.png</span>
+    blur_passes = <span class="keyword">0</span>
+    contrast = <span class="keyword">1.0</span>
+    brightness = <span class="keyword">1.0</span>
+    vibrancy = <span class="keyword">0.2</span>
+}
+
+<span class="keyword">input-field</span> {
+    size = <span class="keyword">200</span>, <span class="keyword">50</span>
+    outline_thickness = <span class="keyword">3</span>
+    dots_size = <span class="keyword">0.33</span>
+    dots_spacing = <span class="keyword">0.15</span>
+    fade_on_empty = <span class="keyword">false</span>
+    placeholder_text = &lt;i&gt;Mot de passe...&lt;/i&gt;
+}
+
+<span class="keyword">auth</span> {
+    fingerprint {
+        enabled = <span class="keyword">true</span>
+        ready_message = (Scan fingerprint to unlock)
+    }
+}
+            </div>
+        </div>
+
+        <!-- ==================== hyprpaper.conf ==================== -->
+        <div class="file-card" data-aos="fade-up">
+            <div class="file-header">
+                <div class="file-path"><i class="fa-solid fa-image"></i> hypr/hyprpaper.conf</div>
+                <div class="file-actions">
+                    <a href="dotfiles/hypr/hyprpaper.conf" download class="btn-mini dl">
+                        <i class="fa-solid fa-download"></i> Download
+                    </a>
+                </div>
+            </div>
+            <div class="file-code collapsed">
+<span class="keyword">preload</span> = <span class="string">$HOME/Images/bg.png</span>
+
+<span class="keyword">wallpaper</span> {
+    monitor = eDP-<span class="keyword">1</span>
+    path    = <span class="string">$HOME/Images/bg.png</span>
+}
+
+<span class="keyword">splash</span> = <span class="keyword">false</span>
+<span class="keyword">ipc</span>    = <span class="keyword">on</span>
+            </div>
+        </div>
+
+        <!-- ==================== hyprsunset.conf ==================== -->
+        <div class="file-card" data-aos="fade-up">
+            <div class="file-header">
+                <div class="file-path"><i class="fa-solid fa-sun"></i> hypr/hyprsunset.conf</div>
+                <div class="file-actions">
+                    <a href="dotfiles/hypr/hyprsunset.conf" download class="btn-mini dl">
+                        <i class="fa-solid fa-download"></i> Download
+                    </a>
+                </div>
+            </div>
+            <div class="file-code collapsed">
+<span class="keyword">profile</span> {
+    time = <span class="string">19:00</span>
+    temperature = <span class="keyword">4000</span>
+}
+
+<span class="keyword">profile</span> {
+    time = <span class="string">09:00</span>
+    temperature = <span class="keyword">6000</span>
+}
+            </div>
+        </div>
+
+        <!-- ==================== SCRIPTS ==================== -->
+        <h2 style="font-family: 'Soul Daisy', sans-serif; font-size: 1.6rem; margin: 50px 0 15px 0;"
+            data-aos="fade-up">Scripts</h2>
+        <p style="color: #666; margin-bottom: 20px;" data-aos="fade-up">
+            Three helper scripts bound to Hyprland keybindings (screenshot, quick notes, workspace mode switcher).
+        </p>
+
+        <div class="scripts-grid" data-aos="fade-up">
+
+            <div class="script-card">
+                <h4><i class="fa-solid fa-camera"></i> screenshot.sh</h4>
+                <p>Region screenshot with <code>grim + slurp</code>, copies to clipboard, sends a notification.
+                    Bound to <strong>Print</strong>.</p>
+                <a href="dotfiles/hypr/scripts/screenshot.sh" download class="btn-mini dl"
+                    style="margin-top: 12px;">
+                    <i class="fa-solid fa-download"></i> Download
+                </a>
+            </div>
+
+            <div class="script-card">
+                <h4><i class="fa-solid fa-note-sticky"></i> quicknote.sh</h4>
+                <p>Creates a timestamped note in <code>~/notes/</code> and opens it in Vim inside a new Kitty
+                    window. Bound to <strong>Super + N</strong>.</p>
+                <a href="dotfiles/hypr/scripts/quicknote.sh" download class="btn-mini dl"
+                    style="margin-top: 12px;">
+                    <i class="fa-solid fa-download"></i> Download
+                </a>
+            </div>
+
+            <div class="script-card">
+                <h4><i class="fa-solid fa-shuffle"></i> mode-switcher.sh</h4>
+                <p>Switches between <strong>Travail</strong> (2 kitty + code + firefox + discord) and
+                    <strong>Détente</strong> (firefox + discord). Uses <code>hyprctl</code> and <code>jq</code>.
+                    Bound to <strong>Super + Tab</strong>.</p>
+                <a href="dotfiles/hypr/scripts/mode-switcher.sh" download class="btn-mini dl"
+                    style="margin-top: 12px;">
+                    <i class="fa-solid fa-download"></i> Download
+                </a>
+            </div>
+
+        </div>
+
+        <!-- ==================== PLUGINS ==================== -->
+        <h2 style="font-family: 'Soul Daisy', sans-serif; font-size: 1.6rem; margin: 50px 0 15px 0;"
+            data-aos="fade-up">Plugins</h2>
+
+        <div class="plugin-box" data-aos="fade-up">
+            <h3><i class="fa-solid fa-puzzle-piece"></i> split-monitor-workspaces</h3>
+            <p>
+                A Hyprland plugin that allows <strong>per-monitor workspaces</strong>. Each monitor gets its own
+                set of workspaces (e.g., 1-5 on the laptop screen, 6-0 on the external monitor). This solves the
+                classic issue where workspaces are shared across all monitors.
+            </p>
+            <p>
+                Installed via <code>hyprpm</code> (Hyprland Plugin Manager). Repository:
+                <a href="https://github.com/levnikmyskin/hyprland-split-monitor-workspaces" target="_blank">
+                    levnikmyskin/hyprland-split-monitor-workspaces <i class="fa-solid fa-external-link-alt"></i>
+                </a>
+            </p>
+            <p style="margin-bottom: 0; font-size: 0.85rem; color: #888;">
+                <i class="fa-solid fa-info-circle"></i> Note: the plugin source is present in my dotfiles as a
+                submodule but is not modified. It's purely a dependency.
+            </p>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px; margin-bottom: 30px;" data-aos="fade-up">
+            <a href="index.html" class="cv-button">
+                <i class="fa-solid fa-arrow-left"></i> Back to /uses
+            </a>
+        </div>
+
+    </div>
+
+    <footer class="footer" id="footer" data-aos="flip-up">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>Lucas Bernardeau</h2>
+            </div>
+            <div class="footer-links">
+                <a href="../html/index.html#presentation">Home</a>
+                <a href="../html/index.html#about">About</a>
+                <a href="../html/projects.html">Projects</a>
+                <a href="../html/experiences.html">Experiences</a>
+                <a href="../html/qualifications.html">Qualifications</a>
+                <a href="../html/index.html#contact">Contact</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/lucas-bernardeau/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:contact@lucasbernardeau.fr"><i class="fa-regular fa-envelope"></i></a>
+                <a href="https://github.com/lucasbnrd05"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Buzzcut. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init();
+
+        function toggleExpand(btn) {
+            const card = btn.closest('.file-card');
+            const code = card.querySelector('.file-code');
+            const expandBar = card.querySelector('.file-expand');
+
+            // Si on clique sur la barre "Show full file" en bas
+            if (btn.classList.contains('file-expand') || btn === expandBar) {
+                if (code.classList.contains('collapsed')) {
+                    code.classList.remove('collapsed');
+                    code.classList.add('expanded');
+                    expandBar.innerHTML = '<i class="fa-solid fa-chevron-up"></i> Collapse';
+                } else {
+                    code.classList.remove('expanded');
+                    code.classList.add('collapsed');
+                    expandBar.innerHTML = '<i class="fa-solid fa-chevron-down"></i> Show full file';
+                }
+                return;
+            }
+
+            // Bouton "See all" dans le header
+            if (code.classList.contains('collapsed')) {
+                code.classList.remove('collapsed');
+                code.classList.add('expanded');
+                btn.innerHTML = '<i class="fa-solid fa-chevron-up"></i> Collapse';
+                if (expandBar) expandBar.innerHTML = '<i class="fa-solid fa-chevron-up"></i> Collapse';
+            } else {
+                code.classList.remove('expanded');
+                code.classList.add('collapsed');
+                btn.innerHTML = '<i class="fa-solid fa-chevron-down"></i> See all';
+                if (expandBar) expandBar.innerHTML = '<i class="fa-solid fa-chevron-down"></i> Show full file';
+            }
+        }
+    </script>
+
+</body>
+
+</html>

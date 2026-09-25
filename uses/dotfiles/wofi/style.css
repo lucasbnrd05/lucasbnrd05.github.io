@@ -1,0 +1,54 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+window {
+    /* Fond sombre semi-transparent pour laisser passer le flou */
+    background-color: rgba(30, 30, 30, 0.75);
+    /* Contour rouge */
+    border: 2px solid #cc241d;
+    border-radius: 16px;
+}
+
+#input {
+    background-color: rgba(40, 40, 40, 0.9);
+    border: 1px solid #cc241d;
+    border-radius: 8px;
+    color: #ffffff;
+    margin: 15px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+#input:focus {
+    border: 2px solid #cc241d;
+}
+
+#inner-box {
+    margin: 10px;
+    background-color: transparent;
+}
+
+#entry {
+    padding: 10px;
+    border-radius: 8px;
+    background-color: transparent;
+}
+
+#text {
+    color: #e0e0e0;
+    margin-left: 15px;
+}
+
+/* Surbrillance rouge au lieu du bleu */
+#entry:selected {
+    background-color: rgba(204, 36, 29, 0.5);
+    border: 1px solid #cc241d;
+}
+
+#entry:selected #text {
+    color: #ffffff;
+    font-weight: bold;
+}

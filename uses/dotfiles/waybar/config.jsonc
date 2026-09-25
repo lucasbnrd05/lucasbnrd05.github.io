@@ -1,0 +1,96 @@
+{
+    "layer": "top",
+    "position": "top",
+    "margin-top": 6,
+    "margin-left": 10,
+    "margin-right": 10,
+    "spacing": 10,
+    "modules-left": [
+	"custom/mode",
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "custom/system",
+        "pulseaudio",
+        "custom/network",
+        "bluetooth",
+        "custom/battery"
+    ],
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "all-outputs": true,
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "urgent": "!",
+            "active": "$",
+            "default": "*"
+        }
+    },
+
+    "clock": {
+        "format": "{:%H:%M - %d/%m/%Y}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "on-click": "gnome-calendar"
+    },
+
+    "custom/network": {
+        "format": "{}",
+        "exec": "$HOME/.config/waybar/scripts/network.sh",
+        "interval": 5,
+        "tooltip": false,
+        "on-click": "$HOME/.config/waybar/scripts/wifi_menu.sh"
+    },
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": "{icon}󰂯 {volume}%",
+        "format-muted": "󰝟  Mute",
+        "format-icons": {
+            "headphone": "󰋋",
+            "hands-free": "󰋋",
+            "headset": "󰋋",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "bluetooth": {
+        "format": "󰂯 {status}",
+        "format-connected": "󰂱 {device_alias}",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "on-click": "~/.config/waybar/scripts/bluetooth_menu.sh"
+    },
+
+    
+        "custom/battery": {
+        "format": "{}",
+        "exec": "$HOME/.config/waybar/scripts/battery.sh",
+        "interval": 10,
+        "tooltip": false
+    },
+    
+    "custom/system": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/sysinfo_bar.sh",
+    "interval": 5,
+    "tooltip": true,
+    "on-click": "~/.config/waybar/scripts/sysinfo_menu.sh"
+},
+"custom/mode": {
+    "format": "{}",
+    "exec": "$HOME/.config/waybar/scripts/mode-indicator.sh",
+    "interval": 2,
+    "tooltip": false
+}
+
+}

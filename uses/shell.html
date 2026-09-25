@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zsh + Starship shell configuration: plugins, aliases, custom git functions.">
+    <meta name="keywords" content="Zsh, Starship, P10k, Shell, Git, Aliases, Arch Linux">
+    <meta property="og:title" content="Shell | My Setup" />
+    <meta property="og:url" content="https://lucasbnrd05.github.io/uses/shell.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lucasbnrd05.github.io/doc/wallpaper.png" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta content="Buzzcut" name="author">
+    <meta content="© 2026 Buzzcut. All rights reserved." name="copyright">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_base.css">
+    <link rel="stylesheet" href="../css/style_links.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../doc/favicon-32x32.png">
+    <link rel="shortcut icon" href="../doc/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../doc/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <title>Shell | My Setup</title>
+
+    <style>
+        .tool-container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
+        .title-tools {
+            min-height: 25vh; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; gap: 15px; padding-top: 40px;
+        }
+        .title-tools h1 {
+            font-family: 'Soul Daisy', sans-serif; font-size: 2.8rem; overflow: hidden;
+            border-right: .15em solid orange; white-space: nowrap; margin: 0 auto; display: inline-block;
+            animation: typing 2s steps(7, end) forwards, blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing { 0% { width: 0; visibility: hidden; } 1% { visibility: visible; } 100% { width: 5ch; } }
+        @keyframes blink-caret { 50% { border-color: transparent; } }
+        .subtitle-tech { font-family: 'Courier New', monospace; color: #666; font-size: 1.1rem; margin-top: -10px; }
+        .back-nav { margin-bottom: 30px; text-align: center; }
+
+        .intro-box {
+            background: #fff; border-left: 4px solid #1793d1; padding: 25px; border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); margin-bottom: 40px;
+        }
+        .intro-box h3 { margin-top: 0; color: #333; font-family: 'Soul Daisy', sans-serif; font-size: 1.5rem; }
+        .intro-box p { font-size: 0.95rem; color: #555; line-height: 1.6; text-align: left; }
+
+        .file-card {
+            background: #fff; border-radius: 16px; overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06); margin-bottom: 25px; border: 1px solid #eee;
+        }
+        .file-header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 20px; background: #f8f9fa; border-bottom: 1px solid #eee;
+            flex-wrap: wrap; gap: 10px;
+        }
+        .file-path {
+            font-family: 'Courier New', monospace; font-size: 0.95rem; color: #333;
+            font-weight: bold; display: flex; align-items: center; gap: 8px;
+        }
+        .file-path i { color: #f39c12; }
+        .file-actions { display: flex; gap: 8px; }
+        .btn-mini {
+            background: #333; color: #fff; border: none; padding: 6px 14px; border-radius: 6px;
+            font-size: 0.8rem; font-weight: bold; cursor: pointer; text-decoration: none;
+            transition: background 0.2s; font-family: sans-serif;
+            display: inline-flex; align-items: center; gap: 6px;
+        }
+        .btn-mini:hover { background: #555; }
+        .btn-mini.dl { background: #1793d1; }
+        .btn-mini.dl:hover { background: #0f6fa3; }
+
+        .file-code {
+            background: #1e1e1e; color: #00ff41; font-family: 'Courier New', monospace;
+            font-size: 0.85rem; line-height: 1.5; padding: 20px; overflow-x: auto;
+            white-space: pre; tab-size: 4; max-height: 400px; overflow-y: auto;
+        }
+        .file-code.collapsed { max-height: 400px; }
+        .file-code.expanded { max-height: none; }
+        .file-code .comment { color: #666; font-style: italic; }
+        .file-code .keyword { color: #f39c12; }
+        .file-code .string { color: #f1c40f; }
+        .file-code .var { color: #3498db; }
+
+        /* P10K NOTICE */
+        .p10k-notice {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: #fff; border-radius: 12px; padding: 25px; margin-bottom: 25px;
+            display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+        }
+        .p10k-notice i { font-size: 2.5rem; color: #f39c12; }
+        .p10k-notice .p10k-info { flex: 1; min-width: 220px; }
+        .p10k-notice h4 { margin: 0 0 6px 0; font-family: 'Soul Daisy', sans-serif; font-size: 1.3rem; }
+        .p10k-notice p { margin: 0 0 10px 0; font-size: 0.9rem; opacity: 0.85; }
+        .p10k-notice a {
+            display: inline-block; background: #fff; color: #2c3e50; font-weight: bold;
+            padding: 8px 18px; border-radius: 50px; text-decoration: none;
+            font-size: 0.85rem; font-family: sans-serif;
+        }
+        .p10k-notice a:hover { background: #f39c12; color: #fff; }
+
+        @media (max-width: 768px) {
+            .title-tools h1 { font-size: 2rem; }
+            .file-header { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tool-container">
+
+        <div class="title-tools">
+            <h1>Shell</h1>
+            <h3 class="subtitle-tech" data-aos="fade-down" data-aos-delay="200">./zsh + ./starship + ./p10k</h3>
+            <div class="back-nav" data-aos="fade-up" data-aos-delay="300">
+                <a href="index.html" class="cv-button">
+                    <i class="fa-solid fa-arrow-left"></i> Back to /uses
+                </a>
+            </div>
+        </div>
+
+        <div class="intro-box" data-aos="fade-up">
+            <h3><i class="fa-solid fa-code"></i> What's inside</h3>
+            <p>
+                I use <strong>Zsh</strong> with:
+            </p>
+            <ul style="text-align: left; color: #555; font-size: 0.95rem; line-height: 1.6;">
+                <li><strong>Powerlevel10k</strong> as prompt (loaded from <code>p10k.zsh</code>)</li>
+                <li><strong>zsh-autosuggestions</strong> for inline history suggestions</li>
+                <li><strong>zsh-history-substring-search</strong> for smarter arrow-key history</li>
+                <li><strong>zsh-syntax-highlighting</strong> for real-time color feedback</li>
+                <li><strong>fzf</strong> and <strong>zoxide</strong> for fuzzy finding and smart cd</li>
+                <li><strong>eza</strong> as a modern <code>ls</code> replacement</li>
+            </ul>
+            <p>
+                I also have two custom git functions: <code>push</code> (add + commit + push in one command) and
+                <code>get_commit</code> / <code>apply_commit</code> for syncing commit dates.
+            </p>
+        </div>
+
+        <!-- p10k notice -->
+        <div class="p10k-notice" data-aos="fade-up">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <div class="p10k-info">
+                <h4>p10k.zsh (1500+ lines)</h4>
+                <p>The Powerlevel10k theme config is generated by the wizard. It's too long to display here, but
+                    you can view it directly on GitHub or download it.</p>
+                <a href="https://github.com/lucasbnrd05/lucasbnrd05.github.io/blob/main/uses/dotfiles/zsh/p10k.zsh"
+                    target="_blank">
+                    <i class="fa-solid fa-external-link-alt"></i> View on GitHub
+                </a>
+                <a href="dotfiles/zsh/p10k.zsh" download style="margin-left: 8px;">
+                    <i class="fa-solid fa-download"></i> Download
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== .zshrc ==================== -->
+        <div class="file-card" data-aos="fade-up">
+            <div class="file-header">
+                <div class="file-path"><i class="fa-solid fa-file-code"></i> zsh/.zshrc</div>
+                <div class="file-actions">
+                    <button class="btn-mini" onclick="toggleExpand(this)">
+                        <i class="fa-solid fa-chevron-down"></i> See all
+                    </button>
+                    <a href="dotfiles/zsh/zshrc" download class="btn-mini dl">
+                        <i class="fa-solid fa-download"></i> Download
+                    </a>
+                </div>
+            </div>
+            <div class="file-code collapsed">
+<span class="comment"># --- Powerlevel10k : chargement instantané ---</span>
+<span class="keyword">if</span> [[ -r <span class="string">"${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"</span> ]]; <span class="keyword">then</span>
+  <span class="keyword">source</span> <span class="string">"${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"</span>
+<span class="keyword">fi</span>
+
+<span class="comment"># --- Powerlevel10k (thème) ---</span>
+<span class="keyword">source</span> /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
+<span class="comment"># --- Historique ---</span>
+<span class="var">HISTFILE</span>=~/.zsh_history
+<span class="var">HISTSIZE</span>=<span class="keyword">10000</span>
+<span class="var">SAVEHIST</span>=<span class="keyword">10000</span>
+<span class="keyword">setopt</span> SHARE_HISTORY
+<span class="keyword">setopt</span> HIST_IGNORE_DUPS
+<span class="keyword">setopt</span> HIST_IGNORE_SPACE
+<span class="keyword">setopt</span> INC_APPEND_HISTORY
+
+<span class="comment"># --- fzf et zoxide ---</span>
+<span class="keyword">source</span> &lt;(fzf --zsh)
+<span class="keyword">eval</span> <span class="string">"$(zoxide init zsh)"</span>
+
+<span class="comment"># --- Plugins Zsh ---</span>
+<span class="keyword">source</span> /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+<span class="keyword">source</span> /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+<span class="keyword">source</span> /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+<span class="comment"># --- Alias ---</span>
+<span class="keyword">alias</span> <span class="var">ls</span>=<span class="string">'eza --icons 2&gt;/dev/null || ls --color=auto'</span>
+<span class="keyword">alias</span> <span class="var">ll</span>=<span class="string">'eza -l --icons 2&gt;/dev/null || ls -l'</span>
+<span class="keyword">alias</span> <span class="var">la</span>=<span class="string">'eza -la --icons 2&gt;/dev/null || ls -la'</span>
+<span class="keyword">alias</span> <span class="var">grep</span>=<span class="string">'grep --color=auto'</span>
+<span class="keyword">alias</span> <span class="var">..</span>=<span class="string">'cd ..'</span>
+<span class="keyword">alias</span> <span class="var">...</span>=<span class="string">'cd ../..'</span>
+
+<span class="comment"># --- p10k config ---</span>
+[[ ! -f ~/.p10k.zsh ]] || <span class="keyword">source</span> ~/.p10k.zsh
+
+<span class="keyword">export</span> <span class="var">SSH_AUTH_SOCK</span>=<span class="string">"/run/user/1000/ssh-agent.socket"</span>
+
+<span class="comment"># --- Fonctions Git personnelles ---</span>
+<span class="keyword">push</span>() {
+    <span class="keyword">local</span> repo_root
+    repo_root=$(git rev-parse --show-toplevel <span class="keyword">2</span>&gt;/dev/null)
+    [...]
+    git add . &amp;&amp; git commit -m <span class="string">"$*"</span> &amp;&amp; git push
+}
+            </div>
+        </div>
+
+        <!-- ==================== starship.toml ==================== -->
+        <div class="file-card" data-aos="fade-up">
+            <div class="file-header">
+                <div class="file-path"><i class="fa-solid fa-rocket"></i> starship.toml</div>
+                <div class="file-actions">
+                    <button class="btn-mini" onclick="toggleExpand(this)">
+                        <i class="fa-solid fa-chevron-down"></i> See all
+                    </button>
+                    <a href="dotfiles/starship.toml" download class="btn-mini dl">
+                        <i class="fa-solid fa-download"></i> Download
+                    </a>
+                </div>
+            </div>
+            <div class="file-code collapsed">
+<span class="string">"$schema"</span> = <span class="string">'https://starship.rs/config-schema.json'</span>
+
+[<span class="keyword">battery</span>]
+disabled = <span class="keyword">true</span>
+
+[<span class="keyword">c</span>]
+symbol = <span class="string">" " </span>
+
+[<span class="keyword">cpp</span>]
+symbol = <span class="string">" " </span>
+
+[<span class="keyword">directory</span>]
+read_only = <span class="string">" 󰌾"</span>
+
+[<span class="keyword">git_branch</span>]
+symbol = <span class="string">" " </span>
+
+[<span class="keyword">python</span>]
+symbol = <span class="string">" " </span>
+
+[<span class="keyword">rust</span>]
+symbol = <span class="string">" " </span>
+
+[<span class="keyword">os.symbols</span>]
+Arch = <span class="string">" " </span>
+Linux = <span class="string">" " </span>
+Ubuntu = <span class="string">" " </span>
+<span class="comment"># ... (many more)</span>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px; margin-bottom: 30px;" data-aos="fade-up">
+            <a href="index.html" class="cv-button">
+                <i class="fa-solid fa-arrow-left"></i> Back to /uses
+            </a>
+        </div>
+
+    </div>
+
+    <footer class="footer" id="footer" data-aos="flip-up">
+        <div class="footer-container">
+            <div class="footer-logo"><h2>Lucas Bernardeau</h2></div>
+            <div class="footer-links">
+                <a href="../html/index.html#presentation">Home</a>
+                <a href="../html/index.html#about">About</a>
+                <a href="../html/projects.html">Projects</a>
+                <a href="../html/experiences.html">Experiences</a>
+                <a href="../html/qualifications.html">Qualifications</a>
+                <a href="../html/index.html#contact">Contact</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/lucas-bernardeau/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:contact@lucasbernardeau.fr"><i class="fa-regular fa-envelope"></i></a>
+                <a href="https://github.com/lucasbnrd05"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Buzzcut. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init();
+        function toggleExpand(btn) {
+            const code = btn.closest('.file-card').querySelector('.file-code');
+            if (code.classList.contains('collapsed')) {
+                code.classList.remove('collapsed'); code.classList.add('expanded');
+                btn.innerHTML = '<i class="fa-solid fa-chevron-up"></i> Collapse';
+            } else {
+                code.classList.remove('expanded'); code.classList.add('collapsed');
+                btn.innerHTML = '<i class="fa-solid fa-chevron-down"></i> See all';
+            }
+        }
+    </script>
+</body>
+
+</html>

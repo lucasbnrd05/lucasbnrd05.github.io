@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My personal wallpaper - free to download and reuse.">
+    <meta name="keywords" content="Wallpaper, Background, Download, Hyprland, Hyprpaper">
+    <meta property="og:title" content="Wallpaper | My Setup" />
+    <meta property="og:url" content="https://lucasbnrd05.github.io/uses/wallpaper.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lucasbnrd05.github.io/doc/wallpaper.png" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta content="Buzzcut" name="author">
+    <meta content="© 2026 Buzzcut. All rights reserved." name="copyright">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_base.css">
+    <link rel="stylesheet" href="../css/style_links.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../doc/favicon-32x32.png">
+    <link rel="shortcut icon" href="../doc/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../doc/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <title>Wallpaper | My Setup</title>
+
+    <style>
+        .tool-container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
+        .title-tools {
+            min-height: 25vh; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; gap: 15px; padding-top: 40px;
+        }
+        .title-tools h1 {
+            font-family: 'Soul Daisy', sans-serif; font-size: 2.8rem; overflow: hidden;
+            border-right: .15em solid orange; white-space: nowrap; margin: 0 auto; display: inline-block;
+            animation: typing 2.2s steps(9, end) forwards, blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing { 0% { width: 0; visibility: hidden; } 1% { visibility: visible; } 100% { width: 8ch; } }
+        @keyframes blink-caret { 50% { border-color: transparent; } }
+        .subtitle-tech { font-family: 'Courier New', monospace; color: #666; font-size: 1.1rem; margin-top: -10px; }
+        .back-nav { margin-bottom: 30px; text-align: center; }
+
+        .intro-box {
+            background: #fff; border-left: 4px solid #1793d1; padding: 25px; border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); margin-bottom: 40px;
+        }
+        .intro-box h3 { margin-top: 0; color: #333; font-family: 'Soul Daisy', sans-serif; font-size: 1.5rem; }
+        .intro-box p { font-size: 0.95rem; color: #555; line-height: 1.6; text-align: left; }
+
+        .wallpaper-preview {
+            background: #fff; border-radius: 16px; padding: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); margin-bottom: 30px; text-align: center;
+        }
+        .wallpaper-preview img {
+            max-width: 100%; border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        .wallpaper-preview figcaption {
+            margin-top: 15px; font-family: 'Courier New', monospace;
+            font-size: 0.85rem; color: #888;
+        }
+
+        .download-cta {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #1793d1 0%, #0f6fa3 100%);
+            border-radius: 16px;
+            color: #fff;
+            box-shadow: 0 8px 25px rgba(23, 147, 209, 0.25);
+            margin-bottom: 30px;
+        }
+        .download-cta h3 {
+            font-family: 'Soul Daisy', sans-serif; font-size: 1.6rem; margin: 0 0 10px 0;
+        }
+        .download-cta p { opacity: 0.9; margin-bottom: 20px; }
+        .download-cta a {
+            display: inline-block; background: #fff; color: #1793d1; font-weight: bold;
+            padding: 14px 35px; border-radius: 50px; text-decoration: none;
+            font-family: sans-serif; transition: transform 0.2s;
+        }
+        .download-cta a:hover { transform: scale(1.05); }
+        .download-cta a i { margin-right: 8px; }
+
+        @media (max-width: 768px) { .title-tools h1 { font-size: 2rem; } }
+    </style>
+</head>
+
+<body>
+    <div class="tool-container">
+
+        <div class="title-tools">
+            <h1>Wallpaper</h1>
+            <h3 class="subtitle-tech" data-aos="fade-down" data-aos-delay="200">./bg.png</h3>
+            <div class="back-nav" data-aos="fade-up" data-aos-delay="300">
+                <a href="index.html" class="cv-button">
+                    <i class="fa-solid fa-arrow-left"></i> Back to /uses
+                </a>
+            </div>
+        </div>
+
+        <div class="intro-box" data-aos="fade-up">
+            <h3><i class="fa-solid fa-image"></i> My Wallpaper</h3>
+            <p>
+                This is the wallpaper I use on my daily driver. It's also the background of my login screen
+                (Hyprlock) and my splash screen (Hyprpaper). Feel free to download it and use it on your own setup.
+            </p>
+        </div>
+
+        <div class="wallpaper-preview" data-aos="fade-up">
+            <img src="dotfiles/wallpaper/bg.png" alt="My wallpaper" onerror="this.src='../doc/wallpaper.png'">
+            <figcaption>bg.png — my current wallpaper</figcaption>
+        </div>
+
+        <div class="download-cta" data-aos="fade-up">
+            <h3><i class="fa-solid fa-download"></i> Download</h3>
+            <p>Right-click → Save, or click the button below.</p>
+            <a href="dotfiles/wallpaper/bg.png" download>
+                <i class="fa-solid fa-download"></i> Download bg.png
+            </a>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px; margin-bottom: 30px;" data-aos="fade-up">
+            <a href="index.html" class="cv-button">
+                <i class="fa-solid fa-arrow-left"></i> Back to /uses
+            </a>
+        </div>
+
+    </div>
+
+    <footer class="footer" id="footer" data-aos="flip-up">
+        <div class="footer-container">
+            <div class="footer-logo"><h2>Lucas Bernardeau</h2></div>
+            <div class="footer-links">
+                <a href="../html/index.html#presentation">Home</a>
+                <a href="../html/index.html#about">About</a>
+                <a href="../html/projects.html">Projects</a>
+                <a href="../html/experiences.html">Experiences</a>
+                <a href="../html/qualifications.html">Qualifications</a>
+                <a href="../html/index.html#contact">Contact</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/lucas-bernardeau/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:contact@lucasbernardeau.fr"><i class="fa-regular fa-envelope"></i></a>
+                <a href="https://github.com/lucasbnrd05"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Buzzcut. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script>AOS.init();</script>
+</body>
+
+</html>

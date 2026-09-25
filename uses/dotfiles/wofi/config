@@ -1,0 +1,7 @@
+show=drun
+width=700
+height=400
+allow_images=true
+image_size=28
+term=kitty
+hide_scroll=true

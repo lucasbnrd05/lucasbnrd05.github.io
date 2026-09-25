@@ -1,0 +1,105 @@
+# --- Powerlevel10k : chargement instantané ---
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# --- Powerlevel10k (thème) ---
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
+# --- Historique ---
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt INC_APPEND_HISTORY
+
+# --- fzf et zoxide ---
+source <(fzf --zsh)
+eval "$(zoxide init zsh)"
+
+# --- Plugins Zsh (ordre important) ---
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+#source /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
+
+# --- zsh-syntax-highlighting EN DERNIER ---
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# --- Raccourcis clavier ---
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+# --- Alias ---
+alias ls='eza --icons 2>/dev/null || ls --color=auto'
+alias ll='eza -l --icons 2>/dev/null || ls -l'
+alias la='eza -la --icons 2>/dev/null || ls -la'
+alias grep='grep --color=auto'
+alias ..='cd ..'
+alias ...='cd ../..'
+
+# --- p10k config (le fichier généré par p10k configure) ---
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export SSH_AUTH_SOCK="/run/user/1000/ssh-agent.socket"
+
+# ===================================================================
+# FONCTIONS PERSONNELLES - GIT
+# ===================================================================
+
+# Alias : détecte les caractères non-ASCII dans le code
+alias nonascii="grep -rP '[^\x20-\x7E\t\r\n]' . --exclude-dir=.git --exclude-dir=target --exclude-dir=.mvn"
+
+# push : add + commit + push en une commande
+push() {
+    local repo_root
+    repo_root=$(git rev-parse --show-toplevel 2>/dev/null)
+    if [ $? -ne 0 ]; then
+        echo "Erreur : pas un dépôt Git." >&2
+        return 1
+    fi
+
+    if [ -z "$*" ]; then
+        echo "Erreur : veuillez fournir un message de commit." >&2
+        return 1
+    fi
+
+    cd "$repo_root" || return
+    git add .
+    git commit -m "$*"
+    git push
+}
+
+# get_commit : exporte les dates de tes commits dans un fichier
+get_commit() {
+    local output_file="${1:-$HOME/commit_dates.txt}"
+
+    echo "📡 Extraction des dates de commits..."
+    git log --author="Lucas Bernardeau" --pretty=format:"%ad" > "$output_file" 2>/dev/null
+
+    echo "✅ Terminé ! Dates sauvegardées dans : $output_file"
+}
+
+# apply_commit : rejoue les commits avec les dates d'un fichier
+apply_commit() {
+    local input_file="$1"
+    local commit_msg="${2:-School contribution sync}"
+
+    if [ -z "$input_file" ] || [ ! -f "$input_file" ]; then
+        echo "❌ Erreur : vous devez fournir un fichier valide contenant des dates."
+        echo "Usage : apply_commit <chemin_du_fichier> [\"Message de commit optionnel\"]"
+        return 1
+    fi
+
+    echo "🚀 Création des commits vides depuis $input_file..."
+    while read -r date; do
+        if [ -n "$date" ]; then
+            GIT_AUTHOR_DATE="$date" GIT_COMMITTER_DATE="$date" git commit --allow-empty -m "$commit_msg" > /dev/null
+        fi
+    done < "$input_file"
+
+    echo "🚀 Push vers le dépôt distant..."
+    git push
+    echo "✅ Succès ! Tous les commits ont été synchronisés et poussés."
+}

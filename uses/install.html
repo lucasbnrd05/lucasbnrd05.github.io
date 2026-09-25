@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Install guide for my dotfiles: script, packages, step by step.">
+    <meta name="keywords" content="Install, Dotfiles, Arch Linux, Hyprland, Guide">
+    <meta property="og:title" content="Install | My Setup" />
+    <meta property="og:url" content="https://lucasbnrd05.github.io/uses/install.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lucasbnrd05.github.io/doc/wallpaper.png" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta content="Buzzcut" name="author">
+    <meta content="© 2026 Buzzcut. All rights reserved." name="copyright">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_base.css">
+    <link rel="stylesheet" href="../css/style_links.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../doc/favicon-32x32.png">
+    <link rel="shortcut icon" href="../doc/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../doc/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <title>Install | My Setup</title>
+
+    <style>
+        .tool-container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
+        .title-tools {
+            min-height: 25vh; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; gap: 15px; padding-top: 40px;
+        }
+        .title-tools h1 {
+            font-family: 'Soul Daisy', sans-serif; font-size: 2.8rem; overflow: hidden;
+            border-right: .15em solid orange; white-space: nowrap; margin: 0 auto; display: inline-block;
+            animation: typing 2s steps(7, end) forwards, blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing { 0% { width: 0; visibility: hidden; } 1% { visibility: visible; } 100% { width: 7ch; } }
+        @keyframes blink-caret { 50% { border-color: transparent; } }
+        .subtitle-tech { font-family: 'Courier New', monospace; color: #666; font-size: 1.1rem; margin-top: -10px; }
+        .back-nav { margin-bottom: 30px; text-align: center; }
+
+        .intro-box {
+            background: #fff; border-left: 4px solid #1793d1; padding: 25px; border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); margin-bottom: 40px;
+        }
+        .intro-box h3 { margin-top: 0; color: #333; font-family: 'Soul Daisy', sans-serif; font-size: 1.5rem; }
+        .intro-box p { font-size: 0.95rem; color: #555; line-height: 1.6; text-align: left; }
+
+        /* BIG CTA */
+        .cta-download {
+            background: linear-gradient(135deg, #1793d1 0%, #0f6fa3 100%);
+            color: #fff; border-radius: 16px; padding: 35px; text-align: center;
+            box-shadow: 0 10px 30px rgba(23, 147, 209, 0.25);
+            margin-bottom: 40px;
+        }
+        .cta-download h2 {
+            font-family: 'Soul Daisy', sans-serif; font-size: 1.8rem; margin: 0 0 10px 0;
+        }
+        .cta-download p { opacity: 0.9; margin-bottom: 20px; font-size: 0.95rem; }
+        .btn-primary-dl {
+            display: inline-block; background: #fff; color: #1793d1; font-weight: bold;
+            padding: 15px 40px; border-radius: 50px; text-decoration: none;
+            font-family: sans-serif; font-size: 1.1rem; transition: transform 0.2s;
+        }
+        .btn-primary-dl:hover { transform: scale(1.05); }
+        .btn-primary-dl i { margin-right: 10px; }
+
+        /* STEPS */
+        .step {
+            background: #fff; border-radius: 16px; padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 25px; display: flex; gap: 20px; align-items: flex-start;
+            border-left: 4px solid #f39c12;
+        }
+        .step-num {
+            background: #f39c12; color: #fff; font-weight: bold;
+            width: 40px; height: 40px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Soul Daisy', sans-serif; font-size: 1.3rem; flex-shrink: 0;
+        }
+        .step-content { flex: 1; }
+        .step-content h3 {
+            font-family: 'Soul Daisy', sans-serif; font-size: 1.3rem;
+            color: #333; margin: 0 0 10px 0;
+        }
+        .step-content p {
+            color: #555; font-size: 0.95rem; line-height: 1.6; text-align: left;
+            margin: 0 0 10px 0;
+        }
+
+        .code-block {
+            background: #1e1e1e; color: #00ff41; font-family: 'Courier New', monospace;
+            font-size: 0.9rem; padding: 15px 20px; border-radius: 8px;
+            overflow-x: auto; white-space: pre; position: relative;
+        }
+        .code-block .comment { color: #666; font-style: italic; }
+
+        .copy-mini {
+            position: absolute; top: 10px; right: 10px; background: rgba(255, 255, 255, 0.1);
+            color: #fff; border: 1px solid rgba(255, 255, 255, 0.3); padding: 4px 10px;
+            border-radius: 4px; font-size: 0.75rem; cursor: pointer;
+        }
+        .copy-mini:hover { background: rgba(255, 255, 255, 0.2); }
+
+        /* FILE CARD */
+        .file-card {
+            background: #fff; border-radius: 16px; overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06); margin-bottom: 25px; border: 1px solid #eee;
+        }
+        .file-header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 20px; background: #f8f9fa; border-bottom: 1px solid #eee;
+            flex-wrap: wrap; gap: 10px;
+        }
+        .file-path {
+            font-family: 'Courier New', monospace; font-size: 0.95rem; color: #333;
+            font-weight: bold; display: flex; align-items: center; gap: 8px;
+        }
+        .file-path i { color: #f39c12; }
+        .file-actions { display: flex; gap: 8px; }
+        .btn-mini {
+            background: #333; color: #fff; border: none; padding: 6px 14px; border-radius: 6px;
+            font-size: 0.8rem; font-weight: bold; cursor: pointer; text-decoration: none;
+            font-family: sans-serif; display: inline-flex; align-items: center; gap: 6px;
+        }
+        .btn-mini:hover { background: #555; }
+        .btn-mini.dl { background: #1793d1; }
+        .btn-mini.dl:hover { background: #0f6fa3; }
+
+        .file-code {
+            background: #1e1e1e; color: #00ff41; font-family: 'Courier New', monospace;
+            font-size: 0.85rem; line-height: 1.5; padding: 20px; overflow-x: auto;
+            white-space: pre; tab-size: 4; max-height: 400px; overflow-y: auto;
+        }
+        .file-code.collapsed { max-height: 400px; }
+        .file-code.expanded { max-height: none; }
+        .file-code .comment { color: #666; font-style: italic; }
+
+        @media (max-width: 768px) {
+            .title-tools h1 { font-size: 2rem; }
+            .step { flex-direction: column; align-items: center; text-align: center; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tool-container">
+
+        <div class="title-tools">
+            <h1>Install</h1>
+            <h3 class="subtitle-tech" data-aos="fade-down" data-aos-delay="200">./setup_guide</h3>
+            <div class="back-nav" data-aos="fade-up" data-aos-delay="300">
+                <a href="index.html" class="cv-button">
+                    <i class="fa-solid fa-arrow-left"></i> Back to /uses
+                </a>
+            </div>
+        </div>
+
+        <div class="intro-box" data-aos="fade-up">
+            <h3><i class="fa-solid fa-circle-info"></i> Before You Start</h3>
+            <p>
+                These dotfiles are made for a fresh <strong>Arch Linux + Hyprland</strong> install.
+                The install script <strong>backs up your existing configs</strong> before replacing them,
+                but you should still review the files before running it.
+            </p>
+            <p>
+                <strong>Requirements:</strong> a working Arch install with <code>yay</code>, a
+                non-root user with sudo, and ideally a TTY (to avoid breaking your current session).
+            </p>
+        </div>
+
+        <!-- BIG CTA -->
+        <div class="cta-download" data-aos="fade-up">
+            <h2><i class="fa-solid fa-box-archive"></i> Get the Dotfiles</h2>
+            <p>Download the full archive, or browse individual files on each component page.</p>
+            <a href="dotfiles.zip" download class="btn-primary-dl">
+                <i class="fa-solid fa-download"></i> Download dotfiles.zip
+            </a>
+        </div>
+
+        <!-- STEPS -->
+        <h2 style="font-family: 'Soul Daisy', sans-serif; font-size: 1.8rem; text-align: center; margin: 50px 0 25px 0;"
+            data-aos="fade-up">Installation Steps</h2>
+
+        <div class="step" data-aos="fade-up">
+            <div class="step-num">1</div>
+            <div class="step-content">
+                <h3>Install Packages</h3>
+                <p>Install all required packages from the official repos and the AUR:</p>
+                <div class="code-block">
+<button class="copy-mini" onclick="copyCode(this)">Copy</button><span class="comment"># Install official packages + AUR (yay)</span>
+yay -S --needed - &lt; packages.txt</div>
+            </div>
+        </div>
+
+        <div class="step" data-aos="fade-up">
+            <div class="step-num">2</div>
+            <div class="step-content">
+                <h3>Clone or Extract Dotfiles</h3>
+                <p>Either clone the repo, or extract the ZIP file you downloaded:</p>
+                <div class="code-block">
+<button class="copy-mini" onclick="copyCode(this)">Copy</button><span class="comment"># Option A: extract zip</span>
+unzip dotfiles.zip -d ~/dotfiles
+
+<span class="comment"># Option B: clone from repo</span>
+git clone https://github.com/lucasbnrd05/lucasbnrd05.github.io ~/dotfiles</div>
+            </div>
+        </div>
+
+        <div class="step" data-aos="fade-up">
+            <div class="step-num">3</div>
+            <div class="step-content">
+                <h3>Run the Install Script</h3>
+                <p>The script backs up existing configs to <code>~/.dotfiles-backup-YYYYMMDD-HHMMSS/</code>, then
+                    copies the new ones:</p>
+                <div class="code-block">
+<button class="copy-mini" onclick="copyCode(this)">Copy</button>cd ~/dotfiles
+chmod +x install.sh
+./install.sh</div>
+            </div>
+        </div>
+
+        <div class="step" data-aos="fade-up">
+            <div class="step-num">4</div>
+            <div class="step-content">
+                <h3>Configure the Wallpaper Path</h3>
+                <p>The configs reference <code>$HOME/Images/bg.png</code>. Copy the wallpaper and update if needed:</p>
+                <div class="code-block">
+<button class="copy-mini" onclick="copyCode(this)">Copy</button>mkdir -p ~/Images
+cp ~/dotfiles/wallpaper/bg.png ~/Images/bg.png</div>
+            </div>
+        </div>
+
+        <div class="step" data-aos="fade-up">
+            <div class="step-num">5</div>
+            <div class="step-content">
+                <h3>Restart Your Session</h3>
+                <p>Log out and log back in (or reboot). Hyprland should start with the new config:</p>
+                <div class="code-block">
+<button class="copy-mini" onclick="copyCode(this)">Copy</button><span class="comment"># From a TTY</span>
+Hyprland</div>
+            </div>
+        </div>
+
+        <!-- ==================== install.sh ==================== -->
+        <h2 style="font-family: 'Soul Daisy', sans-serif; font-size: 1.6rem; margin: 50px 0 15px 0;"
+            data-aos="fade-up">The Install Script</h2>
+
+        <div class="file-card" data-aos="fade-up">
+            <div class="file-header">
+                <div class="file-path"><i class="fa-solid fa-file-code"></i> install.sh</div>
+                <div class="file-actions">
+                    <button class="btn-mini" onclick="toggleExpand(this)">
+                        <i class="fa-solid fa-chevron-down"></i> See all
+                    </button>
+                    <a href="dotfiles/install.sh" download class="btn-mini dl">
+                        <i class="fa-solid fa-download"></i> Download
+                    </a>
+                </div>
+            </div>
+            <div class="file-code collapsed">
+#!/bin/bash
+
+<span class="comment"># Script d'installation des dotfiles</span>
+<span class="comment"># Usage : ./install.sh</span>
+
+DOTFILES_DIR="$(cd "$(dirname "$0")" &amp;&amp; pwd)"
+BACKUP_DIR="$HOME/.dotfiles-backup-$(date +%Y%m%d-%H%M%S)"
+
+echo "=== Installation des dotfiles ==="
+echo "Dépôt : $DOTFILES_DIR"
+echo "Sauvegarde : $BACKUP_DIR"
+echo ""
+
+<span class="comment"># Sauvegarde des fichiers existants</span>
+mkdir -p "$BACKUP_DIR"
+<span class="keyword">for</span> item <span class="keyword">in</span> .config .zshrc .gitconfig; <span class="keyword">do</span>
+    <span class="keyword">if</span> [ -e "$HOME/$item" ]; <span class="keyword">then</span>
+        echo "Sauvegarde de $item"
+        cp -r "$HOME/$item" "$BACKUP_DIR/"
+    <span class="keyword">fi</span>
+<span class="keyword">done</span>
+
+<span class="comment"># Copie des dotfiles</span>
+echo ""
+echo "Copie des dotfiles..."
+cp -r "$DOTFILES_DIR/.config/"* "$HOME/.config/"
+cp "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
+[ -f "$DOTFILES_DIR/.gitconfig" ] &amp;&amp; cp "$DOTFILES_DIR/.gitconfig" "$HOME/.gitconfig"
+
+echo ""
+echo "=== Installation terminée ==="
+echo "Redémarre ta session pour appliquer les changements."
+            </div>
+        </div>
+
+        <!-- ==================== packages.txt ==================== -->
+        <h2 style="font-family: 'Soul Daisy', sans-serif; font-size: 1.6rem; margin: 50px 0 15px 0;"
+            data-aos="fade-up">Packages List</h2>
+
+        <div class="file-card" data-aos="fade-up">
+            <div class="file-header">
+                <div class="file-path"><i class="fa-solid fa-list"></i> packages.txt</div>
+                <div class="file-actions">
+                    <button class="btn-mini" onclick="toggleExpand(this)">
+                        <i class="fa-solid fa-chevron-down"></i> See all
+                    </button>
+                    <a href="dotfiles/packages.txt" download class="btn-mini dl">
+                        <i class="fa-solid fa-download"></i> Download
+                    </a>
+                </div>
+            </div>
+            <div class="file-code collapsed">
+base
+base-devel
+batctl-tui
+bluez
+bluez-utils
+brightnessctl
+btop
+btrfs-progs
+calcurse
+cliphist
+cups
+cups-pk-helper
+discord
+dolphin
+dunst
+efibootmgr
+firefox
+firefoxpwa
+fprintd
+git
+gnome-calendar
+grim
+gsimplecal
+gst-plugin-pipewire
+htop
+hyprland
+hyprlock
+hyprpaper
+hyprpolkitagent
+hyprsunset
+intel-media-driver
+intel-ucode
+jq
+kitty
+libfprint-2-tod1-synatudor-git
+libpulse
+libva-intel-driver
+linux
+linux-firmware
+lvm2
+mako
+mkinitcpio
+nano
+network-manager-applet
+networkmanager
+pavucontrol
+pipewire
+pipewire-alsa
+pipewire-jack
+pipewire-pulse
+polkit-kde-agent
+power-profiles-daemon
+qt5-graphicaleffects
+qt5-quickcontrols2
+qt5-svg
+qt5-wayland
+qt6-wayland
+sddm
+slurp
+smartmontools
+sof-firmware
+starship
+sudo
+system-config-printer
+thunar
+ttf-jetbrains-mono-nerd
+ttf-nerd-fonts-symbols
+usbutils
+uwsm
+vim
+visual-studio-code-bin
+vulkan-intel
+vulkan-nouveau
+vulkan-radeon
+waybar
+wev
+wget
+wireplumber
+wl-clipboard
+wlogout
+wlogout-debug
+wofi
+wpa_supplicant
+xdg-desktop-portal-hyprland
+xdg-utils
+xf86-video-amdgpu
+xf86-video-ati
+xf86-video-nouveau
+yay
+yay-debug
+zram-generator
+zsh
+zsh-autosuggestions
+zsh-syntax-highlighting
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px; margin-bottom: 30px;" data-aos="fade-up">
+            <a href="index.html" class="cv-button">
+                <i class="fa-solid fa-arrow-left"></i> Back to /uses
+            </a>
+        </div>
+
+    </div>
+
+    <footer class="footer" id="footer" data-aos="flip-up">
+        <div class="footer-container">
+            <div class="footer-logo"><h2>Lucas Bernardeau</h2></div>
+            <div class="footer-links">
+                <a href="../html/index.html#presentation">Home</a>
+                <a href="../html/index.html#about">About</a>
+                <a href="../html/projects.html">Projects</a>
+                <a href="../html/experiences.html">Experiences</a>
+                <a href="../html/qualifications.html">Qualifications</a>
+                <a href="../html/index.html#contact">Contact</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/lucas-bernardeau/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:contact@lucasbernardeau.fr"><i class="fa-regular fa-envelope"></i></a>
+                <a href="https://github.com/lucasbnrd05"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Buzzcut. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init();
+
+        function toggleExpand(btn) {
+            const code = btn.closest('.file-card').querySelector('.file-code');
+            if (code.classList.contains('collapsed')) {
+                code.classList.remove('collapsed'); code.classList.add('expanded');
+                btn.innerHTML = '<i class="fa-solid fa-chevron-up"></i> Collapse';
+            } else {
+                code.classList.remove('expanded'); code.classList.add('collapsed');
+                btn.innerHTML = '<i class="fa-solid fa-chevron-down"></i> See all';
+            }
+        }
+
+        function copyCode(btn) {
+            const pre = btn.parentElement;
+            const text = pre.innerText.replace(/^Copy\n/, '').trim();
+            navigator.clipboard.writeText(text).then(() => {
+                btn.innerText = 'Copied!';
+                setTimeout(() => btn.innerText = 'Copy', 1500);
+            });
+        }
+    </script>
+</body>
+
+</html>

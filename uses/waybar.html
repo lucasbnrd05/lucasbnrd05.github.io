@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Waybar configuration: modules, custom scripts, network/bluetooth/battery menus.">
+    <meta name="keywords" content="Waybar, Status bar, Hyprland, Modules, Scripts, Arch Linux">
+    <meta property="og:title" content="Waybar | My Setup" />
+    <meta property="og:url" content="https://lucasbnrd05.github.io/uses/waybar.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lucasbnrd05.github.io/doc/wallpaper.png" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta content="Buzzcut" name="author">
+    <meta content="© 2026 Buzzcut. All rights reserved." name="copyright">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_base.css">
+    <link rel="stylesheet" href="../css/style_links.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../doc/favicon-32x32.png">
+    <link rel="shortcut icon" href="../doc/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../doc/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <title>Waybar | My Setup</title>
+
+    <style>
+        .tool-container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
+
+        .title-tools {
+            min-height: 25vh; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; gap: 15px; padding-top: 40px;
+        }
+        .title-tools h1 {
+            font-family: 'Soul Daisy', sans-serif; font-size: 2.8rem; overflow: hidden;
+            border-right: .15em solid orange; white-space: nowrap; margin: 0 auto;
+            display: inline-block;
+            animation: typing 2s steps(8, end) forwards, blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing { 0% { width: 0; visibility: hidden; } 1% { visibility: visible; } 100% { width: 6ch; } }
+        @keyframes blink-caret { 50% { border-color: transparent; } }
+
+        .subtitle-tech { font-family: 'Courier New', monospace; color: #666; font-size: 1.1rem; margin-top: -10px; }
+        .back-nav { margin-bottom: 30px; text-align: center; }
+
+        .intro-box {
+            background: #fff; border-left: 4px solid #1793d1; padding: 25px; border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); margin-bottom: 40px;
+        }
+        .intro-box h3 { margin-top: 0; color: #333; font-family: 'Soul Daisy', sans-serif; font-size: 1.5rem; }
+        .intro-box p { font-size: 0.95rem; color: #555; line-height: 1.6; text-align: left; }
+
+        .file-card {
+            background: #fff; border-radius: 16px; padding: 0; overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06); margin-bottom: 25px; border: 1px solid #eee;
+        }
+        .file-header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 20px; background: #f8f9fa; border-bottom: 1px solid #eee;
+            flex-wrap: wrap; gap: 10px;
+        }
+        .file-path {
+            font-family: 'Courier New', monospace; font-size: 0.95rem; color: #333;
+            font-weight: bold; display: flex; align-items: center; gap: 8px;
+        }
+        .file-path i { color: #f39c12; }
+        .file-actions { display: flex; gap: 8px; }
+
+        .btn-mini {
+            background: #333; color: #fff; border: none; padding: 6px 14px; border-radius: 6px;
+            font-size: 0.8rem; font-weight: bold; cursor: pointer; text-decoration: none;
+            transition: background 0.2s; font-family: sans-serif;
+            display: inline-flex; align-items: center; gap: 6px;
+        }
+        .btn-mini:hover { background: #555; }
+        .btn-mini.dl { background: #1793d1; }
+        .btn-mini.dl:hover { background: #0f6fa3; }
+
+        .file-code {
+            background: #1e1e1e; color: #00ff41; font-family: 'Courier New', monospace;
+            font-size: 0.85rem; line-height: 1.5; padding: 20px; overflow-x: auto;
+            white-space: pre; tab-size: 4; max-height: 400px; overflow-y: auto;
+        }
+        .file-code .comment { color: #666; font-style: italic; }
+        .file-code .keyword { color: #f39c12; }
+        .file-code .string { color: #f1c40f; }
+        .file-code .key { color: #3498db; }
+
+        .file-expand {
+            background: #252525; color: #ccc; text-align: center; padding: 10px;
+            cursor: pointer; font-family: sans-serif; font-size: 0.85rem; font-weight: bold;
+            border-top: 1px solid #333; transition: background 0.2s;
+        }
+        .file-expand:hover { background: #2c2c2c; color: #fff; }
+        .file-expand i { margin-right: 6px; }
+        .file-code.collapsed { max-height: 400px; }
+        .file-code.expanded { max-height: none; }
+
+        .scripts-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px; margin-top: 25px;
+        }
+        .script-card {
+            background: #fff; border-radius: 12px; padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04); border: 1px solid #eee;
+        }
+        .script-card h4 {
+            font-family: 'Soul Daisy', sans-serif; font-size: 1.1rem; color: #333;
+            margin: 0 0 8px 0; display: flex; align-items: center; gap: 8px;
+        }
+        .script-card h4 i { color: #f39c12; }
+        .script-card p { color: #666; font-size: 0.85rem; line-height: 1.4; margin: 0 0 10px 0; text-align: left; }
+
+        @media (max-width: 768px) {
+            .title-tools h1 { font-size: 2rem; }
+            .file-header { flex-direction: column; align-items: flex-start; }
+            .file-actions { width: 100%; }
+            .btn-mini { flex: 1; justify-content: center; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="tool-container">
+
+        <div class="title-tools">
+            <h1>Waybar</h1>
+            <h3 class="subtitle-tech" data-aos="fade-down" data-aos-delay="200">./status_bar</h3>
+
+            <div class="back-nav" data-aos="fade-up" data-aos-delay="300">
+                <a href="index.html" class="cv-button">
+                    <i class="fa-solid fa-arrow-left"></i> Back to /uses
+                </a>
+            </div>
+        </div>
+
+        <div class="intro-box" data-aos="fade-up">
+            <h3><i class="fa-solid fa-chart-simple"></i> What's inside</h3>
+            <p>
+                My Waybar sits at the top of the screen. It shows the current mode (Travail / Détente),
+                Hyprland workspaces, the clock, then system info, volume, network, bluetooth, and battery.
+                The network, bluetooth and system modules are <strong>clickable</strong>: they open a Wofi menu
+                to manage wifi networks, bluetooth devices, or show system stats.
+            </p>
+        </div>
+
+        <!-- ==================== config.jsonc ==================== -->
+        <div class="file-card" data-aos="fade-up">
+            <div class="file-header">
+                <div class="file-path"><i class="fa-solid fa-file-code"></i> waybar/config.jsonc</div>
+                <div class="file-actions">
+                    <button class="btn-mini" onclick="toggleExpand(this)">
+                        <i class="fa-solid fa-chevron-down"></i> See all
+                    </button>
+                    <a href="dotfiles/waybar/config.jsonc" download class="btn-mini dl">
+                        <i class="fa-solid fa-download"></i> Download
+                    </a>
+                </div>
+            </div>
+            <div class="file-code collapsed">
+{
+    <span class="key">"layer"</span>: <span class="string">"top"</span>,
+    <span class="key">"position"</span>: <span class="string">"top"</span>,
+    <span class="key">"margin-top"</span>: <span class="keyword">6</span>,
+    <span class="key">"margin-left"</span>: <span class="keyword">10</span>,
+    <span class="key">"margin-right"</span>: <span class="keyword">10</span>,
+    <span class="key">"spacing"</span>: <span class="keyword">10</span>,
+
+    <span class="key">"modules-left"</span>: [<span class="string">"custom/mode"</span>, <span class="string">"hyprland/workspaces"</span>],
+    <span class="key">"modules-center"</span>: [<span class="string">"clock"</span>],
+    <span class="key">"modules-right"</span>: [
+        <span class="string">"custom/system"</span>,
+        <span class="string">"pulseaudio"</span>,
+        <span class="string">"custom/network"</span>,
+        <span class="string">"bluetooth"</span>,
+        <span class="string">"custom/battery"</span>
+    ],
+
+    <span class="key">"clock"</span>: {
+        <span class="key">"format"</span>: <span class="string">"{:%H:%M - %d/%m/%Y}"</span>,
+        <span class="key">"on-click"</span>: <span class="string">"gnome-calendar"</span>
+    },
+
+    <span class="key">"custom/network"</span>: {
+        <span class="key">"format"</span>: <span class="string">"{}"</span>,
+        <span class="key">"exec"</span>: <span class="string">"$HOME/.config/waybar/scripts/network.sh"</span>,
+        <span class="key">"interval"</span>: <span class="keyword">5</span>,
+        <span class="key">"on-click"</span>: <span class="string">"$HOME/.config/waybar/scripts/wifi_menu.sh"</span>
+    },
+
+    <span class="key">"pulseaudio"</span>: {
+        <span class="key">"format"</span>: <span class="string">"{icon}  {volume}%"</span>,
+        <span class="key">"on-click"</span>: <span class="string">"pavucontrol"</span>
+    },
+
+    <span class="key">"bluetooth"</span>: {
+        <span class="key">"format"</span>: <span class="string">" {status}"</span>,
+        <span class="key">"on-click"</span>: <span class="string">"~/.config/waybar/scripts/bluetooth_menu.sh"</span>
+    },
+
+    <span class="comment">// ... (custom/battery, custom/system, custom/mode)</span>
+}
+            </div>
+        </div>
+
+        <!-- ==================== style.css ==================== -->
+        <div class="file-card" data-aos="fade-up">
+            <div class="file-header">
+                <div class="file-path"><i class="fa-solid fa-palette"></i> waybar/style.css</div>
+                <div class="file-actions">
+                    <button class="btn-mini" onclick="toggleExpand(this)">
+                        <i class="fa-solid fa-chevron-down"></i> See all
+                    </button>
+                    <a href="dotfiles/waybar/style.css" download class="btn-mini dl">
+                        <i class="fa-solid fa-download"></i> Download
+                    </a>
+                </div>
+            </div>
+            <div class="file-code collapsed">
+* {
+    font-family: <span class="string">"JetBrainsMono Nerd Font"</span>, sans-serif;
+    font-size: <span class="keyword">12px</span>;
+    font-weight: bold;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: #ebdbb2;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    background-color: rgba(<span class="keyword">29</span>, <span class="keyword">32</span>, <span class="keyword">33</span>, <span class="keyword">0.75</span>);
+    border: <span class="keyword">1px</span> solid rgba(<span class="keyword">142</span>, <span class="keyword">192</span>, <span class="keyword">124</span>, <span class="keyword">0.2</span>);
+    border-radius: <span class="keyword">12px</span>;
+    margin: <span class="keyword">6px</span> <span class="keyword">4px</span>;
+    padding: <span class="keyword">0</span> <span class="keyword">4px</span>;
+}
+
+#workspaces button {
+    padding: <span class="keyword">0</span> <span class="keyword">6px</span>;
+    color: #a89984;
+    border-radius: <span class="keyword">8px</span>;
+    margin: <span class="keyword">3px</span> <span class="keyword">2px</span>;
+    background: transparent;
+    transition: all <span class="keyword">0.2s</span> ease-in-out;
+}
+
+#workspaces button.active {
+    color: #fbf1c7;
+    background-color: #458588;
+}
+
+#battery.warning:not(.charging) {
+    color: #cc241d;
+}
+            </div>
+        </div>
+
+        <!-- ==================== system_menu.xml ==================== -->
+        <div class="file-card" data-aos="fade-up">
+            <div class="file-header">
+                <div class="file-path"><i class="fa-solid fa-diagram-project"></i> waybar/system_menu.xml</div>
+                <div class="file-actions">
+                    <a href="dotfiles/waybar/system_menu.xml" download class="btn-mini dl">
+                        <i class="fa-solid fa-download"></i> Download
+                    </a>
+                </div>
+            </div>
+            <div class="file-code collapsed">
+&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;
+&lt;interface&gt;
+  &lt;object class=<span class="string">"GtkMenu"</span> id=<span class="string">"menu"</span>&gt;
+    &lt;child&gt;
+      &lt;object class=<span class="string">"GtkMenuItem"</span> id=<span class="string">"cpu"</span>&gt;
+        &lt;property name=<span class="string">"label"</span>&gt;CPU&lt;/property&gt;
+      &lt;/object&gt;
+    &lt;/child&gt;
+    &lt;child&gt;
+      &lt;object class=<span class="string">"GtkMenuItem"</span> id=<span class="string">"memory"</span>&gt;
+        &lt;property name=<span class="string">"label"</span>&gt;RAM&lt;/property&gt;
+      &lt;/object&gt;
+    &lt;/child&gt;
+    <span class="comment">&lt;!-- temperature, btop --&gt;</span>
+  &lt;/object&gt;
+&lt;/interface&gt;
+            </div>
+        </div>
+
+        <!-- ==================== SCRIPTS ==================== -->
+        <h2 style="font-family: 'Soul Daisy', sans-serif; font-size: 1.6rem; margin: 50px 0 15px 0;"
+            data-aos="fade-up">Custom Scripts</h2>
+        <p style="color: #666; margin-bottom: 20px;" data-aos="fade-up">
+            7 scripts used by Waybar modules, all clickable and interactive via Wofi.
+        </p>
+
+        <div class="scripts-grid" data-aos="fade-up">
+
+            <div class="script-card">
+                <h4><i class="fa-solid fa-battery-half"></i> battery.sh</h4>
+                <p>Displays battery icon + percentage. Icon changes based on charge level.</p>
+                <a href="dotfiles/waybar/scripts/battery.sh" download class="btn-mini dl">
+                    <i class="fa-solid fa-download"></i> Download
+                </a>
+            </div>
+
+            <div class="script-card">
+                <h4><i class="fa-brands fa-bluetooth"></i> bluetooth_menu.sh</h4>
+                <p>Wofi menu to toggle bluetooth, enable airplane mode, or connect/disconnect devices.</p>
+                <a href="dotfiles/waybar/scripts/bluetooth_menu.sh" download class="btn-mini dl">
+                    <i class="fa-solid fa-download"></i> Download
+                </a>
+            </div>
+
+            <div class="script-card">
+                <h4><i class="fa-solid fa-shuffle"></i> mode-indicator.sh</h4>
+                <p>Shows the current mode (Travail / Détente) from <code>/tmp/hypr-mode</code>.</p>
+                <a href="dotfiles/waybar/scripts/mode-indicator.sh" download class="btn-mini dl">
+                    <i class="fa-solid fa-download"></i> Download
+                </a>
+            </div>
+
+            <div class="script-card">
+                <h4><i class="fa-solid fa-wifi"></i> network.sh</h4>
+                <p>Shows current WiFi SSID or "Not connected". Runs every 5s.</p>
+                <a href="dotfiles/waybar/scripts/network.sh" download class="btn-mini dl">
+                    <i class="fa-solid fa-download"></i> Download
+                </a>
+            </div>
+
+            <div class="script-card">
+                <h4><i class="fa-solid fa-wifi"></i> wifi_menu.sh</h4>
+                <p>Wofi menu to toggle WiFi, enable airplane mode, connect to a network (prompts for password).</p>
+                <a href="dotfiles/waybar/scripts/wifi_menu.sh" download class="btn-mini dl">
+                    <i class="fa-solid fa-download"></i> Download
+                </a>
+            </div>
+
+            <div class="script-card">
+                <h4><i class="fa-solid fa-microchip"></i> sysinfo_bar.sh</h4>
+                <p>Icon shown in the bar. Click opens sysinfo_menu.</p>
+                <a href="dotfiles/waybar/scripts/sysinfo_bar.sh" download class="btn-mini dl">
+                    <i class="fa-solid fa-download"></i> Download
+                </a>
+            </div>
+
+            <div class="script-card">
+                <h4><i class="fa-solid fa-microchip"></i> sysinfo_menu.sh</h4>
+                <p>Wofi popup with CPU, RAM, temp, GPU, disk and uptime. Also launches btop.</p>
+                <a href="dotfiles/waybar/scripts/sysinfo_menu.sh" download class="btn-mini dl">
+                    <i class="fa-solid fa-download"></i> Download
+                </a>
+            </div>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 50px; margin-bottom: 30px;" data-aos="fade-up">
+            <a href="index.html" class="cv-button">
+                <i class="fa-solid fa-arrow-left"></i> Back to /uses
+            </a>
+        </div>
+
+    </div>
+
+    <footer class="footer" id="footer" data-aos="flip-up">
+        <div class="footer-container">
+            <div class="footer-logo"><h2>Lucas Bernardeau</h2></div>
+            <div class="footer-links">
+                <a href="../html/index.html#presentation">Home</a>
+                <a href="../html/index.html#about">About</a>
+                <a href="../html/projects.html">Projects</a>
+                <a href="../html/experiences.html">Experiences</a>
+                <a href="../html/qualifications.html">Qualifications</a>
+                <a href="../html/index.html#contact">Contact</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/lucas-bernardeau/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:contact@lucasbernardeau.fr"><i class="fa-regular fa-envelope"></i></a>
+                <a href="https://github.com/lucasbnrd05"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Buzzcut. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init();
+        function toggleExpand(btn) {
+            const card = btn.closest('.file-card');
+            const code = card.querySelector('.file-code');
+            if (code.classList.contains('collapsed')) {
+                code.classList.remove('collapsed'); code.classList.add('expanded');
+                btn.innerHTML = '<i class="fa-solid fa-chevron-up"></i> Collapse';
+            } else {
+                code.classList.remove('expanded'); code.classList.add('collapsed');
+                btn.innerHTML = '<i class="fa-solid fa-chevron-down"></i> See all';
+            }
+        }
+    </script>
+
+</body>
+
+</html>
