@@ -48,15 +48,9 @@
             --bg: #f4f4f4;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Soul Daisy', sans-serif;
@@ -93,25 +87,12 @@
         }
 
         @keyframes typing {
-            0% {
-                width: 0;
-                visibility: hidden;
-            }
-
-            1% {
-                visibility: visible;
-            }
-
-            100% {
-                width: 24ch;
-            }
+            0% { width: 0; visibility: hidden; }
+            1% { visibility: visible; }
+            100% { width: 24ch; }
         }
 
-        @keyframes blink-caret {
-            50% {
-                border-color: transparent;
-            }
-        }
+        @keyframes blink-caret { 50% { border-color: transparent; } }
 
         .hero-subtitle {
             color: #888;
@@ -143,26 +124,11 @@
             cursor: pointer;
         }
 
-        .polaroid-hero img {
-            width: 100%;
-            border-radius: 5px;
-        }
-
-        .polaroid-hero p {
-            margin-top: 8px;
-        }
-
-        .polaroid-hero:nth-child(1) {
-            transform: rotate(-8deg);
-        }
-
-        .polaroid-hero:nth-child(2) {
-            transform: rotate(6deg);
-        }
-
-        .polaroid-hero:hover {
-            transform: rotate(0deg) scale(1.05);
-        }
+        .polaroid-hero img { width: 100%; border-radius: 5px; }
+        .polaroid-hero p { margin-top: 8px; }
+        .polaroid-hero:nth-child(1) { transform: rotate(-8deg); }
+        .polaroid-hero:nth-child(2) { transform: rotate(6deg); }
+        .polaroid-hero:hover { transform: rotate(0deg) scale(1.05); }
 
         /* ============== SECTION ============== */
         .section {
@@ -171,9 +137,7 @@
             padding: 80px 20px;
         }
 
-        .section-header {
-            margin-bottom: 50px;
-        }
+        .section-header { margin-bottom: 50px; }
 
         .section-title {
             font-family: 'Soul Daisy', sans-serif;
@@ -219,14 +183,8 @@
             transition: transform 0.4s ease;
         }
 
-        .about-photo:hover {
-            transform: rotate(0deg);
-        }
-
-        .about-photo img {
-            width: 100%;
-            display: block;
-        }
+        .about-photo:hover { transform: rotate(0deg); }
+        .about-photo img { width: 100%; display: block; }
 
         .about-text h2 {
             font-family: 'Soul Daisy', sans-serif;
@@ -244,11 +202,7 @@
             margin-bottom: 20px;
         }
 
-        .about-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
+        .about-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 
         .tag {
             display: inline-block;
@@ -270,10 +224,8 @@
             transform: translateY(-2px);
         }
 
-        /* ============== SKILLS (bulles style original) ============== */
-        .skill-group {
-            margin-bottom: 30px;
-        }
+        /* ============== SKILLS ============== */
+        .skill-group { margin-bottom: 30px; }
 
         .skill-group h3 {
             font-family: 'Soul Daisy', sans-serif;
@@ -285,15 +237,9 @@
             gap: 10px;
         }
 
-        .skill-group h3 i {
-            font-size: 1rem;
-        }
+        .skill-group h3 i { font-size: 1rem; }
 
-        .skill-bubbles {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
+        .skill-bubbles { display: flex; flex-wrap: wrap; gap: 10px; }
 
         .fact {
             padding: 6px 14px;
@@ -317,15 +263,78 @@
             transform: rotate(-5deg) scale(1.05);
         }
 
-        .fact i {
-            font-size: 0.95rem;
+        .fact i { font-size: 0.95rem; }
+
+        /* ============== CERTIFICATIONS ============== */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+        }
+
+        .cert-card {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            background: #fff;
+            border-radius: 14px;
+            padding: 18px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--orange);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .cert-card.no-link { cursor: default; }
+
+        .cert-card.no-link:hover {
+            transform: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .cert-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #1a5fb4 0%, #2c3e50 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .cert-icon.red { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); }
+        .cert-icon.green { background: linear-gradient(135deg, #27ae60 0%, #16a085 100%); }
+        .cert-icon.purple { background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%); }
+        .cert-icon.blue { background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); }
+
+        .cert-body { flex: 1; min-width: 0; }
+
+        .cert-body h4 {
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 1.05rem;
+            color: var(--blue);
+            margin: 0 0 4px 0;
+        }
+
+        .cert-body p {
+            font-family: -apple-system, sans-serif;
+            font-size: 0.8rem;
+            color: #777;
+            line-height: 1.35;
+            margin: 0;
         }
 
         /* ============== TIMELINE ============== */
-        .timeline {
-            position: relative;
-            padding-left: 40px;
-        }
+        .timeline { position: relative; padding-left: 40px; }
 
         .timeline::before {
             content: '';
@@ -337,10 +346,7 @@
             background: linear-gradient(to bottom, var(--orange), #eee);
         }
 
-        .timeline-item {
-            position: relative;
-            margin-bottom: 30px;
-        }
+        .timeline-item { position: relative; margin-bottom: 30px; }
 
         .timeline-item::before {
             content: '';
@@ -384,10 +390,7 @@
             background: #f4f4f4;
         }
 
-        .timeline-content {
-            flex: 1;
-            min-width: 0;
-        }
+        .timeline-content { flex: 1; min-width: 0; }
 
         .timeline-header {
             display: flex;
@@ -430,7 +433,7 @@
             text-align: left;
         }
 
-        /* ============== SEE ALL BTN ============== */
+        /* ============== ACTION BUTTONS ============== */
         .action-row {
             display: flex;
             justify-content: space-between;
@@ -440,8 +443,7 @@
             margin-top: 30px;
         }
 
-        .see-all,
-        .cv-action {
+        .see-all, .cv-action {
             display: inline-flex;
             align-items: center;
             gap: 10px;
@@ -463,14 +465,8 @@
             transform: translateY(-2px);
         }
 
-        .cv-action {
-            background: var(--orange);
-        }
-
-        .cv-action:hover {
-            background: #d68910;
-            transform: translateY(-2px);
-        }
+        .cv-action { background: var(--orange); }
+        .cv-action:hover { background: #d68910; transform: translateY(-2px); }
 
         /* ============== ACTIVITIES ============== */
         .activities {
@@ -504,16 +500,10 @@
             margin-bottom: 8px;
         }
 
-        .activity-polaroid:hover {
-            transform: scale(1.08) rotate(0deg) !important;
-            z-index: 10;
-        }
+        .activity-polaroid:hover { transform: scale(1.08) rotate(0deg) !important; z-index: 10; }
 
         /* ============== CONTACT ============== */
-        .contact-wrap {
-            text-align: center;
-            padding: 20px 0;
-        }
+        .contact-wrap { text-align: center; padding: 20px 0; }
 
         .contact-email {
             font-family: 'Courier New', monospace;
@@ -529,10 +519,7 @@
             transition: all 0.2s;
         }
 
-        .contact-email:hover {
-            background: var(--blue);
-            color: #fff;
-        }
+        .contact-email:hover { background: var(--blue); color: #fff; }
 
         .contact-socials {
             display: flex;
@@ -580,9 +567,7 @@
             z-index: 2000;
         }
 
-        .modal.show {
-            transform: translate(-50%, -50%) scale(1);
-        }
+        .modal.show { transform: translate(-50%, -50%) scale(1); }
 
         .modal-overlay {
             position: fixed;
@@ -594,10 +579,7 @@
             transition: opacity 0.3s;
         }
 
-        .modal-overlay.show {
-            opacity: 1;
-            pointer-events: auto;
-        }
+        .modal-overlay.show { opacity: 1; pointer-events: auto; }
 
         .modal h3 {
             font-family: 'Soul Daisy', sans-serif;
@@ -622,9 +604,7 @@
             transition: background 0.2s;
         }
 
-        .cv-btn:hover {
-            background: var(--orange);
-        }
+        .cv-btn:hover { background: var(--orange); }
 
         .close-modal {
             display: block;
@@ -664,118 +644,9 @@
             transition: color 0.2s;
         }
 
-        .footer-links a:hover {
-            color: var(--orange);
-        }
+        .footer-links a:hover { color: var(--orange); }
 
-        .footer-copy {
-            color: #95a5a6;
-            font-size: 0.8rem;
-        }
-
-        /* ============== RESPONSIVE ============== */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 1.8rem;
-                white-space: normal;
-                border-right: none;
-                animation: none;
-            }
-
-            .polaroid-hero {
-                width: 140px;
-            }
-
-            .section {
-                padding: 50px 15px;
-            }
-
-            .section-title {
-                font-size: 1.6rem;
-            }
-
-            .section-cursor {
-                height: 1.4rem;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 25px;
-                text-align: center;
-            }
-
-            .about-photo {
-                max-width: 200px;
-                margin: 0 auto;
-            }
-
-            .about-text p {
-                text-align: left;
-            }
-
-            .about-tags {
-                justify-content: center;
-            }
-
-            .timeline {
-                padding-left: 30px;
-            }
-
-            .timeline-card {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 15px;
-            }
-
-            .timeline-header {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .timeline-desc {
-                text-align: center;
-            }
-
-            .timeline-card img {
-                width: 90px;
-                height: 90px;
-            }
-
-            .activity-polaroid {
-                width: 130px;
-            }
-
-            .action-row {
-                justify-content: center;
-            }
-
-            .see-all,
-            .cv-action {
-                flex: 1 1 auto;
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .activity-polaroid {
-                width: 120px;
-                font-size: 0.7rem;
-            }
-
-            .hero h1 {
-                font-size: 1.5rem;
-            }
-
-            .about-text h2 {
-                font-size: 1.4rem;
-            }
-
-            .fact {
-                font-size: 0.85rem;
-                padding: 5px 10px;
-            }
-        }
+        .footer-copy { color: #95a5a6; font-size: 0.8rem; }
 
         /* ============== GITHUB ACTIVITY ============== */
         .gh-stats-row {
@@ -799,16 +670,9 @@
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-        .gh-stat:hover {
-            transform: translateY(-4px);
-            border-color: #f39c12;
-        }
+        .gh-stat:hover { transform: translateY(-4px); border-color: #f39c12; }
 
-        .gh-stat i {
-            font-size: 1.4rem;
-            color: #f39c12;
-            margin-bottom: 5px;
-        }
+        .gh-stat i { font-size: 1.4rem; color: #f39c12; margin-bottom: 5px; }
 
         .gh-stat strong {
             font-family: 'Soul Daisy', sans-serif;
@@ -848,28 +712,55 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
         }
 
-        .github-card img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
+        .github-card img { max-width: 100%; height: auto; display: block; }
+        .github-card.full-width { grid-column: 1 / -1; }
 
-        .github-card.full-width {
-            grid-column: 1 / -1;
-        }
-
+        /* ============== RESPONSIVE ============== */
         @media (max-width: 768px) {
-            .github-grid {
-                grid-template-columns: 1fr;
+            .hero h1 {
+                font-size: 1.8rem;
+                white-space: normal;
+                border-right: none;
+                animation: none;
             }
 
-            .github-card.full-width {
-                grid-column: 1;
-            }
+            .polaroid-hero { width: 140px; }
+            .section { padding: 50px 15px; }
+            .section-title { font-size: 1.6rem; }
+            .section-cursor { height: 1.4rem; }
 
-            .gh-stat strong {
-                font-size: 1.5rem;
-            }
+            .about-grid { grid-template-columns: 1fr; gap: 25px; text-align: center; }
+            .about-photo { max-width: 200px; margin: 0 auto; }
+            .about-text p { text-align: left; }
+            .about-tags { justify-content: center; }
+
+            .cert-grid { grid-template-columns: 1fr; }
+            .cert-card { padding: 15px; }
+            .cert-icon { width: 45px; height: 45px; font-size: 1.2rem; }
+            .cert-body h4 { font-size: 0.95rem; }
+            .cert-body p { font-size: 0.75rem; }
+
+            .timeline { padding-left: 30px; }
+            .timeline-card { flex-direction: column; align-items: center; text-align: center; padding: 15px; }
+            .timeline-header { flex-direction: column; align-items: center; }
+            .timeline-desc { text-align: center; }
+            .timeline-card img { width: 90px; height: 90px; }
+
+            .activity-polaroid { width: 130px; }
+
+            .action-row { justify-content: center; }
+            .see-all, .cv-action { flex: 1 1 auto; justify-content: center; }
+
+            .github-grid { grid-template-columns: 1fr; }
+            .github-card.full-width { grid-column: 1; }
+            .gh-stat strong { font-size: 1.5rem; }
+        }
+
+        @media (max-width: 480px) {
+            .activity-polaroid { width: 120px; font-size: 0.7rem; }
+            .hero h1 { font-size: 1.5rem; }
+            .about-text h2 { font-size: 1.4rem; }
+            .fact { font-size: 0.85rem; padding: 5px 10px; }
         }
     </style>
 </head>
@@ -980,7 +871,7 @@
         </div>
     </section>
 
-    <!-- ============== 03 LANGUAGES (NOUVEAU - remis) ============== -->
+    <!-- ============== 03 LANGUAGES ============== -->
     <section class="section" id="languages">
         <div class="section-header" data-aos="fade-up">
             <h2 class="section-title">Languages<span class="section-cursor"></span></h2>
@@ -996,7 +887,51 @@
         </div>
     </section>
 
-    <!-- ============== 04 EXPERIENCES ============== -->
+    <!-- ============== 04 CERTIFICATIONS ============== -->
+    <section class="section" id="certifications">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Certifications<span class="section-cursor"></span></h2>
+            <div class="section-sub">ls ~/certifications/</div>
+        </div>
+
+        <div class="cert-grid">
+            <!-- UN CC:Learn - CLIQUABLE -->
+            <a href="../doc/certificate_uncc.pdf" target="_blank" class="cert-card" data-aos="fade-up">
+                <div class="cert-icon blue">
+                    <i class="fa-solid fa-globe"></i>
+                </div>
+                <div class="cert-body">
+                    <h4>UN CC:Learn <i class="fa-solid fa-arrow-up-right-from-square"
+                            style="font-size: 0.7rem; color: var(--orange);"></i></h4>
+                    <p>Remodeler nos économies — United Nations Climate Change</p>
+                </div>
+            </a>
+
+            <!-- PSC1 -->
+            <div class="cert-card no-link" data-aos="fade-up" data-aos-delay="50">
+                <div class="cert-icon red">
+                    <i class="fa-solid fa-briefcase-medical"></i>
+                </div>
+                <div class="cert-body">
+                    <h4>PSC1</h4>
+                    <p>Prévention et Secours Civiques — First Aid Certification</p>
+                </div>
+            </div>
+
+            <!-- Permis B -->
+            <div class="cert-card no-link" data-aos="fade-up" data-aos-delay="100">
+                <div class="cert-icon green">
+                    <i class="fa-solid fa-car"></i>
+                </div>
+                <div class="cert-body">
+                    <h4>Permis B</h4>
+                    <p>French Driving Licence — Category B</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== 05 EXPERIENCES ============== -->
     <section class="section" id="experiences">
         <div class="section-header" data-aos="fade-up">
             <h2 class="section-title">Experiences<span class="section-cursor"></span></h2>
@@ -1006,7 +941,8 @@
         <div class="timeline">
             <div class="timeline-item" data-aos="fade-up">
                 <a href="experiences/orano.html" class="timeline-card">
-                    <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3eWsyaTliY2t3czBsMnd0c3d5N3doMXBuNHNncGhxbWRlOWNycHV2eCZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/pc95J0ZDiasmazfe4X/giphy.gif" alt="Orano">
+                    <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3eWsyaTliY2t3czBsMnd0c3d5N3doMXBuNHNncGhxbWRlOWNycHV2eCZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/pc95J0ZDiasmazfe4X/giphy.gif"
+                        alt="Orano">
                     <div class="timeline-content">
                         <div class="timeline-header">
                             <h3 class="timeline-title">Orano Support</h3>
@@ -1067,7 +1003,7 @@
         </div>
     </section>
 
-    <!-- ============== 05 PROJECTS ============== -->
+    <!-- ============== 06 PROJECTS ============== -->
     <section class="section" id="projects">
         <div class="section-header" data-aos="fade-up">
             <h2 class="section-title">Projects<span class="section-cursor"></span></h2>
@@ -1137,7 +1073,7 @@
         </div>
     </section>
 
-    <!-- ============== 06 ACTIVITIES ============== -->
+    <!-- ============== 07 ACTIVITIES ============== -->
     <section class="section" id="activities">
         <div class="section-header" data-aos="fade-up">
             <h2 class="section-title">Activities<span class="section-cursor"></span></h2>
@@ -1183,14 +1119,13 @@
         </div>
     </section>
 
-    <!-- ============== GITHUB ACTIVITY ============== -->
+    <!-- ============== 08 GITHUB ACTIVITY ============== -->
     <section class="section" id="github">
         <div class="section-header" data-aos="fade-up">
             <h2 class="section-title">GitHub<span class="section-cursor"></span></h2>
             <div class="section-sub">gh api /users/lucasbnrd05</div>
         </div>
 
-        <!-- Stats row (fetch JS) -->
         <div class="gh-stats-row" data-aos="fade-up">
             <div class="gh-stat">
                 <i class="fa-brands fa-github"></i>
@@ -1215,13 +1150,11 @@
         </div>
 
         <div class="github-grid">
-            <!-- Streak -->
             <div class="github-card full-width" data-aos="fade-up">
                 <img src="https://streak-stats.demolab.com/?user=lucasbnrd05&theme=dark&background=0d1117&border=30363d&stroke=f39c12&ring=f39c12&fire=f39c12&currStreakNum=c9d1d9&sideNums=c9d1d9&currStreakLabel=f39c12&sideLabels=c9d1d9&dates=888888&border_radius=12"
                     alt="GitHub Streak" loading="lazy">
             </div>
 
-            <!-- Contribution chart (12 derniers mois) -->
             <div class="github-card full-width" data-aos="fade-up" data-aos-delay="50">
                 <div style="padding: 20px; text-align: center; width: 100%;">
                     <div
@@ -1240,7 +1173,8 @@
             </a>
         </div>
     </section>
-    <!-- ============== 07 CONTACT ============== -->
+
+    <!-- ============== 09 CONTACT ============== -->
     <section class="section" id="contact">
         <div class="section-header" data-aos="fade-up">
             <h2 class="section-title">Contact<span class="section-cursor"></span></h2>
@@ -1272,7 +1206,6 @@
             </button>
         </div>
     </section>
-
 
     <!-- ============== MODAL CV ============== -->
     <div class="modal-overlay" id="modalOverlay"></div>

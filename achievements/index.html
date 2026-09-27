@@ -8,7 +8,7 @@
     <meta name="description"
         content="Lucas Bernardeau - Achievements: kickboxing titles, engineering milestones, and personal records.">
     <meta name="keywords"
-        content="Lucas Bernardeau, Achievements, Kickboxing, EPITA, Atelibox, Rugby, Champion">
+        content="Lucas Bernardeau, Achievements, Kickboxing, EPITA, Atelibox, Rugby, Champion, UNCC, TOEIC">
     <meta property="og:title" content="Lucas Bernardeau | Achievements" />
     <meta property="og:description"
         content="All my achievements, from kickboxing titles to engineering milestones." />
@@ -209,9 +209,7 @@
             transition: opacity 0.3s, transform 0.3s;
         }
 
-        .ach-item.hidden {
-            display: none;
-        }
+        .ach-item.hidden { display: none; }
 
         .ach-dot {
             width: 50px;
@@ -297,6 +295,21 @@
             text-align: left;
         }
 
+        .ach-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            color: var(--orange);
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .ach-link:hover { transform: translateX(4px); }
+
         /* ========== RESPONSIVE ========== */
         @media (max-width: 768px) {
             .hero-ach h1 {
@@ -316,6 +329,7 @@
             .ach-title { font-size: 1.05rem; text-align: center; }
             .ach-header { flex-direction: column; align-items: center; gap: 6px; }
             .ach-desc { text-align: center; font-size: 0.85rem; }
+            .ach-link { display: flex; justify-content: center; }
 
             .filter-btn { font-size: 0.75rem; padding: 6px 14px; }
         }
@@ -328,14 +342,14 @@
     <div class="hero-ach">
         <h1>Achievements</h1>
         <div class="hero-subtitle" data-aos="fade-up">
-            Every milestone, every title, every win — since 2020.
+            Every milestone, every title, every win — since 2019.
         </div>
     </div>
 
     <!-- ========== STATS ========== -->
     <div class="stats-row" data-aos="fade-up">
         <div class="stat-box">
-            <div class="stat-value">20+</div>
+            <div class="stat-value">16</div>
             <div class="stat-label">Achievements</div>
         </div>
         <div class="stat-box">
@@ -343,7 +357,7 @@
             <div class="stat-label">Categories</div>
         </div>
         <div class="stat-box">
-            <div class="stat-value">2020</div>
+            <div class="stat-value">2019</div>
             <div class="stat-label">Since</div>
         </div>
         <div class="stat-box">
@@ -370,14 +384,46 @@
             <i class="fa-solid fa-rocket"></i> Business
         </button>
         <button class="filter-btn rugby" data-filter="rugby">
-            <i class="fa-solid fa-rugby-ball"></i> Rugby
+            <i class="fa-solid fa-trophy"></i> Rugby
         </button>
     </div>
 
     <!-- ========== TIMELINE ========== -->
     <div class="timeline-wrap">
 
-        <!-- 2026 -->
+        <!-- ======== 2026 ======== -->
+
+        <div class="ach-item edu" data-category="edu" data-aos="fade-up">
+            <div class="ach-dot"><i class="fa-solid fa-globe"></i></div>
+            <div class="ach-card">
+                <div class="ach-header">
+                    <h3 class="ach-title">UN CC:Learn Certificate</h3>
+                    <span class="ach-date">2026</span>
+                </div>
+                <p class="ach-desc">
+                    Certified by the United Nations Climate Change Learning platform for completing the
+                    course <strong>"Remodeler nos économies"</strong> (Reshaping our economies).
+                </p>
+                <a href="../doc/certificate_uncc.pdf" target="_blank" class="ach-link">
+                    <i class="fa-regular fa-file-pdf"></i> View Certificate
+                </a>
+            </div>
+        </div>
+
+        <div class="ach-item edu" data-category="edu" data-aos="fade-up">
+            <div class="ach-dot"><i class="fa-solid fa-language"></i></div>
+            <div class="ach-card">
+                <div class="ach-header">
+                    <h3 class="ach-title">TOEIC — 810/990</h3>
+                    <span class="ach-date">2026</span>
+                </div>
+                <p class="ach-desc">
+                    Test of English for International Communication. Professional working
+                    proficiency (B2/C1). Obtained during the Orano Support mission.
+                </p>
+            </div>
+        </div>
+
         <div class="ach-item biz" data-category="biz" data-aos="fade-up">
             <div class="ach-dot"><i class="fa-solid fa-rocket"></i></div>
             <div class="ach-card">
@@ -420,7 +466,8 @@
             </div>
         </div>
 
-        <!-- 2025 -->
+        <!-- ======== 2025 ======== -->
+
         <div class="ach-item edu" data-category="edu" data-aos="fade-up">
             <div class="ach-dot"><i class="fa-solid fa-graduation-cap"></i></div>
             <div class="ach-card">
@@ -463,6 +510,8 @@
             </div>
         </div>
 
+        <!-- ======== 2023 ======== -->
+
         <div class="ach-item sport" data-category="sport" data-aos="fade-up">
             <div class="ach-dot"><i class="fa-solid fa-medal"></i></div>
             <div class="ach-card">
@@ -477,7 +526,6 @@
             </div>
         </div>
 
-        <!-- 2023 -->
         <div class="ach-item edu" data-category="edu" data-aos="fade-up">
             <div class="ach-dot"><i class="fa-solid fa-school"></i></div>
             <div class="ach-card">
@@ -506,9 +554,23 @@
             </div>
         </div>
 
-        <!-- 2022-2021 -->
+        <div class="ach-item edu" data-category="edu" data-aos="fade-up">
+            <div class="ach-dot"><i class="fa-solid fa-car"></i></div>
+            <div class="ach-card">
+                <div class="ach-header">
+                    <h3 class="ach-title">Permis B — French Driving Licence</h3>
+                    <span class="ach-date">2023</span>
+                </div>
+                <p class="ach-desc">
+                    Official French driving licence, category B.
+                </p>
+            </div>
+        </div>
+
+        <!-- ======== 2021-2024 ======== -->
+
         <div class="ach-item rugby" data-category="rugby" data-aos="fade-up">
-            <div class="ach-dot"><i class="fa-solid fa-rugby-ball"></i></div>
+            <div class="ach-dot"><i class="fa-solid fa-trophy"></i></div>
             <div class="ach-card">
                 <div class="ach-header">
                     <h3 class="ach-title">Federal Rugby Instructor Certifications</h3>
@@ -535,7 +597,8 @@
             </div>
         </div>
 
-        <!-- 2020 -->
+        <!-- ======== 2020 ======== -->
+
         <div class="ach-item tech" data-category="tech" data-aos="fade-up">
             <div class="ach-dot"><i class="fa-solid fa-atom"></i></div>
             <div class="ach-card">
@@ -550,15 +613,18 @@
             </div>
         </div>
 
+        <!-- ======== 2019 ======== -->
+
         <div class="ach-item edu" data-category="edu" data-aos="fade-up">
             <div class="ach-dot"><i class="fa-solid fa-certificate"></i></div>
             <div class="ach-card">
                 <div class="ach-header">
                     <h3 class="ach-title">PSC1 — First Aid Certification</h3>
-                    <span class="ach-date">2020</span>
+                    <span class="ach-date">2019</span>
                 </div>
                 <p class="ach-desc">
                     Official French first aid certification (Prévention et Secours Civiques de niveau 1).
+                    Renewed in 2024 (proof unavailable).
                 </p>
             </div>
         </div>
@@ -614,11 +680,9 @@
             btn.addEventListener('click', () => {
                 const filter = btn.dataset.filter;
 
-                // Update active state
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
 
-                // Filter items
                 achItems.forEach(item => {
                     if (filter === 'all' || item.dataset.category === filter) {
                         item.classList.remove('hidden');
@@ -627,7 +691,6 @@
                     }
                 });
 
-                // Refresh AOS
                 setTimeout(() => AOS.refresh(), 100);
             });
         });

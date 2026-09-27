@@ -8,7 +8,7 @@
     <meta name="description"
         content="Lucas Bernardeau - Qualifications: Education, Certifications, Languages and Skills.">
     <meta name="keywords"
-        content="Lucas, Bernardeau, EPITA, UPM, Degree, Certification, TOEIC, PSC1, Engineering">
+        content="Lucas, Bernardeau, EPITA, UPM, Degree, Certification, TOEIC, PSC1, UNCC, Engineering">
     <meta property="og:title" content="Lucas Bernardeau | Qualifications" />
     <meta property="og:description"
         content="Academic background, certifications and languages of Lucas Bernardeau." />
@@ -230,12 +230,30 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .certif-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .certif-card.clickable {
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .certif-card.clickable:hover {
+            border-color: orange;
+            box-shadow: 0 10px 25px rgba(243, 156, 18, 0.15);
+        }
+
+        .certif-card:not(.clickable) {
+            cursor: default;
         }
 
         .certif-img {
@@ -243,6 +261,14 @@
             height: 140px;
             object-fit: cover;
             background: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .certif-img i {
+            font-size: 3rem;
+            color: #fff;
         }
 
         .certif-body {
@@ -254,6 +280,12 @@
             font-size: 1.1rem;
             color: #333;
             margin: 0 0 5px 0;
+        }
+
+        .certif-title .ext-link {
+            font-size: 0.7rem;
+            color: #f39c12;
+            margin-left: 4px;
         }
 
         .certif-sub {
@@ -327,7 +359,7 @@
         <div class="lang-card">
             <span class="lang-flag">🇬🇧</span>
             <div class="lang-name">English</div>
-            <div class="lang-level">TOEIC 810 · B2</div>
+            <div class="lang-level">B2</div>
         </div>
         <div class="lang-card">
             <span class="lang-flag">🇷🇺</span>
@@ -381,60 +413,86 @@
 
     <!-- ================= CERTIFICATIONS ================= -->
     <h2 class="section-title" data-aos="fade-up">Certifications & Licences</h2>
-    <p class="section-sub" data-aos="fade-up">Sports certifications, first-aid training, and official licences.</p>
+    <p class="section-sub" data-aos="fade-up">Official certifications, sports diplomas, and driving licence.</p>
 
     <div class="certif-grid">
 
+        <!-- UN CC:Learn — CLIQUABLE -->
+        <a href="../doc/certificate_uncc.pdf" target="_blank" class="certif-card clickable" data-aos="fade-up">
+            <div class="certif-img" style="background: linear-gradient(135deg, #1a5fb4 0%, #2c3e50 100%);">
+                <i class="fa-solid fa-globe"></i>
+            </div>
+            <div class="certif-body">
+                <div class="certif-title">
+                    UN CC:Learn <i class="fa-solid fa-arrow-up-right-from-square ext-link"></i>
+                </div>
+                <div class="certif-sub">Remodeler nos économies</div>
+            </div>
+        </a>
+
+        <!-- TOEIC — info -->
         <div class="certif-card" data-aos="fade-up">
-            <img src="https://media.giphy.com/media/3o7TKMt1VVNkHV2PaE/giphy.gif" alt="TOEIC" class="certif-img">
+            <div class="certif-img" style="background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);">
+                <i class="fa-solid fa-language"></i>
+            </div>
             <div class="certif-body">
                 <div class="certif-title">TOEIC 810</div>
                 <div class="certif-sub">English Certification</div>
             </div>
         </div>
 
+        <!-- PSC1 — info -->
         <div class="certif-card" data-aos="fade-up">
-            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExejdlNmRzbnBscTgxenBsaG9neGp1MDBtandiZzA4NHc1dzRxZTR5ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/oNrQPjkJI99xu7WM8W/giphy.gif"
-                alt="Rugby Initiation" class="certif-img">
-            <div class="certif-body">
-                <div class="certif-title">Federal Rugby Initiation</div>
-                <div class="certif-sub">Brevet Fédéral</div>
+            <div class="certif-img" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">
+                <i class="fa-solid fa-briefcase-medical"></i>
             </div>
-        </div>
-
-        <div class="certif-card" data-aos="fade-up">
-            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYm9paGY0ZTdrbHVsZHN3MDNuOWludmlqMTlxYngyc3JmZm5xaHVrbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MMfbvb3kUlqoM/giphy.gif"
-                alt="Rugby Development" class="certif-img">
-            <div class="certif-body">
-                <div class="certif-title">Federal Rugby Development</div>
-                <div class="certif-sub">Brevet Fédéral</div>
-            </div>
-        </div>
-
-        <div class="certif-card" data-aos="fade-up">
-            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHhhMmk3cnAydXltZmp1OHVwdGpzODNpeTR2MXByeDZkb2cwMGlsZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/eiFN01bqTI6sGfaKRq/giphy.gif"
-                alt="Rugby Baby" class="certif-img">
-            <div class="certif-body">
-                <div class="certif-title">Federal Rugby Baby</div>
-                <div class="certif-sub">Brevet Fédéral</div>
-            </div>
-        </div>
-
-        <div class="certif-card" data-aos="fade-up">
-            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2g3N3ZscGxvZnNyaGxvangzYnRueHdzanhuM2VoeDQxdmQ3OGc1YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/gwKIYc8addRR1fzF8P/giphy.gif"
-                alt="PSC1" class="certif-img">
             <div class="certif-body">
                 <div class="certif-title">PSC1</div>
                 <div class="certif-sub">Premiers Secours Civiques</div>
             </div>
         </div>
 
+        <!-- Permis B — info -->
         <div class="certif-card" data-aos="fade-up">
-            <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTExbDJuaTJheTlvbms0Zzc2YW13Z2dvcnhqYno5OHFtOGR6eWFicyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8gMWx53mMOnYI/giphy.gif"
-                alt="Driving licence" class="certif-img">
+            <div class="certif-img" style="background: linear-gradient(135deg, #27ae60 0%, #16a085 100%);">
+                <i class="fa-solid fa-car"></i>
+            </div>
             <div class="certif-body">
                 <div class="certif-title">Driving Licence</div>
                 <div class="certif-sub">Permis B</div>
+            </div>
+        </div>
+
+        <!-- Rugby Initiation — info -->
+        <div class="certif-card" data-aos="fade-up">
+            <div class="certif-img" style="background: linear-gradient(135deg, #16a085 0%, #0e6655 100%);">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+            <div class="certif-body">
+                <div class="certif-title">Federal Rugby Initiation</div>
+                <div class="certif-sub">Brevet Fédéral</div>
+            </div>
+        </div>
+
+        <!-- Rugby Development — info -->
+        <div class="certif-card" data-aos="fade-up">
+            <div class="certif-img" style="background: linear-gradient(135deg, #16a085 0%, #0e6655 100%);">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+            <div class="certif-body">
+                <div class="certif-title">Federal Rugby Development</div>
+                <div class="certif-sub">Brevet Fédéral</div>
+            </div>
+        </div>
+
+        <!-- Rugby Baby — info -->
+        <div class="certif-card" data-aos="fade-up">
+            <div class="certif-img" style="background: linear-gradient(135deg, #16a085 0%, #0e6655 100%);">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+            <div class="certif-body">
+                <div class="certif-title">Federal Rugby Baby</div>
+                <div class="certif-sub">Brevet Fédéral</div>
             </div>
         </div>
 
