@@ -48,9 +48,15 @@
             --bg: #f4f4f4;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: 'Soul Daisy', sans-serif;
@@ -87,12 +93,25 @@
         }
 
         @keyframes typing {
-            0% { width: 0; visibility: hidden; }
-            1% { visibility: visible; }
-            100% { width: 24ch; }
+            0% {
+                width: 0;
+                visibility: hidden;
+            }
+
+            1% {
+                visibility: visible;
+            }
+
+            100% {
+                width: 24ch;
+            }
         }
 
-        @keyframes blink-caret { 50% { border-color: transparent; } }
+        @keyframes blink-caret {
+            50% {
+                border-color: transparent;
+            }
+        }
 
         .hero-subtitle {
             color: #888;
@@ -124,11 +143,26 @@
             cursor: pointer;
         }
 
-        .polaroid-hero img { width: 100%; border-radius: 5px; }
-        .polaroid-hero p { margin-top: 8px; }
-        .polaroid-hero:nth-child(1) { transform: rotate(-8deg); }
-        .polaroid-hero:nth-child(2) { transform: rotate(6deg); }
-        .polaroid-hero:hover { transform: rotate(0deg) scale(1.05); }
+        .polaroid-hero img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .polaroid-hero p {
+            margin-top: 8px;
+        }
+
+        .polaroid-hero:nth-child(1) {
+            transform: rotate(-8deg);
+        }
+
+        .polaroid-hero:nth-child(2) {
+            transform: rotate(6deg);
+        }
+
+        .polaroid-hero:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
 
         /* ============== SECTION ============== */
         .section {
@@ -137,7 +171,9 @@
             padding: 80px 20px;
         }
 
-        .section-header { margin-bottom: 50px; }
+        .section-header {
+            margin-bottom: 50px;
+        }
 
         .section-title {
             font-family: 'Soul Daisy', sans-serif;
@@ -183,8 +219,14 @@
             transition: transform 0.4s ease;
         }
 
-        .about-photo:hover { transform: rotate(0deg); }
-        .about-photo img { width: 100%; display: block; }
+        .about-photo:hover {
+            transform: rotate(0deg);
+        }
+
+        .about-photo img {
+            width: 100%;
+            display: block;
+        }
 
         .about-text h2 {
             font-family: 'Soul Daisy', sans-serif;
@@ -202,7 +244,11 @@
             margin-bottom: 20px;
         }
 
-        .about-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .about-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
 
         .tag {
             display: inline-block;
@@ -225,7 +271,9 @@
         }
 
         /* ============== SKILLS ============== */
-        .skill-group { margin-bottom: 30px; }
+        .skill-group {
+            margin-bottom: 30px;
+        }
 
         .skill-group h3 {
             font-family: 'Soul Daisy', sans-serif;
@@ -237,9 +285,15 @@
             gap: 10px;
         }
 
-        .skill-group h3 i { font-size: 1rem; }
+        .skill-group h3 i {
+            font-size: 1rem;
+        }
 
-        .skill-bubbles { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill-bubbles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
 
         .fact {
             padding: 6px 14px;
@@ -263,7 +317,9 @@
             transform: rotate(-5deg) scale(1.05);
         }
 
-        .fact i { font-size: 0.95rem; }
+        .fact i {
+            font-size: 0.95rem;
+        }
 
         /* ============== CERTIFICATIONS ============== */
         .cert-grid {
@@ -291,7 +347,9 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .cert-card.no-link { cursor: default; }
+        .cert-card.no-link {
+            cursor: default;
+        }
 
         .cert-card.no-link:hover {
             transform: none;
@@ -311,12 +369,26 @@
             flex-shrink: 0;
         }
 
-        .cert-icon.red { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); }
-        .cert-icon.green { background: linear-gradient(135deg, #27ae60 0%, #16a085 100%); }
-        .cert-icon.purple { background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%); }
-        .cert-icon.blue { background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); }
+        .cert-icon.red {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+        }
 
-        .cert-body { flex: 1; min-width: 0; }
+        .cert-icon.green {
+            background: linear-gradient(135deg, #27ae60 0%, #16a085 100%);
+        }
+
+        .cert-icon.purple {
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+        }
+
+        .cert-icon.blue {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+        }
+
+        .cert-body {
+            flex: 1;
+            min-width: 0;
+        }
 
         .cert-body h4 {
             font-family: 'Soul Daisy', sans-serif;
@@ -334,7 +406,10 @@
         }
 
         /* ============== TIMELINE ============== */
-        .timeline { position: relative; padding-left: 40px; }
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
 
         .timeline::before {
             content: '';
@@ -346,7 +421,10 @@
             background: linear-gradient(to bottom, var(--orange), #eee);
         }
 
-        .timeline-item { position: relative; margin-bottom: 30px; }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
 
         .timeline-item::before {
             content: '';
@@ -390,7 +468,10 @@
             background: #f4f4f4;
         }
 
-        .timeline-content { flex: 1; min-width: 0; }
+        .timeline-content {
+            flex: 1;
+            min-width: 0;
+        }
 
         .timeline-header {
             display: flex;
@@ -443,7 +524,8 @@
             margin-top: 30px;
         }
 
-        .see-all, .cv-action {
+        .see-all,
+        .cv-action {
             display: inline-flex;
             align-items: center;
             gap: 10px;
@@ -465,8 +547,14 @@
             transform: translateY(-2px);
         }
 
-        .cv-action { background: var(--orange); }
-        .cv-action:hover { background: #d68910; transform: translateY(-2px); }
+        .cv-action {
+            background: var(--orange);
+        }
+
+        .cv-action:hover {
+            background: #d68910;
+            transform: translateY(-2px);
+        }
 
         /* ============== ACTIVITIES ============== */
         .activities {
@@ -500,10 +588,16 @@
             margin-bottom: 8px;
         }
 
-        .activity-polaroid:hover { transform: scale(1.08) rotate(0deg) !important; z-index: 10; }
+        .activity-polaroid:hover {
+            transform: scale(1.08) rotate(0deg) !important;
+            z-index: 10;
+        }
 
         /* ============== CONTACT ============== */
-        .contact-wrap { text-align: center; padding: 20px 0; }
+        .contact-wrap {
+            text-align: center;
+            padding: 20px 0;
+        }
 
         .contact-email {
             font-family: 'Courier New', monospace;
@@ -519,7 +613,10 @@
             transition: all 0.2s;
         }
 
-        .contact-email:hover { background: var(--blue); color: #fff; }
+        .contact-email:hover {
+            background: var(--blue);
+            color: #fff;
+        }
 
         .contact-socials {
             display: flex;
@@ -567,7 +664,9 @@
             z-index: 2000;
         }
 
-        .modal.show { transform: translate(-50%, -50%) scale(1); }
+        .modal.show {
+            transform: translate(-50%, -50%) scale(1);
+        }
 
         .modal-overlay {
             position: fixed;
@@ -579,7 +678,10 @@
             transition: opacity 0.3s;
         }
 
-        .modal-overlay.show { opacity: 1; pointer-events: auto; }
+        .modal-overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
 
         .modal h3 {
             font-family: 'Soul Daisy', sans-serif;
@@ -604,7 +706,9 @@
             transition: background 0.2s;
         }
 
-        .cv-btn:hover { background: var(--orange); }
+        .cv-btn:hover {
+            background: var(--orange);
+        }
 
         .close-modal {
             display: block;
@@ -644,9 +748,14 @@
             transition: color 0.2s;
         }
 
-        .footer-links a:hover { color: var(--orange); }
+        .footer-links a:hover {
+            color: var(--orange);
+        }
 
-        .footer-copy { color: #95a5a6; font-size: 0.8rem; }
+        .footer-copy {
+            color: #95a5a6;
+            font-size: 0.8rem;
+        }
 
         /* ============== GITHUB ACTIVITY ============== */
         .gh-stats-row {
@@ -670,9 +779,16 @@
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-        .gh-stat:hover { transform: translateY(-4px); border-color: #f39c12; }
+        .gh-stat:hover {
+            transform: translateY(-4px);
+            border-color: #f39c12;
+        }
 
-        .gh-stat i { font-size: 1.4rem; color: #f39c12; margin-bottom: 5px; }
+        .gh-stat i {
+            font-size: 1.4rem;
+            color: #f39c12;
+            margin-bottom: 5px;
+        }
 
         .gh-stat strong {
             font-family: 'Soul Daisy', sans-serif;
@@ -712,8 +828,15 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
         }
 
-        .github-card img { max-width: 100%; height: auto; display: block; }
-        .github-card.full-width { grid-column: 1 / -1; }
+        .github-card img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .github-card.full-width {
+            grid-column: 1 / -1;
+        }
 
         /* ============== RESPONSIVE ============== */
         @media (max-width: 768px) {
@@ -724,43 +847,133 @@
                 animation: none;
             }
 
-            .polaroid-hero { width: 140px; }
-            .section { padding: 50px 15px; }
-            .section-title { font-size: 1.6rem; }
-            .section-cursor { height: 1.4rem; }
+            .polaroid-hero {
+                width: 140px;
+            }
 
-            .about-grid { grid-template-columns: 1fr; gap: 25px; text-align: center; }
-            .about-photo { max-width: 200px; margin: 0 auto; }
-            .about-text p { text-align: left; }
-            .about-tags { justify-content: center; }
+            .section {
+                padding: 50px 15px;
+            }
 
-            .cert-grid { grid-template-columns: 1fr; }
-            .cert-card { padding: 15px; }
-            .cert-icon { width: 45px; height: 45px; font-size: 1.2rem; }
-            .cert-body h4 { font-size: 0.95rem; }
-            .cert-body p { font-size: 0.75rem; }
+            .section-title {
+                font-size: 1.6rem;
+            }
 
-            .timeline { padding-left: 30px; }
-            .timeline-card { flex-direction: column; align-items: center; text-align: center; padding: 15px; }
-            .timeline-header { flex-direction: column; align-items: center; }
-            .timeline-desc { text-align: center; }
-            .timeline-card img { width: 90px; height: 90px; }
+            .section-cursor {
+                height: 1.4rem;
+            }
 
-            .activity-polaroid { width: 130px; }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                text-align: center;
+            }
 
-            .action-row { justify-content: center; }
-            .see-all, .cv-action { flex: 1 1 auto; justify-content: center; }
+            .about-photo {
+                max-width: 200px;
+                margin: 0 auto;
+            }
 
-            .github-grid { grid-template-columns: 1fr; }
-            .github-card.full-width { grid-column: 1; }
-            .gh-stat strong { font-size: 1.5rem; }
+            .about-text p {
+                text-align: left;
+            }
+
+            .about-tags {
+                justify-content: center;
+            }
+
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cert-card {
+                padding: 15px;
+            }
+
+            .cert-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+
+            .cert-body h4 {
+                font-size: 0.95rem;
+            }
+
+            .cert-body p {
+                font-size: 0.75rem;
+            }
+
+            .timeline {
+                padding-left: 30px;
+            }
+
+            .timeline-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 15px;
+            }
+
+            .timeline-header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .timeline-desc {
+                text-align: center;
+            }
+
+            .timeline-card img {
+                width: 90px;
+                height: 90px;
+            }
+
+            .activity-polaroid {
+                width: 130px;
+            }
+
+            .action-row {
+                justify-content: center;
+            }
+
+            .see-all,
+            .cv-action {
+                flex: 1 1 auto;
+                justify-content: center;
+            }
+
+            .github-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .github-card.full-width {
+                grid-column: 1;
+            }
+
+            .gh-stat strong {
+                font-size: 1.5rem;
+            }
         }
 
         @media (max-width: 480px) {
-            .activity-polaroid { width: 120px; font-size: 0.7rem; }
-            .hero h1 { font-size: 1.5rem; }
-            .about-text h2 { font-size: 1.4rem; }
-            .fact { font-size: 0.85rem; padding: 5px 10px; }
+            .activity-polaroid {
+                width: 120px;
+                font-size: 0.7rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .about-text h2 {
+                font-size: 1.4rem;
+            }
+
+            .fact {
+                font-size: 0.85rem;
+                padding: 5px 10px;
+            }
         }
     </style>
 </head>
@@ -825,18 +1038,23 @@
             <div class="section-sub">ls -la ~/skills/</div>
         </div>
 
+        <!-- 1. SYSTEM & LOW-LEVEL -->
         <div class="skill-group" data-aos="fade-up">
             <h3><i class="fa-solid fa-microchip"></i> System & Low-Level</h3>
             <div class="skill-bubbles">
-                <div class="fact">C / C++</div>
+                <div class="fact">C</div>
+                <div class="fact">C++</div>
                 <div class="fact">ASM (x86 / 68k)</div>
                 <div class="fact">Linux / Unix</div>
                 <div class="fact">Bash / Shell</div>
-                <div class="fact">GNS3</div>
                 <div class="fact">SysML / UML</div>
+                <div class="fact">GNS3</div>
+                <div class="fact">Raspberry Pi</div>
+                <div class="fact">Arduino</div>
             </div>
         </div>
 
+        <!-- 2. APPLICATION -->
         <div class="skill-group" data-aos="fade-up" data-aos-delay="50">
             <h3><i class="fa-solid fa-code"></i> Application</h3>
             <div class="skill-bubbles">
@@ -844,29 +1062,82 @@
                 <div class="fact">OCaml</div>
                 <div class="fact">Java</div>
                 <div class="fact">C#</div>
+                <div class="fact">Haskell</div>
+                <div class="fact">Lua</div>
                 <div class="fact">SQL</div>
             </div>
         </div>
 
+        <!-- 3. WEB & MOBILE -->
         <div class="skill-group" data-aos="fade-up" data-aos-delay="100">
             <h3><i class="fa-solid fa-globe"></i> Web & Mobile</h3>
             <div class="skill-bubbles">
-                <div class="fact">Flutter</div>
-                <div class="fact">Kotlin</div>
                 <div class="fact">HTML / CSS</div>
                 <div class="fact">JavaScript</div>
+                <div class="fact">Flask</div>
+                <div class="fact">Jinja2</div>
+                <div class="fact">Flutter</div>
+                <div class="fact">Kotlin</div>
+                <div class="fact">PostgreSQL</div>
             </div>
         </div>
 
+        <!-- 4. DEVOPS & CLOUD -->
         <div class="skill-group" data-aos="fade-up" data-aos-delay="150">
-            <h3><i class="fa-solid fa-screwdriver-wrench"></i> Documentation & Tools</h3>
+            <h3><i class="fa-solid fa-cloud"></i> DevOps & Cloud</h3>
             <div class="skill-bubbles">
-                <div class="fact">LaTeX</div>
-                <div class="fact">Markdown</div>
-                <div class="fact">Git / GitLab</div>
+                <div class="fact">Git / GitLab / GitHub</div>
+                <div class="fact">GitLab CI</div>
+                <div class="fact">CI / CD</div>
                 <div class="fact">Docker</div>
-                <div class="fact">CMake / Make</div>
-                <div class="fact">Vim / VSCode</div>
+                <div class="fact">Nexus</div>
+                <div class="fact">Render</div>
+                <div class="fact">Stripe API</div>
+                <div class="fact">WorkOS</div>
+            </div>
+        </div>
+
+        <!-- 5. OPERATING SYSTEMS -->
+        <div class="skill-group" data-aos="fade-up" data-aos-delay="200">
+            <h3><i class="fa-brands fa-linux"></i> Operating Systems</h3>
+            <div class="skill-bubbles">
+                <div class="fact"><i class="fa-solid fa-snowflake"></i> Arch Linux</div>
+                <div class="fact"><i class="fa-brands fa-ubuntu"></i> Ubuntu</div>
+                <div class="fact"><i class="fa-brands fa-fedora"></i> Fedora</div>
+                <div class="fact"><i class="fa-solid fa-dragon"></i> Kali</div>
+                <div class="fact"><i class="fa-solid fa-snowflake"></i> NixOS</div>
+                <div class="fact"><i class="fa-brands fa-windows"></i> Windows</div>
+                <div class="fact">WSL</div>
+            </div>
+        </div>
+
+        <!-- 6. TOOLS & DOCUMENTATION -->
+        <div class="skill-group" data-aos="fade-up" data-aos-delay="250">
+            <h3><i class="fa-solid fa-screwdriver-wrench"></i> Tools & Documentation</h3>
+            <div class="skill-bubbles">
+                <div class="fact">LaTeX / Overleaf</div>
+                <div class="fact">Markdown / Obsidian</div>
+                <div class="fact">Vim</div>
+                <div class="fact">Emacs</div>
+                <div class="fact">VS Code</div>
+                <div class="fact">JetBrains (Rider / IntelliJ)</div>
+                <div class="fact">Android Studio</div>
+                <div class="fact">Enterprise Architect</div>
+                <div class="fact">Figma</div>
+                <div class="fact">Godot</div>
+            </div>
+        </div>
+
+        <!-- 7. MICROSOFT SUITE -->
+        <div class="skill-group" data-aos="fade-up" data-aos-delay="300">
+            <h3><i class="fa-brands fa-microsoft"></i> Microsoft Suite</h3>
+            <div class="skill-bubbles">
+                <div class="fact">Power Apps</div>
+                <div class="fact">Power Automate</div>
+                <div class="fact">Excel</div>
+                <div class="fact">Word</div>
+                <div class="fact">PowerPoint</div>
+                <div class="fact">Office 365</div>
             </div>
         </div>
     </section>
