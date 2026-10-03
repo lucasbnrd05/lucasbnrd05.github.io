@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="description"
+        content="Custom websites, landing pages, and web services by Lucas Bernardeau. Fast delivery, clean code, personal touch.">
+    <meta name="keywords"
+        content="Lucas Bernardeau, Web Development, Landing Page, Website, Freelance, Frontend, Services">
+    <meta property="og:title" content="Lucas Bernardeau | Services" />
+    <meta property="og:url" content="https://lucasbnrd05.github.io/services/index.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lucasbnrd05.github.io/doc/wallpaper.png" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta content="Buzzcut" name="author">
+    <meta content="© 2026 Buzzcut. All rights reserved." name="copyright">
+
+    <link rel="stylesheet" href="../css/style_base.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../doc/favicon-32x32.png">
+    <link rel="shortcut icon" href="../doc/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../doc/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <title>Services | Lucas Bernardeau</title>
+
+    <style>
+        @font-face {
+            font-family: 'Soul Daisy';
+            src: url('../fonts/soul-daisy.regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --orange: #f39c12;
+            --blue: #2c3e50;
+            --bg: #f4f4f4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Soul Daisy', sans-serif;
+            background: var(--bg);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ============== LANGUAGE SWITCHER ============== */
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            gap: 6px;
+            background: #fff;
+            padding: 6px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .lang-switch a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .lang-switch a:hover {
+            transform: scale(1.15);
+            background: #f4f4f4;
+        }
+
+        .lang-switch a.active {
+            background: var(--orange);
+            box-shadow: 0 2px 8px rgba(243, 156, 18, 0.4);
+        }
+
+        /* ============== HERO ============== */
+        .hero-services {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 20px 40px;
+            text-align: center;
+        }
+
+        .hero-services h1 {
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 3rem;
+            color: var(--blue);
+            margin-bottom: 15px;
+            overflow: hidden;
+            border-right: .15em solid var(--orange);
+            white-space: nowrap;
+            display: inline-block;
+            animation: typing 2s steps(10, end) forwards, blink-caret 0.5s step-end infinite;
+        }
+
+        @keyframes typing {
+            0% {
+                width: 0;
+                visibility: hidden;
+            }
+
+            1% {
+                visibility: visible;
+            }
+
+            100% {
+                width: 8ch;
+            }
+        }
+
+        @keyframes blink-caret {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        .hero-services .subtitle {
+            color: #666;
+            font-family: -apple-system, sans-serif;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .hero-services .subtitle strong {
+            color: var(--blue);
+        }
+
+        /* ============== SECTION ============== */
+        .section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 2rem;
+            color: var(--blue);
+            margin-bottom: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .section-title::before {
+            content: '// ';
+            color: var(--orange);
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+        }
+
+        /* ============== SERVICES GRID ============== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px 24px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--orange);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 1.8rem;
+            color: var(--orange);
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 1.3rem;
+            color: var(--blue);
+            margin: 0 0 10px 0;
+        }
+
+        .service-card p {
+            color: #666;
+            font-family: -apple-system, sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .service-price {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: var(--orange);
+            font-weight: bold;
+            padding-top: 12px;
+            border-top: 1px dashed #eee;
+        }
+
+        /* ============== PROCESS ============== */
+        .process-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            counter-reset: step;
+        }
+
+        .process-step {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            background: #fff;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            counter-increment: step;
+        }
+
+        .process-step::before {
+            content: counter(step, decimal-leading-zero);
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 1.8rem;
+            color: var(--orange);
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .process-step-content h4 {
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 1.15rem;
+            color: var(--blue);
+            margin: 0 0 5px 0;
+        }
+
+        .process-step-content p {
+            color: #666;
+            font-family: -apple-system, sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* ============== FORM ============== */
+        .form-container {
+            background: #fff;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--orange);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-container h2 {
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 1.6rem;
+            color: var(--blue);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .form-container>p {
+            text-align: center;
+            color: #888;
+            font-family: -apple-system, sans-serif;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: -apple-system, sans-serif;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .form-group label .required {
+            color: var(--orange);
+            margin-left: 3px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-family: -apple-system, sans-serif;
+            font-size: 0.95rem;
+            background: #fafafa;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--orange);
+            background: #fff;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 15px;
+            background: var(--blue);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Soul Daisy', sans-serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            margin-top: 10px;
+        }
+
+        .form-submit:hover {
+            background: var(--orange);
+            transform: translateY(-2px);
+        }
+
+        .back-row {
+            text-align: center;
+            padding: 20px 20px 80px;
+        }
+
+        /* ============== RESPONSIVE ============== */
+        @media (max-width: 768px) {
+            .lang-switch {
+                top: 10px;
+                right: 10px;
+                padding: 4px;
+            }
+
+            .lang-switch a {
+                width: 34px;
+                height: 34px;
+                font-size: 1rem;
+            }
+
+            .hero-services h1 {
+                font-size: 2rem;
+                white-space: normal;
+                border-right: none;
+                animation: none;
+            }
+
+            .hero-services .subtitle {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 40px 15px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-container {
+                padding: 25px 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .process-step {
+                padding: 20px 15px;
+                gap: 12px;
+            }
+
+            .process-step::before {
+                font-size: 1.4rem;
+            }
+        }
+
+        .fa-spin {
+            animation: fa-spin 1s infinite linear;
+        }
+
+        @keyframes fa-spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============== LANGUAGE SWITCHER ============== -->
+    <div class="lang-switch">
+        <a href="index.html" class="active" title="English">🇬🇧</a>
+        <a href="index.fr.html" title="Français">🇫🇷</a>
+        <a href="index.es.html" title="Español">🇪🇸</a>
+    </div>
+
+    <!-- ============== HERO ============== -->
+    <div class="hero-services">
+        <h1>Services</h1>
+        <div class="subtitle" data-aos="fade-up">
+            <strong>Fast, clean, custom websites.</strong><br>
+            I build landing pages, portfolios, and small sites for people who need something
+            that works — without the agency drama.
+        </div>
+    </div>
+
+    <!-- ============== 01 SERVICES ============== -->
+    <section class="section">
+        <h2 class="section-title" data-aos="fade-up">What I Offer</h2>
+
+        <div class="services-grid">
+
+            <div class="service-card" data-aos="fade-up">
+                <div class="service-icon"><i class="fa-solid fa-rocket"></i></div>
+                <h3>Landing Page</h3>
+                <p>One-page site with a clear message, a form, and a call-to-action. Perfect for a launch, an event, or
+                    a product.</p>
+                <div class="service-price">€150 – €400</div>
+            </div>
+
+            <div class="service-card" data-aos="fade-up" data-aos-delay="50">
+                <div class="service-icon"><i class="fa-solid fa-globe"></i></div>
+                <h3>Showcase Website</h3>
+                <p>3 to 5 pages site for a business, an association, or a project. Home, About, Services, Contact…</p>
+                <div class="service-price">€400 – €800</div>
+            </div>
+
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-icon"><i class="fa-solid fa-user"></i></div>
+                <h3>Portfolio</h3>
+                <p>Custom portfolio for a creative, a developer, or a photographer. Built around your work, not a
+                    template.</p>
+                <div class="service-price">€300 – €600</div>
+            </div>
+
+            <div class="service-card" data-aos="fade-up" data-aos-delay="150">
+                <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+                <h3>Figma → HTML</h3>
+                <p>You have a Figma mockup and need it coded pixel-perfect, responsive, and clean. I do exactly that.
+                </p>
+                <div class="service-price">€300 – €700</div>
+            </div>
+
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                <h3>SEO & Performance</h3>
+                <p>Speed up your site, improve its SEO score, make it load fast on mobile. Audit + concrete fixes.</p>
+                <div class="service-price">€300 – €600</div>
+            </div>
+
+            <div class="service-card" data-aos="fade-up" data-aos-delay="250">
+                <div class="service-icon"><i class="fa-solid fa-robot"></i></div>
+                <h3>Automation</h3>
+                <p>Small Python scripts, bots, or automations to save you time on repetitive tasks.</p>
+                <div class="service-price">€150 – €500</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============== 02 PROCESS ============== -->
+    <section class="section">
+        <h2 class="section-title" data-aos="fade-up">How It Works</h2>
+
+        <div class="process-list">
+            <div class="process-step" data-aos="fade-up">
+                <div class="process-step-content">
+                    <h4>You describe your project</h4>
+                    <p>Fill the form below. Tell me what you need, who it's for, and any deadline you have.</p>
+                </div>
+            </div>
+
+            <div class="process-step" data-aos="fade-up" data-aos-delay="50">
+                <div class="process-step-content">
+                    <h4>I send a quote within 24h</h4>
+                    <p>I come back with a fixed price, a timeline, and any questions I might have. No surprises.</p>
+                </div>
+            </div>
+
+            <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                <div class="process-step-content">
+                    <h4>First draft in 3–5 days</h4>
+                    <p>You get a live preview link. You give feedback, I adjust. Two rounds of revision included.</p>
+                </div>
+            </div>
+
+            <div class="process-step" data-aos="fade-up" data-aos-delay="150">
+                <div class="process-step-content">
+                    <h4>Delivery + support</h4>
+                    <p>Once you're happy, I deploy the site to your domain. 30 days of free bug-fix support included.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== 03 FORM ============== -->
+    <section class="section">
+        <div class="form-container" data-aos="fade-up">
+
+            <h2>Get in touch</h2>
+            <p>Tell me about your project — I reply within 24h.</p>
+
+            <form id="contact-form" action="https://formspree.io/f/maenrlry" method="POST">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Name<span class="required">*</span></label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email<span class="required">*</span></label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Service needed<span class="required">*</span></label>
+                    <select id="service" name="service" required>
+                        <option value="">— Select a service —</option>
+                        <option value="landing-page">Landing Page</option>
+                        <option value="showcase-website">Showcase Website</option>
+                        <option value="portfolio">Portfolio</option>
+                        <option value="figma-to-html">Figma → HTML</option>
+                        <option value="seo-performance">SEO & Performance</option>
+                        <option value="automation">Automation</option>
+                        <option value="other">Other / Not sure</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="budget">Estimated budget</label>
+                    <select id="budget" name="budget">
+                        <option value="">— Optional —</option>
+                        <option value="under-200">Under €200</option>
+                        <option value="200-400">€200 – €400</option>
+                        <option value="400-800">€400 – €800</option>
+                        <option value="800-1500">€800 – €1500</option>
+                        <option value="over-1500">Over €1500</option>
+                        <option value="unknown">I don't know yet</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Project description<span class="required">*</span></label>
+                    <textarea id="message" name="message" placeholder="What do you need? Who is it for? Any deadline?"
+                        required></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">
+                    <i class="fa-solid fa-paper-plane"></i> Send Message
+                </button>
+                <!-- Message de statut (caché par défaut) -->
+                <div id="form-status"
+                    style="display:none; margin-top: 20px; padding: 15px; border-radius: 10px; text-align: center; font-family: -apple-system, sans-serif; font-size: 0.95rem;">
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- ============== BACK ============== -->
+    <div class="back-row">
+        <a href="../html/index.html" class="cv-button" style="text-decoration: none;">
+            <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+        </a>
+    </div>
+
+    <!-- ============== FOOTER ============== -->
+    <footer class="footer" id="footer" data-aos="flip-up">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>Lucas Bernardeau</h2>
+            </div>
+            <div class="footer-links">
+                <a href="../html/index.html#presentation">Home</a>
+                <a href="../html/index.html#about">About</a>
+                <a href="../html/projects.html">Projects</a>
+                <a href="../html/experiences.html">Experiences</a>
+                <a href="../html/qualifications.html">Qualifications</a>
+                <a href="../html/links/alllinks.html">Contact</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/lucas-bernardeau/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:contact@lucasbernardeau.fr"><i class="fa-regular fa-envelope"></i></a>
+                <a href="https://github.com/lucasbnrd05"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Buzzcut. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>AOS.init({ once: true, duration: 600 });</script>
+    <script>
+        AOS.init({ once: true, duration: 600 });
+
+        // ============== FORM AJAX ==============
+        const form = document.getElementById('contact-form');
+        const status = document.getElementById('form-status');
+        const submitBtn = form.querySelector('.form-submit');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+            status.style.display = 'none';
+
+            const data = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    status.style.display = 'block';
+                    status.style.background = '#d4edda';
+                    status.style.color = '#155724';
+                    status.style.border = '1px solid #c3e6cb';
+                    status.innerHTML = '✅ Message sent successfully! I\'ll get back to you within 24h.';
+                    form.reset();
+                } else {
+                    const json = await response.json();
+                    throw new Error(json?.errors?.[0]?.message || 'Something went wrong.');
+                }
+            } catch (err) {
+                status.style.display = 'block';
+                status.style.background = '#f8d7da';
+                status.style.color = '#721c24';
+                status.style.border = '1px solid #f5c6cb';
+                status.innerHTML = '❌ Error: ' + err.message + ' — Or email me directly at contact@lucasbernardeau.fr';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            }
+        });
+    </script>
+</body>
+
+</html>
